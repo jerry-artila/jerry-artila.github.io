@@ -54,4 +54,8 @@
 }
 #content li {
   padding: 10px 10px;
+}
+#content img {
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=style.css.map */
