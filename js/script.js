@@ -5,7 +5,7 @@ window.onload = function(){
   span.textContent = fontSize + 'px'; 
 }
 
-function changeFontSize(enlarge, step = 3){
+function changeFontSize(enlarge, step = 2){
     const span =  document.querySelector('#displayFontSize'); 
     let el, fontSize;
     [el, fontSize] = currentFontSize('#content');
