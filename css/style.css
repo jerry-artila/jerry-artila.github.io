@@ -52,6 +52,9 @@
 #content h2 {
   font-size: 1.1em;
 }
+#content h3 {
+  font-size: 1em;
+}
 #content li {
   padding: 10px 10px;
 }
