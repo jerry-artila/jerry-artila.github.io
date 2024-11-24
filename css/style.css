@@ -37,6 +37,9 @@
   .navbar {
     display: none;
   }
+  #content {
+    color: black;
+  }
 }
 #content {
   font-family: "Noto Sans TC", sans-serif;
