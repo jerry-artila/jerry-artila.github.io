@@ -8,11 +8,11 @@ i.MX 系列處理器在片上 ROM 中提供高保證啟動 (HAB High Assurance B
 在 doc/imx/habv4/guides/ 目錄下提供了逐步指南,熟悉 HAB 和 CST PKI 樹生成的用戶應參考這些文檔。
 
 ## 1.1 HABv4 安全啟動架構
-HABv4 安全啟動功能使用數字簽名 (digital signature) 來防止在設備啟動序列期間未經授權 (unauthorized) 的軟體執行。如果惡意軟體 (malware) 控制了啟動序列,敏感數據、服務和網絡可能會受到影響。
+HABv4 安全啟動功能使用數字簽名 (digital signature) 來防止在設備啟動序列期間未經授權 (unauthorized) 的軟體執行。如果惡意軟體 (malware) 控制了啟動序列，敏感數據，服務和網絡可能會受到影響。
 
-HAB 認證基於使用 RSA 算法的公鑰密碼學 (public key cryptography),其中映像數據使用一系列私鑰離線 (offline) 簽名。然後使用相應的公鑰在 i.MX 處理器上驗證生成的已簽名映像數據 (signed image data)。公鑰包含在 CSF (Command Sequence File) 二進制文件中,而 SRK (Super Root Key) Hash 則編程在 SoC 保險絲 (fuses) 中以建立信任根 (root of trust)。
+HAB 認證基於使用 RSA 算法的公鑰密碼學 (public key cryptography)，其中映像數據使用一系列私鑰離線 (offline) 簽名。然後使用相應的公鑰在 i.MX 處理器上驗證生成的已簽名映像數據 (signed image data)。公鑰包含在 CSF (Command Sequence File) 二進制文件中,而 SRK (Super Root Key) Hash 則編程在 SoC 保險絲 (fuses) 中以建立信任根 (root of trust)。
 
-下圖說明了安全啟動過程概述:
+下圖說明了安全啟動過程概述：
 ```
           Host PC + CST                             i.MX + HAB
           +----------+                             +----------+
