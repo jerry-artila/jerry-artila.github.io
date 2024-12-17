@@ -93,7 +93,7 @@ OTP 主密鑰 (OTPMK OTP Master Key)用於加密並將 DEK 包裝在 blob 結構
 
 CAAM 中的 PRIBLOB 設置允許安全啟動軟體擁有自己的私有 blob，這些 blob 不能被任何其他用戶代碼解封裝或封裝，包括在受信任模式下運行的任何軟體。
 
-關於 DEK Blob 生成和 PRIBLOB 設置的詳細信息可以在加密啟動指南和應用說明 AN12056[3]中找到。
+關於 DEK Blob 生成和 PRIBLOB 設置的詳細信息可以在加密啟動指南和應用說明 AN12056 中找到。
 
 ### 關於 CAAM blob 的補充說明
 >根据提供的文档内容，我来解释一下什么是 blob:
@@ -116,7 +116,7 @@ CAAM 中的 PRIBLOB 設置允許安全啟動軟體擁有自己的私有 blob，�
 ## 2. 生成 PKI 樹
 第一步是生成私鑰和公鑰證書。HAB 架構基於公鑰基礎設施(PKI)樹。
 
-代碼簽名工具包在 keys/ 目錄下包含一個基於 OpenSSL 的密鑰生成腳本。hab4_pki_tree.sh 腳本能夠生成包含多達 4 個超級根密鑰(SRK)及其從屬 IMG 和 CSF 密鑰的 PKI 樹。
+代碼簽名工具包 (CST Code Signing Tools) 在 keys/ 目錄下包含一個基於 OpenSSL 的密鑰生成腳本。hab4_pki_tree.sh 腳本能夠生成包含多達 4 個超級根密鑰(SRK Super Root Keys) 及其從屬 (subordinated) IMG 和 CSF 密鑰的 PKI 樹。
 
 可以按照以下示例生成新的 PKI 樹:
 在 CST 上生成 2048 位 PKI 樹(從 v3.1.0 開始):
@@ -193,9 +193,10 @@ $ ./hab4_pki_tree.sh
 
 ## 2.2 生成 SRK 表和 SRK 雜湊
 下一步是從上述步驟中創建的 SRK 公鑰證書生成 SRK 表及其相應的 SRK 表雜湊。
+
 在 HAB 架構中,SRK 表包含在 CSF 二進制文件中,而 SRK 雜湊則編程在 SoC SRK_HASH[255:0] 保險絲中。
 
-在目標設備上,在認證過程中 HAB 代碼將 SRK 表與 SoC SRK_HASH 保險絲進行驗證,如果驗證成功,則建立信任根,HAB 代碼可以繼續進行映像認證。
+在目標設備上,在認證過程中 HAB 代碼將 SRK 表與 SoC SRK_HASH 保險絲進行驗證,如果驗證成功,則建立信任根 (root of trust)，HAB 代碼可以繼續進行映像認證。
 
 srktool 可用於生成 SRK 表及其相應的 SRK 表雜湊。
 
