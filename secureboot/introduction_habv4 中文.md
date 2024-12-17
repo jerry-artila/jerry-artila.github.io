@@ -85,11 +85,13 @@ CSF 是由 HAB 解釋的二進制數據結構，用於指導認證過程，這�
                     (CAAM)
 ```
 
-當加密映像時,代碼簽名工具 (CST)會自動生成一個隨機的 AES 數據加密密鑰(DEK)。此密鑰用於加密和解密操作,並應以 CAAM blob 封裝的形式存在 (encapsulated) 於最終映像結構中。
+當加密映像時,代碼簽名工具 (CST)會自動生成一個隨機的 AES 數據加密密鑰(DEK Data Encryption Key)。此密鑰用於加密和解密操作,並應以 CAAM blob 封裝的形式存在 (encapsulated) 於最終映像結構中。
 
-OTP 主密鑰(OTPMK)用於加密並將 DEK 包裝在 blob 結構中。OTPMK 對每個設備都是唯一的,只能由 CAAM 訪問。為了進一步增加 DEK 的安全性,blob 在只能由 CAAM 訪問的安全記憶體分區內解封裝和解密。
+OTP 主密鑰(OTPMK OTP Master Key)用於加密並將 DEK 包裝在 blob 結構中。OTPMK 對每個設備都是唯一的,只能由 CAAM 訪問。為了進一步增加 DEK 的安全性,blob 在只能由 CAAM 訪問的安全記憶體分區內解封裝和解密。
 
-在使用 DEK blob 設計加密啟動時,有必要禁止對 DEK blob 的任何修改或用假冒的 blob 替換,以防止執行惡意代碼。CAAM 中的 PRIBLOB 設置允許安全啟動軟體擁有自己的私有 blob,這些 blob 不能被任何其他用戶代碼解封裝或封裝,包括在受信任模式下運行的任何軟體。
+在使用 DEK blob 設計加密啟動時，有必要禁止對 DEK blob 的任何修改或用假冒的 blob 替換，以防止執行惡意代碼。
+
+CAAM 中的 PRIBLOB 設置允許安全啟動軟體擁有自己的私有 blob，這些 blob 不能被任何其他用戶代碼解封裝或封裝，包括在受信任模式下運行的任何軟體。
 
 關於 DEK Blob 生成和 PRIBLOB 設置的詳細信息可以在加密啟動指南和應用說明 AN12056[3]中找到。
 
