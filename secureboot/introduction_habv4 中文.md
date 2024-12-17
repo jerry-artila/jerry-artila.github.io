@@ -1,16 +1,16 @@
 # i.MX 使用 HABv4 的安全和加密啟動
 
 ## 1. 簡介
-i.MX 系列處理器在片上 ROM 中提供高保證啟動(HAB)功能。ROM 負責從啟動媒體 (boot media) 載入初始程式映像(U-Boot),而 HAB 使 ROM 能夠通過使用密碼學操作來驗證和/或解密程式映像。
+i.MX 系列處理器在片上 ROM 中提供高保證啟動 (HAB High Assurance Boot) 功能。ROM 負責從啟動媒體 (boot media) 載入初始程式映像(U-Boot),而 HAB 使 ROM 能夠通過使用密碼學操作來驗證和/或解密程式映像。
 
 此功能支援 i.MX 50、i.MX 53、i.MX 6、i.MX 7 系列和 i.MX 8M 系列(i.MX 8M、i.MX 8MM、i.MX 8MN、i.MX 8MP 設備)。
 
 在 doc/imx/habv4/guides/ 目錄下提供了逐步指南,熟悉 HAB 和 CST PKI 樹生成的用戶應參考這些文檔。
 
 ## 1.1 HABv4 安全啟動架構
-HABv4 安全啟動功能使用數字簽名 (digital signature) 來防止在設備啟動序列期間未經授權的軟體執行。如果惡意軟體控制了啟動序列,敏感數據、服務和網絡可能會受到影響。
+HABv4 安全啟動功能使用數字簽名 (digital signature) 來防止在設備啟動序列期間未經授權 (unauthorized) 的軟體執行。如果惡意軟體 (malware) 控制了啟動序列,敏感數據、服務和網絡可能會受到影響。
 
-HAB 認證基於使用 RSA 算法的公鑰密碼學,其中映像數據使用一系列私鑰離線 (offline) 簽名。然後使用相應的公鑰在 i.MX 處理器上驗證生成的已簽名映像數據。公鑰包含在 CSF (Command Sequence File) 二進制文件中,而 SRK Hash 則編程在 SoC 保險絲 (fuses) 中以建立信任根 (root of trust)。
+HAB 認證基於使用 RSA 算法的公鑰密碼學 (public key cryptography),其中映像數據使用一系列私鑰離線 (offline) 簽名。然後使用相應的公鑰在 i.MX 處理器上驗證生成的已簽名映像數據 (signed image data)。公鑰包含在 CSF (Command Sequence File) 二進制文件中,而 SRK (Super Root Key) Hash 則編程在 SoC 保險絲 (fuses) 中以建立信任根 (root of trust)。
 
 下圖說明了安全啟動過程概述:
 ```
@@ -38,11 +38,11 @@ HAB 認證基於使用 RSA 算法的公鑰密碼學,其中映像數據使用一�
 
 ```
 
-要編程到啟動媒體中的 U-Boot 映像需要正確構建,即它必須包含適當的命令序列文件(CSF Command Sequence File)。
+要編程到啟動媒體中的 U-Boot 映像需要正確構建,即它必須包含適當的命令序列文件 (CSF Command Sequence File)。
 
 CSF 是由 HAB 解釋的二進制數據結構,用於指導認證過程,這是由代碼簽名工具 (CST Code Signing Tool)生成的。CSF 結構包含命令、SRK 表、簽名和證書。
 
-關於安全啟動和代碼簽名工具(CST)的詳細信息可以在應用說明 AN4581 和安全啟動指南中找到。CSF 的語法和詳細信息可以在 CST 用戶指南中找到,該指南與 CST 工具一起打包並位於 doc 目錄中。
+關於安全啟動和代碼簽名工具 (CST) 的詳細信息可以在應用說明 AN4581 和安全啟動指南中找到。CSF 的語法和詳細信息可以在 CST 用戶指南中找到,該指南與 CST 工具一起打包並位於 doc 目錄中。
 
 ## 1.2 HABv4 加密啟動架構
 在支援 CAAM 的設備中,HAB 加密啟動功能為啟動加載序列添加了額外的安全操作。它使用密碼學技術(AES-CCM)來混淆 U-Boot 數據,使未經授權的用戶無法查看或使用。此機制保護了存儲在閃存或外部記憶體中的 U-Boot 代碼,並確保最終映像對每個設備都是唯一的。
