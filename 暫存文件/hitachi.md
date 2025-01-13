@@ -32,7 +32,7 @@ So the concerning point of the security is not related to the Linux kernel, but 
 
 Most of our customers bind their applications to the MAC address of the device. Our customers usually prepare their MAC addresses to us, and once the MAC address is programmed into the device, it cannot be changed. Users applications need to check the MAC address to make sure the application is running on the correct device.
 
-Please let us know if you accept the above security measures. We can also discuss additional security requirements if needed, such as: OP-TEE, TEE, etc.
+Please let us know if you accept the above security measures.
 
 ### 8. Possibility for larger eMMC storage (e.g. 32GB), can you please indicate the cost increase for the 32GB eMMC option ? 
 Ans: It is OK to ship with 32GB eMMC. The cost increase is USD 3 per unit.
