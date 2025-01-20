@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>1&period; Provision of SIM7600 &lpar;LTE&rpar; modules &lpar;Qty&colon; 2&rpar; &plus; Antennas &lpar;Qty&colon; 2 sets&rpar; and installation manual</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <h3 id="1-provision-of-sim7600-lte-modules-qty-2--antennas-qty-2-sets-and-installation-manual">1. Provision of SIM7600 (LTE) modules (Qty: 2) + Antennas (Qty: 2 sets) and installation manual</h3>
+<h3 id="2-you-have-confirmed-that-you-can-handle-the-custom-production-steps">2. You have confirmed that you can handle the custom production steps</h3>
+<p>Ans: YES</p>
+<h3 id="3-clone-and-restore-master-system-image-from-one-unit-to-many-and-provision-every-unit-using-script-we-provide-before-shipping">3. Clone and restore master system image from one unit to many and provision every unit using script we provide before shipping</h3>
+<p>Ans: YES</p>
+<h3 id="4-please-provide-manual-instruction-to-create-and-restore-a-system-image-with-in-built-tool">4. Please provide manual instruction to create and restore a system image with in-built tool</h3>
+<p>Ans: please refer to <a href="https://github.com/artilatw/docs/blob/main/matrix752U/backup_n_restore.md">https://github.com/artilatw/docs/blob/main/matrix752U/backup_n_restore.md</a></p>
+<h3 id="5-check-if-possible-to-automatically-retrieve-unique-per-device-uuid-and-print-it-on-the-label">5. Check if possible to automatically retrieve unique per device UUID and print it on the label</h3>
+<p>Ans: Each Matrix-752U device comes with multiple unique identifiers:</p>
+<ul>
+<li>Serial Number: A unique serial number is assigned to each device during manufacturing</li>
+<li>MAC Addresses: Each device has two unique MAC addresses (one for each network interface)</li>
+</ul>
+<p>The serial number and MAC addresses can be printed on the physical label. You can provide your own MAC address for the device.</p>
+<h3 id="6-hitachi-energy-custom-labels-with-small-qr-code-pointing-to-online-hosted-operatinginstallation-manual">6. Hitachi Energy custom labels with small QR code pointing to online hosted operating/installation manual</h3>
+<p>Ans: YES</p>
+<h3 id="7-can-you-describe-the-secure-boot-process--and-what-is-the-timeline-for-its-implementation-">7. Can you describe the Secure Boot process , and what is the timeline for its implementation ?</h3>
+<p>Ans: Our Linux platform uses open-source code to build the system image. We will continue upgrading the kernel to stay as close to the latest version as possible. Our goal is to maintain our Linux platform as open and standard as possible.</p>
+<p>The main security concern is not about the Linux kernel itself, but rather about protecting the user applications. Most of our customers implement MAC address binding as their security measure, which is described below:</p>
+<ul>
+<li>Customers provide their own MAC addresses</li>
+<li>MAC addresses are permanently programmed into devices during manufacturing</li>
+<li>Applications verify device MAC addresses before running</li>
+<li>Ensures applications only run on authorized devices</li>
+</ul>
+<p>Please let us know if you accept the above security measures. We can also discuss additional security requirements if needed, such as: OP-TEE, TEE, etc.</p>
+<h3 id="8-possibility-for-larger-emmc-storage-eg-32gb-can-you-please-indicate-the-cost-increase-for-the-32gb-emmc-option-">8. Possibility for larger eMMC storage (e.g. 32GB), can you please indicate the cost increase for the 32GB eMMC option ?</h3>
+<p>Ans: It is possible. Actually we have a plan to upgrade the eMMC storage to 32GB in the future.</p>
+<h3 id="9-can-you-please-indicate-the-potential-cost-for-the-extra-manufacturing-steps-custom-labels-system-image-loading-etc-we-would-like-to-evaluate-the-final-full-cost-per-unit">9. Can you please indicate the potential cost for the extra manufacturing steps (Custom labels, System image loading, etc). We would like to evaluate the final full cost per unit.</h3>
+<p>Ans: We usually charge an additional USD 5~10 per unit for the extra manufacturing steps, depending on the complexity of the steps and the number of units.</p>
+
+            
+            
+        </body>
+        </html>
