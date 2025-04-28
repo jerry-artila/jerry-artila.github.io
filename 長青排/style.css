@@ -256,29 +256,9 @@
   .font-WenKai {
     font-family: var(--font-WenKai);
   }
-  .text-2xl {
-    font-size: var(--text-2xl);
-    line-height: var(--tw-leading, var(--text-2xl--line-height));
-  }
   .text-2xl\/7 {
     font-size: var(--text-2xl);
     line-height: calc(var(--spacing) * 7);
-  }
-  .text-2xl\/8 {
-    font-size: var(--text-2xl);
-    line-height: calc(var(--spacing) * 8);
-  }
-  .text-3xl {
-    font-size: var(--text-3xl);
-    line-height: var(--tw-leading, var(--text-3xl--line-height));
-  }
-  .text-3xl\/6 {
-    font-size: var(--text-3xl);
-    line-height: calc(var(--spacing) * 6);
-  }
-  .text-3xl\/8 {
-    font-size: var(--text-3xl);
-    line-height: calc(var(--spacing) * 8);
   }
   .text-3xl\/9 {
     font-size: var(--text-3xl);
@@ -288,57 +268,13 @@
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
   }
-  .text-4xl\/6 {
-    font-size: var(--text-4xl);
-    line-height: calc(var(--spacing) * 6);
-  }
-  .text-4xl\/8 {
-    font-size: var(--text-4xl);
-    line-height: calc(var(--spacing) * 8);
-  }
   .text-4xl\/10 {
     font-size: var(--text-4xl);
     line-height: calc(var(--spacing) * 10);
   }
-  .text-5xl {
-    font-size: var(--text-5xl);
-    line-height: var(--tw-leading, var(--text-5xl--line-height));
-  }
-  .text-5xl\/12 {
-    font-size: var(--text-5xl);
-    line-height: calc(var(--spacing) * 12);
-  }
   .text-5xl\/14 {
     font-size: var(--text-5xl);
     line-height: calc(var(--spacing) * 14);
-  }
-  .text-6xl {
-    font-size: var(--text-6xl);
-    line-height: var(--tw-leading, var(--text-6xl--line-height));
-  }
-  .text-7xl {
-    font-size: var(--text-7xl);
-    line-height: var(--tw-leading, var(--text-7xl--line-height));
-  }
-  .text-8xl {
-    font-size: var(--text-8xl);
-    line-height: var(--tw-leading, var(--text-8xl--line-height));
-  }
-  .text-9xl {
-    font-size: var(--text-9xl);
-    line-height: var(--tw-leading, var(--text-9xl--line-height));
-  }
-  .text-base {
-    font-size: var(--text-base);
-    line-height: var(--tw-leading, var(--text-base--line-height));
-  }
-  .text-lg {
-    font-size: var(--text-lg);
-    line-height: var(--tw-leading, var(--text-lg--line-height));
-  }
-  .text-sm {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .text-xl {
     font-size: var(--text-xl);
@@ -347,18 +283,6 @@
   .text-xl\/6 {
     font-size: var(--text-xl);
     line-height: calc(var(--spacing) * 6);
-  }
-  .text-xl\/7 {
-    font-size: var(--text-xl);
-    line-height: calc(var(--spacing) * 7);
-  }
-  .text-xl\/8 {
-    font-size: var(--text-xl);
-    line-height: calc(var(--spacing) * 8);
-  }
-  .text-xs {
-    font-size: var(--text-xs);
-    line-height: var(--tw-leading, var(--text-xs--line-height));
   }
   .text-blue-500 {
     color: var(--color-blue-500);
