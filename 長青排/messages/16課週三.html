@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="max-w-[720px] px-4 mx-auto font-noto text-4xl leading-tight">
+  <div id="main" class="max-w-[720px] px-4 mx-auto font-noto text-4xl">
     <h1 class="text-xl text-blue-500">第十六課週三 在各各他被釘十字架</h1>
     <p>
       那些要將主耶穌釘十字架的人，帶祂到了各各他，就是那稱為髑髏地的，就在那裡將耶穌釘了十字架，也釘了那兩個犯人，一個在右邊，一個在左邊。
@@ -53,6 +53,47 @@
       祂在木頭上，在祂的身體裡，親自擔當了我們的罪，使我們既然向罪死了，就得以向義活著；因祂受的鞭傷，你們便得了醫治。
     </p>
   </div>
+  <div class="print:hidden fixed bottom-0 left-0 right-0 p-4 flex justify-center gap-4 bg-white shadow-md">
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md">A+</button>
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-md">A-</button>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const fontClasses = [
+        'text-xs', 'text-sm', 'text-base', 'text-lg',
+        'text-xl', 'text-2xl', 'text-3xl', 'text-4xl',
+        'text-5xl', 'text-6xl', 'text-7xl', 'text-8xl', 'text-9xl'
+      ];
+      
+      const el = document.querySelector('#main');
+      const plusBtn = document.querySelectorAll('button')[0]; // A+ 按鈕
+      const minusBtn = document.querySelectorAll('button')[1]; // A- 按鈕
+    
+      let currentIndex = fontClasses.indexOf('text-4xl'); // 你的起始是 text-4xl
+    
+      function updateFont() {
+        // 移除舊的 font class
+        fontClasses.forEach(cls => el.classList.remove(cls));
+        // 加上新的 font class
+        el.classList.add(fontClasses[currentIndex]);
+      }
+    
+      plusBtn.addEventListener('click', function() {
+        if (currentIndex < fontClasses.length - 1) {
+          currentIndex++;
+          updateFont();
+        }
+      });
+    
+      minusBtn.addEventListener('click', function() {
+        if (currentIndex > 0) {
+          currentIndex--;
+          updateFont();
+        }
+      });
+    });
+    </script>
+    
 </body>
 
 </html>
