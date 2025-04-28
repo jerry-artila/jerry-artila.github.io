@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="main" class="max-w-[720px] px-4 mx-auto font-WenKai text-4xl pb-32">
+  <div id="main" class="max-w-[720px] px-4 mx-auto font-WenKai text-4xl/10 pb-32">
     <h1 class="text-xl text-blue-500">第十六課週三 在各各他被釘十字架</h1>
     <p>
       那些要將主耶穌釘十字架的人，帶祂到了各各他，就是那稱為髑髏地的，就在那裡將耶穌釘了十字架，也釘了那兩個犯人，一個在右邊，一個在左邊。
@@ -60,16 +60,18 @@
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const fontClasses = [
-        'text-xs', 'text-sm', 'text-base', 'text-lg',
-        'text-xl', 'text-2xl', 'text-3xl', 'text-4xl',
-        'text-5xl', 'text-6xl', 'text-7xl', 'text-8xl', 'text-9xl'
+        'text-xl/6', 
+        'text-2xl/7', 
+        'text-3xl/9', 
+        'text-4xl/10',
+        'text-5xl/14'
       ];
       
       const el = document.querySelector('#main');
       const plusBtn = document.querySelectorAll('button')[0]; // A+ 按鈕
       const minusBtn = document.querySelectorAll('button')[1]; // A- 按鈕
     
-      let currentIndex = fontClasses.indexOf('text-4xl'); // 你的起始是 text-4xl
+      let currentIndex = fontClasses.indexOf('text-4xl/10'); // 你的起始是 text-4xl
     
       function updateFont() {
         // 移除舊的 font class
