@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>經節列表</title>
-    <style>
-        body {
-            font-family: "Microsoft JhengHei", "PingFang TC", "Helvetica Neue", Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-            font-size: 24px;
-        }
-        .book-chapter {
-            color: #0066cc;
-            font-weight: bold;
-            font-size: 24px;
-        }
-        .verse {
-            color: #ff69b4;
-            font-size: 24px;
-        }
-        ul {
-            margin-left: 0;
-            list-style-type: none;
-        }
-        li {
-            margin-bottom: 10px;
-        }
-    </style>
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <ul>
-        <li>
-            <span class="book-chapter">歌羅西一章</span>
-            <ul>
-                <li><span class="verse">12</span> 感謝父，叫你們彀資格在光中同得所分給眾聖徒的分；</li>
-                <li><span class="verse">13</span> 祂拯救了我們脫離黑暗的權勢，把我們遷入祂愛子的國裏；</li>
-            </ul>
-        </li>
-        
-        <li>
-            <span class="book-chapter">歌羅西二章</span>
-            <ul>
-                <li><span class="verse">6</span> 你們既然接受了基督，就是主耶穌，</li>
-                <li><span class="verse">7</span> 在祂裏面已經生根，並正被建造，且照著你們所受的教導，在信心上得以堅固，洋溢著感謝，就要在祂裏面行事為人。</li>
-                <li><span class="verse">9</span> 因為神格一切的豐滿，都有形有體的居住在基督裏面，</li>
-                <li><span class="verse">10</span> 你們在祂裏面也得了豐滿。祂是一切執政掌權者的元首；</li>
-                <li><span class="verse">11</span> 你們在祂裏面也受了非人手所行的割禮，乃是在基督的割禮裏，脫去了肉體的身體，</li>
-                <li><span class="verse">12</span> 在受浸中與祂一同埋葬，也在受浸中，藉著那叫祂從死人中復活之神所運行的信心，與祂一同復活。</li>
-                <li><span class="verse">13</span> 你們從前在過犯，和未受割禮的肉體中死了，神赦免了你們一切的過犯，叫你們一同與基督活過來；</li>
-                <li><span class="verse">14</span> 塗抹了規條上所寫，攻擊我們，反對我們的字據，並且把它撤去，釘在十字架上。</li>
-                <li><span class="verse">15</span> 既將執政的和掌權的脫下，神就把他們公然示眾，仗著十字架在凱旋中向他們誇勝。</li>
-            </ul>
-        </li>
-    </ul>
+  <div class="font-WenKai px-4 mb-32 print:mb-0 mx-auto">
+    <h2 class="text-5xl py-4 font-bold">馬太福音二十八章</h2>
+    <ol>
+      <li class="text-4xl py-2"><span class="text-red-300">18 </span>耶穌進前來，對他們說，天上地上所有的權柄，都賜給我了。</li>
+      <li class="text-4xl py-2"><span class="text-red-300">19 </span>所以你們要去，使萬民作我的門徒，將他們浸入父、子、聖靈的名裏，</li>
+      <li class="text-4xl py-2"><span class="text-red-300">20 </span>凡我所吩咐你們的，無論是甚麼，都教訓他們遵守；看哪，我天天與你們同在，直到這世代的終結</li>
+    </ol>
+
+    <h2 class="text-5xl py-4 font-bold">馬可十六章</h2>
+    <ol>
+      <li class="text-4xl py-2"><span class="text-red-300">15 </span>祂又對他們說，你們往普天下去，向一切受造之物傳揚福音。</li>
+      <li class="text-4xl py-2"><span class="text-red-300">16 </span>信而受浸的必然得救，不信的必被定罪。</li>
+    </ol>
+
+    <h2 class="text-5xl py-4 font-bold">路加二十四章</h2>
+    <ol>
+      <li class="text-4xl py-2"><span class="text-red-300">46 </span>經上這樣記著：基督要受害，第三日從死人中復活；</li>
+      <li class="text-4xl py-2"><span class="text-red-300">47 </span>人要靠著祂的名，傳悔改以得赦罪之道，從耶路撒冷起，直到萬邦。</li>
+      <li class="text-4xl py-2"><span class="text-red-300">48 </span>你們就是這些事的見證人。</li>
+      <li class="text-4xl py-2"><span class="text-red-300">49 </span>看哪，我要將我父所應許的，降在你們身上。</li>
+    </ol>
+  </div>
+
+  <!-- 調整字體大小 -->
+  <div class="print:hidden fixed bottom-0 left-0 right-0 p-4 flex justify-center gap-12 bg-gray-100">
+    <button class="text-2xl bg-blue-500 text-white px-4 py-2 rounded-md">A+</button>
+    <button class="text-2xl bg-blue-500 text-white px-4 py-2 rounded-md">A-</button>
+  </div>
+  <!-- 調整字體大小代碼-->
+  <script src="main.js"></script>
+
+</div>
 </body>
 </html>
