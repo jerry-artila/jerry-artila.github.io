@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第四篇 神的後嗣</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 6px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.4; min-height: 36px;
+      transition: all 0.2s; text-align: left !important;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    
+    .toc-l1 { font-weight: 700; color: var(--primary); margin-top: 6px; }
+    .toc-l2 { padding-left: 14px; font-weight: 600; color: var(--accent); }
+    .toc-l3 { padding-left: 26px; font-weight: 400; color: var(--text-main); }
+    .toc-l4 { padding-left: 38px; font-weight: 400; color: var(--text-muted); font-size: 0.78em; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+      text-align: left !important;
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+      text-align: left !important;
+      max-width: 100%;
+    }
+
+    .outline-l1 {
+      font-size: 1.22em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 28px;
+      margin-bottom: 12px;
+      padding-left: 12px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+      text-align: left !important;
+    }
+
+    .outline-l2 {
+      font-size: 1.08em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      margin-left: 0;
+      padding-left: 10px;
+      border-left: 2px solid var(--border-color);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+      text-align: left !important;
+    }
+
+    .outline-l3 {
+      font-size: 0.98em;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-top: 14px;
+      margin-bottom: 8px;
+      margin-left: 16px;
+      padding-left: 8px;
+      scroll-margin-top: 64px;
+      line-height: 1.65;
+      text-align: left !important;
+    }
+
+    .outline-l4 {
+      font-size: 0.92em;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 10px;
+      margin-bottom: 6px;
+      margin-left: 32px;
+      padding-left: 8px;
+      scroll-margin-top: 64px;
+      line-height: 1.65;
+      text-align: left !important;
+    }
+
+    .outline-p {
+      margin-top: 8px;
+      margin-bottom: 8px;
+      margin-left: 16px;
+      line-height: 1.7;
+      text-align: left !important;
+    }
+
+    .zh-text {
+      text-align: left !important;
+      word-break: break-word;
+    }
+
+    .en-text {
+      font-family: var(--font-sans);
+      font-size: 0.86em;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 4px;
+      margin-bottom: 6px;
+      line-height: 1.5;
+      text-align: left !important;
+    }
+
+    .scripture-details {
+      margin-top: 8px;
+      margin-bottom: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      background: var(--bg-note);
+      overflow: hidden;
+      font-size: var(--user-font-size, 1.125rem);
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    
+    .scripture-summary {
+      padding: 8px 12px;
+      font-family: var(--font-sans);
+      font-size: 0.82em;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+      background: rgba(0, 0, 0, 0.02);
+      transition: background 0.2s;
+    }
+    .scripture-summary:hover {
+      background: var(--primary-light);
+    }
+    .scripture-summary::-webkit-details-marker {
+      display: none;
+    }
+    .scripture-summary .chevron {
+      font-size: 0.75em;
+      color: var(--text-light);
+      transition: transform 0.25s ease;
+    }
+    .scripture-details[open] .scripture-summary .chevron {
+      transform: rotate(180deg);
+    }
+
+    .scripture-content {
+      padding: 12px 14px;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .verse-item {
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border-color);
+    }
+    .verse-item:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .zh-verse {
+      font-family: var(--font-serif);
+      font-size: 0.92em;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .en-verse {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-top: 3px;
+      line-height: 1.5;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .outline-l1 { page-break-after: avoid; border-left-color: #000; }
+      .scripture-details { display: block !important; border: 1px solid #ccc; }
+      .scripture-details[open] .scripture-content { display: block; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="progress-bar"></div>
+
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link toc-l1" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-1" class="toc-link">壹 後嗣是指一個人在另一個人死了之後，依法有權繼承其產業、資產或所有權。</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-2" class="toc-link">貳 後嗣的字面意義是『被指定接受基業的人』。</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-3" class="toc-link">參 信徒成為後嗣：</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-4" class="toc-link">一 我們藉著重生而得更新，得著神聖的素質，也就照著永遠生命的盼望，（...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-5" class="toc-link">二 永遠的生命是我們今世的享受和來世的盼望，叫我們不但在今世活神並享...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-6" class="toc-link">三 我們照著這個盼望作神的後嗣，承受他一切的豐富，直到永遠。</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-7" class="toc-link">肆 在聖經中，後嗣是合法接受產業的人：</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-8" class="toc-link">一 神的後嗣乃是藉著相信基督而生入神的家，從神領受應許或基業的人。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-9" class="toc-link">二 『神的後嗣』表徵承受永遠的生命、神的國和屬靈的福分，常被描述為與...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-10" class="toc-link">三 在聖經中，後嗣是領受基業的人，通常是兒子或指定的親人，取得父親的...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-11" class="toc-link">四 在屬靈上，後嗣是指生入神家中的信徒；他們與基督同作後嗣，領受了所...</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-12" class="toc-link">伍 以下是聖經裏關於『神的後嗣』主要的經文：</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-13" class="toc-link">一 『既是兒女，便是後嗣，就是神的後嗣，和基督同作後嗣，只要我們與他...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-14" class="toc-link">1 這表明作後嗣是有條件的。</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-15" class="toc-link">2 我們是神的兒女，並不是後嗣。</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-16" class="toc-link">3 我們生為兒女後，必須在生命裏長大成為兒子；還必須經過...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-17" class="toc-link">二 『你…乃是兒子了；既是兒子，也就藉著神為後嗣』—加四 7：</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-18" class="toc-link">1 新約的信徒不再是律法下作工的奴僕，乃是恩典下在生命裏...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-19" class="toc-link">2 新約的信徒成為神的後嗣，不是藉著律法，也不是藉著肉身...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-20" class="toc-link">三 『你們為基督，就是亞伯拉罕的後裔，是照著應許為後嗣了』—加三 2...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-21" class="toc-link">1 要成為亞伯拉罕的後裔，我們就必須屬於基督，成為基督的...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-22" class="toc-link">2 因我們與基督是一，我們就是亞伯拉罕的後裔，是照著應許...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-23" class="toc-link">3 在新約之下作神選民的信徒，是成年的兒子，乃是這樣的後...</a></li>
+          <li class="toc-item toc-l1"><a href="#sec-24" class="toc-link">陸 現在我們要來看信徒作神後嗣的身分：</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-25" class="toc-link">一 基督是承受萬有者，（來一 2，）而信徒命定要和基督同作後嗣。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-26" class="toc-link">二 我們得救以後是神的兒女、神的兒子、神性情的有分者、和神的後嗣。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-27" class="toc-link">三 當我們長大達到和基督同作後嗣的階段時，我們就要得榮耀。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-28" class="toc-link">四 『好叫我們因他的恩典得稱義，就可以照著永遠生命的盼望成為後嗣』—...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-29" class="toc-link">1 提多書三章七節的『後嗣』不僅是兒子，更是有資格承受父...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-30" class="toc-link">2 這樣的後嗣乃是由神永遠的生命（約三 16）所生。（一...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-31" class="toc-link">五 信徒藉著在基督的復活裏重生，就成了神的後嗣—約十一 25：</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-32" class="toc-link">1 當基督復活的時候，我們這些信他的人全都包括在祂裏面；...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-33" class="toc-link">2 在祂的復活裏，祂把神聖的生命分賜到我們裏面，使我們在...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-34" class="toc-link">3 這是我們重生成為神的後嗣基本的因素。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-35" class="toc-link">六 信徒在作神後嗣的身分裏，在光中與眾聖徒同享那具體化在基督裏的三一...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-36" class="toc-link">七 行傳二十六章十八節說到因信入基督得榮赦罪，並在聖別的人中得著基業...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-37" class="toc-link">八 這神聖的基業乃是三一神自己並祂所有的、所作成的、以及為祂贖民所要...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-38" class="toc-link">九 信徒是神的後嗣，也要與基督同得榮耀—羅八 17 下：</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-39" class="toc-link">1 基督如今是在榮耀裏。</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-40" class="toc-link">2 至終我們要被帶進榮耀裏，與基督同得榮耀。</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-41" class="toc-link">3 當我們得榮耀時，我們卑賤的身體要改變形狀，成為榮耀的...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-42" class="toc-link">4 我們裏面所有作種子的生命，乃是榮耀的生命；這是基督在...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-43" class="toc-link">5 當我們被榮耀的元素浸透時，那榮耀就從我們透出來；這就...</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-44" class="toc-link">十 聖徒對神聖基業的享受將完成於成為神的基業—弗一 18：</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-45" class="toc-link">1 作為神的後嗣，信徒和基督同作後嗣，是照著永遠生命的應...</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-46" class="toc-link">2 以弗所一章十八節指明神的基業是在聖徒中。</a></li>
+          <li class="toc-item toc-l3"><a href="#sec-47" class="toc-link">3 我們既是神的基業，就受了聖靈為印記—13 節。</a></li>
+          <li class="toc-item toc-l2"><a href="#sec-48" class="toc-link">十一 我們感謝主，帶我們深入關於信徒是神後嗣的真理中。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+          <div class="sub-tag">二〇二六年六月半年度訓練</div>
+          <h1>第四篇 神的後嗣</h1>
+          <h2>Message Four: Heirs of God</h2>
+          <div class="scripture-box">
+            <strong>讀經：</strong>加三 29，四 7，羅八 17，弗一 18，來一 2，一 14，六 17，十一 7<br>
+            <strong>Reading:</strong> Gal. 3:29; 4:7; Rom. 8:17; Eph. 1:18; Heb. 1:2, 14; 6:17; 11:7
+          </div>
+          
+<details class="scripture-details" style="margin-top: 16px; text-align: left;">
+  <summary class="scripture-summary">
+    <span class="summary-left">📖 篇頭讀經全文 (Reading Scripture Verses — 共 8 條)</span>
+    <span class="chevron">▼</span>
+  </summary>
+  <div class="scripture-content">
+    
+      <div class="verse-item">
+        <div class="zh-verse">加 3:29 你們既屬於基督，就是亞伯拉罕的後裔，是照著應許為後嗣了。</div>
+        <div class="en-verse">Gal. 3:29 And if you are of Christ, then you are Abraham’s seed, heirs according to promise.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">加 4:7 這樣，你不再是奴僕，乃是兒子了；既是兒子，也就藉著神為後嗣。</div>
+        <div class="en-verse">Gal. 4:7 So then you are no longer a slave but a son; and if a son, an heir also through God.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">羅 8:17 既是兒女，便是後嗣，就是神的後嗣，和基督同作後嗣，只要我們與祂一同受苦，好叫我們也與祂一同得榮耀。</div>
+        <div class="en-verse">Rom. 8:17 And if children, also heirs, heirs of God and joint heirs with Christ, if indeed we suffer with Him that we may also be glorified with Him.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">弗 1:18 光照你們的心眼，使你們知道祂的呼召有何等盼望；祂在聖徒中之基業的榮耀，有何等豐富。</div>
+        <div class="en-verse">Eph. 1:18 The eyes of your heart having been enlightened, that you may know what is the hope of His calling, and what are the riches of the glory of His inheritance in the saints.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">來 1:2 就在這末後的日子，在子裏向我們說話；神已立祂承受萬有者，也曾藉著祂造了宇宙。</div>
+        <div class="en-verse">Heb. 1:2 Has at the last of these days spoken to us in the Son, whom He appointed Heir of all things, through whom also He made the universe.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">來 1:14 天使豈不都是服役的靈，奉差遣為那些將要承受救恩的人效力麼？</div>
+        <div class="en-verse">Heb. 1:14 Are they not all ministering spirits, sent forth for service for the sake of those who are to inherit salvation?</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">來 6:17 這樣，神既意圖向那承受應許的人，格外顯明祂的旨意是不變的，就被人起誓中間介入。</div>
+        <div class="en-verse">Heb. 6:17 In this way God, intending to show more abundantly to the heirs of the promise the unchangeableness of His counsel, interposed with an oath.</div>
+      </div>
+
+      <div class="verse-item">
+        <div class="zh-verse">來 11:7 挪亞因著信，既蒙神神聖的指示，指明未見的事，就動了敬畏的心，預備了一隻方舟，使他一家得救；藉此他就定了那世界的罪，自己也成了那照著信的義的後嗣。</div>
+        <div class="en-verse">Heb. 11:7 By faith Noah, having been divinely instructed concerning things not yet seen, being moved with pious fear, prepared an ark for the salvation of his house, through which he condemned the world, and became heir of the righteousness which is according to faith.</div>
+      </div>
+  </div>
+</details>
+        </div>
+
+        <h3 class="outline-l1" id="sec-1"><div class="zh-text">壹 後嗣是指一個人在另一個人死了之後，依法有權繼承其產業、資產或所有權。</div><div class="en-text">I. An heir is a person legally entitled to inherit the estate, assets, or property of another person after that person’s death.</div></h3>
+<h3 class="outline-l1" id="sec-2"><div class="zh-text">貳 後嗣的字面意義是『被指定接受基業的人』。</div><div class="en-text">II. The literal meaning of heir is “one appointed to receive an inheritance.”</div></h3>
+<h3 class="outline-l1" id="sec-3"><div class="zh-text">參 信徒成為後嗣：</div><div class="en-text">III. Believers becoming heirs:</div></h3>
+<h4 class="outline-l2" id="sec-4"><div class="zh-text">一 我們藉著重生而得更新，得著神聖的素質，也就照著永遠生命的盼望，（多三 7，）成為神的後嗣，有資格承受父神的產業。（羅四 14，八 17，加三 29，四 7。）</div><div class="en-text">A. By being regenerated we are renewed to have the divine element, and thus we become heirs of God according to the hope of eternal life (Titus 3:7), qualified to inherit the Father God’s inheritance (Rom. 4:14; 8:17; Gal. 3:29; 4:7).</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">多 3:7 好叫我們因祂的恩典得稱義，就可以照著永遠生命的盼望成為後嗣。</div>
+                <div class="en-verse">Titus 3:7 That being justified by His grace, we might become heirs according to the hope of eternal life.</div>
+              </div>
+          </div>
+        </details></h4>
+<h4 class="outline-l2" id="sec-5"><div class="zh-text">二 永遠的生命是我們今世的享受和來世的盼望，叫我們不但在今世活神並享受神，更要在來世和永世裏，承受神之於我們的一切豐富；因此，我們有永遠生命的盼望。</div><div class="en-text">B. The eternal life is our enjoyment in this age and our hope for the coming age, causing us not only to live God and enjoy God in this age, but also to inherit all the riches of God in the coming age and in eternity; therefore, we have the hope of eternal life.</div></h4>
+<h4 class="outline-l2" id="sec-6"><div class="zh-text">三 我們照著這個盼望作神的後嗣，承受他一切的豐富，直到永遠。</div><div class="en-text">C. According to this hope we are heirs of God, inheriting all His riches unto eternity.</div></h4>
+<h3 class="outline-l1" id="sec-7"><div class="zh-text">肆 在聖經中，後嗣是合法接受產業的人：</div><div class="en-text">IV. In the Bible, an heir is a legitimate receiver of an inheritance:</div></h3>
+<h4 class="outline-l2" id="sec-8"><div class="zh-text">一 神的後嗣乃是藉著相信基督而生入神的家，從神領受應許或基業的人。</div><div class="en-text">A. An heir of God is a person born into the family of God through faith in Christ, receiving the promise or inheritance from God.</div></h4>
+<h4 class="outline-l2" id="sec-9"><div class="zh-text">二 『神的後嗣』表徵承受永遠的生命、神的國和屬靈的福分，常被描述為與基督同作後嗣。</div><div class="en-text">B. "Heirs of God" signifies inheriting eternal life, the kingdom of God, and spiritual blessings, often described as joint heirs with Christ.</div></h4>
+<h4 class="outline-l2" id="sec-10"><div class="zh-text">三 在聖經中，後嗣是領受基業的人，通常是兒子或指定的親人，取得父親的產業、權利和責任。</div><div class="en-text">C. In the Bible, an heir is the recipient of an inheritance, usually a son or designated kin, obtaining the father’s estate, rights, and responsibilities.</div></h4>
+<h4 class="outline-l2" id="sec-11"><div class="zh-text">四 在屬靈上，後嗣是指生入神家中的信徒；他們與基督同作後嗣，領受了所應許的救恩、永遠的生命和神的國。</div><div class="en-text">D. Spiritually, heirs refers to believers born into God’s family; as joint heirs with Christ, they receive the promised salvation, eternal life, and the kingdom of God.</div></h4>
+<h3 class="outline-l1" id="sec-12"><div class="zh-text">伍 以下是聖經裏關於『神的後嗣』主要的經文：</div><div class="en-text">V. The following are the principal verses in the Bible regarding "heirs of God":</div></h3>
+<h4 class="outline-l2" id="sec-13"><div class="zh-text">一 『既是兒女，便是後嗣，就是神的後嗣，和基督同作後嗣，只要我們與他一同受苦，好叫我們也與他一同得榮耀』—羅八 17：</div><div class="en-text">A. "And if children, also heirs, heirs of God and joint heirs with Christ, if indeed we suffer with Him that we may also be glorified with Him"—Rom. 8:17:</div></h4>
+<div class="outline-l3" id="sec-14"><div class="zh-text">1 這表明作後嗣是有條件的。</div><div class="en-text">1. This indicates that being an heir is conditional.</div></div>
+<div class="outline-l3" id="sec-15"><div class="zh-text">2 我們是神的兒女，並不是後嗣。</div><div class="en-text">2. Being children of God does not automatically make us full legal heirs.</div></div>
+<div class="outline-l3" id="sec-16"><div class="zh-text">3 我們生為兒女後，必須在生命裏長大成為兒子；還必須經過受苦，纔可得榮成為法定的後嗣。</div><div class="en-text">3. After being born as children, we must grow in life to become sons, and we must pass through suffering to be glorified as legal heirs.</div></div>
+<h4 class="outline-l2" id="sec-17"><div class="zh-text">二 『你…乃是兒子了；既是兒子，也就藉著神為後嗣』—加四 7：</div><div class="en-text">B. "So then you are no longer a slave but a son; and if a son, an heir also through God"—Gal. 4:7:</div></h4>
+<div class="outline-l3" id="sec-18"><div class="zh-text">1 新約的信徒不再是律法下作工的奴僕，乃是恩典下在生命裏的兒子。</div><div class="en-text">1. New Testament believers are no longer slaves working under the law, but sons in life under grace.</div></div>
+<div class="outline-l3" id="sec-19"><div class="zh-text">2 新約的信徒成為神的後嗣，不是藉著律法，也不是藉著肉身的父親，乃是藉著神，就是三一神—父，差出子和靈；（加四 4，6；）子，為兒子的名分成功救贖；（5；）靈，在我們裏面完成兒子的名分。（6。）</div><div class="en-text">2. New Testament believers become heirs of God not through the law nor through human fathers, but through God, the Triune God—the Father sending forth the Son and the Spirit (Gal. 4:4, 6); the Son accomplishing redemption for sonship (v. 5); the Spirit completing sonship within us (v. 6).</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 3 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">加 4:4 及至時候滿足，神就差出他的兒子，由女子所生，且生在律法以下，</div>
+                <div class="en-verse">Gal. 4:4 But when the fullness of the time came, God sent forth His Son, born of a woman, born under law,</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">加 4:5 要把律法以下的人贖出來，好叫我們得著兒子的名分。</div>
+                <div class="en-verse">Gal. 4:5 That He might redeem those under law, that we might receive the sonship.</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">加 4:6 而且因你們是兒子，神就差出他兒子的靈，進入我們的心，呼叫：阿爸，父！</div>
+                <div class="en-verse">Gal. 4:6 And because you are sons, God has sent forth the Spirit of His Son into our hearts, crying, Abba, Father!</div>
+              </div>
+          </div>
+        </details></div>
+<h4 class="outline-l2" id="sec-20"><div class="zh-text">三 『你們為基督，就是亞伯拉罕的後裔，是照著應許為後嗣了』—加三 29：</div><div class="en-text">C. "And if you are of Christ, then you are Abraham’s seed, heirs according to promise"—Gal. 3:29:</div></h4>
+<div class="outline-l3" id="sec-21"><div class="zh-text">1 要成為亞伯拉罕的後裔，我們就必須屬於基督，成為基督的一部分。</div><div class="en-text">1. To be Abraham’s seed, we must belong to Christ and become part of Christ.</div></div>
+<div class="outline-l3" id="sec-22"><div class="zh-text">2 因我們與基督是一，我們就是亞伯拉罕的後裔，是照著應許為後嗣，承受神所應許的福，就是那包羅萬有的靈，他是經過過程之三一神終極的完成，作了我們的分。</div><div class="en-text">2. Because we are one with Christ, we are Abraham’s seed and heirs according to promise, inheriting the promised blessing of God, which is the all-inclusive Spirit as the ultimate consummation of the processed Triune God for our portion.</div></div>
+<div class="outline-l3" id="sec-23"><div class="zh-text">3 在新約之下作神選民的信徒，是成年的兒子，乃是這樣的後嗣，不在律法之下，乃在基督裏。</div><div class="en-text">3. Believers as God’s chosen people under the New Testament are full-grown sons, such heirs not under law but in Christ.</div></div>
+<h3 class="outline-l1" id="sec-24"><div class="zh-text">陸 現在我們要來看信徒作神後嗣的身分：</div><div class="en-text">VI. Now we want to see the status of believers as heirs of God:</div></h3>
+<h4 class="outline-l2" id="sec-25"><div class="zh-text">一 基督是承受萬有者，（來一 2，）而信徒命定要和基督同作後嗣。</div><div class="en-text">A. Christ is appointed Heir of all things (Heb. 1:2), and believers are destined to be joint heirs with Christ.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">來 1:2 就在這末後的日子，在子裏向我們說話；神已立他承受萬有者，也曾藉著他造了宇宙。</div>
+                <div class="en-verse">Heb. 1:2 Has at the last of these days spoken to us in the Son, whom He appointed Heir of all things, through whom also He made the universe.</div>
+              </div>
+          </div>
+        </details></h4>
+<h4 class="outline-l2" id="sec-26"><div class="zh-text">二 我們得救以後是神的兒女、神的兒子、神性情的有分者、和神的後嗣。</div><div class="en-text">B. After being saved we are children of God, sons of God, partakers of the divine nature, and heirs of God.</div></h4>
+<h4 class="outline-l2" id="sec-27"><div class="zh-text">三 當我們長大達到和基督同作後嗣的階段時，我們就要得榮耀。</div><div class="en-text">C. When we grow to reach the stage of being joint heirs with Christ, we will be glorified.</div></h4>
+<h4 class="outline-l2" id="sec-28"><div class="zh-text">四 『好叫我們因他的恩典得稱義，就可以照著永遠生命的盼望成為後嗣』—多三 7：</div><div class="en-text">D. "That being justified by His grace, we might become heirs according to the hope of eternal life"—Titus 3:7:</div></h4>
+<div class="outline-l3" id="sec-29"><div class="zh-text">1 提多書三章七節的『後嗣』不僅是兒子，更是有資格承受父產業的後嗣—羅四 14，八 17，加三 29，四 7。</div><div class="en-text">1. "Heir" in Titus 3:7 is not merely a son, but an heir qualified to inherit the Father’s estate—Rom. 4:14; 8:17; Gal. 3:29; 4:7.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 4 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">羅 4:14 若是本於律法的，纔得為後嗣，信就成了虛空，應許也就失效了。</div>
+                <div class="en-verse">Rom. 4:14 For if those who are of the law are heirs, faith is made void and the promise is made of no effect.</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">羅 8:17 既是兒女，便是後嗣，就是神的後嗣，和基督同作後嗣，只要我們與他一同受苦，好叫我們也與他一同得榮耀。</div>
+                <div class="en-verse">Rom. 8:17 And if children, also heirs, heirs of God and joint heirs with Christ, if indeed we suffer with Him that we may also be glorified with Him.</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">加 3:29 你們為基督，就是亞伯拉罕的後裔，是照著應許為後嗣了。</div>
+                <div class="en-verse">Gal. 3:29 And if you are of Christ, then you are Abraham’s seed, heirs according to promise.</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">加 4:7 這樣，你不再是奴僕，乃是兒子了；既是兒子，也就藉著神為後嗣。</div>
+                <div class="en-verse">Gal. 4:7 So then you are no longer a slave but a son; and if a son, an heir also through God.</div>
+              </div>
+          </div>
+        </details></div>
+<div class="outline-l3" id="sec-30"><div class="zh-text">2 這樣的後嗣乃是由神永遠的生命（約三 16）所生。（一 12～13。）</div><div class="en-text">2. Such heirs are born of God’s eternal life (John 3:16; 1:12-13).</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 3 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">約 3:16 神愛世人，甚至將他的獨生子賜給他們，叫一切信入他的，不至滅亡，反得永遠的生命。</div>
+                <div class="en-verse">John 3:16 For God so loved the world that He gave His only begotten Son, that every one who believes into Him would not perish, but would have eternal life.</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">約 1:12 凡接受他的，就是信入他名的人，他就賜他們權柄，成為神的兒女。</div>
+                <div class="en-verse">John 1:12 But as many as received Him, to them He gave the authority to become children of God, to those who believe into His name,</div>
+              </div>
+
+              <div class="verse-item">
+                <div class="zh-verse">約 1:13 這等人不是血生的，不是肉體的意思生的，也不是人的意思生的，乃是從神生的。</div>
+                <div class="en-verse">John 1:13 Who were begotten not of blood, nor of the will of the flesh, nor of the will of man, but of God.</div>
+              </div>
+          </div>
+        </details></div>
+<h4 class="outline-l2" id="sec-31"><div class="zh-text">五 信徒藉著在基督的復活裏重生，就成了神的後嗣—約十一 25：</div><div class="en-text">E. Believers become heirs of God through regeneration in Christ’s resurrection—John 11:25:</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">約 11:25 耶穌對她說，我是復活，我是生命；信入我的人，雖然死了，也必復活。</div>
+                <div class="en-verse">John 11:25 Jesus said to her, I am the resurrection and the life; he who believes into Me, even if he should die, shall live.</div>
+              </div>
+          </div>
+        </details></h4>
+<div class="outline-l3" id="sec-32"><div class="zh-text">1 當基督復活的時候，我們這些信他的人全都包括在祂裏面；因此，我們也與他一同復活—弗二 6。</div><div class="en-text">1. When Christ was resurrected, all of us who believe into Him were included in Him; thus, we were raised together with Him—Eph. 2:6.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">弗 2:6 他又叫我們在基督耶穌裏一同復活，一同坐在諸天界裏。</div>
+                <div class="en-verse">Eph. 2:6 And raised us up together with Him and seated us together with Him in the heavenlies in Christ Jesus.</div>
+              </div>
+          </div>
+        </details></div>
+<div class="outline-l3" id="sec-33"><div class="zh-text">2 在祂的復活裏，祂把神聖的生命分賜到我們裏面，使我們在生命和性情上與祂一樣。</div><div class="en-text">2. In His resurrection He dispensed the divine life into us to make us the same as He is in life and nature.</div></div>
+<div class="outline-l3" id="sec-34"><div class="zh-text">3 這是我們重生成為神的後嗣基本的因素。</div><div class="en-text">3. This is the basic factor for us to be regenerated to be heirs of God.</div></div>
+<h4 class="outline-l2" id="sec-35"><div class="zh-text">六 信徒在作神後嗣的身分裏，在光中與眾聖徒同享那具體化在基督裏的三一神，作他們的分—西一 12。</div><div class="en-text">F. In their status as heirs of God, believers enjoy in the light together with all saints the Triune God embodied in Christ as their portion—Col. 1:12.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">西 1:12 感謝父，叫你們有資格在光中同得所分給眾聖徒的分。</div>
+                <div class="en-verse">Col. 1:12 Giving thanks to the Father, who has qualified you for a share of the allotted portion of the saints in the light.</div>
+              </div>
+          </div>
+        </details></h4>
+<h4 class="outline-l2" id="sec-36"><div class="zh-text">七 行傳二十六章十八節說到因信入基督得榮赦罪，並在聖別的人中得著基業。</div><div class="en-text">G. Acts 26:18 speaks of receiving forgiveness of sins and an inheritance among those who are sanctified by faith into Christ.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">徒 26:18 我差你到他們那裏去，叫他們的眼睛得開，從黑暗轉入光中，從撒但權下轉向神，又因信入我，得蒙赦罪，並在一切聖別的人中得著基業。</div>
+                <div class="en-verse">Acts 26:18 To open their eyes, to turn them from darkness to light and from the authority of Satan to God, that they may receive forgiveness of sins and an inheritance among those who have been sanctified by faith in Me.</div>
+              </div>
+          </div>
+        </details></h4>
+<h4 class="outline-l2" id="sec-37"><div class="zh-text">八 這神聖的基業乃是三一神自己並祂所有的、所作成的、以及為祂贖民所要作的一切。</div><div class="en-text">H. This divine inheritance is the Triune God Himself with all He has, all He has done, and all He will do for His redeemed people.</div></h4>
+<h4 class="outline-l2" id="sec-38"><div class="zh-text">九 信徒是神的後嗣，也要與基督同得榮耀—羅八 17 下：</div><div class="en-text">I. Believers as heirs of God will also be glorified together with Christ—Rom. 8:17b:</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">羅 8:17下 只要我們與祂一同受苦，好叫我們也與祂一同得榮耀。</div>
+                <div class="en-verse">Rom. 8:17b If indeed we suffer with Him that we may also be glorified with Him.</div>
+              </div>
+          </div>
+        </details></h4>
+<div class="outline-l3" id="sec-39"><div class="zh-text">1 基督如今是在榮耀裏。</div><div class="en-text">1. Christ is now in glory.</div></div>
+<div class="outline-l3" id="sec-40"><div class="zh-text">2 至終我們要被帶進榮耀裏，與基督同得榮耀。</div><div class="en-text">2. Eventually we will be brought into glory to be glorified with Christ.</div></div>
+<div class="outline-l3" id="sec-41"><div class="zh-text">3 當我們得榮耀時，我們卑賤的身體要改變形狀，成為榮耀的身體—腓三 21。</div><div class="en-text">3. When we are glorified, our body of humiliation will be transfigured to be conformed to the body of His glory—Phil. 3:21.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">腓 3:21 他要按著祂那甚至能叫萬有歸服自己的動力，將我們這卑賤的身體改變形狀，使之同形於祂榮耀的身體。</div>
+                <div class="en-verse">Phil. 3:21 Who will transfigure the body of our humiliation to be conformed to the body of His glory, according to the operation of His power even to subject all things to Himself.</div>
+              </div>
+          </div>
+        </details></div>
+<div class="outline-l3" id="sec-42"><div class="zh-text">4 我們裏面所有作種子的生命，乃是榮耀的生命；這是基督在我們裏面成了榮耀的盼望—西一 27。</div><div class="en-text">4. The life we have within us as the seed is the life of glory; this is Christ in us as the hope of glory—Col. 1:27.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">西 1:27 神意叫他們知道，這奧秘的榮耀在外邦人中是何等的豐富，就是基督在你們裏面成了榮耀的盼望。</div>
+                <div class="en-verse">Col. 1:27 To whom God willed to make known what are the riches of the glory of this mystery among the Gentiles, which is Christ in you, the hope of glory.</div>
+              </div>
+          </div>
+        </details></div>
+<div class="outline-l3" id="sec-43"><div class="zh-text">5 當我們被榮耀的元素浸透時，那榮耀就從我們透出來；這就是我們這些神的後嗣與基督同得榮耀的意思。</div><div class="en-text">5. When we are saturated with the element of glory, that glory will shine out from us; this is what it means for us as heirs of God to be glorified with Christ.</div></div>
+<h4 class="outline-l2" id="sec-44"><div class="zh-text">十 聖徒對神聖基業的享受將完成於成為神的基業—弗一 18：</div><div class="en-text">J. The saints’ enjoyment of the divine inheritance will be completed in becoming God’s inheritance—Eph. 1:18:</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">弗 1:18 光照你們的心眼，使你們知道祂的呼召有何等盼望；祂在聖徒中之基業的榮耀，有何等豐富。</div>
+                <div class="en-verse">Eph. 1:18 The eyes of your heart having been enlightened, that you may know what is the hope of His calling, and what are the riches of the glory of His inheritance in the saints.</div>
+              </div>
+          </div>
+        </details></h4>
+<div class="outline-l3" id="sec-45"><div class="zh-text">1 作為神的後嗣，信徒和基督同作後嗣，是照著永遠生命的應許和盼望，藉著因基督的恩典得稱義，並在基督的復活裏得重生。</div><div class="en-text">1. As heirs of God, believers are joint heirs with Christ according to the promise and hope of eternal life, through being justified by Christ’s grace and regenerated in Christ’s resurrection.</div></div>
+<div class="outline-l3" id="sec-46"><div class="zh-text">2 以弗所一章十八節指明神的基業是在聖徒中。</div><div class="en-text">2. Ephesians 1:18 indicates that God’s inheritance is in the saints.</div></div>
+<div class="outline-l3" id="sec-47"><div class="zh-text">3 我們既是神的基業，就受了聖靈為印記—13 節。</div><div class="en-text">3. As God’s inheritance, we have been sealed with the Holy Spirit—v. 13.</div>
+        <details class="scripture-details">
+          <summary class="scripture-summary">
+            <span class="summary-left">📖 相關引經 (Scripture Verses — 共 1 條)</span>
+            <span class="chevron">▼</span>
+          </summary>
+          <div class="scripture-content">
+            
+              <div class="verse-item">
+                <div class="zh-verse">弗 1:13 你們既聽了真理的話，就是那叫你們得救的福音，也在祂裏面信了，就在祂裏面受了所應許的聖靈為印記。</div>
+                <div class="en-verse">Eph. 1:13 In whom you also, having heard the word of the truth, the gospel of your salvation, in Him also believing, you were sealed with the Holy Spirit of promise.</div>
+              </div>
+          </div>
+        </details></div>
+<h4 class="outline-l2" id="sec-48"><div class="zh-text">十一 我們感謝主，帶我們深入關於信徒是神後嗣的真理中。</div><div class="en-text">K. We thank the Lord for bringing us deeply into the truth concerning believers as heirs of God.</div></h4>
+
+      </article>
+    </main>
+  </div>
+
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      document.documentElement.style.setProperty('--user-font-size', level.size);
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

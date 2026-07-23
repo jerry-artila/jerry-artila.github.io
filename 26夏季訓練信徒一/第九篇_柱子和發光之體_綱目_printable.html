@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第九篇 柱子和發光之體 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 我們要在三一神裏成為柱子，就必須走神為召會所命定的路，就是非拉鐵非的路；惟有恢...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">三、 7～13，參二—22：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">一、 在非拉鐵非的得勝信徒是柱子，認識現有的眞理，維持眞理的絕對，並為著...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">六、 17 ，約壹二18～20 ，林前十一19 ，民十六3，7。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">五、 在非拉鐵非的得勝者，其特徵是他們的弟兄相愛；在他們中間，愛是有效能...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">三、 樣，其中最大的是愛。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">六、 非拉鐵非的路，就是詩篇二十三篇所啟示之神永遠經綸的路，也就是基督在...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-8" class="toc-link">一、 基督是太陽，有召會（月亮）和信徒（行星），藉著表明生命的話返照祂；...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">二、 在我們裏面運行的神（腓二13）乃是供應的靈、（一19 、）復活的大...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-10" class="toc-link">三、 我們必須渴望認識基督是復活的大能、內裏運行的神、那加我們能力者，使...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-11" class="toc-link">六、 25。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第九篇 柱子和發光之體</h1>
+      <h2>Message Nine: Pillars and Luminaries</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>啟三 7～13，腓二 12～16
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 我們要在三一神裏成為柱子，就必須走神為召會所命定的路，就是非拉鐵非的路；惟有恢復的召會（由在非拉鐵非的召會所表徵）纔能成就神永遠的定旨， 並滿足祂心頭的願望—啟</h3>
+    <div class="en-translation">I. In order to become pillars in the Triune God, we must take the God- ordained pathway for the church, the way of Philadelphia; only the recovered church, signiﬁed by the church in Philadelphia, can fulﬁll God’s eternal purpose and satisfy His heart’s desire—Rev. 3:7-13; cf. 21:22:</div>
+    <h4 class="section-h4" id="sec-2">三、 7～13，參二—22：</h4>
+    <div class="en-translation">A. The overcoming believers in Philadelphia are pillars who know the present truth, uphold the absoluteness of the truth, and are constituted with the truth for the church as the pillar and base of the truth—2 Pet. 1:12; 1 Tim. 3:15- 16.</div>
+    <h4 class="section-h4" id="sec-3">一、 在非拉鐵非的得勝信徒是柱子，認識現有的眞理，維持眞理的絕對，並為著召會這眞理的柱石和根基而被眞理構成—彼後一12 ，提前三15～16。</h4>
+    <div class="en-translation">B. The overcoming believers in Philadelphia hold fast what they have, and what they have is “this ministry,” the unique New Testament ministry; actually, the Lord’s recovery is to bring us back to the unique ministry of the New Testament—Rev. 3:11; 2 Cor. 4:1:</div>
+    <ol>
+      <li>那靈的職事乃是新約的職事，這職事使我們成為神，乃是藉著以活神的靈為神聖奧祕的『墨』，在我們的心上書寫，使我們成為基督的活信—這是神聖啟示的最高峯—三3 ，6 ，<div class="en-translation">1. The ministry of the Spirit is the ministry of the new covenant to deify us by inscribing our hearts with the Spirit of the living God as the divine and mystical “ink,” making us the living letters of Christ—this is the highest peak of the divine revelation—3:3, 6, 8, 18; 4:1; cf. Rev. 2:7b; 22:17a.</div></li>
+      <li>，18 ，四1 ，參啟二7 下，二二17上。<div class="en-translation">2. The ministry of righteousness is the ministry of Christ as our objective righteousness for our justification and as our subjective righteousness “embroidered” into us by the transforming work of the Spirit for the living out and genuine expression of Christ in God’s organic salvation— this is the God-man living—2 Cor. 3:9; Psa. 45:1, 13-14;</div></li>
+      <li>稱義的職事乃是基督作我們義的職事；他作我們客觀的義，使我們得稱義；也作我們主觀的義，這義藉著那靈變化的工作『刺繡』到我們裏面，以致在神生機的救恩裏，有基督的活出和真正的彰顯—這是神人的生活—林後三9 ，詩四五1 ，13～14 ，羅五10。<div class="en-translation">1. One church in Asia was unique and highly appraised by the Lord—the church in Philadelphia; the Lord appreciated them because they kept His word, which means they did not turn away from the word of the apostles’ teaching, the healthy teaching of God’s economy, the highest peak of the divine revelation—Rev. 3:8; 2 Tim. 3:16-17; 1 Tim. 1:3-4.</div></li>
+      <li>和好的職事乃是叫世人與基督和好的職事，這是藉著他們罪得赦免，使他們得著法理的救贖；並且是叫信徒與基督和好的職事，使他們成為活在靈裏 ，就是活在至聖所裏的人，使他們得著生機的救恩—這是按著神牧養人—林後五18～21 ，彼前五<div class="en-translation">4. Nor to give heed to myths and unending genealogies, which produce questionings rather than God’s economy, which is in faith.</div></li>
+      <li>～4。<div class="en-translation">2. For the overcomers to be pillars in the temple means that they will be pillars in the Triune God, for the temple is “the Lord God the Almighty and the Lamb”; God is built into them to make them living and precious stones, and they are built into God to make them pillars of stone in God for their incorporation with God as the mutual abode of God and man—Rev. 3:12a; 21:22, 3; Psa. 90:1; John 14:23; cf. 1 Kings 7:15-22.</div></li>
+      <li>被成全為柱子的路，乃是持守這職事，以神經綸中的積極內容為食物，在主的元首權柄下，留在主行動當前的流裏，並且遠離死亡和分裂—提後三10，提前四15，羅八6，十<div class="en-translation">3. That the name of God, the name of the New Jerusalem, and the Lord’s new name are written upon the overcomers indicates that what God is, the nature of the New Jerusalem, and the person of the Lord have all been wrought into them, labeling them with the Triune God and making them God in life and in nature but not in the Godhead—Rev. 3:12b; 22:4b.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-4">六、 17 ，約壹二18～20 ，林前十一19 ，民十六3，7。</h4>
+    <div class="en-translation">D. The characteristic of the overcomers in Philadelphia is their God-man living by enjoying the riches of Christ—3:7; Isa. 22:15, 20-24:</div>
+    <ol>
+      <li>在亞西亞有一個召會是獨特的，非常受主稱讚—在非拉鐵非的召會；主珍賞他們，因為他們遵守他的話，那就是，他們沒有離棄使徒教訓的話語，神經綸健康的教訓，神聖啟示的最高峯—啟三8 ，提後三16～17 ，提前一3～4。<div class="en-translation">1. The overcomers in Philadelphia have a little power; this indicates that what pleases the Lord is not our doing much for Him but our doing our best for Him with what we have—Rev. 3:8; 2 Cor. 12:7-10; Mark 14:8.</div></li>
+      <li>得勝者在殿中作柱子，意思就是他們要在三一神裏作柱子，因為殿就是『主神全能者和羔羊』；神建造到他們裏面，使他們成為活而寶貴的石頭，他們也建造到神裏面，使他們成為在神裏面的石柱，他們就與神合併，作神與人相互的住處—啟三<div class="en-translation">8. Concerning this I entreated the Lord three times that it might depart from me.</div></li>
+      <li>上，二—22 ，3 ，詩九十1 ，約十<div class="en-translation">9. And He has said to me, My grace is sufﬁcient for you, for My power is perfected in weakness. Most gladly therefore I will rather boast in my weaknesses that the power of Christ might tabernacle over me.</div></li>
+      <li>將神的名，新耶路撒冷的名，並主的新名，寫在得勝者上面，指明神的所是、新耶路撒冷的性質並主的人位，全都作到得勝者裏面，使他們有三<div class="en-translation">10. Therefore I am well pleased in weaknesses, in insults, in necessities, in persecutions and distresses, on behalf of Christ; for when I am weak, then I am powerful.</div></li>
+      <li>下，二二4 下。<div class="en-translation">2. The overcomers in Philadelphia keep and love the Lord’s word, which is better to them “than thousands of pieces of gold and silver” (Rev. 3:8; Psa. 119:72, 140); they receive the God-breathed Scripture by means of all prayer to be men of God with the breath of God and by remaining in the healthy teaching of God’s economy (Eph. 6:17-18; 2</div></li>
+      <li>在非拉鐵非的得勝者，稍微有一點能力；這指明能使主喜歡的，不在於我們能為主作多少，乃在於我們是否為主竭盡所有所能的而作一啟三<div class="en-translation">15. And that from a babe you have known the sacred writings, which are able to make you wise unto  salvation through the faith which is in Christ Jesus. 16 All Scripture is God-breathed and proﬁtable for teaching, for conviction, for correction, for instruction in righteousness, 17 That the man of God may be complete, fully equipped for every good work.</div></li>
+      <li>，林後十二7~10，可十四8。<div class="en-translation">4. He is blinded with pride, understanding nothing, but is diseased with questionings and contentions of words, out of which come envy, strife, slanders, evil suspicions,</div></li>
+      <li>在非拉鐵非的得勝者，遵守並寶愛主的話，這話對他們『勝過千萬的金銀』；（啟三8 ，詩一一九72 ，140 ；）他們藉著各樣的禱告，並藉著留在神經給健康的教訓裏，領受神呼出的聖經，成為有神的氣之屬神的人。（弗六17~18 ，提後三14~17 ，參提前六3~4。）<div class="en-translation">3. The overcomers in Philadelphia do not deny the Lord’s name (Rev. 3:8); they abandon all names other than that of the Lord Jesus Christ, and they call upon the name of the Lord to receive His riches (Rom. 10:9-10, 12-13), openly confessing that Jesus Christ is Lord to the glory of God the Father (Phil. 2:11).</div></li>
+      <li>在非拉鐵非的得勝者，沒有否認主的名；（啟三8；）他們棄絕了主耶穌基督之外一切的名；並且他們呼求主的名以領受祂的豐富，（羅十9～10 ，12～13 ，）公開承認耶穌基督為主，使榮耀歸與父神。（腓二11 。）<div class="en-translation">10. For with the heart there is believing unto righteousness, and with the mouth there is confession unto salvation.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-5">五、 在非拉鐵非的得勝者，其特徵是他們的弟兄相愛；在他們中間，愛是有效能的，以致他們按著神，也就是按著他們父神愛和赦免的心，以及他們救主基督牧養和尋找的靈牧養人：</h4>
+    <div class="en-translation">E. The characteristic of the overcomers in Philadelphia is their brotherly love; love prevails among them so that they shepherd people according to God, that is, according to the loving and forgiving heart of their Father God and the shepherding and seeking spirit of their Savior Christ:</div>
+    <ol>
+      <li>主的恢復是恢復對主耶穌的愛；在非拉鐵非的得勝者站在一的真正立場上，保守自己在神的愛裏以愛主，並愛所有的弟兄們一20～21 ，林後<div class="en-translation">1. The Lord’s recovery is a recovery of loving the Lord Jesus; the overcomers in Philadelphia stand on the genuine ground of oneness, keep themselves in the love of God to love the Lord, and love all the brothers—Jude 20-21; 2</div></li>
+      <li>～16，參詩一三三。猶20 親愛的，你們要在至聖的信仰上建造自己，在聖靈裏禱告，21 保守自己在神的愛中，等候我們主耶穌基督的憐憫，以至於永遠的生命。<div class="en-translation">15. Everyone who hates his brother is a murderer, and you know that no murderer has eternal life abiding in him. 16 In this we know love, that He laid down His life on our behalf, and we ought to lay down our lives on behalf of the brothers.</div></li>
+      <li>在召會中好為首，乃是相對於在凡事上讓主居首位，而以主為我們起初的愛一約三9，西一18 下。約三9 我曾習的寫信給召會；但那在他們中間好為首的丟特離，不接待我們。<div class="en-translation">2. It is like the ﬁne oil upon the head / That ran down upon the beard, / Upon Aaron's beard, / That ran down upon the hem of his garments;</div></li>
+      <li>在活力排裏 ，愛必須有效能；神先愛了我們，將祂的愛注入我們，並在我們裏面生發出愛，使我們以這愛來愛祂和弟兄們一林前十二31 下，十<div class="en-translation">3. Like the dew of Hermon / That came down upon the mountains of Zion. / For there Jehovah commanded the blessing: / Life forever.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-6">三、 樣，其中最大的是愛。</h4>
+    <div class="en-translation">F. The way of Philadelphia is the way of God’s eternal economy revealed in Psalm 23, the way of Christ shepherding the church in His heavenly ministry to dispense Himself in His Divine Trinity into our being so that we may live the life of a God-man to arrive at the highest peak of the divine revelation.</div>
+    <h4 class="section-h4" id="sec-7">六、 非拉鐵非的路，就是詩篇二十三篇所啟示之神永遠經綸的路，也就是基督在祂天上的職事裏牧養召會的路，為要在祂神聖的三一裏 ，將祂自己分賜到我們裏面，使我們過神人的生活，以達到神聖啟示的最高峯 。</h4>
+    <div class="en-translation">A. Christ is the sun, with the church as the moon and the believers as the planets to reflect Him by holding forth the word of life; to hold forth the word of life is to apply it, present it, and offer it to the world by living out Christ—</div>
+    <h4 class="section-h4" id="sec-8">一、 基督是太陽，有召會（月亮）和信徒（行星），藉著表明生命的話返照祂；將生命的話表明出來，就是藉著活出基督，向世人應用、陳明並供獻生命的話—徒五20。</h4>
+    <div class="en-translation">B. The God who operates in us (Phil. 2:13) is the supplying Spirit (1:19), the power of resurrection (3:10), and the empowering Christ (4:13); to shine as luminaries (2:15) is to magnify Christ (1:20), and to hold forth the word of life (2:16) is to live Christ (1:21a).</div>
+    <h4 class="section-h4" id="sec-9">二、 在我們裏面運行的神（腓二13）乃是供應的靈、（一19 、）復活的大能、（三10、）和加我們能力的基督；（四13 ；）好像發光之體照耀，（二</h4>
+    <div class="en-translation">C. We must aspire to know Christ as the power of resurrection, the inner operating God, the One who empowers us, to shine as luminaries in the world for His magnification— 3:10; 2:13; 4:13; 1:20.</div>
+    <ol>
+      <li>，）就是顯大基督；（一20 ；）將生命的話表明出來，（二16 ，）就是活基督。（一21 上。）<div class="en-translation">1. In God’s New Testament economy God’s intention is not an outward miracle but an inward miracle; the inward marvel is that Christ as the Spirit is wrought into us to be our salvation, inwardly sustaining, strengthening, and empowering us in our weakness to shine out Christ—2</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-10">三、 我們必須渴望認識基督是復活的大能、內裏運行的神、那加我們能力者，使我們好像發光之體顯在世界裏，使祂得著顯大—三10 ，二13 ，四13 ，</h4>
+    <div class="en-translation">E. Murmurings and reasonings both frustrate us from experiencing and enjoying Christ so that He may shine in us and through us for His glory—2:14:</div>
+    <ol>
+      <li>在神新約的經綸裏，神的心意不是外在的神，而是內在的神；內在的神蹟奇事，乃是基督作為那靈，作到我們裏面，成為我們的救恩，在我們的軟弱上，內在的維持我們、加強我們、加我們能力，使我們將基督照耀出來—林後十二7~10。<div class="en-translation">1. Murmurings are discontented and secret mutterings and grumblings, including faultfinding, secret debate, displeasure, and complaining; “neither murmur, just as some of them murmured and perished by the destroyer”—</div></li>
+      <li>加我們能力的基督，是我們在任何<div class="en-translation">2. Reasonings are disputes and discussions that carry an undertone of suspicion or doubt; they include questionings and doubting and the drawing of inferences or conclusions—cf. 1 Tim. 1:3-6; 6:3-4; 2 Cor. 11:2-3.</div></li>
+      <li>發怨言是不滿足而暗自唧咕並發牢騷，包括挑剔、暗自爭論、不悅和抱怨；『你們也不要發怨言，像他們有些人發的，就被滅命的所滅』—林前<div class="en-translation">4. Nor to give heed to myths and unending genealogies, which produce questionings rather than God’s economy, which is in faith.</div></li>
+      <li>起爭論是爭執和討論，帶著不信或疑惑的聲調，包括辯論、懷疑、下推斷或結論—參提前—3～6 ，六3～4 ，林後十—2～3。<div class="en-translation">5. But the end of the charge is love out of a pure heart and out of a good conscience and out of unfeigned faith;</div></li>
+      <li>He is blinded with pride, understanding nothing, but is diseased<div class="en-translation">6. From which things some, having misaimed, have turned aside to vain talking,</div></li>
+      <li>Cor. 11:2-3—For I am jealous over you with a jealousy of God;<div class="en-translation">13. Who delivered us out of the authority of darkness and transferred us into the kingdom of the Son of His love,</div></li>
+      <li>But I fear lest somehow, as the serpent deceived Eve by his<div class="en-translation">4. Man’s rebellion is manifested in words, thoughts, and reasons; thoughts and reasons are the strongholds of Satan, God’s adversary, within the minds of those who are disobedient to God; through the spiritual warfare, reasonings must be overthrown, and every thought must be taken captive to obey Christ—2 Cor. 10:3-5.</div></li>
+      <li>Rebellious and reviling words come from reasons; a servant of<div class="en-translation">4. For the weapons of our warfare are not ﬂeshly but powerful before God for the overthrowing of strongholds,</div></li>
+      <li>背叛和毀謗的話是從理由來的；主的僕人必須蒙拯救脫離理由，蒙主光照而有『有福的盲目』，在光的權下，在生命的範圍裏，活在基督的作頭之下，而不在黑暗的權下，落在對錯的範圍裏—徒二二10 ，西—12～<div class="en-translation">5. Every time the Lord commanded His people to do something in Leviticus 18—22, He inserted the words “I am Jehovah” in between the commands; there is not even the word because—“I am Jehovah” is the reason.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-11">六、 25。</h4>
+    <div class="en-translation">F. The way to be saved from murmurings and reasonings in order to live Christ and shine out Christ as His luminaries is to stay in contact with Him as our inward motivating power by enjoying Him as the word of life, staying in fellowship with Him in prayer, and living a rejoicing, thanking, and praising life in our wonderful spirit by the Triune God as the wonderful Spirit for the glorious Body of Christ—Phil. 1:19; 2:13; 3:10; 4:13; 2:15; 4:6; 1 Thes. 5:16-20.</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

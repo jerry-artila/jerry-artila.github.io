@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第十二篇 新郎、新婦的成熟、以及作戰士擊敗神的仇敵 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 基督是新郎—太九14~15 ，二二2~3，二五1，5~6，10：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">一、 在全宇宙中，最令人喜悅者乃是作新郎的耶穌。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">二、 施浸者約翰說 ，『娶新婦的，就是新郎』—約三29 上。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">三、 耶穌陳明自己是新郎—太九14~15 ，可二19：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">七、 位天使中，有一位來對我說 ，你來，我要將新婦，就是羔羊的妻，指給你...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">四、 新郎同在時，懼怕是不存在的；我們摸著主的同在，摸著是那新郎，就摸著...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">五、 詩歌一四○首第一節，『主，你是那可愛新郎，神所選立，我所愛；你的自...</a></li>
+          <li class="toc-item"><a href="#sec-8" class="toc-link" style="font-weight:700; color:var(--primary);">參、 作基督新婦的召會必須是擊敗神仇敵的戰士— 五25∼2725∼27,六10∼18...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">一、 匹白馬，騎在馬上的，稱為忠信真實，祂審判、爭戰都憑著公義。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-10" class="toc-link">一、 歌羅西二章十五節描繪在基督釘十字架的時候所進行的爭戰；那時，基督的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-11" class="toc-link">二、 屬靈爭戰的目的，就是把神的國帶進來—啟十二10。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-12" class="toc-link">九、 7～8，14。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-13" class="toc-link">七、 藉著屬靈的爭戰,神永遠的定旨就完全達成了;『世上的國,成了我主和祂...</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第十二篇 新郎、新婦的成熟、以及作戰士擊敗神的仇敵</h1>
+      <h2>Message Twelve: The Bridegroom, the Maturity of the Bride, and Being a Warrior to Defeat God’s Enemies</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>約三 29 上，太九 15，來六 1，啟十九 7
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 基督是新郎—太九14~15 ，二二2~3，二五1，5~6，10：</h3>
+    <div class="en-translation">I. Christ is the Bridegroom—Matt. 9:14-15; 22:2-3; 25:1, 5-6, 10:</div>
+    <h4 class="section-h4" id="sec-2">一、 在全宇宙中，最令人喜悅者乃是作新郎的耶穌。</h4>
+    <div class="en-translation">A. In the whole universe the most pleasant person is Jesus as the Bridegroom.</div>
+    <h4 class="section-h4" id="sec-3">二、 施浸者約翰說 ，『娶新婦的，就是新郎』—約三29 上。</h4>
+    <div class="en-translation">B. John the Baptist said, “He who has the bride is the bridegroom”—John 3:29a. J</div>
+    <h4 class="section-h4" id="sec-4">三、 耶穌陳明自己是新郎—太九14~15 ，可二19：</h4>
+    <div class="en-translation">C. Jesus presented Himself as the Bridegroom—Matt. 9:14-15;</div>
+    <ol>
+      <li>在聖經末了，我們看見『羔羊的妻』這辭—啟二—9。<div class="en-translation">1. At the end of the Bible, we have the term the wife of the Lamb—Rev. 21:9.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-5">七、 位天使中，有一位來對我說 ，你來，我要將新婦，就是羔羊的妻，指給你看。</h4>
+    <div class="en-translation">D. In the presence of the Bridegroom, fear is nonexistent; when we touch the Lord’s presence, touch Him as the Bridegroom, we touch His loveliness, sweetness, and freshness; He is so lovely!</div>
+    <h4 class="section-h4" id="sec-6">四、 新郎同在時，懼怕是不存在的；我們摸著主的同在，摸著是那新郎，就摸著祂的可愛、甜美和新鮮；祂是如此可愛！</h4>
+    <div class="en-translation">E. The first stanza of Hymns, #170 says, “Lord, Thou art the lovely Bridegroom, / God appointed, dear to us; / Thy dear self is so attractive, / To our heart so beauteous!”</div>
+    <h4 class="section-h4" id="sec-7">五、 詩歌一四○首第一節，『主，你是那可愛新郎，神所選立，我所愛；你的自己富有吸引，我心怎能不愛戴！』</h4>
+    <div class="en-translation">F. There are four ways (or aspects) for us to have the enjoyment of Christ as our Bride-groom:</div>
+    <ol>
+      <li>第一，我們是新郎的伴友，享受新郎—太九15。<div class="en-translation">1. First, we are the companions in the bridechamber enjoying the Bridegroom—Matt. 9:15.</div></li>
+      <li>第二，我們是賓客，享受祂作我們的筵席—路十四15~17，啟三20，十<div class="en-translation">2. Second, we are the guests enjoying Him as our feast—Luke 14:15-17; Rev.  3:20; 19:9.</div></li>
+      <li>第三，我們是童女，享受新郎的來臨—太二五 1∼131∼13 。<div class="en-translation">3. Third, we are the virgins enjoying the coming of the Bridegroom—Matt. 25:1-13.</div></li>
+      <li>第四，我們將是新婦，享受新郎到至極—啟十九7。<div class="en-translation">2. And ﬁve of them were foolish and ﬁve were prudent.</div></li>
+      <li>祂要來迎娶我們作祂的新婦。<div class="en-translation">3. For the foolish, when they took their lamps, did not take oil with them;</div></li>
+      <li>主來臨的啟示包含在祂是新郎這件事裏。<div class="en-translation">4. But the prudent took oil in their vessels with their lamps.</div></li>
+      <li>變化是我們在天然的生命裏新陳代謝的改變，而成熟是我們被那改變我們的神聖生命所充滿—來六1 ，西<div class="en-translation">5. And while the bridegroom delayed, they all became drowsy and slept.</div></li>
+      <li>變化的最後階段是成熟，就是生命達到豐滿—4～8 節。<div class="en-translation">6. But at midnight there was a cry, Behold, the bridegroom! Go forth to meet him!</div></li>
+      <li>成熟的信徒識並到基督的身體，有身體的感覺，也以身體為中心—林前十二16，18～19，21，24。<div class="en-translation">7. Then all those virgins arose and trimmed their own lamps.</div></li>
+      <li>我們絕不該自滿自足，乃要追求在基督的生命裏長大並成熟—腓三12 ，<div class="en-translation">8. And the foolish said to the prudent, Give us some of your oil, for our lamps are going out.</div></li>
+      <li>。<div class="en-translation">9. But the prudent answered, saying, Perhaps there will not be enough for us and for you; go rather to those who sell, and buy for yourselves.</div></li>
+      <li>我們需要往前，竭力前進，達到成熟，忘記背後，努力面前的，追求對基督完滿的享受並贏得基督，好在千年國裏對基督有極點的享受—12～15 節。<div class="en-translation">10. And as they were going away to buy, the bridegroom came; and those who were ready went in with him to the wedding feast. And the door was shut.</div></li>
+      <li>在屬靈生命上成熟的先決條件，就是在神聖生命裏一直長大一弗四15 。<div class="en-translation">11. And later the rest of the virgins came also, saying, Lord, lord, open to us!</div></li>
+      <li>信徒在基督生命裏長大並成熟的最終結果，乃是長成的人—召會作基督的身體，長成一個成熟的人—13節。<div class="en-translation">12. But he answered and said, Truly I say to you, I do not know you.</div></li>
+      <li>Pet. 1:3—Blessed be the God and Father of為例證—五7：<div class="en-translation">13. Watch therefore, for you do not know the day nor the hour.</div></li>
+      <li>主耶穌實際上就是那真農夫，獨一的農夫—太十三3。<div class="en-translation">4. Fourth, we will be the bride to enjoy the Bridegroom to the uttermost—Rev. 19:7.</div></li>
+      <li>當我們在恒忍等候主的來臨時，他這位真農夫也在忍耐等候我們在生命裏成熟，成為田地初熟的果子和莊稼—啟十四4，14～15。<div class="en-translation">2. And I saw the holy city, New Jerusalem, coming down out of heaven from God, prepared as a bride adorned for her husband.</div></li>
+      <li>我們若禱告說，『主，求你快回來，』主可能說，『當你們在等候我回來時，我也在等候你們成熟；惟有你們成熟了，纔能催促我回來。』<div class="en-translation">10. And he carried me away in spirit onto a great and high mountain and showed me the holy city, Jerusalem, coming down out of heaven from God,</div></li>
+      <li>我們若認眞等候主回來，就需要在生命上長大以至於成熟；這種領會對我們有極大的幫助。<div class="en-translation">1. He is coming to meet us as His bride.</div></li>
+      <li>我們得重生的時候起，主就一直在我們裏面作工，使我們有祂的形像—18 節，羅八29。<div class="en-translation">2. The revelation of the Lord’s coming is included in His being the Bridegroom.</div></li>
+    </ol>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-8">參、 作基督新婦的召會必須是擊敗神仇敵的戰士— 五25∼2725∼27,六10∼1810∼18 ,啟十九7∼97∼9 , 11∼1611∼16：</h3>
+    <div class="en-translation">II. We need to see and understand the maturity of the bride—2 Cor. 3:18; Rom. 8:29; Eph. 4:13, 15;</div>
+    <h4 class="section-h4" id="sec-9">一、 匹白馬，騎在馬上的，稱為忠信真實，祂審判、爭戰都憑著公義。</h4>
+    <div class="en-translation">A. Revelation 19:7b says, “His wife has made herself ready.”</div>
+    <h4 class="section-h4" id="sec-10">一、 歌羅西二章十五節描繪在基督釘十字架的時候所進行的爭戰；那時，基督的十字架乃是宇宙的中心。</h4>
+    <div class="en-translation">B. In the maturity of the divine life, the lover of Christ becomes the Shulammite (the feminine form of Solomon), indicating that she has become the reproduction and duplication of Christ to match Him for their marriage—S.</div>
+    <h4 class="section-h4" id="sec-11">二、 屬靈爭戰的目的，就是把神的國帶進來—啟十二10。</h4>
+    <div class="en-translation">S. S. 6:13—Return, return, O Shulammite; Return, return, that we may gaze at you. Why should you gaze at the Shulammite, As upon the dance of two camps?</div>
+    <ol>
+      <li>Stand therefore, having girded your loins<div class="en-translation">1. To be transformed is to be metabolically changed in our natural life; to be mature is to be filled with the divine life that changes us—Heb. 6:1; Col. 4:12; Rom. 12:2; 2 Pet. 1:3.</div></li>
+      <li>。<div class="en-translation">2. The last stage of transformation is maturity, the fullness of life—vv. 4-8.</div></li>
+      <li>當基督同著他的軍隊而來時，他乃是作為人子而來—太二六64 ，啟十<div class="en-translation">5. And for this very reason also, adding all diligence, supply bountifully in your faith virtue; and in virtue, knowledge;</div></li>
+      <li>祂這位人子需要一個配偶，好與祂相配，使他得以完全；這個配偶就是祂的新婦—二一2，9。<div class="en-translation">6. And in knowledge, self-control; and in self-control, endurance; and in endurance, godliness;</div></li>
+      <li>基督要迎娶那已經勝過那惡者的得勝者。<div class="en-translation">7. And in godliness, brotherly love; and in brotherly love, love.</div></li>
+      <li>婚禮的禮服就是基督我們活出，成了我們日常的義，使我們不僅有資格參加婚禮，也夠資格參加軍隊，在哈米吉頓的爭戰中，與基督一同和敵基督作戰—太二二11～12 ，啟十<div class="en-translation">8. For these things, existing in you and abounding, constitute you neither idle nor unfruitful unto the full knowledge of our Lord Jesus Christ.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-12">九、 7～8，14。</h4>
+    <div class="en-translation">D. As used in the New Testament, the word mature refers to the believers’ being full-grown and perfected in the life of Christ, which they received at the time of regeneration—</div>
+    <ol>
+      <li>愛基督的人應該是可愛的，同時也該是可怕的；但許多信徒在主面前失去了他們的可愛，在仇敵面前也失去了他們的可怕—4，10 節：A 基督的佳偶在主面前乃是美麗並秀美的，像天城那樣的堅固，像聖所那樣的安靜；同時在仇敵和世人的面前，她顯出她得勝的榮耀來—4 ，10節。<div class="en-translation">1. We should never be content with ourselves but pursue growth and maturity in the life of Christ—Phil. 3:12, 14.</div></li>
+      <li>威武的軍隊，表徵主的得勝者使神的仇敵撒但懼怕—六4，10：<div class="en-translation">2. We need to go on, to be brought on to maturity by forgetting the things which are behind and stretching forward to the things which are before, pursuing toward the fullest enjoyment and gaining of Christ for the uttermost enjoyment of Christ in the millennial kingdom—vv. 12-15.</div></li>
+      <li>從撒上二十五章之後，亞比該一直在戰士大衛的身邊，一直跟著大衛作戰—40~42 節。<div class="en-translation">15. Let us therefore, as many as are full-grown, have this mind; and if in anything you are otherwise minded, this also God will reveal to you.</div></li>
+      <li>亞比該嫁給大衛，豫表一個從軍為著爭戰的召會—弗六10~20。<div class="en-translation">3. The prerequisite for maturity in the spiritual life is to grow continually in the divine life—Eph. 4:15.</div></li>
+      <li>亞比該的豫表描繪召會有分於主耶穌屬靈的爭戰：<div class="en-translation">4. The ultimate issue of the believers’ growth and maturity in the life of Christ is the full-grown man—the church as the Body of Christ growing into a mature man—v. 13.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-13">七、 藉著屬靈的爭戰,神永遠的定旨就完全達成了;『世上的國,成了我主和祂基督的國,祂要作王,直到永永遠遠』——十一15 下。</h4>
+    <div class="en-translation">F. To be mature is to have Christ fully formed in us; it also means that we have been fully transformed into His image—Gal. 4:19; 2 Cor. 3:18:</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

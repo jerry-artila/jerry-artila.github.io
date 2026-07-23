@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第三篇 生命的麥子、好種、地上的鹽、世上的光、和得人的漁夫 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 信徒由生命的麥子所象徵；這些麥子要被收在主的倉裏—太</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">三、 11～12 ，十三 24～30 ，38～42：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">一、 信徒是麥子，裏面有神聖的生命；生命乃是神自己給人享受—詩三六7～9...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">一、 種子是神的話，（4 ，19 ，路八11 ，）基督自己，（彼前一23...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">二、 神的話像麥粒，將神當作生命分賜到我們裏面，滋養我們；此外，話也像火...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">七、 我們對主的一切事奉必須是發源於from ourselves, as...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">五一、 。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第三篇 生命的麥子、好種、地上的鹽、世上的光、和得人的漁夫</h1>
+      <h2>Message Three: Grains of Wheat, Good Seed, the Salt of the Earth, the Light of the World, and Fishers of Men</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>太三 12，十三 38，五 13～16，四 19～20
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 信徒由生命的麥子所象徵；這些麥子要被收在主的倉裏—太</h3>
+    <div class="en-translation">I. The believers are symbolized by the wheat of life, which will be gathered into the Lord’s barn—Matt. 3:11-12; 13:24- 30, 38-42:</div>
+    <h4 class="section-h4" id="sec-2">三、 11～12 ，十三 24～30 ，38～42：</h4>
+    <div class="en-translation">A. The believers as the wheat have the divine life within them; life is God Himself enjoyed by man—Psa. 36:7-9; John 1:4; 10:10; 14:6; 6:63.</div>
+    <h4 class="section-h4" id="sec-3">一、 信徒是麥子，裏面有神聖的生命；生命乃是神自己給人享受—詩三六7～9 ，約一4 ，十10 ，十四6 ，六63 。</h4>
+    <div class="en-translation">B. If we want Christ’s life to be unhindered in us, we must experience the breaking of the cross, the killing death of Christ in the all-inclusive Spirit, so that the  following obstacles within us can be dealt with and removed:</div>
+    <ol>
+      <li>作基督徒的意思是，顧到我們裏面活的基督，且不以基督之外的任何事物為目標；這事的障礙乃是不認識生命的路線，且不以基督為我們的生命—太七 13~14 ，腓三 8~14 ，西三4，羅八 28~29。<div class="en-translation">1. Being a Christian means taking care of the living Christ in us and not taking anything other than Christ as our aim; the obstacle to this is in not knowing the pathway of life and not taking Christ as our life—Matt. 7:13-14; Phil. 3:8- 14; Col. 3:4; Rom. 8:28-29.</div></li>
+      <li>第二個障是假冒為善；人的屬靈不是以外來斷定，乃是以如何對待基督來斷定—太六 1~6，十五 7~8，約五44 ，十二 42~43 ，參書七21 。<div class="en-translation">14. Because narrow is the gate and constricted is the way that leads to life, and few  are those who ﬁnd it.</div></li>
+      <li>第三個障礙是背叛；我們也許作事非常主動熱心，但仍忽略活的基督，而將他監禁在我們裏面，且不服他—利十四9 ，14～18 ，十—1～2 ，46～47 ，羅十六17 ，林前十五33。<div class="en-translation">10. To know Him and the power of His resurrection and the fellowship of His sufferings, being conformed to His death,</div></li>
+      <li>Cor. 15:33—Do not be deceived: Evil companionships corrupt<div class="en-translation">11. If perhaps I may attain to the out-resurrection from the dead.</div></li>
+      <li>The fourth obstacle is our natural capabilities; if these<div class="en-translation">12. Not that I have already obtained or am already  perfected, but</div></li>
+      <li>Cor. 2:14-15—But a soulish man does not receive the things of<div class="en-translation">13. I had no rest in my spirit, for I did not ﬁnd Titus my brother; but taking leave of them, I went forth into Macedonia.</div></li>
+      <li>第四個障礙是我們天然的才能；我們身上的這些天然才能若沒有破碎，就會成為基督生命的難處—214~15  ，三 12~17  ，豬 19~21  。<div class="en-translation">14. But thanks be to God, who always leads us in triumph in the Christ and manifests the savor of the knowledge of Him through us in every place.</div></li>
+      <li>The third obstacle is rebellion; we may<div class="en-translation">15. And He died for all that those who live may no longer live to themselves but to Him who died for them and has been raised.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-4">一、 種子是神的話，（4 ，19 ，路八11 ，）基督自己，（彼前一23 ，）撒在我們裏面，使我們成為好種，就是復活的眾子。（太十三38 ，路二十 36~38 。）</h4>
+    <div class="en-translation">F. The putting to death of Jesus in our environment cooperates with the indwelling Spirit to kill our natural man and release the divine life—Rom. 8:2, 13; 2 Cor. 4:10-13; Jer. 48:11.</div>
+    <ol>
+      <li>But the spiritual man discerns all things,<div class="en-translation">11. For we who are alive are always being delivered unto death for Jesus’ sake that the life of Jesus also may be manifested in our mortal ﬂesh.</div></li>
+      <li>Cor. 3:12-17—But if anyone builds upon the<div class="en-translation">12. So then death operates in us, but life in you.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-5">二、 神的話像麥粒，將神當作生命分賜到我們裏面，滋養我們；此外，話也像火焚燒我們和我們所信奉的許多事物，話又像大槌打碎我們的己、我們天然的生命、我們的肉體、我們的情愁、和我們的觀念— 耶二三28~29。</h4>
+    <div class="en-translation">G. All our service to the Lord must originate from God, not and none dies to himself;</div>
+    <ol>
+      <li>~14。）<div class="en-translation">8. For whether we live, we live to the Lord, and whether we die, we die to the Lord. believe, therefore we also speak,</div></li>
+      <li>~9，啟二10，十二11。<div class="en-translation">9. Indeed we ourselves had the response of death in ourselves, that we should not base our conﬁdence on ourselves but on God, who raises the dead;</div></li>
+      <li>~13，耶四八11。<div class="en-translation">4. Sister M. E. Barber said, “Whoever cannot stop working for the sake of God cannot work for the sake of God.”</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-6">七、 我們對主的一切事奉必須是發源於from ourselves, as we allow His death to operate in us sothat His resurrection life can be imparted through us intoothers—2 Cor. 4:12-13; 1:8-9; 4:5; 10:13:</h4>
+    <div class="en-translation">B. To make a career of following the Lord, we must give all we have and all we can do to it; otherwise, we will be a failure, becoming the tasteless salt and being thrown out of the glorious realm into a sphere of shame—14:31-35; cf. Rev. 3:21; John 16:33.</div>
+    <ol>
+      <li>：Rom. 14:7-9—For none of us lives to himself,動。<div class="en-translation">9. For with You is the fountain of life; In Your light we see light.</div></li>
+      <li>大衛愛神，敬畏神，與神合作，好讓神作工；雖然大衛有能力建造神的殿，但神的話臨到他時，他就停下來—撒下七18 ，25 ，27 ，參路一38 。<div class="en-translation">1. The symptom of a person who is obsessed is that what he thinks and does are totally wrong, yet he thinks and believes that he is totally right—Matt. 6:22-23; Isa. 5:20.</div></li>
+      <li>大衛的停下來，建立了宇宙中的雙重見證：第一，這宇宙中的一切工作必須來自神，而不是來自人；第二，要緊的是神為人作甚，而不是人為神作甚。<div class="en-translation">3. The reasons for obsession, self-deception, are loving the darkness rather than the light (John 3:19-20), pride (Obad. 3), not receiving the love of the truth (2 Thes. 2:10-11;</div></li>
+      <li>殿的建造者和殿址，都出自於大衛的罪孽得著赦免，出自神為大衛所作的一撒下十二 24~25 ，二四 1~10 ，18~25 ，代上二一18 ，代下三1 ，詩<div class="en-translation">11. And because of this God sends to them an operation of error that they might believe the lie,</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-7">五一、 。</h4>
+    <div class="en-translation">C. Life comes from the shining of light, light is in the word of And good evil; Who put darkness for light, And light for darkness; Who put bitter for sweet, And sweet for bitter!</div>
+    <ol>
+      <li>Cor. 4:12-13—So then death operates in us,<div class="en-translation">2. To have sinned is a matter of defilement; trembles at My word.</div></li>
+      <li>And having the same spirit of faith<div class="en-translation">9. And to enlighten all that they may see what the economy of the mystery is, which throughout the ages has been hidden in God, who created all things,</div></li>
+    </ol>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

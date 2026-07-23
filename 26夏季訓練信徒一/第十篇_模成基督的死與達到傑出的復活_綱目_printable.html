@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第十篇 模成基督的死與達到傑出的復活 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 在腓立比三章十節保羅說到『模成祂的死』，這發表指明保羅渴望以基督的死作他生活的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">一、 認識基督為至寶、將萬事看作虧損、贏得基督、給人看出是在祂裏面、認識...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">四、 基督的死是一個模子，把我們模成這模子的形狀，就像把麵團放在蛋糕模子...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">四、 16，羅六6，太十六24。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">二、 達到傑出的復活，需要我們得勝的奔跑賽程，以得著獎賞。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">四、 傑出的復活，乃是脫離舊造，進入新造的復活―加六15，林後五17：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">九、 7~9 上，二二14，20。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第十篇 模成基督的死與達到傑出的復活</h1>
+      <h2>Message Ten: Being Conformed to Christ’s Death and Attaining to the Out-resurrection</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>腓三 10～11
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 在腓立比三章十節保羅說到『模成祂的死』，這發表指明保羅渴望以基督的死作他生活的模子：</h3>
+    <div class="en-translation">I. In Philippians 3:10 Paul speaks of “being conformed to His death”; this expression indicates that Paul desired to take Christ’s death as the mold of his life:</div>
+    <h4 class="section-h4" id="sec-2">一、 認識基督為至寶、將萬事看作虧損、贏得基督、給人看出是在祂裏面、認識祂、認識祂復活的大能、以及認識同祂受苦的交通，結果都產生一件事—模成基督的死—7～10 節。</h4>
+    <div class="en-translation">A. The excellency of the knowledge of Christ, counting all things as loss, gaining Christ, being found in Him, knowing Him, knowing the power of His resurrection, and knowing the fellowship of His sufferings all issue in one thing—being conformed to Christ’s death—vv. 7-10.</div>
+    <ol>
+      <li>當主耶穌在地上時，祂過釘十字架的生活；藉著過釘十字架的生活，祂就向神活著，並且活神。<div class="en-translation">8. But moreover I also count all things to be loss on account of the excellency of the knowledge of Christ Jesus my Lord, on account of whom I have suffered the loss of all things and count them as refuse that I may gain Christ</div></li>
+      <li>祂一直治死祂屬人的生命，使祂裏面神聖的生命能流露出來—十10下～11，17。<div class="en-translation">9. And be found in Him, not having my own righteousness which is out of the law, but that which is through faith in Christ, the righteousness which is out of God and based on faith, 1</div></li>
+      <li>祂活著的時候，也是一直在死—向著舊造死，好使祂能過新造裏的生活；這是腓立比三章十節裏『祂的死』的意義。<div class="en-translation">0. To know Him and the power of His resurrection and the fellowship of His sufferings, being conformed to His death,</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-3">四、 基督的死是一個模子，把我們模成這模子的形狀，就像把麵團放在蛋糕模子裏，模成其形狀一樣：</h4>
+    <div class="en-translation">B. Being conformed to Christ’s death is the base of the experience of Christ—1:20-21a; 3:9-10.</div>
+    <ol>
+      <li>神已經把我們擺進基督之死的模子裏，一天過一天神把我們模成這死—羅六3～4。<div class="en-translation">1. When the Lord Jesus was on earth, He lived a crucified life; by living a crucified life He was alive to God and lived Him.</div></li>
+      <li>我們的生活應當模成祂這模子的形狀，就是向我們人的生命死，好活神的生命—加二20，林後四 10~11 0<div class="en-translation">2. He always put His human life to death so that the divine life within Him could flow out—10:10b-11, 17.</div></li>
+      <li>我們若治死我們天然的生命，就會感覺我們裏面有另一個生命，就是神聖的生命；這生命會得著釋放，這樣，我們在經歷中就會模成基督的死一約十10 下，約壹五 11~12 。<div class="en-translation">11. I am the good Shepherd; the good Shepherd lays down His life for the sheep.</div></li>
+      <li>在基督之死的模子裏，天然的人消殺了，舊人釘死了，已廢掉了一林後<div class="en-translation">3. As He was living, He was also dying—dying to the old creation in order to live a life in the new creation; this is the meaning of His death in Philippians 3:10.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-4">四、 16，羅六6，太十六24。</h4>
+    <div class="en-translation">D. Christ’s death is a mold to which we are conformed in much the same way that dough is put into a cake mold and conformed to it:</div>
+    <ol>
+      <li>我們若讓環境將我們壓到這模子裏，我們日常的生活就會模成基督之死的形狀一羅八 28~29 。<div class="en-translation">1. God has put us into the mold of Christ’s death, and day by day God is molding us to conform us to this death—Rom. 6:3-4.</div></li>
+      <li>我們乃是藉著基督復活的大能，被模成基督的死這模子的形狀一腓三<div class="en-translation">4. We have been buried therefore with Him through baptism into His death, in order that just as Christ was raised from the dead through the glory of the Father, so also we might walk in newness of life.</div></li>
+      <li>，約十一25 ，弗一 19~20  ，歌二<div class="en-translation">2. Our life should be conformed to such a mold—dying to our human life in order to live the divine life—Gal. 2:20; 2</div></li>
+      <li>~13 。<div class="en-translation">11. For we who are alive are always being delivered unto death for Jesus’ sake that the life of Jesus also may be manifested in our mortal ﬂesh.</div></li>
+      <li>藉著模成基督的死，我們就在他的死裏經歷，使生命得以釋放、分賜並繁增一約十二 24~25  ，林後四12 。<div class="en-translation">3. If we put to death our natural life, we will have the consciousness that we have another life, the divine life, within us; this life will be released, and then in our experience we will be conformed to Christ’s death—John 10:10b; 1 John 5:11-12.</div></li>
+      <li>榮耀神惟一的路，就是模成基督的死；我們越模成基督的死，就越榮耀父一約十二28，十三31。約12 ：28 父阿，願你榮耀你的名。當時就有聲音天上出來，說 ，我已經榮耀了，還要再榮耀。約13 ：31 他既出去，耶穌就說 ，如今人得了榮耀，神在人子身上也得了榮耀。<div class="en-translation">12. He who has the Son has the life; he who does not have the Son of God does not have the life.</div></li>
+      <li>當我們經歷基督的死，並且模成他的死，我們就成為吸引人歸向基督的磁石―十二32。約12 ：32 我若地上被舉起來，就要吸引萬人來歸我。<div class="en-translation">4. In the mold of Christ’s death the natural man is killed, the old man is crucified, and the self is nullified—2 Cor. 4:16;</div></li>
+      <li>我們越與基督同死，就越使我們的魂生命蒙拯救歸入永遠的生命―25節。約12 ：25 受惜自己魂生命的，就喪失魂生命；在這世上恨惡自己魂生命的，就要保守魂生命歸入永遠的生命。<div class="en-translation">5. If we allow our circumstances to press us into this mold, our daily life will be molded into the form of Christ’s death—</div></li>
+      <li>我們若願意模成基督的死，我們將會勝過世界擊敗撒但一31 節，來二<div class="en-translation">6. We are conformed to the mold of Christ’s death by the power of Christ’s resurrection—Phil. 3:10; John 11:25; Eph. 1:19-20; S. S. 2:8-13.</div></li>
+      <li>。約12 ：31 現在這世界受審判 ，這世界的王要被趕出去。來2：14 兒女既同有血肉之體，祂也照樣親自有分於血肉之體，為要藉著死，廢除那掌死權的，就是魔鬼。<div class="en-translation">9. My beloved is like a gazelle or a young hart. Now he stands behind our wall; He is looking through the windows, He is glancing through the lattice.</div></li>
+      <li>所有在基督裏死了的信徒，在主回來時，都要有分於死人中的復活一帖前四16，林前十五52。帖前4：16 因為主必親自天降臨，有發令的呼叫，有天使長的聲音，又有神的號聲，那在基督裏死了的人必先復活。林前15：52 就是在一剎那，眨眼之間，末次號筒的時候；因號筒要響，死人要復活，成為不朽的，我們也要改變。<div class="en-translation">10. My beloved responds and says to me, Rise up, my love, My beauty, and come away;</div></li>
+      <li>主的得勝者要享受那復活特殊、傑出的分，就是他們要在其中得著國度賞賜的復活；這是使徒保羅所追求的一來十一35，26。來11 ：35 有婦人得自己的死人復活；另有人受嚴刑至死，不肯接受釋放，為要得著更美的復活。來11 ：26 他算為基督受的淩辱，比埃及的財物更寶貴，因他望斷以及於那賞賜。<div class="en-translation">11. For now the winter is past; The rain is over and gone.</div></li>
+      <li>傑出的復活，該是我們基督徒生活的目標和目的―腓三11～15 上。<div class="en-translation">12. Flowers appear on the earth; The time of singing has come, And the voice of the turtledove is heard in our land.</div></li>
+      <li>：11 或者我可以達到那從死人中傑出的復活。<div class="en-translation">13. The ﬁg tree has ripened its ﬁgs, And the vines are in blossom—they give forth their fragrance. Rise up, my love, My beauty, and come away.</div></li>
+      <li>：12 這不是說，我已經得著了，或已經完全了，我乃是竭力追求，或者可以取得基督耶穌所以取得我的。<div class="en-translation">1. By being conformed to His death, we experience Christ in His death for the release, impartation, and multiplication of life—John 12:24-25; 2 Cor. 4:12.</div></li>
+      <li>：13 弟兄們，我不是以為自己已經取得了，我只有一件事，就是忘記背後，努力面前的，<div class="en-translation">2. The only way to glorify God is to be conformed to Christ’s death; the more we are conformed to Christ’s death, the more we glorify the Father—John 12:28; 13:31.</div></li>
+      <li>：14 向著標竿竭力追求，要得神在基督耶穌裏，召我向上去得的<div class="en-translation">3. When we die the death of Christ and are conformed to His death, we will be a magnet drawing others to Christ— 12:32.</div></li>
+      <li>：15 所以我們凡是長成的人，都要思念這事。<div class="en-translation">4. The more we die with Christ, the more we save our soul- life unto eternal life—v. 25.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-5">二、 達到傑出的復活，需要我們得勝的奔跑賽程，以得著獎賞。</h4>
+    <div class="en-translation">A. The out-resurrection is the outstanding resurrection, the extra-resurrection, which will be a prize to the overcoming saints—Rev. 20:4, 6:</div>
+    <ol>
+      <li>神首先使我們死了的靈復活；然後繼續使我們的魂和必死的身體復活，直到我們的全人一靈、魂、體一藉著並同著祂的生命，從我們的舊人完全復活過來一弗二 5~6 ，羅八6，<div class="en-translation">1. All believers who are dead in Christ will participate in the resurrection from the dead at the Lord’s coming back—1</div></li>
+      <li>。<div class="en-translation">2. The Lord’s overcomers will enjoy an extra, outstanding portion of that resurrection, a resurrection in which they will receive the reward of the kingdom; this is what the apostle Paul sought after—Heb. 11:35, 26.</div></li>
+      <li>我們若模成基督的死，我們全人的每一部分就要逐漸的復活；因此，基督徒的生活是一個復活的過程。<div class="en-translation">3. The out-resurrection should be the goal and destination of our Christian life—Phil. 3:11-15a.</div></li>
+      <li>我們惟有藉著過十字架的生活模成基督的死，纔能達到這目標―腓三<div class="en-translation">12. Not that I have already obtained or am already perfected, but I pursue, if even I may lay hold of that for which I also have been laid hold of by Christ Jesus.</div></li>
+      <li>~11 。<div class="en-translation">13. Brothers, I do not account of myself to have laid hold; but one thing I do: Forgetting the things which are behind and stretching forward to the things which are before,</div></li>
+      <li>在基督的死裏，我們經過從舊造到新造的過程―10~11 節，林後五17 。<div class="en-translation">14. I pursue toward the goal for the prize to which God in Christ Jesus has called me upward.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-6">四、 傑出的復活，乃是脫離舊造，進入新造的復活―加六15，林後五17：</h4>
+    <div class="en-translation">B. To attain to the out-resurrection is to arrive at the out- resurrection; this requires us to triumphantly run the race for the prize.</div>
+    <ol>
+      <li>在傑出的復活裏，意思就是離開一切舊造的事物，並被帶進神裏面。<div class="en-translation">1. God first resurrected our deadened spirit; He proceeds to resurrect our soul and our mortal body until our whole being—spirit, soul, and body—is fully resurrected out of our old being by His life and with His life—Eph. 2:5-6;</div></li>
+      <li>傑出的復活裏毫無舊造的成分，反而滿了神聖的成分―啟二一5 上。<div class="en-translation">6. And raised us up together with Him and seated us together with Him in the heavenlies in Christ Jesus,</div></li>
+      <li>傑出的復活實際上就是基督這親愛、寶貴、超絕的人位；藉著釘死與復活，已經從舊造出來，並進到神裏面―約十四3，20，來六 19~20 。<div class="en-translation">2. If we are conformed to Christ’s death, every part of our being will be gradually resurrected; thus, the Christian life is a process of resurrection.</div></li>
+      <li>我們所應當活的這位基督，祂本身就是傑出的復活―腓一21 上，三11 ，約十一25。<div class="en-translation">3. We can reach this goal only by being conformed to the death of Christ by living a crucified life—Phil. 3:10-11.</div></li>
+      <li>要得著那一分，需要他追求、奔跑並得勝的完成他的路程一提後四<div class="en-translation">11. If perhaps I may attain to the out-resurrection from the dead.</div></li>
+      <li>~8 。<div class="en-translation">4. In the death of Christ we are processed from the old creation to the new—vv. 10-11; 2 Cor. 5:17.</div></li>
+      <li>腓立比三章十二節的『竭力追求』，原文與『逼迫』同字，也有『竭力向前、追趕』之意：<div class="en-translation">1. To be in the out-resurrection means to leave everything of the old creation and to be brought into God.</div></li>
+      <li>∼1110∼11 節，太十六18，啟十<div class="en-translation">2. In the out-resurrection there is no element of the old creation; instead, everything is full of the divine element—Rev. 21:5a.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-7">九、 7~9 上，二二14，20。</h4>
+    <div class="en-translation">E. For Paul, to live was Christ as the out-resurrection—Phil. 1:21a; 3:11:</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

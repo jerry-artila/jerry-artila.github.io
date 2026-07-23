@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第十一篇 晨星、男孩子、初熟的果子、莊稼、以及碧玉和其他寶石 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 在召會墮落的時候，忠信的信徒是發光的星，擔負耶穌的活見證—</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">七、 個召會的使者，七燈臺就是七個召會。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">一、 屬天的基督是從雅各而出的星，也是給得勝信徒之賞賜的晨星—民二</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">七、 眾活星乃是召會的使者，就是那些有耳聽那靈向召會說話的人；他們享受並...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">八、 眾活星是『心中定大志的』，也是『心中設大謀的』；他們是愛神的人，如...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">一、 結二五12。</a></li>
+          <li class="toc-item"><a href="#sec-7" class="toc-link" style="font-weight:700; color:var(--primary);">參、 王上七13～14。</a></li>
+          <li class="toc-item"><a href="#sec-8" class="toc-link" style="font-weight:700; color:var(--primary);">貳、 男孩子表徵與基督合作，以抵擋他的仇敵，並引進神國度的得勝者—啟十二 1∼111...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">一、 我們成為男孩子的路，乃是得加強到裏面的人裏，好得著加力，以經歷基督...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-10" class="toc-link">二、 3 下，林後四13。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-11" class="toc-link">三、 亞比該豫表與爭戰的基督是一，在苦難當中為神的國爭戰的召會—太</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-12" class="toc-link">四、 基甸和他的三百人，表徵相調的一班得勝者，他們與基督一同爭戰 ，以帶...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-13" class="toc-link">四、 經過變化的過程，我們誇我們的軟弱，並在基督耶穌裏誇口，使作恩典之基...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-14" class="toc-link">一、 30~33，十二7~9，羅五3，林前—29~31，腓三3。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-15" class="toc-link">五、 我們藉著在基督這活石裏 ，在神聖的生命中長大，變化為寶石；藉著這變...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-16" class="toc-link">一、 18~21。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第十一篇 晨星、男孩子、初熟的果子、莊稼、以及碧玉和其他寶石</h1>
+      <h2>Message Eleven: Stars, the Man-child, the Firstfruits, the Harvest, and Jasper and Other Precious Stones</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>啟一 20，二 1，十二 1～11，十四 1～5，二一 9～11，18～21
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 在召會墮落的時候，忠信的信徒是發光的星，擔負耶穌的活見證—</h3>
+    <div class="en-translation">I. heard was like the sound of harp-singers playing on their harps. 3 And they sing a new song before the throne and before the four living creatures and the elders; and no one could learn the song except the hundred and forty-four thousand, who have been purchased from the earth. 4 These are they who have not been deﬁled with women, for they are virgins. These are they who follow the Lamb wherever He may go. These were purchased from among men as ﬁrstfruits to God and to the Lamb. 5 And in their mouth no lie was found; they are without blemish.</div>
+    <h4 class="section-h4" id="sec-2">七、 個召會的使者，七燈臺就是七個召會。</h4>
+    <div class="en-translation">A. The heavenly Christ is the Star that comes forth out of Jacob and the morning star as a reward to the overcoming believers—Num. 24:17; Rev. 2:28; 22:16-17.</div>
+    <h4 class="section-h4" id="sec-3">一、 屬天的基督是從雅各而出的星，也是給得勝信徒之賞賜的晨星—民二</h4>
+    <div class="en-translation">B. Christ’s faithful followers are shining and living stars, those who follow Christ as the shining and living star—Matt. 2:2-12; Micah 5:2; Dan. 12:3; Rev. 1:20.</div>
+    <ol>
+      <li>，一〇三 1∼51∼5 ，一四二7，創十二 2∼32∼3 ，太十二34∼3734∼37 。<div class="en-translation">4. And gathering together all the chief priests and scribes of the people, he inquired of them where the Christ was to be born.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-4">七、 眾活星乃是召會的使者，就是那些有耳聽那靈向召會說話的人；他們享受並經歷是靈的基督作神的使者並作從神而來新鮮的信息，使他們能將新鮮而現時的基督分賜到神的子民裏面，好作耶穌的見證—一20～二1，瑪二7，三1～3。</h4>
+    <div class="en-translation">C. The living stars follow the heavenly, living, up-to-date, and instant vision of Christ as the centrality and universality of God’s economy—Acts 26:16-18.</div>
+    <h4 class="section-h4" id="sec-5">八、 眾活星是『心中定大志的』，也是『心中設大謀的』；他們是愛神的人，如同『星宿』『從其軌道』與神一同爭戰，攻擊祂的仇敵，使他們『如日頭出現，光輝烈烈』—士五15～16，20 ，31 ，但十一32 ，太十三43 ，參但七25。</h4>
+    <div class="en-translation">D. The living stars are those who bless God and bless God’s people; the more we praise the Lord for God’s people and speak well of them in faith, the more we put ourselves under God’s blessing; those who speak positively concerning the church receive the blessing, but those who speak negatively put themselves under a curse—Num. 24:9; Eph. 1:3; Psa. 71:14; 103:1-5; 142:7; Gen. 12:2-3;</div>
+    <ol>
+      <li>當神的聖所（豫表成肉體的基督支搭帳幕在地上，作神的居所一約一<div class="en-translation">2. Bless Jehovah, O my soul; And do not forget all His beneﬁts:</div></li>
+      <li>）被褻瀆 ，當美地（表徵賜給神子民的基督，連同他一切的豐富和恩典―西一12）變荒涼 ，當猶大家（表徵召會―來三6）被遷徙離去時，亞們人甚為高興；他們表徵那些恨基督，恨神的恩典，恨召會的人―結二<div class="en-translation">3. He pardons all your iniquities; He heals all your diseases;</div></li>
+      <li>摩押人樂於看猶大家不再與列國有分別；因此，摩押人表徵那些想要把召會拖去與世界聯結，使召會與列國一樣的人一8 節，啟二12。<div class="en-translation">4. He redeems your life from the pit; He crowns you with lovingkindness and compassions;</div></li>
+      <li>以東人是雅各的哥哥以掃的後裔，因此，以東和以色列家子是堂兄弟；（創三六1 ；）以東表徵未重生的舊人，以色列表徵重生的新人；（羅六<div class="en-translation">5. He satisﬁes the prime of your life with good, So that your youth is renewed like the eagle.</div></li>
+      <li>，加六16 ，腓三3 ；）以東對以色列充滿了恨，不斷找機會報仇雪恨<div class="en-translation">3. And I will bless those who bless you, And him who curses you</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-6">一、 結二五12。</h4>
+    <div class="en-translation">E. The living stars take heed to the prophetic word of the Christ as the morning star may rise in their hearts—2 Pet. 1:19; John 6:63; Rev. 2:28.</div>
+    <ol>
+      <li>非利士人住得非常靠近美地，甚至與以色列人調在一起；非利士人豫表熱心宗教者天然的人；『以東人』和『非利士人』對召會生活造成最大的傷害一15 節，林前三12，16～17。<div class="en-translation">2. And who will endure the day of His coming? And who will stand when He appears? For He is like a reﬁner’s ﬁre and like fullers’ soap.</div></li>
+      <li>推羅豫表尋求屬世財富，不關心神權益的人—結二六2 ，二八12～15 ，<div class="en-translation">3. And He will sit as a reﬁner and a puriﬁer of silver, and He will purify the sons of Levi and purge them like gold and like to Jehovah a sacriﬁce in righteousness.</div></li>
+    </ol>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-7">參、 王上七13～14。</h3>
+    <div class="en-translation">I. The “wandering stars” are those who are not solidly fixed in the unchanging truths of the heavenly revelation but are wandering about among God’s starlike people; in order to be stable stars for God’s testimony, we must beware of the seven kinds of people who are a damage to the church— Jude 12-13, 19; cf. 1 Cor. 3:17: Jude 12-13—These are the hidden reefs in your love feasts, feasting together with you without fear, shepherding themselves; waterless clouds being carried off by winds; autumn trees without fruit, having died twice, rooted up; 13 Wild waves of the sea, foaming out their own shames; wandering stars, for whom the gloom of darkness is kept for eternity. Jude 19—These are those who make divisions, soulish, having no spirit.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-8">貳、 男孩子表徵與基督合作，以抵擋他的仇敵，並引進神國度的得勝者—啟十二 1∼111∼11 ：</h3>
+    <div class="en-translation">I. even made it for myself. 4 But I will put hooks in your jaws, And I will cause the ﬁsh of your Nile streams to cling to your scales; And I will bring you up out of the midst of your Nile streams, With all the ﬁsh of your Nile streams clinging to your scales. 5 And I will cast you out into the wilderness, You and all the ﬁsh of your Nile streams. You will fall on the open ﬁeld; You will not be brought together or gathered. To the beasts of the earth And to the birds of the sky I have given you as food, 6 That all the inhabitants of Egypt may know that I am Jehovah, Because they have been a reed staff to the house of Israel. 7 When they grasped you by your hand, You broke and tore all their shoulders; And when they leaned upon you, You shattered and made all their loins unsteady. 8 Therefore thus says the Lord Jehovah, I am about to bring a sword upon you, and I will cut off from you man and beast. 9 And the land of Egypt will be a desolation and a waste, and they will know that I am Jehovah. Because he has said, The Nile is mine, and I made it;</div>
+    <h4 class="section-h4" id="sec-9">一、 我們成為男孩子的路，乃是得加強到裏面的人裏，好得著加力，以經歷基督的豐富，並藉著禱讀那擊殺的話，穿戴神的軍裝，而成為剛強的―弗三16,18,六10∼1110∼1,17∼1817∼18,啟一16,十九</h4>
+    <div class="en-translation">A. The way to become the man-child is for us to be strengthened into the inner man, to be empowered to experience the riches of Christ, and to be strong through putting on the armor of God by pray-reading the killing word—Eph. 3:16, 18; 6:10-11, 17-18; Rev. 1:16; 19:13- 15.</div>
+    <ol>
+      <li>∼15。<div class="en-translation">11. Put on the whole armor of God that you may be able to stand against the stratagems of the devil,</div></li>
+      <li>『祂兒子耶穌的血…洗淨我們一切的罪』—約壹一7。<div class="en-translation">14. And the armies which are in heaven followed Him on white horses, dressed in ﬁne linen, white and clean.</div></li>
+      <li>自己所見證的話，就是向人宣揚並宣告基督得勝的神聖事實—林前十<div class="en-translation">15. And out of His mouth proceeds a sharp sword, that with it He might smite the nations; and He will shepherd them with an iron rod; and He treads the winepress of the fury of the wrath of God the Almighty.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-10">二、 3 下，林後四13。</h4>
+    <div class="en-translation">B. “They overcame him because of the blood of the Lamb and because of the word of their testimony, and they loved not their soul-life even unto death”—12:11:</div>
+    <ol>
+      <li>雖至於死，也不愛自己的魂生命，意思是我們揀選愛主到極點，一點也不憑我們的己而活—西一17 ，18 下。<div class="en-translation">1. “The blood of Jesus His Son cleanses us from every sin”—</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-11">三、 亞比該豫表與爭戰的基督是一，在苦難當中為神的國爭戰的召會—太</h4>
+    <div class="en-translation">C. Abigail typifies the church that is one with the warring Christ to fight for God’s kingdom in the midst of sufferings—Matt. 12:3; 1 Sam. 25:42:</div>
+    <ol>
+      <li>亞比該先前的丈夫，拿八（意，愚頑），給我們看見，我們的舊人在棄絕基督的事上是多麼邪惡；拿八在大衛缺乏時，藐視、拒絕 、並反對他—10~11 ，25 節，參箴一7 ，十三20 。<div class="en-translation">1. Abigail’s previous husband, Nabal (meaning “fool”), shows how evil our old man is in forsaking Christ; Nabal despised, rejected, and opposed David at the time of his destitution—vv. 10-11, 25; cf. Prov. 1:7; 13:20.</div></li>
+      <li>當我們棄絕、拒絕藐視基督的敗壞性情被擊倒時，我們就成為基督的配偶，在苦難當中跟從，為神的國爭戰―撒上二五36~42，啟一9。<div class="en-translation">11. Shall I then take my food and my water and my meat that I have slaughtered for my shearers, and give it to men who come from I do not know where?</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-12">四、 基甸和他的三百人，表徵相調的一班得勝者，他們與基督一同爭戰 ，以帶進祂的國一士六1~6，11~35，七</h4>
+    <div class="en-translation">D. Gideon and his three hundred men signify a blended group of overcomers who fight together with Christ to bring in His kingdom—Judg. 6:1-6, 11-35; 7:1-8, 19-25:</div>
+    <ol>
+      <li>~8，19~25：<div class="en-translation">2. And the hand of Midian prevailed against Israel. Because of Midian the children of Israel made for themselves the dens which are in the mountains as well as the caves and the strongholds.</div></li>
+      <li>他們願意犧牲 ，好被神使用，以成就神的話並完成神的經綸—1～8 節，<div class="en-translation">3. And whenever Israel sowed its seed, Midian rose up with Amalek and the children of the east, and went up against them.</div></li>
+      <li>他們打仗並作工，但全體都來追趕仇敵並收成，這表徵我們得勝，全體復興―七 22∼822∼8 4，西一24，詩一二八5。<div class="en-translation">4. And they encamped against them and destroyed the produce of the land until you come to Gaza, and they left no sustenance in Israel, or sheep or ox or donkey.</div></li>
+      <li>~11，十四1，4 下，十九7。<div class="en-translation">5. For they went up with their cattle and their tents and came in like a locust swarm in number; both they and their camels were without number. And they came into the land to destroy it.</div></li>
+      <li>神需要我們被提—被提到他和他的寶座那裏 ，好與仇敵爭戰—啟十二5 ，<div class="en-translation">6. And Israel was greatly impoverished because of Midian. And the children of Israel cried out to Jehovah.</div></li>
+      <li>~11。<div class="en-translation">2. And Jehovah said to Gideon, The people with you are too many for Me to deliver Midian into their hand; Israel might vaunt himself against Me, saying, My own hand has saved me.</div></li>
+      <li>主要男孩子與他的仇敵爭戰，但為著他的滿足，他更需要初熟的果子—十四1 ，4 下，參歌八6 ，13~14 。<div class="en-translation">3. Now then proclaim in the hearing of the people, saying, Whoever is afraid and trembling should return and depart from here. And twenty-two thousand of the people returned, and ten thousand remained.</div></li>
+      <li>初熟的果子是神的農作物中最先達到成熟的—西二19 ，來五14~六1 ，弗四13，腓三15，參路二—36。<div class="en-translation">4. Then Jehovah said to Gideon, The people are still too many. Bring them down to the water, and I will test them for you there. And he of whom I say to you, This one shall go with you, he shall go with you. And every one of whom I say to you, This one shall not go with you, he shall not go.</div></li>
+      <li>初熟的果子是被提到錫安神的殿中，作神新鮮的享受，使神得到滿足—出二三19 上，利二三10，參羅八23。<div class="en-translation">5. So he brought the people down to the water. And Jehovah said to Gideon, Everyone who laps from the water with his tongue, as a dog laps, you shall set apart; likewise everyone who bows down on his knees to drink.</div></li>
+      <li>，十一2 ，約四14 下，林後—8~9 。<div class="en-translation">1. They were willing to sacrifice in order to be used by God to fulfill God’s word and carry out His economy—vv. 1-8; 8:4.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-13">四、 經過變化的過程，我們誇我們的軟弱，並在基督耶穌裏誇口，使作恩典之基督的能力覆庇我們—12 節，十</h4>
+    <div class="en-translation">A. The rapture is not mainly for our enjoyment but for God’s enjoyment; we need to make ourselves ready to be raptured not for our happiness but for the fulfillment of God’s purpose—12:5, 7-11; 14:1, 4b; 19:7.</div>
+    <h4 class="section-h4" id="sec-14">一、 30~33，十二7~9，羅五3，林前—29~31，腓三3。</h4>
+    <div class="en-translation">B. The meaning of rapture is to be taken into the Lord’s presence; in order to be taken into the Lord’s presence, we must be in His presence today and learn to have nearness and dearness in our contact with the Lord, having a heart that loves and treasures the Lord for His purpose—2 Cor. 2:10; 4:6-7; 1 John 1:3.</div>
+    <h4 class="section-h4" id="sec-15">五、 我們藉著在基督這活石裏 ，在神聖的生命中長大，變化為寶石；藉著這變化的過程，三一神就被作到我們裏面，並與我們構造在一起，使恩典的榮耀得著稱讚，這恩典是他在那蒙愛者裏面所恩賜我們的，使我們成為新耶路撒冷，作為整本聖經的總結，並作為給整個宇宙的福音—彼前二4 ，林前三12 上，弗一6 ，啟二</h4>
+    <div class="en-translation">C. The rapture of the overcomers is for defeating the enemy and satisfying God:</div>
+    <h4 class="section-h4" id="sec-16">一、 18~21。</h4>
+    <div class="en-translation">S. S. 8:6—Set me as a seal on your heart, As a seal on your arm; For love is as  strong as death, Jealousy is as cruel as Sheol; Its ﬂashes are the ﬂashes of ﬁre, A ﬂame of Jehovah.</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第七篇 蒙憐憫得尊貴和榮耀的器皿、麥粒、和葡萄樹的枝子 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 在基督裏的信徒，乃是蒙憐憫得尊貴和榮耀的器皿；我們是容器，盛裝基督作憐憫 、尊...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">一、 神創造人的目的是要使人作他的器皿，他的瓦器，以盛裝基督作生命並被充...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">一、 藉著基督的死與復活所產生的許多麥粒，是為著形成一個餅—基督的身體；...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">三、 我們外面的人如同麥子落到地裏死了，漸漸被破碎、銷毀 ，使我們裏面的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">五、 我們也許禱告並盼望別人會改變，但我們越這樣禱告，就越清楚甚麼都不會...</a></li>
+          <li class="toc-item"><a href="#sec-6" class="toc-link" style="font-weight:700; color:var(--primary);">參、 六 3~4 ，王上七17， 20~22 。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">二、 百個石榴，分行環繞。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-8" class="toc-link">六、 我們應當與運行的靈合作，並接受神為我們所安排的環境—腓四12，弗三...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">七、 我們可能向神抱怨,但我們的抱怨可能是最好的禱告,神最喜悅的禱告;當...</a></li>
+          <li class="toc-item"><a href="#sec-10" class="toc-link" style="font-weight:700; color:var(--primary);">參、 在基督裏的信徒,乃是葡萄樹的枝子—約十五1,4~5:</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-11" class="toc-link">一、 葡萄樹及其枝子,就是基督和在基督裏的信徒,是神經綸中三一神的生機體...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-12" class="toc-link">二、 離了基督這葡萄樹,我們就一無所是,一無所有,也一無所能;因此,我們...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-13" class="toc-link">三、 住在基督裏,乃是住在祂的愛裏,使我們愛祂並彼此相愛,結果子彰顯神聖...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-14" class="toc-link">三、 次對他，你愛我麼？就憂愁，對耶穌說 ，主阿，你是無所不知的，你知道...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-15" class="toc-link">四、 住在基督裏，乃是天天並時時保守我們自己在與祂的交通裏，不任何事物來...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-16" class="toc-link">一、 3，林後十三14。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-17" class="toc-link">五、 我們要讓主住在我們裏面，就必須讓祂的話住在我們裏面；我們若藉著到祂...</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第七篇 蒙憐憫得尊貴和榮耀的器皿、麥粒、和葡萄樹的枝子</h1>
+      <h2>Message Seven: Vessels of Mercy unto Honor and Glory, Grains of Wheat, and Branches of the Vine</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>羅九 21，23，徒九 15，林後四 7，約十二 24，十五 1，4~5，7
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 在基督裏的信徒，乃是蒙憐憫得尊貴和榮耀的器皿；我們是容器，盛裝基督作憐憫 、尊貴和榮耀一羅九21，23：</h3>
+    <div class="en-translation">I. in him, he bears much fruit; for apart from Me you can do nothing.</div>
+    <h4 class="section-h4" id="sec-2">一、 神創造人的目的是要使人作他的器皿，他的瓦器，以盛裝基督作生命並被充滿 ，為著建造基督的身體，終極完成於新耶路撒冷，作神的團體大器，使祂得彰顯一創二7 ，徒九15 ，羅九21，23，林後四7，提後二20~21 ，太二五 2~4 ， 8~9 ，亞</h4>
+    <div class="en-translation">A. God’s purpose in creating man was to make man His vessel, His earthenware container, to contain and be filled with Christ as life for the building up of the Body of Christ consummating in the New Jerusalem as God’s great corporate vessel for His expression—Gen. 2:7; Acts 9:15;</div>
+    <ol>
+      <li>神能將他自己分賜到我們裏面的程度，在於我們敞開的程度；神要我們只愛祂並使自己一直向祂敞開—王下四1～7，太五3，約一16，寮五<div class="en-translation">3. For the foolish, when they took their lamps, did not take oil with them;</div></li>
+      <li>退步的起點是由於自滿，進步的起點是由於飢渴—申四25，路—53，腓—25，啟三 16~18 。<div class="en-translation">4. But the prudent took oil in their vessels with their lamps.</div></li>
+      <li>神的憐憫是神得最遠的屬性，把我們可憐的地位，救到適合祂愛和恩典的光景—弗二 1~4 ，來四16。<div class="en-translation">9. But the prudent answered, saying, Perhaps there will not be enough for us and for you; go rather to those who sell, and buy for yourselves.</div></li>
+      <li>因著神的憐憫，別人對福音沒有反應，我們有反應；別人拒絕接受關於基督是生命的話，我們接受；別人退去不走主恢復的路，我們走這條路—詩歌二三四首第三節。<div class="en-translation">12. And I answered a second time and said to him, What are the two olive branches that are by the side of the two golden spouts, which empty the gold from themselves? 4:13 And he spoke to me, saying, Do you not know what these are? And I said, No, sir. 4:14 And he said, These are the two sons of oil, who stand by the Lord of the whole earth.</div></li>
+      <li>『憐憫』指神由我們可憐光景所激發的外在作為；『憐恤』指起源於他愛的素質之內在情愛—羅九15 ，太九36。<div class="en-translation">1. The degree to which God can dispense Himself into us depends on the degree of our openness; God wants us only to love Him and keep ourselves open to Him—2 Kings 4:1-7; Matt. 5:3; John 1:16; Isa. 57:15; 66:1-2.</div></li>
+      <li>我們必須每早晨都接觸神這憐恤者，使我們活在國度的實際裏，而憐憫人，不審判人—哀三21～23，太五<div class="en-translation">2. And Elisha said to her, What shall I do for you? Tell me, what do you have in your house? And she said, Your servant has nothing at all in the house, except a jar of oil.</div></li>
+      <li>，七1。<div class="en-translation">3. And he said, Go and borrow vessels outside, from all your neighbors, empty vessels, and not just a few.</div></li>
+      <li>豫防者乃是教師，基督耶穌的好執事，既得著生命之話的滋養，並在日常生活中，為著召會生活操練他的靈活基督者—提後二2 ，—13～14 ，提前四6～7，六20。<div class="en-translation">4. Then go in and shut the door behind you and your sons, and pour out into all those vessels; and each one you ﬁll set aside.</div></li>
+      <li>豫防者乃是精兵，與異議者不同的教訓打仗，好照著使徒的職事完成神的經綸，並藉著滿了生命，在生命中作王，而與死亡，就是神最後的仇敵爭戰—提後二3～4 ，提前一18 ，羅八6，11，五17。<div class="en-translation">5. So she went away from him and shut the door behind herself and her sons; and they brought the vessels to her, and she poured out into them.</div></li>
+      <li>豫防者乃是競賽者，逃進作我們避難所的基督裏，並同那清心呼求主的人，追求基督作為公義、信、愛、和平，藉此過正常的召會生活—提後二5，來六18~20，提後二22。<div class="en-translation">6. And when she had ﬁlled the vessels, she said to her son, Bring me another vessel. But he said to her, There is no other vessel. And the oil stopped. 7And she went and told the man of God. And he said, Go and sell the oil, and pay your debt; and you and your sons can live off the rest.</div></li>
+      <li>豫防者乃是農夫，藉著適應一切的生命與神同工，將生命的種子撒在人裏面，並藉著祂健康的話，以生命的靈澆灌他們—6 節，林前三6 ，9 ，林後六1 上，路八11 ，約七38 ，六63，林後三6。<div class="en-translation">2. For all these things My hand has made, And so all these things have come into being, declares Jehovah. But to this kind of man will I look, to him who is poor And of a contrite spirit, and who trembles at My word.</div></li>
+      <li>豫防者乃是工人，正直的分解（就如作木工一樣）真理的話，將神話語的各部分，正確、正直、毫不曲解的揭示出來；真理的話需要正確的解開，以光照暗昧的人，豫防毒素，吞滅死亡，並將偏離的信徒帶回正途—提後二15 ，參徒二六18 ，詩—一九130 ，<div class="en-translation">2. Decadence starts from self-complacency; progress starts from hunger and thirst—Deut. 4:25; Luke 1:53; Phil. 1:25;</div></li>
+      <li>3。<div class="en-translation">12. It was said to her, “The greater shall serve the less”;</div></li>
+      <li>榮耀就是神自己得著彰顯並顯明出來—耶二11，徒七2，弗一17，林前二8，彼前四14、西二9。<div class="en-translation">13. As it is written, “Jacob have I loved, but Esau have I hated.”</div></li>
+      <li>我們有這寶貝，就是基督作榮耀的神，住在我們這瓦器裏 ；（林後四7 ；）內住於我們的『這寶貝』，就是『耶穌基督的面』，（6），基督的同在，基督的人位。（二10—『面』指人位。）<div class="en-translation">1. God’s mercy is the most far-reaching of God’s attributes, saving us out of our wretched position into a condition that is suitable for His love and grace—Eph. 2:1-4; Heb. 4:16.</div></li>
+      <li>當我們的心轉向主，我們就觀看在我們靈裏作為基督之同在的主靈，我們就『漸漸變化…，從榮耀到榮耀，乃是從主靈變化成的』—三16~18 。<div class="en-translation">2. In which you once walked according to the age of this world, according to the ruler of the authority of the air, of the spirit which is now operating in the sons of disobedience;</div></li>
+      <li>觀看主的榮光，是我們自己看主；返照主的榮光，是叫別人經過我們看主—賽六1、5。<div class="en-translation">3. Among whom we also all conducted ourselves once in the lusts of our ﬂesh, doing the desires of the ﬂesh and of the thoughts, and were by nature children of wrath, even as the rest; 4But God, being rich in mercy, because of His great love with which He loved us,</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-3">一、 藉著基督的死與復活所產生的許多麥粒，是為著形成一個餅—基督的身體；許多麥粒被壓碎，用油調和，在爐中烤，並調和一起成為一個餅；這餅由素祭所表徵—林前十17 ，利</h4>
+    <div class="en-translation">D. We were created to be vessels of honor to contain Christ as the God of honor; vessels of honor are inoculators, those who inoculate others against the decline of the church—2</div>
+    <h4 class="section-h4" id="sec-4">三、 我們外面的人如同麥子落到地裏死了，漸漸被破碎、銷毀 ，使我們裏面的人能日日得更新—16 ，10～11 節，多三5，弗四23，五26。</h4>
+    <div class="en-translation">E. We are vessels of glory to contain Christ as the God of glory:</div>
+    <h4 class="section-h4" id="sec-5">五、 我們也許禱告並盼望別人會改變，但我們越這樣禱告，就越清楚甚麼都不會改變；這是神所創造的環境，要使我們模成神兒子的形像，並顯明神的恩典和能力—羅八 28~29  ，</h4>
+    <div class="en-translation">A. The many grains of wheat produced through Christ’s death and resurrection are  for the formation of the one bread— the Body of Christ; the grains of wheat are crushed, mingled with oil, baked in the oven, and blended together into one loaf, signified by the meal offering—1 Cor. 10:17;</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-6">參、 六 3~4 ，王上七17， 20~22 。</h3>
+    <div class="en-translation">I. wish that it were already kindled! 50 But I have a baptism to be baptized with, and how I am pressed until it is accomplished!</div>
+    <h4 class="section-h4" id="sec-7">二、 百個石榴，分行環繞。</h4>
+    <div class="en-translation">C. As grains of wheat falling into the earth to die, our outer man is being broken, consumed, so that our inner man can be renewed day by day—vv. 16, 10-11; Titus 3:5; Eph. 4:23; 5:26.</div>
+    <h4 class="section-h4" id="sec-8">六、 我們應當與運行的靈合作，並接受神為我們所安排的環境—腓四12，弗三1，四1，六20，林前七24。</h4>
+    <div class="en-translation">D. A Christian who is spiritual for the building up of the Body of Christ must “read” three things every day—he needs to read the Bible, he needs to read his inward sense, and he needs to read his environment and circumstances, which are the people, things, and matters around him—Rom. 8:6; cf. Prov. 16:9.</div>
+    <h4 class="section-h4" id="sec-9">七、 我們可能向神抱怨,但我們的抱怨可能是最好的禱告,神最喜悅的禱告;當我們在抱怨時,神在喜樂,因為他使萬有都互相効力,叫我們得益處,為使我們模成他長子的形像—參詩一○二標題。詩102 標題 困苦人發昏的時候,在耶和華面前傾吐苦情的禱告。</h4>
+    <div class="en-translation">E. We may pray and hope that others will change, but the more we pray in this way, the clearer we are that nothing will change; this is the environment that God has created to cause us to be conformed to the image of God’s Son and manifest God’s grace and power—Rom. 8:28-29; cf. 6:3-4; 1 Kings 7:17, 20-22.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-10">參、 在基督裏的信徒,乃是葡萄樹的枝子—約十五1,4~5:</h3>
+    <div class="en-translation">I. would speak boldly, as I ought to speak.</div>
+    <h4 class="section-h4" id="sec-11">一、 葡萄樹及其枝子,就是基督和在基督裏的信徒,是神經綸中三一神的生機體,因神的豐富而長大,並彰顯他神聖的生命—1~5 節。</h4>
+    <div class="en-translation">G. We may complain to God, but our complaining may be the best prayer, the most pleasant prayer to God; while we are complaining, God is rejoicing because He is causing all things to work together for good that we may be conformed to the image of His firstborn Son—cf. Psa. 102, title. Psa. 102, title—A Prayer of an afﬂicted one, when he is fainting and pours out his complaint before Jehovah.</div>
+    <h4 class="section-h4" id="sec-12">二、 離了基督這葡萄樹,我們就一無所是,一無所有,也一無所能;因此,我們需要住在祂裏面,就是停留、住留、並居住在他裏面;不憑我們的所是或所能,乃憑不死的生命—基督自己—而活—十四6 上,林後五4。</h4>
+    <div class="en-translation">A. The vine, which is Christ, with its branches, which are the believers in Christ, is the organism of the Triune God in God’s economy to grow with His riches and to express His divine life—vv. 1-5.</div>
+    <h4 class="section-h4" id="sec-13">三、 住在基督裏,乃是住在祂的愛裏,使我們愛祂並彼此相愛,結果子彰顯神聖的生命—約十五9~10,16~17:</h4>
+    <div class="en-translation">B. We are nothing, we have nothing, and we can do nothing apart from Christ as the vine; thus, we need to abide in Him, to remain, stay, and dwell in Him, not living by what we are or by what we can do but by the immortal life, which is Christ Himself—14:6a; 2 Cor. 5:4.</div>
+    <ol>
+      <li>『我賜給你們一條新誡命,乃是叫你們彼此相愛,正如我愛你們,為使你們也彼此相愛。你們若彼此相愛,眾人因此就認出你們是我的門徒了』—十三34~35,參約壹四18~19。<div class="en-translation">10. If you keep My commandments, you will abide in My love; even as I have kept My Father’s commandments and abide in His love.</div></li>
+      <li>我們若愛主,就被他充滿;我們裏面所充滿的,就從我們流出來;愛主到極點,使我們有資格、成全我們並裝備我們說出主來—約二—15~17。<div class="en-translation">1. “A new commandment I give to you, that you love one another, even as I have loved you, that you also love one another. By this shall all men know that you are My disciples, if you have love for one another”—13:34-35; cf.</div></li>
+    </ol>
+    <h4 class="section-h4" id="sec-14">三、 次對他，你愛我麼？就憂愁，對耶穌說 ，主阿，你是無所不知的，你知道我愛你。耶穌對他，你餧養我的羊。</h4>
+    <div class="en-translation">D. To abide in Christ is to keep ourselves in the fellowship with Him daily and hourly, not allowing anything to come between us and Him; the entire church life depends on the divine fellowship, which is the circulating Triune God working, flowing, communicating, transporting, transmitting, and dispensing all that He is into us for our enjoyment—1 John 1:3; 2 Cor. 13:14.</div>
+    <h4 class="section-h4" id="sec-15">四、 住在基督裏，乃是天天並時時保守我們自己在與祂的交通裏，不任何事物來在我們和祂之間；整個召會生活都有賴於這神聖的交通，就是循環的三一神將祂的一切所是，運行、湧流、傳達、運輸、輪供並分賜到我們裏面，作我們的享受一約壹</h4>
+    <div class="en-translation">E. In order for the Lord to abide in us, we must let His words abide in us; if we abide in His written word by coming to Him for life, His instant words will abide in us as spirit and life—John 15:7; 5:39-40; 8:31; 6:63.</div>
+    <h4 class="section-h4" id="sec-16">一、 3，林後十三14。</h4>
+    <div class="en-translation">F. As the branches of Christ, the true vine, we need to live Christ, grow Christ, express Christ, and propagate Christ in every respect; this is to “walk worthily of the Lord to please Him in all things, bearing fruit in every good work and growing by the full knowledge of God”—Col. 1:10.</div>
+    <h4 class="section-h4" id="sec-17">五、 我們要讓主住在我們裏面，就必須讓祂的話住在我們裏面；我們若藉著到祂面前來得生命而住在祂所寫的話裏，祂即時的話就要住在我們裏面作靈和生命一約十五7，五39~40 ，八31，六63。</h4>
+    <div class="en-translation">G. Fruit-bearing is the overflow of the riches of the inner life; out of the abundance of the inner life there will be a flow that will reach others, penetrating into their lives, so that they may become remaining fruit for the Father’s glorification—John 15:16.</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

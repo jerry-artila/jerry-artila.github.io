@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第八篇 認識並經歷馬太福音裡包羅萬有的基督 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 基督是屬天的王—太二1~2 ，二</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">一、 5：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">一、 馬太福音證明耶穌是君王，是舊約所豫言的彌賽亞——1 ，17 ，二1...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">二七、 11，37。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">四、 代；從大衛到遷徙巴比倫，也是十</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">四、 代；從遷徙巴比倫到基督，又是十</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">四、 代。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-8" class="toc-link">二、 這位屬天的王並不是高傲顯赫的來，乃是溫和、謙遜、溫柔的來——二一</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">一、 『基督』意指神的受膏者，是到主的使命，要藉著他的死、復活、升天和再...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-10" class="toc-link">二、 『活神的兒子』是到主的身位，具體的表現父，並終結於那靈，使三一神得...</a></li>
+          <li class="toc-item"><a href="#sec-11" class="toc-link" style="font-weight:700; color:var(--primary);">參、 基督是人子——太八20，十一19，十三37，十六13：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-12" class="toc-link">一、 基督就是那把神的管治權帶到地上，並使神的名在地上極其尊大的人一</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-13" class="toc-link">九、 6 ，十二8 ，十三41 ，十六 27~28  。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-14" class="toc-link">二、 為著諸天之國的建立，主耶穌站在得勝之人的地位上一這人能擊敗撒但並抵...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-15" class="toc-link">四、 4，十二40，二六64。</a></li>
+          <li class="toc-item"><a href="#sec-16" class="toc-link" style="font-weight:700; color:var(--primary);">肆、 基督是施浸者一三11：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-17" class="toc-link">一、 主在聖靈裏的浸，基於祂的救贖 ，引進了諸天的國，把信的人帶進諸天的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-18" class="toc-link">二、 主在火裏的浸，基於祂的審判，要結束諸天的國，把不信的人丟在火湖裏一...</a></li>
+          <li class="toc-item"><a href="#sec-19" class="toc-link" style="font-weight:700; color:var(--primary);">伍、 基督是生命的光，照在死亡的黑暗中一四12～16：</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-20" class="toc-link">一、 基督為著諸天之國的職事，不是憑屬地的權能，乃是憑屬天的大光開始。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-21" class="toc-link">二、 主耶穌不是開始一個運動或革命，乃是作為大光吸引門徒歸他自己，以建立...</a></li>
+          <li class="toc-item"><a href="#sec-22" class="toc-link" style="font-weight:700; color:var(--primary);">陸、 基督在為著國度呼召人跟從祂的事上，是盡職作醫生，並啟示他自己是新郎一九9～15...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-23" class="toc-link">一、 同坐席。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-24" class="toc-link">一、 他來作醫生，要醫治並點活我們，使我們能重新構成為諸天之國的公民—9...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-25" class="toc-link">二、 我們需要珍賞祂是新郎，好享受與祂同在的生活—14～15 節。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-26" class="toc-link">一、 成為肉體到十字架，是未漂過的布，為著作成新衣服。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-27" class="toc-link">二、 基督藉著死而復活，就作成了一件新衣服，在神面前作我們的義，遮蓋我們...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-28" class="toc-link">一、 新酒象徵個人的基督是新生命，滿有活力和激人的力量，使我們振奮 ，使...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-29" class="toc-link">二、 新皮袋象徵團體的基督，是外面的容器，盛裝著新酒—林前十二12。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-30" class="toc-link">一、 個身體，基督也是這樣。</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <h1>第八篇 認識並經歷馬太福音裡包羅萬有的基督</h1>
+      <h2>Message Eight: Knowing and Experiencing the All-inclusive Christ in Matthew</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>太二 1~2，三 11，四 12~16，八 20，十六 16，二一 5
+      </div>
+    </div>
+    <h3 class="section-h3" id="sec-1">壹、 基督是屬天的王—太二1~2 ，二</h3>
+    <div class="en-translation">I. Christ is the heavenly King—Matt. 2:1-2; 21:5:</div>
+    <h4 class="section-h4" id="sec-2">一、 5：</h4>
+    <div class="en-translation">A. Matthew proves that Jesus Christ is the King, the Messiah prophesied in the Old Testament—1:1, 17; 2:1-2; 27:11, 37.</div>
+    <h4 class="section-h4" id="sec-3">一、 馬太福音證明耶穌是君王，是舊約所豫言的彌賽亞——1 ，17 ，二1~2 ，</h4>
+    <div class="en-translation">B. The heavenly King did not come with haughty splendor but with gentle, humble meekness—21:5.</div>
+    <h4 class="section-h4" id="sec-4">二七、 11，37。</h4>
+    <div class="en-translation">A. The Christ refers to the anointed One of God and speaks of the Lord’s commission to accomplish God’s eternal purpose through His crucifixion, resurrection, ascension, and second coming—vv. 21, 27.</div>
+    <h4 class="section-h4" id="sec-5">四、 代；從大衛到遷徙巴比倫，也是十</h4>
+    <div class="en-translation">B. The Son of the living God speaks of His person, which embodies the Father and consummates in the Spirit for a full expression of the Triune God—John 14:10-11a; 1 Cor. 15:45b.</div>
+    <h4 class="section-h4" id="sec-6">四、 代；從遷徙巴比倫到基督，又是十</h4>
+    <div class="en-translation">A. Christ is the man who brings God’s dominion to earth and makes God’s name excellent on earth—9:6; 12:8; 13:41; 16:27-28.</div>
+    <h4 class="section-h4" id="sec-7">四、 代。</h4>
+    <div class="en-translation">B. In order for the kingdom of the heavens to be established, the Lord Jesus stood as a victorious man—a man who could defeat Satan and withstand any hardship, opposition, or attack—4:4; 12:40; 26:64.</div>
+    <h4 class="section-h4" id="sec-8">二、 這位屬天的王並不是高傲顯赫的來，乃是溫和、謙遜、溫柔的來——二一</h4>
+    <div class="en-translation">A. The Lord’s baptism in the Holy Spirit, which is based on His redemption, initiated the kingdom of the heavens, bringing His believers into the kingdom of the heavens—v. 12a.</div>
+    <h4 class="section-h4" id="sec-9">一、 『基督』意指神的受膏者，是到主的使命，要藉著他的死、復活、升天和再臨，完成神永遠的定旨——21 ，27節。</h4>
+    <div class="en-translation">B. The Lord’s baptism in fire, which is based on His judgment, will conclude the kingdom of the heavens, putting the unbelievers into the lake of fire—v. 12b.</div>
+    <h4 class="section-h4" id="sec-10">二、 『活神的兒子』是到主的身位，具體的表現父，並終結於那靈，使三一神得著完滿的彰顯——約十四10~11上，林前十五45 下。</h4>
+    <div class="en-translation">A. Christ’s ministry for the kingdom of the heavens began not with earthly power  but with heavenly light.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-11">參、 基督是人子——太八20，十一19，十三37，十六13：</h3>
+    <div class="en-translation">VI. In calling people to follow Him for the kingdom, Christ ministered as a Physician and revealed Himself as the Bridegroom—9:9-15:</div>
+    <h4 class="section-h4" id="sec-12">一、 基督就是那把神的管治權帶到地上，並使神的名在地上極其尊大的人一</h4>
+    <div class="en-translation">B. We need to appreciate Him as the Bridegroom that we might have the enjoyment of living in His presence—vv. 14-15.</div>
+    <h4 class="section-h4" id="sec-13">九、 6 ，十二8 ，十三41 ，十六 27~28  。</h4>
+    <div class="en-translation">A. From His incarnation to His crucifixion, He was the unfulled cloth for making a  new garment.</div>
+    <h4 class="section-h4" id="sec-14">二、 為著諸天之國的建立，主耶穌站在得勝之人的地位上一這人能擊敗撒但並抵擋任何艱難、反對和攻撃一</h4>
+    <div class="en-translation">B. Through His death and resurrection Christ was made a new garment to cover us as our righteousness before God that we might be justified by God and be acceptable to Him— 15:22; Gal. 3:27; 1 Cor. 1:30.</div>
+    <h4 class="section-h4" id="sec-15">四、 4，十二40，二六64。</h4>
+    <div class="en-translation">A. The new wine signifies the individual Christ as the new life, full of vigor and cheering strength, stirring us to excitement and satisfying us.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-16">肆、 基督是施浸者一三11：</h3>
+    <div class="en-translation">IX. Christ is the Shepherd and the Lord of the harvest—Matt. 9:35-38:</div>
+    <h4 class="section-h4" id="sec-17">一、 主在聖靈裏的浸，基於祂的救贖 ，引進了諸天的國，把信的人帶進諸天的國裏一12 節上。</h4>
+    <div class="en-translation">A. In His ministry for the establishing of His heavenly kingdom, the Lord Jesus ministered as a Shepherd—vv. 35-36.</div>
+    <h4 class="section-h4" id="sec-18">二、 主在火裏的浸，基於祂的審判，要結束諸天的國，把不信的人丟在火湖裏一12 節下。</h4>
+    <div class="en-translation">B. If we see the vision of Christ as the Lord of the harvest, we will beseech Him to thrust out workers into His harvest— vv. 37-38.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-19">伍、 基督是生命的光，照在死亡的黑暗中一四12～16：</h3>
+    <div class="en-translation">X. Christ is the Friend of sinners and the wisdom of God— 11:19: Matt. 11:19—The Son of Man came eating and drinking; and they say, Behold, a gluttonous man and a drunkard, a friend of tax collectors and sinners. Yet wisdom is justiﬁed by her works.</div>
+    <h4 class="section-h4" id="sec-20">一、 基督為著諸天之國的職事，不是憑屬地的權能，乃是憑屬天的大光開始。</h4>
+    <div class="en-translation">A. As the Friend of sinners, Christ sympathizes with their problems and senses their grief—v. 19a.</div>
+    <h4 class="section-h4" id="sec-21">二、 主耶穌不是開始一個運動或革命，乃是作為大光吸引門徒歸他自己，以建立諸天的國。</h4>
+    <div class="en-translation">B. Whatever Christ did was done by the wisdom of God, which is Himself; this wisdom was vindicated by His wise works—v. 19b; 1 Cor. 1:24, 30.</div>
+    <div class="divider"></div>
+    <h3 class="section-h3" id="sec-22">陸、 基督在為著國度呼召人跟從祂的事上，是盡職作醫生，並啟示他自己是新郎一九9～15：</h3>
+    <div class="en-translation">XI. Christ is the One who gives rest—Matt. 11:28-30:</div>
+    <h4 class="section-h4" id="sec-23">一、 同坐席。</h4>
+    <div class="en-translation">A. To take the Lord’s yoke is to take the will of the Father and to be constrained by the will of the Father—v. 29; John 4:34; 5:30; 6:38.</div>
+    <h4 class="section-h4" id="sec-24">一、 他來作醫生，要醫治並點活我們，使我們能重新構成為諸天之國的公民—9～13 節。</h4>
+    <div class="en-translation">B. Because the Lord was always satisfied with the Father’s will, He always had rest in His heart; now He asks us to learn from Him—Matt. 11:28-30.</div>
+    <h4 class="section-h4" id="sec-25">二、 我們需要珍賞祂是新郎，好享受與祂同在的生活—14～15 節。</h4>
+    <div class="en-translation">A. Jonah is a type of Christ in His death, burial, and resurrection—12:39-41.</div>
+    <h4 class="section-h4" id="sec-26">一、 成為肉體到十字架，是未漂過的布，為著作成新衣服。</h4>
+    <div class="en-translation">B. For the evil and adulterous Jewish and religious generation, the Lord Jesus would do nothing but die and be resurrected as the greatest sign to them that they might be saved if they would believe—16:4. XIII. Christ is the bread and crumbs under the table— 15:21-38:</div>
+    <h4 class="section-h4" id="sec-27">二、 基督藉著死而復活，就作成了一件新衣服，在神面前作我們的義，遮蓋我們，使我們能得神稱義，蒙祂悅納—十五22，加三27，林前一30。</h4>
+    <div class="en-translation">A. God’s economy is not a matter of outward things but of Christ coming into us as food—vv. 26, 34, 36.</div>
+    <h4 class="section-h4" id="sec-28">一、 新酒象徵個人的基督是新生命，滿有活力和激人的力量，使我們振奮 ，使我們滿足。</h4>
+    <div class="en-translation">B. We need to take in the edible Christ by eating Him as bread, even as the crumbs under the table—v. 27. XIV. Christ in His humanity is the resurrected One with all authority in heaven and on earth—28:18- 19:</div>
+    <h4 class="section-h4" id="sec-29">二、 新皮袋象徵團體的基督，是外面的容器，盛裝著新酒—林前十二12。</h4>
+    <div class="en-translation">A. In His humanity, as the Son of Man and the heavenly King, all authority was given to Christ after His resurrection—v. 18.</div>
+    <h4 class="section-h4" id="sec-30">一、 個身體，基督也是這樣。</h4>
+    <div class="en-translation">B. Because the Gospel of Matthew is concerned with the kingdom, and the kingdom requires authority, in Matthew Christ’s resurrection is a matter of authority for discipling the nations—v. 19. XV. The Gospel of Matthew is full of the riches of Christ; we need to worship Him, enjoy Him, and experience Him as the wonderful, all-inclusive One—2:11; 28:9, 17; 17:5.</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>

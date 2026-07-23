@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>二〇二六年六月半年度訓練綱要附經文（中英對照）- 總目錄</title>
+  <meta name="description" content="2026年六月半年度訓練綱要附經文（中英對照）全套 12 篇綱目電子排版與印刷線上導覽。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0f172a;
+      --accent: #b45309;
+      --accent-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --border: #e2e8f0;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Noto Serif TC', 'Inter', serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #ffffff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+      margin: 16px auto 0;
+      border-radius: 2px;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(180, 83, 9, 0.25);
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      color: #fef3c7;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 4px 14px;
+      border-radius: 20px;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      font-family: 'Inter', sans-serif;
+      color: #94a3b8;
+      font-size: 1rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 28px auto 0;
+      padding: 0 16px;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      background: var(--card-bg);
+      padding: 14px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .search-box {
+      flex: 1;
+      min-width: 240px;
+      position: relative;
+    }
+
+    .search-box input {
+      width: 100%;
+      padding: 10px 16px 10px 40px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-family: 'Inter', sans-serif;
+      outline: none;
+      transition: all 0.2s;
+    }
+
+    .search-box input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(180, 83, 9, 0.15);
+    }
+
+    .search-box svg {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      fill: var(--text-muted);
+      width: 18px;
+      height: 18px;
+    }
+
+    .stats {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    /* Entire Card as a Clickable Link Block */
+    .card {
+      display: block;
+      background: var(--card-bg);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      color: inherit;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-header-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .card-msg-no {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+    }
+
+    .arrow-icon {
+      color: var(--text-muted);
+      transition: transform 0.2s, color 0.2s;
+    }
+    .card:hover .arrow-icon {
+      color: var(--accent);
+      transform: translateX(4px);
+    }
+
+    .card-title-zh {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+      transition: color 0.2s;
+    }
+    .card:hover .card-title-zh {
+      color: var(--accent);
+    }
+
+    .card-title-en {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">二〇二六年六月半年度訓練</div>
+    <h1>綱要附經文（中英對照）</h1>
+    <p>Summer Training Outlines with Scripture Reading</p>
+  </header>
+
+  <main class="container">
+    <div class="toolbar">
+      <div class="search-box">
+        <svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+        <input type="text" id="searchInput" placeholder="搜尋篇章關鍵字、主題名稱..." onkeyup="filterCards()">
+      </div>
+      <div class="stats">共收錄 <strong id="cardCount">13</strong> 篇訓練綱目與訊息</div>
+    </div>
+
+    <div class="grid" id="cardsGrid">
+
+      <!-- 第一篇 -->
+      <a href="第一篇_門徒_信徒_聖徒和基督徒_綱目_printable.html" class="card" data-title="第一篇 門徒 信徒 聖徒 基督徒 Disciples Believers Saints Christians">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message One</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第一篇 門徒、信徒、聖徒和基督徒</h2>
+        <p class="card-title-en" lang="en">Disciples, Believers, Saints, and Christians</p>
+      </a>
+
+      <!-- 第二篇 -->
+      <a href="第二篇_永遠的生命_綱目_printable.html" class="card" data-title="第二篇 永遠的生命 Eternal Life">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Two</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第二篇 永遠的生命</h2>
+        <p class="card-title-en" lang="en">Eternal Life</p>
+      </a>
+
+      <!-- 第三篇 -->
+      <a href="第三篇_生命的麥子_好種_地上的鹽_世上的光_和得人的漁夫_綱目_printable.html" class="card" data-title="第三篇 生命的麥子 好種 地上的鹽 世上的光 得人的漁夫">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Three</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第三篇 生命的麥子、好種、地上的鹽、世上的光、和得人的漁夫</h2>
+        <p class="card-title-en" lang="en">Wheat of Life, Good Seed, Salt of the Earth, Light of the World, and Fishers of Men</p>
+      </a>
+
+      <!-- 第四篇 -->
+      <a href="第四篇_神的後嗣_綱目_printable.html" class="card" data-title="第四篇 神的後嗣 Heirs of God">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Four</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第四篇 神的後嗣</h2>
+        <p class="card-title-en" lang="en">Heirs of God</p>
+      </a>
+
+      <!-- 第五篇 -->
+      <a href="第五篇_活石和羊_綱目_printable.html" class="card" data-title="第五篇 活石和羊 Living Stones and Sheep">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Five</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第五篇 活石和羊</h2>
+        <p class="card-title-en" lang="en">Living Stones and Sheep</p>
+      </a>
+
+      <!-- 第六篇 -->
+      <a href="第六篇_神長子基督的眾弟兄_綱目_printable.html" class="card" data-title="第六篇 神長子基督的眾弟兄 Brothers of Christ">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Six</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第六篇 神長子基督的眾弟兄</h2>
+        <p class="card-title-en" lang="en">Brothers of Christ, the Firstborn Son of God</p>
+      </a>
+
+      <!-- 第七篇 -->
+      <a href="第七篇_蒙憐憫得尊貴和榮耀的器皿_麥粒_和葡萄樹的枝子_綱目_printable.html" class="card" data-title="第七篇 蒙憐憫得尊貴和榮耀的器皿 麥粒 葡萄樹的枝子">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Seven</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第七篇 蒙憐憫得尊貴和榮耀的器皿、麥粒、和葡萄樹的枝子</h2>
+        <p class="card-title-en" lang="en">Vessels of Mercy unto Honor and Glory, Grains of Wheat, and Branches of the Vine</p>
+      </a>
+
+      <!-- 第八篇 -->
+      <a href="第八篇_認識並經歷馬太福音裡包羅萬有的基督_綱目_printable.html" class="card" data-title="第八篇 認識並經歷馬太福音裡包羅萬有的基督 All-inclusive Christ">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Eight</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第八篇 認識並經歷馬太福音裡包羅萬有的基督</h2>
+        <p class="card-title-en" lang="en">Knowing and Experiencing the All-inclusive Christ in Matthew</p>
+      </a>
+
+      <!-- 第九篇 -->
+      <a href="第九篇_柱子和發光之體_綱目_printable.html" class="card" data-title="第九篇 柱子和發光之體 Pillars and Luminaries">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Nine</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第九篇 柱子和發光之體</h2>
+        <p class="card-title-en" lang="en">Pillars and Luminaries</p>
+      </a>
+
+      <!-- 第十篇 -->
+      <a href="第十篇_模成基督的死與達到傑出的復活_綱目_printable.html" class="card" data-title="第十篇 模成基督的死與達到傑出的復活 Conformed to His Death">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Ten</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第十篇 模成基督的死與達到傑出的復活</h2>
+        <p class="card-title-en" lang="en">Conformed to the Death of Christ and Attaining to the Out-Resurrection</p>
+      </a>
+
+      <!-- 第十一篇 -->
+      <a href="第十一篇_晨星_男孩子_初熟的果子_莊稼_以及碧玉和其他寶石_綱目_printable.html" class="card" data-title="第十一篇 晨星 男孩子 初熟的果子 莊稼 碧玉和寶石 Morning Star Overcomers">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Eleven</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第十一篇 晨星、男孩子、初熟的果子、莊稼、以及碧玉和其他寶石</h2>
+        <p class="card-title-en" lang="en">The Morning Star, the Man-child, the Firstfruits, the Harvest, and Jasper and Other Precious Stones</p>
+      </a>
+
+      <!-- 第十二篇 -->
+      <a href="第十二篇_新郎_新婦的成熟_以及作戰士擊敗神的仇敵_綱目_printable.html" class="card" data-title="第十二篇 新郎 新婦的成熟 作戰士擊敗神的仇敵 Bridegroom Bride Warriors">
+        <div class="card-header-flex">
+          <span class="card-msg-no">Message Twelve</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">第十二篇 新郎、新婦的成熟、以及作戰士擊敗神的仇敵</h2>
+        <p class="card-title-en" lang="en">The Bridegroom, the Maturity of the Bride, and Fighting as Warriors to Defeat the Enemy of God</p>
+      </a>
+
+      <!-- 第一百零一篇 -->
+      <a href="第一百零一篇_信徒_他們的身分三_全文.html" class="card" data-title="新約總論 信徒（一） 第一百零一篇 信徒 他們的身分三 神的後嗣 4063-05新約總論第五册 信徒一 Believers Their Status Heirs of God">
+        <div class="card-header-flex">
+          <span class="card-msg-no">神的後嗣</span>
+          <svg class="arrow-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </div>
+        <h2 class="card-title-zh">新約總論 信徒（一）</h2>
+        <p class="card-title-en" lang="en" style="font-style: normal; color: var(--primary);">第一百零一篇 信徒—他們的身分（三）全文</p>
+      </a>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 夏季訓練綱要排版版權所有 • 支援 A4 網頁直印與行動裝置瀏覽</p>
+  </footer>
+
+  <script>
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase().trim();
+      const cards = document.querySelectorAll('.card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.getAttribute('data-title').toLowerCase();
+        if (title.includes(input)) {
+          card.style.display = 'block';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      document.getElementById('cardCount').innerText = visibleCount;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>第一篇 門徒、信徒、聖徒和基督徒 - 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* -------------------------------------------------------------
+       1. Mobile First Design System & Core Reset
+       ------------------------------------------------------------- */
+    :root {
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --bg-drawer: #ffffff;
+      --bg-note: #f1f5f9;
+      --text-main: #1a1a1a;
+      --text-muted: #475569;
+      --text-light: #64748b;
+      --border-color: #e2e8f0;
+      --primary: #1e3a8a;
+      --primary-light: #eff6ff;
+      --accent: #b45309;
+      --accent-bg: #fffbeb;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.05);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.15);
+      --font-serif: 'Noto Serif TC', serif;
+      --font-sans: 'Noto Sans TC', 'Inter', sans-serif;
+      --touch-min: 44px;
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #0f172a;
+      --bg-card: #1e293b;
+      --bg-drawer: #1e293b;
+      --bg-note: #1e293b;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+      --border-color: #334155;
+      --primary: #60a5fa;
+      --primary-light: rgba(59, 130, 246, 0.15);
+      --accent: #f59e0b;
+      --accent-bg: rgba(245, 158, 11, 0.15);
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.4);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.5);
+      --shadow-lg: 0 10px 25px rgba(0,0,0,0.6);
+    }
+
+    [data-theme="warm"] {
+      --bg-body: #fbf7ee;
+      --bg-card: #fffdf8;
+      --bg-drawer: #fffdf8;
+      --bg-note: #f5efe0;
+      --text-main: #2c251e;
+      --text-muted: #6e6052;
+      --text-light: #9a8a78;
+      --border-color: #e8ded0;
+      --primary: #92400e;
+      --primary-light: #fef3c7;
+      --accent: #b45309;
+      --accent-bg: #fef3c7;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    
+    body {
+      font-family: var(--font-serif);
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: 1.125rem;
+      padding-bottom: 76px;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, #3b82f6, #f59e0b);
+      width: 0%; z-index: 1100; transition: width 0.1s;
+    }
+
+    /* -------------------------------------------------------------
+       2. Clean Navigation Header
+       ------------------------------------------------------------- */
+    .top-header {
+      position: sticky; top: 0; z-index: 900;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 12px 16px;
+      display: flex; justify-content: center; align-items: center;
+      transition: background-color 0.3s, border-color 0.3s;
+    }
+    [data-theme="dark"] .top-header { background: rgba(30, 41, 59, 0.92); }
+    [data-theme="warm"] .top-header { background: rgba(255, 253, 248, 0.92); }
+
+    .brand-title {
+      font-family: var(--font-sans);
+      font-size: 0.95rem; font-weight: 700;
+      color: var(--primary);
+      display: flex; align-items: center; gap: 6px;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+      text-align: center;
+    }
+    .brand-title span { color: var(--text-muted); font-weight: 400; }
+
+    /* -------------------------------------------------------------
+       3. Off-Canvas Drawer (Mobile) / Left Sidebar (Desktop)
+       ------------------------------------------------------------- */
+    .drawer-overlay {
+      position: fixed; inset: 0; background: rgba(0, 0, 0, 0.5);
+      z-index: 1000; opacity: 0; visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      backdrop-filter: blur(3px);
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: min(88vw, 360px); background: var(--bg-drawer);
+      z-index: 1050; transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex; flex-direction: column;
+      box-shadow: var(--shadow-lg); font-family: var(--font-sans);
+      font-size: inherit;
+    }
+    .drawer.active { transform: translateX(0); }
+
+    .drawer-header {
+      padding: 16px; border-bottom: 1px solid var(--border-color);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .drawer-title { font-size: 0.9em; font-weight: 700; color: var(--accent); }
+
+    .drawer-body {
+      flex: 1; overflow-y: auto; padding: 16px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .search-box { position: relative; margin-bottom: 16px; }
+    .search-input {
+      width: 100%; min-height: 42px; padding: 8px 12px 8px 36px;
+      border: 1px solid var(--border-color); border-radius: 8px;
+      background: var(--bg-body); color: var(--text-main);
+      font-size: 0.85em; font-family: var(--font-sans); outline: none;
+    }
+    .search-icon {
+      position: absolute; left: 10px; top: 50%;
+      transform: translateY(-50%); color: var(--text-light); pointer-events: none;
+    }
+    .search-count { font-size: 0.75em; color: var(--accent); margin-top: 4px; text-align: right; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 4px; }
+    .toc-link {
+      display: block; padding: 8px 10px; border-radius: 8px;
+      color: var(--text-muted); text-decoration: none;
+      font-size: 0.82em; line-height: 1.45; min-height: 40px;
+      transition: all 0.2s;
+    }
+    .toc-link:active, .toc-link.active {
+      background: var(--primary-light); color: var(--primary); font-weight: 700;
+    }
+    .toc-sub { padding-left: 18px; border-left: 2px solid var(--border-color); margin-left: 8px; }
+
+    .btn-touch {
+      min-width: 36px; min-height: 36px;
+      background: transparent; border: 1px solid var(--border-color);
+      color: var(--text-main); border-radius: 8px;
+      padding: 4px 8px; font-size: 0.85em; font-family: var(--font-sans);
+      cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+      touch-action: manipulation;
+    }
+
+    /* -------------------------------------------------------------
+       4. Main Content Container
+       ------------------------------------------------------------- */
+    .main-container {
+      width: 100%; padding: 16px 12px;
+    }
+
+    .article-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px 16px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .doc-header {
+      text-align: center;
+      padding-bottom: 20px;
+      border-bottom: 2px solid var(--primary);
+      margin-bottom: 24px;
+      scroll-margin-top: 64px;
+    }
+    .doc-header .sub-tag {
+      font-family: var(--font-sans);
+      font-size: 0.8em;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 1.5px;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+    }
+    .doc-header h1 {
+      font-size: 1.65em;
+      font-weight: 900;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      line-height: 1.35;
+    }
+    .doc-header h2 {
+      font-size: 1.05em;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .scripture-box {
+      font-family: var(--font-sans);
+      font-size: 0.85em;
+      color: var(--text-muted);
+      background: var(--bg-note);
+      border: 1px solid var(--border-color);
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: inline-block;
+      line-height: 1.6;
+    }
+
+    .section-h3 {
+      font-size: 1.2em;
+      font-weight: 700;
+      color: var(--primary);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      padding-left: 10px;
+      border-left: 4px solid var(--accent);
+      scroll-margin-top: 64px;
+      line-height: 1.45;
+    }
+    .section-h4 {
+      font-size: 1.05em;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 18px;
+      margin-bottom: 6px;
+      scroll-margin-top: 64px;
+      line-height: 1.4;
+    }
+
+    .en-translation {
+      font-family: var(--font-sans);
+      font-size: 0.84em;
+      color: var(--text-light);
+      font-style: italic;
+      margin-top: 2px;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+
+    ul, ol {
+      padding-left: 20px;
+      margin-bottom: 12px;
+    }
+    li {
+      margin-bottom: 8px;
+      font-size: 0.96em;
+      line-height: 1.7;
+    }
+    .sub-item-text {
+      color: var(--text-muted);
+    }
+    .divider {
+      height: 1px;
+      background: var(--border-color);
+      margin: 22px 0;
+    }
+
+    mark.highlight {
+      background-color: #fef08a; color: #000; border-radius: 3px; padding: 1px 2px;
+    }
+    [data-theme="dark"] mark.highlight { background-color: #854d0e; color: #fff; }
+
+    /* -------------------------------------------------------------
+       5. Bottom Floating Action Bar
+       ------------------------------------------------------------- */
+    .bottom-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 850;
+      width: 100%; background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border-color);
+      padding: 6px 6px; display: flex; justify-content: space-evenly; align-items: center;
+      transition: background-color 0.3s;
+    }
+    [data-theme="dark"] .bottom-bar { background: rgba(30, 41, 59, 0.95); }
+    [data-theme="warm"] .bottom-bar { background: rgba(255, 253, 248, 0.95); }
+
+    .bottom-action-btn {
+      flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: 2px; background: none; border: none; color: var(--text-muted); text-decoration: none;
+      font-size: 0.72rem; font-family: var(--font-sans); cursor: pointer;
+      min-height: 48px; touch-action: manipulation; transition: color 0.2s;
+    }
+    .bottom-action-btn svg { width: 19px; height: 19px; }
+    .bottom-action-btn:active { color: var(--primary); }
+
+    /* -------------------------------------------------------------
+       6. Responsive Desktop Enhancements
+       ------------------------------------------------------------- */
+    @media (min-width: 1024px) {
+      body { padding-bottom: 80px; }
+      .top-header { padding: 14px 32px; }
+      .brand-title { font-size: 1.05rem; }
+
+      .app-layout {
+        display: flex; max-width: 1380px; margin: 0 auto;
+      }
+
+      .drawer-overlay { display: none !important; }
+      .drawer {
+        position: sticky; top: 55px; height: calc(100vh - 55px);
+        transform: none !important; width: 340px; flex-shrink: 0;
+        border-right: 1px solid var(--border-color); box-shadow: none;
+        z-index: 10;
+      }
+      .drawer-header { display: none; }
+
+      .main-container {
+        flex: 1; max-width: calc(100% - 340px); padding: 40px 48px;
+      }
+
+      .article-card {
+        max-width: 860px; margin: 0 auto; padding: 48px 56px;
+      }
+
+      .doc-header h1 { font-size: 2.1em; }
+
+      .bottom-bar {
+        left: 50%; transform: translateX(-50%); right: auto;
+        width: auto; border-radius: 30px; margin-bottom: 14px;
+        padding: 6px 24px; border: 1px solid var(--border-color);
+        box-shadow: var(--shadow-lg); gap: 24px; justify-content: center;
+      }
+      .bottom-action-btn { flex: initial; min-width: 60px; }
+    }
+
+    /* Print Optimization */
+    @media print {
+      .top-header, .drawer, .bottom-bar, #progress-bar { display: none !important; }
+      .main-container { padding: 0; width: 100%; }
+      .article-card { border: none; box-shadow: none; padding: 0; }
+      body { background: #fff; color: #000; font-size: 12pt; line-height: 1.6; }
+      .section-h3 { page-break-after: avoid; border-left-color: #000; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Progress Bar -->
+  <div id="progress-bar"></div>
+
+  <!-- Top Header -->
+  <header class="top-header">
+    <div class="brand-title">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+      二〇二六年六月半年度訓練 <span>／ 綱要附經文</span>
+    </div>
+  </header>
+
+  <!-- App Layout -->
+  <div class="app-layout">
+
+    <!-- Drawer / Sidebar -->
+    <div class="drawer-overlay" id="drawer-overlay"></div>
+    <aside class="drawer" id="drawer">
+      <div class="drawer-header">
+        <span class="drawer-title">綱要段落導覽</span>
+        <button class="btn-touch" id="btn-drawer-close" aria-label="關閉選單">✕</button>
+      </div>
+      <div class="drawer-body">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" class="search-input" placeholder="搜尋內文關鍵字..." autocomplete="off">
+          <div id="search-count" class="search-count"></div>
+        </div>
+
+        <ul class="toc-list">
+          <li class="toc-item"><a href="#doc-top" class="toc-link" style="font-weight:700; color:var(--primary);">■ 篇章頂部 / 經文</a></li>
+          <li class="toc-item"><a href="#sec-1" class="toc-link" style="font-weight:700; color:var(--primary);">壹、 我們是基督的門徒，就是跟從基督，並照著那在耶穌身上是實際者（就是耶穌一生的真實...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-2" class="toc-link">一、 我們正在從一個天然的人被訓練成一個神人，照著基督這第一個神人的榜樣...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-3" class="toc-link">二、 我們學基督，就是藉著吃基督而被基督頂替；那在耶穌身上是實際者（耶穌...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-4" class="toc-link">三、 我們學基督，是藉著每早晨被祂喚醒，使我們能有受教者的耳朵和舌頭，好...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-5" class="toc-link">四、 我們學基督作那心裡柔和謙卑者，祂的軛是容易的，祂的擔子是輕省的，並...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-6" class="toc-link">五、 我們學基督作那內住於我們之充足的祕訣，使我們在祂人性的美德裡彰顯神...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-7" class="toc-link">六、 我們照著基督愛和赦免的心並祂牧養和尋找的靈，學基督作那喜愛憐憫者—...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-8" class="toc-link">七、 門徒跟從主三年半，看見主所作的、主如何行事為人並如何說話；吹入他們...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-9" class="toc-link">八、 主耶穌是在復活中，不憑自己，乃憑另一個源頭—祂的父—而過人性生活的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-10" class="toc-link">九、 主的門徒有三一神真實的同在作他們的大喜樂，而使他們成為那有『耶穌的...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-11" class="toc-link">十、 跟從基督的人受門徒訓練，乃是藉著基督在地上的人性生活，作為神人的模...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-12" class="toc-link">十一、 『我在主的恢復中觀察倪柝聲弟兄如何行事為人十八年之久。我在他身上...</a></li>
+          <li class="toc-item"><a href="#sec-13" class="toc-link" style="font-weight:700; color:var(--primary);">貳、 我們是基督裡的信徒，就是憑神兒子的信得生並活著的人；信廢除我們，並使我們活神、...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-14" class="toc-link">一、 在基督裡的信徒（約三 15～16）已經從亞當裡遷到基督裡，（林前十...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-15" class="toc-link">二、 人聽見基督，認識祂，欣賞祂，珍賞祂，就在人裡面生發出信，叫人相信祂...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-16" class="toc-link">三、 信來自聽見話；當我們聽見基督，在神寫出來的話裡接觸祂這神活的話，祂...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-17" class="toc-link">四、 聽信仰喚起我們愛的珍賞，我們越愛主，信就越運行，帶我們進入那包羅萬...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-18" class="toc-link">五、 羅馬十二章三節，『不要看自己過於所當看的，乃要照著神所分給各人信心...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-19" class="toc-link">六、 我們信徒在以下與基督的關係裡憑信而活：</a></li>
+          <li class="toc-item"><a href="#sec-20" class="toc-link" style="font-weight:700; color:var(--primary);">參、 我們是神的聖徒，是被分別且聖別歸神的人—羅一 7，林前一 2，30，參民六 1...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-21" class="toc-link">一、 我們在地位上，藉祂救贖的血已經得著聖別—來十三 12。</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-22" class="toc-link">二、 我們在性質上，藉祂聖別的性情正在被聖化—帖後二 13，來二 10~...</a></li>
+          <li class="toc-item"><a href="#sec-23" class="toc-link" style="font-weight:700; color:var(--primary);">肆、 我們是基督徒，基督人，與基督是一，因著與基督生機的聯結，有祂作我們全備供應的內...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-24" class="toc-link">一、 作基督徒的目標，以及神在祂的經綸裡為我們所定的定命，乃是要我們憑那...</a></li>
+          <li class="toc-item toc-sub"><a href="#sec-25" class="toc-link">二、 每一個基督徒在地上，都有主在他身上所定的特別路程，作基督盡功用的肢...</a></li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Container -->
+    <main class="main-container">
+      <article class="article-card" id="article-body">
+        
+        <div id="doc-top"></div>
+        
+        <div class="doc-header">
+      <div class="sub-tag">二〇二六年六月半年度訓練</div>
+
+        <!-- 頂部線上導覽列 (列印時會自動隱藏) -->
+    
+
+    
+      <h1>第一篇 門徒、信徒、聖徒和基督徒</h1>
+      <h2>Message One: Disciples, Believers, Saints, and Christians</h2>
+      <div class="scripture-box">
+        <strong>讀經：</strong>馬太福音五 1，二八 19，哥林多後書六 14～16，哥林多前書一 2，彼得前書四 16
+      </div>
+    </div>
+
+    <h3 class="section-h3" id="sec-1">壹、 我們是基督的門徒，就是跟從基督，並照著那在耶穌身上是實際者（就是耶穌一生的真實光景，如四福音所記載的）而學基督的人；這是在基督的經歷裏經歷基督，好使我們能成為祂生機的繁殖和複製，使祂得著祂自己團體的彰顯，而在召會中並在新耶路撒冷裏得著榮耀—太五 1，二八 19，弗四 20～24，三 21，賽四三 7，啟二一 11。</h3>
+    <div class="en-translation">I. We are disciples of Christ, those who are following and learning Christ according to the reality that is in Jesus, which is the actual condition of the God-man living of Jesus recorded in the four Gospels; this is to experience Christ in His experiences so that we might become His organic reproduction and duplication for Him to have a corporate expression of Himself for His glory in the church and in the New Jerusalem—Matt. 5:1; 28:19; Eph. 4:20-24; 3:21; Isa. 43:7; Rev. 21:11.</div>
+
+    <h4 class="section-h4" id="sec-2">一、 我們正在從一個天然的人被訓練成一個神人，照著基督這第一個神人的榜樣，否認我們天然的生命，而活神聖的生命；這就是學基督，並在祂裡面照著那在耶穌身上是實際者受教導，好在我們心思的靈裡被神的話更新，使我們成為新的、團體的神人—弗四 23，申十七 18～20。</h4>
+    <div class="en-translation">A. We are being discipled from being a natural man to being a God-man, living the divine life by denying our natural life according to the model of Christ as the first God-man; this is to learn Christ and be taught in Him as the reality is in Jesus, to be renewed in the spirit of our mind by the word of God so that we may become a new and corporate God-man—Eph. 4:23; Deut. 17:18-20.</div>
+    <ol>
+      <li>『你們若住在我的話裡，就真是我的門徒；你們必認識真理，真理必叫你們得以自由』—約八 31～32，36，十五 7。<div class="en-translation">1. "If you abide in My word, you are truly My disciples; and you shall know the truth, and the truth shall set you free"—John 8:31-32, 36; 15:7.</div></li>
+      <li>我們禱讀主話，並有耳可聽那靈藉著話語職事向眾召會所說的話，就藉著心思的更新而變化，受主訓練作門徒—弗六 17~18，啟二 7，羅十二 2，弗四 23。<div class="en-translation">2. By the prayerful reading of the Scriptures and by having an ear to hear what the Spirit says to the churches through the ministry of the word, we are being discipled by the Lord through being transformed by the renewing of our mind—Eph. 6:17-18; Rev. 2:7; Rom. 12:2; Eph. 4:23.</div></li>
+      <li>我們的心思得更新，乃是在一切對人生事物的觀念上，受聖經的教訓和聖靈的光照，以接受神新的思想，而有的去舊更新—詩一一九 105，130。<div class="en-translation">3. For us to be renewed in our mind is to get rid of all the old concepts concerning the things of the human life through receiving the new thoughts of God by the teaching of the Holy Scriptures and the enlightening of the Holy Spirit—Psa. 119:105, 130.</div></li>
+      <li>我們要作主的門徒，在基督自己這生命裏得救，而在生命中作王，勝過撒但、罪與死，就必須被神的聖言重新構成，好使我們受祂的話指教、管治、管理並控制—羅五 10，17，申十七 18~20，提後三 15~17。<div class="en-translation">4. In order to be the Lord's disciples who are being saved in Christ Himself as life to reign in life over Satan, sin, and death, we must be reconstituted with the holy word of God so that we may be instructed, governed, ruled, and controlled by the word of God—Rom. 5:10, 17; Deut. 17:18-20; 2 Tim. 3:15-17.</div></li>
+    </ol>
+
+    <h4 class="section-h4" id="sec-3">二、 我們學基督，就是藉著吃基督而被基督頂替；那在耶穌身上是實際者（耶穌個人的神人生活），得以成為基督身體的實際（團體基督的神人生活），乃是藉著我們吃基督以享受祂作供應，供給我們，加力量給我們，加強我們，並使我們有能力，以揀選並實行神的旨意，使祂在召會中得榮耀—約六 57，賽七 14~15，約十七 4，來五 8，腓二 8，約六 63，耶十五 16，來四 16，羅五 5，17，十二 2，林後五 14，弗三 20~21。</h4>
+    <div class="en-translation">B. To learn Christ is for us to be replaced with Christ by eating Christ; the reality that is in Jesus (the God-man living of the individual Jesus) becomes the reality of the Body of Christ (the God-man living of the corporate Christ) by our eating Christ to enjoy Christ as our supplying, energizing, empowering, and enabling supply, so that we may choose and carry out the will of God for His glory in the church—John 6:57; Isa. 7:14-15; John 17:4; Heb. 5:8; Phil. 2:8; John 6:63; Jer. 15:16; Heb. 4:16; Rom. 5:5, 17; 12:2; 2 Cor. 5:14; Eph. 3:20-21.</div>
+
+    <h4 class="section-h4" id="sec-4">三、 我們學基督，是藉著每早晨被祂喚醒，使我們能有受教者的耳朵和舌頭，好用言語扶助疲乏的人；我們是主的門徒、受教者，應當依賴祂，信靠祂的名，不自行造光—賽五十 4~5，10~11。</h4>
+    <div class="en-translation">C. We are learning Christ by being awakened by Him morning by morning so that we can have the ear and tongue of an instructed one to sustain the weary with a word; as the Lord's disciples, His instructed ones, we should rely on Him, trust in His name, and not generate our own light—Isa. 50:4-5, 10-11.</div>
+
+    <h4 class="section-h4" id="sec-5">四、 我們學基督作那心裡柔和謙卑者，祂的軛是容易的，祂的擔子是輕省的，並且祂將自己賜給我們，作我們魂的安息（完全的平安和完滿的滿足）—太十一 28~30。</h4>
+    <div class="en-translation">D. We are learning Christ as the One who is meek and lowly in heart, as the One whose yoke is easy and whose burden is light, and as the One who gives us Himself as rest (perfect peace and full satisfaction) for our souls—Matt. 11:28-30.</div>
+
+    <h4 class="section-h4" id="sec-6">五、 我們學基督作那內住於我們之充足的祕訣，使我們在祂人性的美德裡彰顯神的屬性，在各種環境、光景和境遇中活基督以顯大基督—腓四 5~13。</h4>
+    <div class="en-translation">E. We are learning Christ as our indwelling secret of sufficiency to express God's attributes in Christ's human virtues, living Him for His magnification in every kind of environment, situation, and circumstance—Phil. 4:5-13.</div>
+
+    <h4 class="section-h4" id="sec-7">六、 我們照著基督愛和赦免的心並祂牧養和尋找的靈，學基督作那喜愛憐憫者—太九 12~13。</h4>
+    <div class="en-translation">F. We are learning Christ as the One who desires mercy according to His loving and forgiving heart and His shepherding and seeking spirit—Matt. 9:12-13.</div>
+
+    <h4 class="section-h4" id="sec-8">七、 門徒跟從主三年半，看見主所作的、主如何行事為人並如何說話；吹入他們裡面的生命與實際之靈，（約二十 22，）要引導他們進入他們對主所觀察之一切的實際。（十六 13。）</h4>
+    <div class="en-translation">G. The disciples who followed the Lord for three and a half years saw what He did, how He behaved, and how He spoke; the Spirit of life and of reality who was breathed into them (John 20:22) would guide them into all the reality of what they had observed of the Lord (16:13).</div>
+
+    <h4 class="section-h4" id="sec-9">八、 主耶穌是在復活中，不憑自己，乃憑另一個源頭—祂的父—而過人性生活的人；當我們憑另一個生命—內住於我們的基督—而在人性裡活著，這種生活就使我們成為主真正的門徒。</h4>
+    <div class="en-translation">H. The Lord Jesus was a person living a human life in resurrection, not by Himself but by another source, that is, His Father; when we live in our humanity by another life, by the Christ who indwells us, this kind of living makes us the Lord's genuine disciples.</div>
+
+    <h4 class="section-h4" id="sec-10">九、 主的門徒有三一神真實的同在作他們的大喜樂，而使他們成為那有『耶穌的人性』的人，對他們所接觸者是甜美、迷人、吸引人的，毫無虛假或偽善—太一 23，詩四三 4，羅十四 17，尼八 10，腓一 25，四 5，8~9，提前四 15~16。</h4>
+    <div class="en-translation">I. The disciples of the Lord have the real presence of the Triune God as their exceeding joy to make them persons who are "Jesusly human," those who are sweet, charming, and attractive to those whom they contact, without any deception or hypocrisy—Matt. 1:23; Psa. 43:4; Rom. 14:17; Neh. 8:10; Phil. 1:25; 4:5, 8-9; 1 Tim. 4:15-16.</div>
+
+    <h4 class="section-h4" id="sec-11">十、 跟從基督的人受門徒訓練，乃是藉著基督在地上的人性生活，作為神人的模型—藉著在人性裡否認祂自己而活神；（約五 19，30；）這徹底改變了他們關於人的觀念。（腓三 10，一 21 上。）</h4>
+    <div class="en-translation">J. The followers of Christ were discipled through Christ's human living on the earth, as the model of a God-man—living God by denying Himself in humanity (John 5:19, 30), revolutionizing their concept concerning man (Phil. 3:10; 1:21a).</div>
+
+    <h4 class="section-h4" id="sec-12">十一、 『我在主的恢復中觀察倪柝聲弟兄如何行事為人十八年之久。我在他身上所觀察到的一切，都成了將我構成門徒的事物。』（李常受文集一九九四至一九九七年第五冊，活力排，一○二頁。）</h4>
+    <div class="en-translation">K. "I was in the recovery observing how Brother Watchman Nee acted for eighteen years. All that I observed in him became things discipling me" (The Collected Works of Witness Lee, 1994–1997, vol. 5, "The Vital Groups," p. 76).</div>
+
+    <div class="divider"></div>
+
+    <h3 class="section-h3" id="sec-13">貳、 我們是基督裡的信徒，就是憑神兒子的信得生並活著的人；信廢除我們，並使我們活神、彰顯神、且將神供應到人裡面—林後六 14~16，羅一 17，來十一 6，加二 20。</h3>
+    <div class="en-translation">II. We are believers in Christ, those who have life and live by the faith of the Son of God; faith annuls us and causes us to live God, to express God, and to minister God into people—2 Cor. 6:14-16; Rom. 1:17; Heb. 11:6; Gal. 2:20.</div>
+
+    <h4 class="section-h4" id="sec-14">一、 在基督裡的信徒（約三 15～16）已經從亞當裡遷到基督裡，（林前十五 22，）已經重生成為在基督裡的新造，（林後五 17，）現今在基督永遠的生命裡與祂聯結，並與基督聯合成為一靈（林前六 17）。</h4>
+    <div class="en-translation">A. The believers in Christ (John 3:15-16) have been transferred from Adam into Christ (1 Cor. 15:22), they have been regenerated to be a new creation in Christ (2 Cor. 5:17), they are united with Christ in His eternal life, and they are joined to Christ to be one spirit with Him (1 Cor. 6:17).</div>
+    <ol>
+      <li>我們在基督裡的信徒已經出生兩次，第一次出生為天然的人，但有一天我們再次出生，成為有神聖、永遠生命之重生的人—約三 6～7。<div class="en-translation">1. As believers in Christ, we have been generated twice; we were generated the first time to be the natural man, but one day we were regenerated to be born anew with the divine, eternal life—John 3:6-7.</div></li>
+      <li>我們的第二張出生證明（屬靈出生證明），見於羅馬八章十六節，那裡說，那靈同我們的靈見證我們是神的兒女；我們神聖與奧祕的出生證明乃是一個雙重的靈，就是那靈同我們的靈（我們的靈已與主成為一靈）。<div class="en-translation">2. Our second birth certificate of our spiritual birth is seen in Romans 8:16, which says that the Spirit witnesses with our spirit that we are children of God; our divine and mystical birth certificate is a double spirit, the Spirit with our spirit, which has become one spirit with the Lord.</div></li>
+    </ol>
+
+    <h4 class="section-h4" id="sec-15">二、 人聽見基督，認識祂，欣賞祂，珍賞祂，就在人裡面生發出信，叫人相信祂；這樣，祂就成了人裡面對祂的信—來十二 2。</h4>
+    <div class="en-translation">B. When man hears Christ, knows Him, appreciates Him, and treasures Him, He causes faith to be generated in man, enabling man to believe in Him; thus, He becomes the faith in man by which man believes in Him—Heb. 12:2.</div>
+
+    <h4 class="section-h4" id="sec-16">三、 信來自聽見話；當我們聽見基督，在神寫出來的話裡接觸祂這神活的話，祂就成了應用的話，作為那靈分賜到我們裡面，成為我們的信；因此，神化身在基督裡，又實化為那靈，與我們的靈調和，這就是信—羅十 17，約一 1，五 39～40，六 63。</h4>
+    <div class="en-translation">C. Faith comes out of the hearing of the word; when we hear Christ and contact Him as the living word of God in the written word of God, He becomes the applied word as the Spirit dispensed into us to be our faith; thus, God embodied in Christ and realized as the Spirit mingled with our spirit is faith—Rom. 10:17; John 1:1; 5:39-40; 6:63.</div>
+
+    <h4 class="section-h4" id="sec-17">四、 聽信仰喚起我們愛的珍賞，我們越愛主，信就越運行，帶我們進入那包羅萬有之靈的豐富和益處裡—加三 2，5，五 6。</h4>
+    <div class="en-translation">D. The hearing of faith awakens our loving appreciation, and the more we love the Lord, the more faith operates to bring us into the riches, the profit, of the all-inclusive Spirit—Gal. 3:2, 5; 5:6.</div>
+
+    <h4 class="section-h4" id="sec-18">五、 羅馬十二章三節，『不要看自己過於所當看的，乃要照著神所分給各人信心的度量，看得清明適度』：</h4>
+    <div class="en-translation">E. Romans 12:3 says, "Not to think more highly of himself than he ought to think, but to think so as to be sober-minded, as God has apportioned to each a measure of faith":</div>
+    <ol>
+      <li>看自己過於所當看的，而不清明適度，就是抹煞身體生活中正確的等次；神給我們的信心，在質上是同樣的，在量上卻是不同的；量的多少乃在於我們如何長大；如果我們今天像使徒保羅一樣長大，我們所接受那一分的信心就要大大的擴充。<div class="en-translation">1. To think more highly of ourselves than we ought to think without a sober mind annuls the proper order of the Body life; God gave us the same faith in quality but not in quantity; the matter of quantity depends upon how we grow; if we grow today as the apostle Paul grew, the portion of faith we receive will be greatly enlarged.</div></li>
+      <li>神分給我們多少信心，乃在於我們的態度；如果我們不是清明適度的，（看自己過於所當看的，不看別人比自己強，以及自以為是甚麼，其實我們甚麼也不是，）神就不會在分給我們的信心上增加度量，甚至可能會把它減少—腓二 2~3，加六 3，林前八 1~3。<div class="en-translation">2. How much faith God apportions to us depends upon our attitude; if we are not sober-minded (thinking more highly of ourselves than we ought to think, not considering one another more excellent than ourselves, and thinking that we are something when we are nothing), God would not increase His apportioning of faith to us, and He probably would even decrease it—Phil. 2:2-3; Gal. 6:3; 1 Cor. 8:1-3.</div></li>
+    </ol>
+
+    <h4 class="section-h4" id="sec-19">六、 我們信徒在以下與基督的關係裡憑信而活：</h4>
+    <div class="en-translation">F. We believers live by faith in the following relationships with Christ:</div>
+    <ol>
+      <li>基督是葡萄樹，我們是祂的枝子—約十五 1~8。<div class="en-translation">1. Christ is the vine, and we are His branches—John 15:1-8.</div></li>
+      <li>基督是頭，我們是祂的肢體—林前十二 27。<div class="en-translation">2. Christ is the Head, and we are His members—1 Cor. 12:27.</div></li>
+      <li>基督是生命的氣、生命的水、生命的糧，我們是呼吸、喫、喝祂的人—約二十 22，四 10，14，七 37~39 上，六 35，51~63，68。<div class="en-translation">3. Christ is the breath of life, the water of life, and the bread of life, and we are His breathers, eaters, and drinkers—John 20:22; 4:10, 14; 7:37-39a; 6:35, 51-63, 68.</div></li>
+      <li>基督是新郎，我們是祂的新婦—三 29，弗五 25~27，啟十九 7~9，林後十一 2~3。<div class="en-translation">4. Christ is the Bridegroom, and we are His bride—3:29; Eph. 5:25-27; Rev. 19:7-9; 2 Cor. 11:2-3.</div></li>
+      <li>基督是孤兒的父，我們是孤兒，成了祂的兒女，享受祂的照顧和拯救（含示祂每天的救拔和解救）—約十四 18，詩六八 5~6，賽九 6，二二 19~22，約一 12~13，十四 10，詩一○七 1~43，一一○ 4，啟二 1，7，來七 25，羅五 10。<div class="en-translation">5. Christ is the Father of the orphans, and we are the orphans who have become His children, enjoying His care and deliverance, which imply His rescue and saving every day—John 14:18; Psa. 68:5-6; Isa. 9:6; 22:19-22; John 1:12-13; 14:10; Psa. 107:1-43; 110:4; Rev. 2:1, 7; Heb. 7:25; Rom. 5:10.</div></li>
+      <li>基督是我們的醫生，我們是祂的病人，享受祂作我們的醫治者，成為我們的赦免、享受、喜樂、滿足和自由—出十五 23~26，可二 1~三 6。<div class="en-translation">6. Christ is our Physician, and we are His patients, enjoying Him as our Healer to be our forgiveness, enjoyment, joy, satisfaction, and freedom—Exo. 15:23-26; Mark 2:1—3:6.</div></li>
+      <li>基督是世界的光，我們是跟從祂的人，使我們得著生命的光，並成為擴散神聖之光的透光體—約八 12，太五 14~16，腓二 12~16，約壹一 5，7，9，啟二一 23。<div class="en-translation">7. Christ is the light of the world, and we are His followers so that we may have the light of life and be His diffuser to spread the divine light—John 8:12; Matt. 5:14-16; Phil. 2:12-16; 1 John 1:5, 7, 9; Rev. 21:23.</div></li>
+    </ol>
+
+    <div class="divider"></div>
+
+    <h3 class="section-h3" id="sec-20">參、 我們是神的聖徒，是被分別且聖別歸神的人—羅一 7，林前一 2，30，參民六 1~9。</h3>
+    <div class="en-translation">III. We are saints of God, those who have been separated and made holy unto God—Rom. 1:7; 1 Cor. 1:2, 30; cf. Num. 6:1-9.</div>
+
+    <h4 class="section-h4" id="sec-21">一、 我們在地位上，藉祂救贖的血已經得著聖別—來十三 12。</h4>
+    <div class="en-translation">A. We have been sanctified with His redeeming blood positionally—Heb. 13:12.</div>
+
+    <h4 class="section-h4" id="sec-22">二、 我們在性質上，藉祂聖別的性情正在被聖化—帖後二 13，來二 10~11，林前六 11，弗五 26，帖前五 23~24。</h4>
+    <div class="en-translation">B. We are being sanctified with His holy nature dispositionally—2 Thes. 2:13; Heb. 2:10-11; 1 Cor. 6:11; Eph. 5:26; 1 Thes. 5:23-24.</div>
+
+    <div class="divider"></div>
+
+    <h3 class="section-h3" id="sec-23">肆、 我們是基督徒，基督人，與基督是一，因著與基督生機的聯結，有祂作我們全備供應的內容，好在日常生活中活祂，使祂得以顯大—徒十一 26，二六 28，彼前四 16，林前六 17，林後四 7，腓一 19~21 上。</h3>
+    <div class="en-translation">IV. We are Christians, Christ-men, those who are one with Christ, having Christ as our bountifully supplying contents in an organic union with Him to live Him for His magnification in our daily life—Acts 11:26; 26:28; 1 Pet. 4:16; 1 Cor. 6:17; 2 Cor. 4:7; Phil. 1:19-21a.</div>
+
+    <h4 class="section-h4" id="sec-24">一、 作基督徒的目標，以及神在祂的經綸裡為我們所定的定命，乃是要我們憑那靈生活行動，好活基督，使神得著榮耀，就是得著彰顯—加二 20，五 16，25，六 17，賽四三 7，林前六 20，十 31。</h4>
+    <div class="en-translation">A. The goal of being a Christian and the destiny that God has ordained for us in His economy is for us to walk by the Spirit in order to live Christ for God's glory, His expression—Gal. 2:20; 5:16, 25; 6:17; Isa. 43:7; 1 Cor. 6:20; 10:31.</div>
+
+    <h4 class="section-h4" id="sec-25">二、 每一個基督徒在地上，都有主在他身上所定的特別路程，作基督盡功用的肢體，為著祂身體的建造；這路程需要每一個基督徒自己走，沒有人能取代他，他也不能取代任何人—徒十三 22，25，36，二十 24，林前九 24，十二 14~22，提後四 7~8。</h4>
+    <div class="en-translation">B. Every Christian on this earth has a special journey that the Lord has assigned to him as a functioning member of Christ for the building up of His Body; he has to take the journey himself; no one else can replace him, nor can he replace anyone else—Acts 13:22, 25, 36; 20:24; 1 Cor. 9:24; 12:14-22; 2 Tim. 4:7-8.</div>
+
+      </article>
+    </main>
+  </div>
+
+  <!-- Bottom Floating Action Bar -->
+  <div class="bottom-bar">
+    <a href="index.html" class="bottom-action-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+      <span>返回目錄</span>
+    </a>
+    <button class="bottom-action-btn" id="bar-drawer-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg>
+      <span>綱要導覽</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-theme-btn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      <span>切換主題</span>
+    </button>
+    <button class="bottom-action-btn" id="bar-font-btn">
+      <span style="font-weight: 700; font-size: 1.1rem;">A+</span>
+      <span>字體大小</span>
+    </button>
+    <button class="bottom-action-btn" onclick="window.print()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+      <span>列印</span>
+    </button>
+  </div>
+
+  <script>
+    // Mobile Drawer Logic
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawer-overlay');
+    const drawerCloseBtn = document.getElementById('btn-drawer-close');
+    const barDrawerBtn = document.getElementById('bar-drawer-btn');
+    const tocLinks = document.querySelectorAll('.toc-link');
+
+    function openDrawer() {
+      drawer.classList.add('active');
+      drawerOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('active');
+      drawerOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    barDrawerBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          closeDrawer();
+        }
+      });
+    });
+
+    // Theme Switcher (light, dark, warm)
+    const themes = ['light', 'dark', 'warm'];
+    let currentThemeIdx = 0;
+    const barThemeBtn = document.getElementById('bar-theme-btn');
+
+    function switchTheme() {
+      currentThemeIdx = (currentThemeIdx + 1) % themes.length;
+      const theme = themes[currentThemeIdx];
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('outline_theme', theme);
+    }
+
+    barThemeBtn.addEventListener('click', switchTheme);
+
+    const savedTheme = localStorage.getItem('outline_theme');
+    if (savedTheme && themes.includes(savedTheme)) {
+      currentThemeIdx = themes.indexOf(savedTheme);
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+
+    // Multi-step Font Adjuster
+    const fontLevels = [
+      { size: '1rem', height: '1.7' },
+      { size: '1.125rem', height: '1.7' },
+      { size: '1.3rem', height: '1.65' },
+      { size: '1.5rem', height: '1.6' },
+      { size: '1.75rem', height: '1.55' },
+      { size: '2rem', height: '1.5' }
+    ];
+    
+    let currentFontIdx = 1;
+    const barFontBtn = document.getElementById('bar-font-btn');
+
+    function applyFontLevel(idx) {
+      currentFontIdx = idx;
+      const level = fontLevels[currentFontIdx];
+      document.body.style.fontSize = level.size;
+      document.body.style.lineHeight = level.height;
+      localStorage.setItem('outline_font_idx', currentFontIdx);
+    }
+
+    function adjustFontSize() {
+      const nextIdx = (currentFontIdx + 1) % fontLevels.length;
+      applyFontLevel(nextIdx);
+    }
+
+    barFontBtn.addEventListener('click', adjustFontSize);
+
+    const savedFontIdx = localStorage.getItem('outline_font_idx');
+    if (savedFontIdx !== null && !isNaN(savedFontIdx)) {
+      const parsedIdx = parseInt(savedFontIdx, 10);
+      if (parsedIdx >= 0 && parsedIdx < fontLevels.length) {
+        applyFontLevel(parsedIdx);
+      }
+    }
+
+    // Scroll Progress & Active TOC Link
+    const progressBar = document.getElementById('progress-bar');
+    const sections = document.querySelectorAll('h3[id], h4[id], div[id="doc-top"]');
+
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      progressBar.style.width = scrolled + '%';
+
+      let currentSecId = '';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 80;
+        if (winScroll >= top) {
+          currentSecId = sec.getAttribute('id');
+        }
+      });
+
+      tocLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === '#' + currentSecId) {
+          link.classList.add('active');
+        }
+      });
+    });
+
+    // Live Search & Highlighting
+    const searchInput = document.getElementById('search-input');
+    const searchCount = document.getElementById('search-count');
+    const articleBody = document.getElementById('article-body');
+    const originalHtml = articleBody.innerHTML;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      if (!query) {
+        articleBody.innerHTML = originalHtml;
+        searchCount.textContent = '';
+        return;
+      }
+
+      const escapedQuery = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      const regex = new RegExp(`(${escapedQuery})`, 'gi');
+      const tempDiv = document.createElement('div');
+      tempDiv.innerHTML = originalHtml;
+
+      let matchCount = 0;
+
+      function highlightNode(node) {
+        if (node.nodeType === 3) {
+          const text = node.nodeValue;
+          if (regex.test(text)) {
+            const matches = text.match(regex);
+            matchCount += matches ? matches.length : 0;
+            const span = document.createElement('span');
+            span.innerHTML = text.replace(regex, '<mark class="highlight">$1</mark>');
+            node.parentNode.replaceChild(span, node);
+          }
+        } else if (node.nodeType === 1 && !['SCRIPT', 'STYLE', 'INPUT'].includes(node.tagName)) {
+          Array.from(node.childNodes).forEach(highlightNode);
+        }
+      }
+
+      highlightNode(tempDiv);
+      articleBody.innerHTML = tempDiv.innerHTML;
+      searchCount.textContent = matchCount > 0 ? `找到 ${matchCount} 處符合` : '未找到符合結果';
+    });
+  </script>
+</body>
+</html>
