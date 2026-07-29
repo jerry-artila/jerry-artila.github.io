@@ -500,11 +500,19 @@ body {
 
 .section-heading.level-1-heading {
   display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-  border-bottom: 2px dashed var(--border-color);
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background-color 0.2s ease, padding 0.2s ease;
+  border-radius: 10px;
+  padding: 0.4rem;
+  margin-left: -0.4rem;
+  margin-right: -0.4rem;
 }
 
 .section-heading.reading-heading {
@@ -523,18 +531,15 @@ body {
 }
 
 .numeral {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  min-width: 2.2em;
-  height: 2.2em;
-  background: var(--primary);
+  background: transparent;
   color: #ffffff;
-  font-size: 1.2em;
+  font-size: 1em;
   font-weight: 700;
-  border-radius: 10px;
-  flex-shrink: 0;
-  box-shadow: var(--shadow-sm);
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
 }
 
 .level-1-heading h3 {
@@ -549,6 +554,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .item-block.level-2-item {
@@ -724,6 +731,179 @@ body {
     width: 100%;
     text-align: center;
   }
+}
+
+/* Hub / Index Page Cards */
+.hub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+
+.hub-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.75rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+
+.hub-card:hover {
+  border-color: var(--primary);
+  background: var(--bg-accent);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.hub-card-icon {
+  font-size: 2.2rem;
+  margin-bottom: 0.6rem;
+}
+
+.hub-card-title {
+  font-size: 1.15em;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.hub-card-desc {
+  font-size: 0.85em;
+  color: var(--text-muted);
+  margin-top: 0.4rem;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Accordion Styles for 綱目.html
+   ========================================================================== */
+.accordion-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.btn-accordion-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.85rem;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 8px;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-accordion-toggle:hover {
+  background: var(--primary-light);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Level 1 Accordion Heading */
+.section-heading.level-1-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0;
+  border-bottom: none;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  transition: background-color 0.2s ease, padding 0.2s ease;
+  border-radius: 10px;
+  padding: 0.4rem;
+  margin-left: -0.4rem;
+  margin-right: -0.4rem;
+}
+
+.section-heading.level-1-heading:hover {
+  background: var(--bg-accent);
+}
+
+.level-1-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: var(--primary);
+  color: #ffffff;
+  padding: 0.5rem 0.85rem;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95em;
+  box-shadow: var(--shadow-sm);
+}
+
+.accordion-arrow {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: #ffffff;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.1rem;
+}
+
+/* Level 1 Collapsed State */
+.outline-section.collapsed .section-body {
+  display: none !important;
+}
+
+.outline-section.collapsed .accordion-arrow {
+  transform: rotate(-90deg);
+}
+
+.outline-section.collapsed .section-heading.level-1-heading {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+/* Level 2 Accordion Item */
+.level-2-item.has-children .item-title {
+  cursor: pointer;
+  user-select: none;
+  border-radius: 8px;
+  padding: 0.35rem 0.5rem;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.level-2-item.has-children .item-title:hover {
+  background: var(--bg-primary);
+}
+
+.level-2-item.collapsed .level-3-list {
+  display: none !important;
+}
+
+.level-2-item .sub-accordion-arrow {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.25s ease;
+  margin-left: auto;
+  flex-shrink: 0;
+  display: inline-block;
+  padding: 0.2rem;
+}
+
+.level-2-item.collapsed .sub-accordion-arrow {
+  transform: rotate(-90deg);
 }
 
 @media (min-width: 992px) {

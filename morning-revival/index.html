@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 首頁 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-20px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <!-- Font Size Toggle Button -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">20px</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="index.html" class="toc-link level-1 active">🏠 首頁</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="經文.html" class="toc-link level-1">📖 經文匯總</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h2 class="sub-title" style="margin-bottom: 1.25rem;">
+            主題：門徒、信徒、聖徒和基督徒
+          </h2>
+
+          <!-- Line 1: 綱目 & 經文 -->
+          <div class="daily-nav-container" style="border-top: none; padding-top: 0; margin-bottom: 0.85rem;">
+            <a href="綱目.html" class="daily-link-btn" style="padding: 0.5rem 1.25rem; font-size: 0.95em; font-weight: 700;">綱目</a>
+            <a href="經文.html" class="daily-link-btn" style="padding: 0.5rem 1.25rem; font-size: 0.95em; font-weight: 700;">經文</a>
+          </div>
+
+          <!-- Line 2: 週一 ～ 週六 -->
+          <div class="daily-nav-container" style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
+            <a href="週一.html" class="daily-link-btn">週一</a>
+            <a href="週二.html" class="daily-link-btn">週二</a>
+            <a href="週三.html" class="daily-link-btn">週三</a>
+            <a href="週四.html" class="daily-link-btn">週四</a>
+            <a href="週五.html" class="daily-link-btn">週五</a>
+            <a href="週六.html" class="daily-link-btn">週六</a>
+          </div>
+        </div>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

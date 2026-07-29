@@ -130,4 +130,93 @@ document.addEventListener('DOMContentLoaded', () => {
   }, observerOptions);
 
   sections.forEach(section => observer.observe(section));
+
+  // ==========================================================================
+  // 5. Accordion Functionality for 綱目.html (Default Collapsed)
+  // ==========================================================================
+  const outlineSections = document.querySelectorAll('.outline-section');
+  const level2Items = document.querySelectorAll('.level-2-item');
+
+  // Level 1 Accordion Toggle (第壹大點...) - Collapsed by default
+  outlineSections.forEach(section => {
+    section.classList.add('collapsed');
+    const heading = section.querySelector('.level-1-heading');
+    if (heading) {
+      const topBar = heading.querySelector('.level-1-top-bar') || heading;
+      if (!topBar.querySelector('.accordion-arrow')) {
+        const arrow = document.createElement('span');
+        arrow.className = 'accordion-arrow';
+        arrow.innerHTML = '▼';
+        topBar.appendChild(arrow);
+      }
+
+      heading.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        section.classList.toggle('collapsed');
+      });
+    }
+  });
+
+  // Level 2 Accordion Toggle (一、二、三...) - Collapsed by default
+  level2Items.forEach(item => {
+    const list = item.querySelector('.level-3-list');
+    const title = item.querySelector('.item-title');
+    if (list && title) {
+      item.classList.add('has-children');
+      item.classList.add('collapsed');
+      if (!title.querySelector('.sub-accordion-arrow')) {
+        const arrow = document.createElement('span');
+        arrow.className = 'sub-accordion-arrow';
+        arrow.innerHTML = '▼';
+        title.appendChild(arrow);
+      }
+
+      title.addEventListener('click', (e) => {
+        if (e.target.tagName === 'A' || e.target.closest('a')) return;
+        item.classList.toggle('collapsed');
+      });
+    }
+  });
+
+  // Expand All / Collapse All Buttons
+  const expandAllBtn = document.getElementById('expand-all-btn');
+  const collapseAllBtn = document.getElementById('collapse-all-btn');
+
+  if (expandAllBtn) {
+    expandAllBtn.addEventListener('click', () => {
+      outlineSections.forEach(s => s.classList.remove('collapsed'));
+      level2Items.forEach(i => i.classList.remove('collapsed'));
+    });
+  }
+
+  if (collapseAllBtn) {
+    collapseAllBtn.addEventListener('click', () => {
+      outlineSections.forEach(s => s.classList.add('collapsed'));
+      level2Items.forEach(i => i.classList.add('collapsed'));
+    });
+  }
+
+  // Auto-expand target when hash or TOC link clicked
+  function expandTarget(targetId) {
+    if (!targetId) return;
+    const targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      const parentSection = targetEl.closest('.outline-section');
+      if (parentSection) parentSection.classList.remove('collapsed');
+      const parentItem = targetEl.closest('.level-2-item');
+      if (parentItem) parentItem.classList.remove('collapsed');
+    }
+  }
+
+  // Check URL hash on page load
+  if (window.location.hash) {
+    expandTarget(window.location.hash.replace('#', ''));
+  }
+
+  // Expand when clicking TOC link
+  tocLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      expandTarget(link.getAttribute('href')?.replace('#', ''));
+    });
+  });
 });
