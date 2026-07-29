@@ -69,21 +69,26 @@ body.theme-dark {
 }
 
 /* ==========================================================================
-   Font Size Cycles (12pt / 14pt / 16pt)
+   Font Size Cycles (14px / 16px / 18px / 20px)
    ========================================================================== */
-body.font-12pt {
-  font-size: 12pt; /* 16px */
+body.font-14px {
+  font-size: 14px;
   --base-line-height: 1.7;
 }
 
-body.font-14pt {
-  font-size: 14pt; /* ~18.67px - Default */
+body.font-16px {
+  font-size: 16px;
   --base-line-height: 1.75;
 }
 
-body.font-16pt {
-  font-size: 16pt; /* ~21.33px */
+body.font-18px {
+  font-size: 18px;
   --base-line-height: 1.8;
+}
+
+body.font-20px {
+  font-size: 20px;
+  --base-line-height: 1.85;
 }
 
 /* Base Styles */
