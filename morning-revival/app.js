@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // 1. Font Size Cycling (16px -> 18px -> 20px -> 14px -> 16px)
+  // 1. Font Size Cycling (20px -> 22px -> 24px -> 20px)
   // ==========================================================================
-  const fontSizes = ['16px', '18px', '20px', '14px'];
+  const fontSizes = ['20px', '22px', '24px'];
   const fontSizeBtn = document.getElementById('font-size-btn');
   const fontSizeLabel = document.getElementById('font-size-label');
 
-  // Load initial font size from localStorage or default to 16px
-  let currentFontSize = localStorage.getItem('outline_font_size') || '16px';
+  // Load initial font size from localStorage or default to 20px
+  let currentFontSize = localStorage.getItem('outline_font_size') || '20px';
   if (!fontSizes.includes(currentFontSize)) {
-    currentFontSize = '16px';
+    currentFontSize = '20px';
   }
 
   function applyFontSize(size) {
