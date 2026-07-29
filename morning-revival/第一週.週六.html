@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 週六 | 2026年六月 半年度訓練《信徒（一）》</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-14pt theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>2026年六月 半年度訓練《信徒（一）》</h1>
+        <span class="badge">第一週 • 週六</span>
+      </div>
+
+      <div class="header-controls">
+        <a href="綱目.html" class="btn-control" title="前往綱目總覽頁面">
+          📋 <span class="btn-label mobile-hidden">綱目總覽</span>
+        </a>
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (12pt / 14pt / 16pt 循環)">
+          <span class="btn-icon-text">A</span>
+          <span id="font-size-label" class="btn-label">14pt</span>
+        </button>
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="#sec-outline" class="toc-link level-1">📌 本日綱要要點</a></li>
+          <li>
+            <a href="#sec-nourishment" class="toc-link level-1">🌱 晨興餧養</a>
+            <ul>
+              <li><a href="#nourishment-verses" class="toc-link level-2">亮點經文</a></li>
+              <li><a href="#nourishment-text" class="toc-link level-2">餧養內文</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#sec-reading" class="toc-link level-1">📖 信息選讀</a>
+            <ul>
+              <li><a href="#read-1" class="toc-link level-2">「基督徒」名稱的正向意義</a></li>
+              <li><a href="#read-2" class="toc-link level-2">與基督生機的聯結</a></li>
+              <li><a href="#read-3" class="toc-link level-2">作基督徒的目標與定命</a></li>
+              <li><a href="#read-4" class="toc-link level-2">基督是生命，基督是生活</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="toc-quick-links">
+          <a href="綱目.html" class="nav-link-item"><span>📋 前往完整綱目總覽</span></a>
+        </div>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h1 class="main-title">2026年六月 半年度訓練《信徒（一）》</h1>
+          <h2 class="sub-title">第一週 門徒、信徒、聖徒和基督徒 — 週六進度</h2>
+          <div class="scripture-box">
+            <span class="scripture-label">📖 本日經節：</span>
+            <span class="scripture-text">加拉太書 二章 20 節</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Outline Point -->
+        <section id="sec-outline" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">肆</span>
+            <h3>我們是基督徒，基督人，與基督是一，因着與基督生機的聯結，有祂作我們全備供應的內容，好在日常生活中活祂，使祂得以顯大——徒十一26，二六28，彼前四16，林前六17，林後四7，腓一19~21上：</h3>
+          </div>
+
+          <div class="section-body">
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>作基督徒的目標，以及神在祂的經綸裏為我們所定的定命，乃是要我們憑那靈生活行動，好活基督，使神得着榮耀，就是得着彰顯——加二20，五16、25，六17，賽四三7，林前六20，十31。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>每一個基督徒在地上，都有主在他身上所定的特別路程，作基督盡功用的肢體，為着祂身體的建造；這路程需要每一個基督徒自己走，沒有人能取代他，他也不能取代任何人——徒十三22、25、36，二十24，林前九24。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Morning Nourishment -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌱</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加二20</span>
+              『我已經與基督同釘十字架；現在活着的，不再是我，乃是基督在我裏面活着；並且我如今在肉身裏所活的生命，是我在神兒子的信裏，與祂聯結所活的，祂是愛我，為我舍了自己。』
+            </div>
+          </div>
+
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              在新約裏，信徒也稱為基督徒〔徒十一26，二六28〕。……在行傳十一章二十六節，『基督徒』是羞辱的名稱。在安提阿的門徒給人加上這樣羞辱的綽號，指明他們必定為主作了剛強的見證，使頁面在不信的人眼中顯得不同且特別。（《新約總論第五冊》，九九頁）
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Selected Reading -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+              <h4 class="reading-sub-heading">「基督徒」名稱的正向意義</h4>
+              <p class="content-paragraph">
+                在彼得和保羅的時代，基督徒是羞辱的名稱，但今天這名稱該有正面的意義，指明他們是屬基督的人，與基督是一；他們不僅屬於祂，更因與祂生機的聯結，有祂的生命和性情，並且在日常生活中憑祂而活，甚至活祂。我們若因是這樣的人而受苦，就不該覺得羞恥，倒要憑聖別佳美的品行放膽承認，以顯大基督，在這名裏榮耀（彰顯）神。
+              </p>
+            </div>
+
+            <div id="read-2">
+              <h4 class="reading-sub-heading">與基督生機的聯結</h4>
+              <p class="content-paragraph">
+                當我們相信基督，我們與祂之間就發生了生機的聯結。藉著相信基督，我們信入祂，藉此與祂成為一靈（林前六17）。這就是我們所說生機的聯結一辭的意義。…我們與基督生機的聯結，也包含我們浸入基督（加三27）。神在祂經綸裏的心意，是要將我們放在基督裏面，並要基督進入我們裏面，活在我們裏面。
+              </p>
+            </div>
+
+            <div id="read-3">
+              <h4 class="reading-sub-heading">作基督徒的目標與定命</h4>
+              <p class="content-paragraph">
+                聖經裏的中心思想是：基督必須是我們的生命，我們必須活祂作我們的生活。作基督徒的目標是活基督。不僅如此，神在祂的經綸裏為我們所定的定命，乃是我們活基督。神的經綸是要將祂自己分賜到我們裏面，將自己作到我們裏面，使我們接受基督作我們的生命和生命的供應以活祂。
+              </p>
+            </div>
+
+            <div id="read-4">
+              <h4 class="reading-sub-heading">在裏面基督是生命，在外面基督是生活</h4>
+              <p class="content-paragraph">
+                在加拉太二章二十節保羅宣告：『基督在我裏面活着。』保羅不僅能說基督在他裏面活着，也能說在他，活着就是基督〔腓一21〕。一面，基督活在保羅裏面；另一面，保羅活基督。在裏面，基督是保羅的生命；在外面，基督是保羅的生活。保羅與基督因此同有一個生命，同過一個生活。基督的生命就是保羅的生命，保羅的生活就是基督的生活。基督與保羅，兩個活着如同一個。（《新約總論第五冊》，一○○至一○四頁）
+              </p>
+            </div>
+
+            <div class="ref-note">
+              <strong>📚 參讀：</strong>《生命的認識》第十四篇；《腓立比書生命讀經》第二十九篇。
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>2026年六月半年度訓練《信徒（一）》 — 淡水會所晨興聖言網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

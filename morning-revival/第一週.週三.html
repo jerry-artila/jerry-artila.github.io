@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 週三 | 2026年六月 半年度訓練《信徒（一）》</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-14pt theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>2026年六月 半年度訓練《信徒（一）》</h1>
+        <span class="badge">第一週 • 週三</span>
+      </div>
+
+      <div class="header-controls">
+        <a href="綱目.html" class="btn-control" title="前往綱目總覽頁面">
+          📋 <span class="btn-label mobile-hidden">綱目總覽</span>
+        </a>
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (12pt / 14pt / 16pt 循環)">
+          <span class="btn-icon-text">A</span>
+          <span id="font-size-label" class="btn-label">14pt</span>
+        </button>
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="#sec-outline" class="toc-link level-1">📌 本日綱要要點</a></li>
+          <li>
+            <a href="#sec-nourishment" class="toc-link level-1">🌱 晨興餧養</a>
+            <ul>
+              <li><a href="#nourishment-verses" class="toc-link level-2">亮點經文</a></li>
+              <li><a href="#nourishment-text" class="toc-link level-2">餧養內文</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#sec-reading" class="toc-link level-1">📖 信息選讀</a>
+            <ul>
+              <li><a href="#read-1" class="toc-link level-2">成全聖言建造身體</a></li>
+              <li><a href="#read-2" class="toc-link level-2">神人耶穌的生活與榜樣</a></li>
+              <li><a href="#read-3" class="toc-link level-2">成全神人的團體生活</a></li>
+              <li><a href="#read-4" class="toc-link level-2">在基督復活裏的相調</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="toc-quick-links">
+          <a href="綱目.html" class="nav-link-item"><span>📋 前往完整綱目總覽</span></a>
+        </div>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h1 class="main-title">2026年六月 半年度訓練《信徒（一）》</h1>
+          <h2 class="sub-title">第一週 門徒、信徒、聖徒和基督徒 — 週三進度</h2>
+          <div class="scripture-box">
+            <span class="scripture-label">📖 本日經節：</span>
+            <span class="scripture-text">羅馬書 十二章 5 節、腓立比書 三章 10 節</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Outline Point -->
+        <section id="sec-outline" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">壹</span>
+            <h3>我們是基督的門徒，就是跟從基督，並照着那在耶穌身上是實際者而學基督的人：</h3>
+          </div>
+
+          <div class="section-body">
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>我們學基督，就是藉着喫基督而被基督頂替；那在耶穌身上是實際者（耶穌個人的神人生活），得以成為基督身體的實際（團體基督的神人生活）——約六57，來五8。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>我們學基督，是藉着每早晨被祂喚醒，使我們能有受教者的耳朵和舌頭——賽五十4~5。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">四、</span>
+                <p>我們學基督作那心裏柔和謙卑者，祂的軛是容易的，祂的擔子是輕省的——太十一28~30。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">五、</span>
+                <p>我們學基督作那內住於我們之充足的祕訣，在各種環境中活基督以顯大基督——腓四5~13。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">六、</span>
+                <p>我們照着基督愛和赦免的心並祂牧養和尋找的靈，學基督作那喜愛憐憫者——太九12~13。</p>
+              </div>
+            </div>
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">七~十一、</span>
+                <p>吹入我們裏面的生命與實際之靈引導我們進入實際；不憑自己乃憑內住的基督而在人性裏活着，有三一神真實的同在——太一23，約二十22。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Morning Nourishment -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌱</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅十二5</span>
+              『我們這許多人，在基督裏是一個身體，並且各個互相作肢體，也是如此。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">腓三10</span>
+              『使我認識基督、並祂復活的大能、以及同祂受苦的交通，模成祂的死。』
+            </div>
+          </div>
+
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              〔有些人〕可能認為主的恢復只是為着地方召會的恢復。我說『不錯』，然而有一個『但是』。…地方召會有許多顯於物質事物的方面。你必須安排長老、設立執事，以照顧許多外面的事務。但就基督的身體而言，沒有物質的事物。地方召會幾乎百分之九十是物質的，但卻該是為着屬靈的一面，這屬靈的一面就是基督的身體。
+            </p>
+            <p class="content-paragraph">
+              基督身體的實際乃是一種團體的生活，不是個人的生活。這團體的生活是許多聖徒的集大成，這些聖徒被他們裏面那經過過程並終極完成的神所救贖、重生、聖別並變化。藉着這內住之終極完成的神，這些蒙救贖的聖徒就被作成實際的神人。（《李常受文集一九九四至一九九七年第一冊》，一五七頁）
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Selected Reading -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+              <h4 class="reading-sub-heading">成全聖徒建造基督的身體</h4>
+              <p class="content-paragraph">
+                一個人在重生時就成為神人，但還不是成熟的神人。…召會工作的手續是生、養，然後教導並成全，好叫聖徒能彀成熟，在地方召會中被建造，為着建造基督的身體。
+              </p>
+            </div>
+
+            <div id="read-2">
+              <h4 class="reading-sub-heading">神人耶穌的生活與榜樣</h4>
+              <p class="content-paragraph">
+                我們知道，神成為人，來作神人。…祂向祂的門徒和百姓顯為真正的人。…但這人不憑自己活，不憑祂自己人的生命活。相反的，祂拒絕祂屬人的生命。祂否認自己。…祂告訴我們，凡祂所作，凡祂所說的，都不是出於祂自己，而是出於差祂來的父（約十四10、24）。祂是一個真實的人活在那裏，但卻向祂天然的生命死。…祂向天然的生命死，就是十字架；祂憑着神的生命而活，就是在復活裏。
+              </p>
+            </div>
+
+            <div id="read-3">
+              <h4 class="reading-sub-heading">成全神人的團體生活</h4>
+              <p class="content-paragraph">
+                這生命現今已經在許多人身上被重複、複製出來，這些人蒙了救贖、重生，如今在他們裏面有神的生命。…基督身體的實際乃是被成全之神人所過的團體生活，他們是真正的人，但他們不憑自己的生命，乃憑經過過程之神的生命而活；經過過程之神的屬性藉着他們的美德彰顯出來。
+              </p>
+              <p class="content-paragraph">
+                保羅活着，是藉死而活〔加二20上〕。他向他天然的人死，而憑他的新人同神聖的生命活着。所以他說，藉着耶穌基督之靈全備的供應，他活基督，並顯大基督（腓一19~21上）。
+              </p>
+            </div>
+
+            <div id="read-4">
+              <h4 class="reading-sub-heading">在基督復活裏的相調</h4>
+              <p class="content-paragraph">
+                假若在我們中間有這樣的生活（即使不是全部，至少也是部分），那麼基督身體的實際就在我們中間了。…任何一個人過這樣一種調和的生活，就絕不會成為任何人的難處。他們已經蒙拯救脫離自己，得着變化，得着成全了。他們不藐視別人，不定罪別人，也不受別人的攪擾。（《李常受文集一九九四至一九九七年第一冊》，一五七至一六二頁）
+              </p>
+            </div>
+
+            <div class="ref-note">
+              <strong>📚 參讀：</strong>《關於相調的實行》第四至五章；《神人的生活》第一至二、八、十至十一、十三至十五篇。
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>2026年六月半年度訓練《信徒（一）》 — 淡水會所晨興聖言網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

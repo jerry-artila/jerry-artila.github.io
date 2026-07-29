@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 週一 | 2026年六月 半年度訓練《信徒（一）》</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-14pt theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>2026年六月 半年度訓練《信徒（一）》</h1>
+        <span class="badge">第一週 • 週一</span>
+      </div>
+
+      <div class="header-controls">
+        <!-- Back to Outline Page Button -->
+        <a href="綱目.html" class="btn-control" title="前往綱目總覽頁面">
+          📋 <span class="btn-label mobile-hidden">綱目總覽</span>
+        </a>
+
+        <!-- Font Size Toggle Button (12pt / 14pt / 16pt) -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (12pt / 14pt / 16pt 循環)">
+          <span class="btn-icon-text">A</span>
+          <span id="font-size-label" class="btn-label">14pt</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li>
+            <a href="#sec-outline" class="toc-link level-1">📌 本日綱要要點</a>
+          </li>
+          <li>
+            <a href="#sec-nourishment" class="toc-link level-1">🌱 晨興餧養</a>
+            <ul>
+              <li><a href="#nourishment-verses" class="toc-link level-2">亮點經文</a></li>
+              <li><a href="#nourishment-text" class="toc-link level-2">餧養內文</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#sec-reading" class="toc-link level-1">📖 信息選讀</a>
+            <ul>
+              <li><a href="#read-1" class="toc-link level-2">跟從基督與學基督</a></li>
+              <li><a href="#read-2" class="toc-link level-2">從天然人受訓成神人</a></li>
+              <li><a href="#read-3" class="toc-link level-2">第一個神人的模型</a></li>
+              <li><a href="#read-4" class="toc-link level-2">召會生活是訓練的生活</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="toc-quick-links">
+          <a href="綱目.html" class="nav-link-item">
+            <span>📋 前往完整綱目總覽</span>
+          </a>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h1 class="main-title">2026年六月 半年度訓練《信徒（一）》</h1>
+          <h2 class="sub-title">第一週 門徒、信徒、聖徒和基督徒 — 週一進度</h2>
+          <div class="scripture-box">
+            <span class="scripture-label">📖 本日經節：</span>
+            <span class="scripture-text">馬太福音 九章 9 節、十一章 29 節</span>
+          </div>
+        </div>
+
+        <!-- Section 1: Outline Point -->
+        <section id="sec-outline" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">壹</span>
+            <h3>我們是基督的門徒，就是跟從基督，並照着那在耶穌身上是實際者（就是耶穌神人生活的真實光景，如四福音所記載的）而學基督的人；這是在基督的經歷裏經歷祂，好使我們能成為祂生機的繁殖和複製，使祂得着祂自己團體的彰顯，而在召會中並在新耶路撒冷裏得着榮耀——太五1，二八19，弗四20~24，三21，賽四三7，啟二一11：</h3>
+          </div>
+
+          <div class="section-body">
+            <div class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>我們正在從一個天然的人被訓練成一個神人，照着基督這第一個神人的榜樣，否認我們天然的生命，而活神聖的生命；這就是學基督，並在祂裏面照着那在耶穌身上是實際者受教導，好在我們心思的靈裏被神的話更新，使我們成為新的、團體的神人——弗四23：</p>
+              </div>
+              <ul class="level-3-list">
+                <li><span class="sub-num">1.</span> 『你們若住在我的話裏，就真是我的門徒；你們必認識真理，真理必叫你們得以自由』——約八31~32、36，十五7。</li>
+                <li><span class="sub-num">2.</span> 我們禱讀主話，並有耳可聽那靈藉着話語職事向眾召會所說的話，就藉着心思的更新而變化，受主訓練作門徒——弗六17~18。</li>
+                <li><span class="sub-num">3.</span> 我們的心思得更新，乃是在一切對人生事物的觀念上，受聖經的教訓和聖靈的光照，以接受神新的思想，而有的去舊更新。</li>
+                <li><span class="sub-num">4.</span> 我們要作主的門徒，在基督自己這生命裏得救，而在生命中作王，勝過撒但、罪與死，就必須被神的聖言重新構成，好使我們受祂的話指教、管治、管理並控制——羅五10、17，申十七18~20，提後三15~17。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌱</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">太九9</span>
+              『耶穌從那裏往前走，看見一個人名叫馬太，坐在稅關上，就對他說，跟從我。他就起來，跟從了耶穌。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">太十一29</span>
+              『我心裏柔和謙卑，因此你們要負我的軛，且要跟我學，你們魂裏就必得安息。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              首先，信徒被稱為門徒。『門徒』一辭在福音書和使徒行傳裏常常使用，但在書信裏完全沒有用到。〔在〕馬太五章一節…基督在山上坐下，祂的門徒（不是那些群眾）到祂跟前來，作祂的聽眾。…聚集在祂周圍的群眾是外圈，但祂的門徒是內圈。這些門徒是猶太信徒。然而，當他們在山上聽國度憲法的頒佈時，不是猶太人的代表，乃是新約信徒的代表。馬太二十八章十九節，主耶穌告訴祂的門徒要去，使萬民，就是外邦人，作主的門徒。這就是說，萬民要悔改成為門徒。所以，猶太和外邦信徒都是門徒。（《新約總論第五冊》，八○頁）
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 3: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+              <h4 class="reading-sub-heading">跟從基督與學基督</h4>
+              <p class="content-paragraph">
+                門徒就是跟從基督的人。主耶穌在盡職事時，告訴人要悔改，因為神的國已經臨近了（可一15，太四17）。當有些人悔改了，或有意與祂同行，祂就對他們說，『跟從我。』（太四19，九9，十九21，路九59）
+              </p>
+              <p class="content-paragraph">
+                門徒也是學基督的人。在馬太十一章二十九節主耶穌說，『你們要負我的軛，且要跟我學。』跟從基督和學基督，都需要受管教。我們不能跟從祂或學祂，而不受管教。我們特別需要受管教，好學基督。（《新約總論第五冊》，八一頁）
+              </p>
+            </div>
+
+            <div id="read-2">
+              <h4 class="reading-sub-heading">從天然人受訓成為神人</h4>
+              <p class="content-paragraph">
+                我們正在從一個天然的人被訓練成為一個神人，照着基督這第一個神人的榜樣，否認我們天然的生命，而活神聖的生命（太二八19）。年輕人來到全時間訓練，不是按着人的領會來受訓，乃是按着神聖的領會來受訓。當我在幫助他們受訓練時，我也天天在許多方面受訓練，否認我天然的生命，而活神聖的生命。
+              </p>
+            </div>
+
+            <div id="read-3">
+              <h4 class="reading-sub-heading">第一個神人的模型</h4>
+              <p class="content-paragraph">
+                我們應當照着基督這第一個神人的模型，過這樣的生活。當基督在地上時，祂否認祂天然的生命，就是祂自己。祂說，祂所說的，不是祂的話，乃是差祂來之父的話（約十四24）。祂絕不從自己作甚麼（五19、30）。祂作每一件事都是從差祂來的父，也是憑差祂來的父作的。祂不是差遣者，祂乃是受差遣者。祂不是活祂自己；祂乃是活差祂來的父（六57上）。這就是第一個神人的模型。
+              </p>
+            </div>
+
+            <div id="read-4">
+              <h4 class="reading-sub-heading">召會生活是一個訓練的生活</h4>
+              <p class="content-paragraph">
+                在人類歷史上，從未有過這樣一個人。…神成肉體之後，在地上就有一個特別的人，乃是神人。這神人並不活祂人性的生命；乃是否認祂人性的生命，而活神聖的生命，就是神自己。主呼召一些人來跟從祂，單單來看祂如何生活，好使祂能給他們看見一個神人的榜樣。有三年半之久，他們看見這個榜樣，並受這個榜樣的訓練。
+              </p>
+              <p class="content-paragraph">
+                在召會生活中，我們也在受主的訓練。召會生活是一個訓練的生活，把我們從一個天然的人訓練成為一個神人。神不在乎你是好人還是壞人，因為一切出於我們天然人的東西，無論是好是壞，都必須上十字架。所有天然的人都應當受訓練上十字架，因為在我們裏面有另一個人。我們有另一個生命和性情，這生命和性情是神聖的，是我們必須照這生命和性情而活。（《李常受文集一九九四至一九九七年第五冊》，一二一至一二三頁）
+              </p>
+            </div>
+
+            <div class="ref-note">
+              <strong>📚 參讀：</strong>《新約總論》第一百零五篇；《以弗所書生命讀經》第四十六至四十七篇；《活力排》第二至四、六、十至十一篇。
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>2026年六月半年度訓練《信徒（一）》 — 淡水會所晨興聖言網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

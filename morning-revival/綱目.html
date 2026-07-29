@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2026年六月 半年度訓練《信徒（一）》 - 第一週 綱目</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-14pt theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換綱目導覽">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>2026年六月 半年度訓練《信徒（一）》</h1>
+        <span class="badge">第一週 綱目</span>
+      </div>
+
+      <div class="header-controls">
+        <!-- Font Size Toggle Button -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (12pt / 14pt / 16pt 循環)">
+          <span class="btn-icon-text">A</span>
+          <span id="font-size-label" class="btn-label">14pt</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>綱目導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li>
+            <a href="#section-1" class="toc-link level-1">壹、基督的門徒</a>
+            <ul>
+              <li><a href="#sec-1-1" class="toc-link level-2">一、被訓練成神人</a></li>
+              <li><a href="#sec-1-2" class="toc-link level-2">二、喫基督而被基督頂替</a></li>
+              <li><a href="#sec-1-3" class="toc-link level-2">三、每早晨被祂喚醒</a></li>
+              <li><a href="#sec-1-4" class="toc-link level-2">四、心裏柔和謙卑</a></li>
+              <li><a href="#sec-1-5" class="toc-link level-2">五、內住於我們之充足的祕訣</a></li>
+              <li><a href="#sec-1-6" class="toc-link level-2">六、喜愛憐憫者</a></li>
+              <li><a href="#sec-1-7" class="toc-link level-2">七、實際之靈引導進入實際</a></li>
+              <li><a href="#sec-1-8" class="toc-link level-2">八、憑內住的基督在人性裏活</a></li>
+              <li><a href="#sec-1-9" class="toc-link level-2">九、三一神真實的同在</a></li>
+              <li><a href="#sec-1-10" class="toc-link level-2">十、神人的模型</a></li>
+              <li><a href="#sec-1-11" class="toc-link level-2">十一、觀察榜樣受構成</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#section-2" class="toc-link level-1">貳、基督裏的信徒</a>
+            <ul>
+              <li><a href="#sec-2-1" class="toc-link level-2">一、從亞當裏遷到基督裏</a></li>
+              <li><a href="#sec-2-2" class="toc-link level-2">二、基督生發出信</a></li>
+              <li><a href="#sec-2-3" class="toc-link level-2">三、信來自聽見話</a></li>
+              <li><a href="#sec-2-4" class="toc-link level-2">四、聽信仰喚起愛的珍賞</a></li>
+              <li><a href="#sec-2-5" class="toc-link level-2">五、照分給各人信心的度量</a></li>
+              <li><a href="#sec-2-6" class="toc-link level-2">六、與基督的七種關係</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#section-3" class="toc-link level-1">叁、神的聖徒</a>
+            <ul>
+              <li><a href="#sec-3-1" class="toc-link level-2">一、地位上得着聖別</a></li>
+              <li><a href="#sec-3-2" class="toc-link level-2">二、性質上正在被聖化</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#section-4" class="toc-link level-1">肆、基督徒</a>
+            <ul>
+              <li><a href="#sec-4-1" class="toc-link level-2">一、作基督徒的目標與定命</a></li>
+              <li><a href="#sec-4-2" class="toc-link level-2">二、肢體特別的路程</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <!-- Daily Reading Links in TOC Sidebar -->
+        <div class="toc-daily-section">
+          <h3>📅 每日晨興進入</h3>
+          <div class="toc-daily-grid">
+            <a href="第一週.週一.html" class="toc-daily-btn">週一進度</a>
+            <a href="第一週.週二.html" class="toc-daily-btn">週二進度</a>
+            <a href="第一週.週三.html" class="toc-daily-btn">週三進度</a>
+            <a href="第一週.週四.html" class="toc-daily-btn">週四進度</a>
+            <a href="第一週.週五.html" class="toc-daily-btn">週五進度</a>
+            <a href="第一週.週六.html" class="toc-daily-btn">週六進度</a>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h1 class="main-title">2026年六月 半年度訓練《信徒（一）》</h1>
+          <h2 class="sub-title">第一週 門徒、信徒、聖徒和基督徒</h2>
+          <div class="scripture-box">
+            <span class="scripture-label">📖 讀經：</span>
+            <span class="scripture-text">太五1，二八19，林後六14~16，林前一2，彼前四16</span>
+          </div>
+
+          <!-- Daily Navigation Bar in Title Card -->
+          <div class="daily-nav-container">
+            <span class="daily-nav-label">📅 每日進度：</span>
+            <a href="第一週.週一.html" class="daily-link-btn">週一</a>
+            <a href="第一週.週二.html" class="daily-link-btn">週二</a>
+            <a href="第一週.週三.html" class="daily-link-btn">週三</a>
+            <a href="第一週.週四.html" class="daily-link-btn">週四</a>
+            <a href="第一週.週五.html" class="daily-link-btn">週五</a>
+            <a href="第一週.週六.html" class="daily-link-btn">週六</a>
+          </div>
+        </div>
+
+        <!-- Section 1 -->
+        <section id="section-1" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">壹</span>
+            <div class="section-header-wrap">
+              <h3>我們是基督的門徒，就是跟從基督，並照着那在耶穌身上是實際者（就是耶穌神人生活的真實光景，如四福音所記載的）而學基督的人；這是在基督的經歷裏經歷祂，好使我們能成為祂生機的繁殖和複製，使祂得着祂自己團體的彰顯，而在召會中並在新耶路撒冷裏得着榮耀——太五1，二八19，弗四20~24，三21，賽四三7，啟二一11：</h3>
+              <div class="section-daily-tags">
+                <a href="第一週.週一.html" class="daily-tag" title="進入週一進度">進入 週一</a>
+                <a href="第一週.週二.html" class="daily-tag" title="進入週二進度">進入 週二</a>
+                <a href="第一週.週三.html" class="daily-tag" title="進入週三進度">進入 週三</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div id="sec-1-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>我們正在從一個天然的人被訓練成一個神人，照着基督這第一個神人的榜樣，否認我們天然的生命，而活神聖的生命；這就是學基督，並在祂裏面照着那在耶穌身上是實際者受教導，好在我們心思的靈裏被神的話更新，使我們成為新的、團體的神人——弗四23：</p>
+              </div>
+              <ul class="level-3-list">
+                <li><span class="sub-num">1.</span> 『你們若住在我的話裏，就真是我的門徒；你們必認識真理，真理必叫你們得以自由』——約八31~32、36，十五7。</li>
+                <li><span class="sub-num">2.</span> 我們禱讀主話，並有耳可聽那靈藉着話語職事向眾召會所說的話，就藉着心思的更新而變化，受主訓練作門徒——弗六17~18。</li>
+                <li><span class="sub-num">3.</span> 我們的心思得更新，乃是在一切對人生事物的觀念上，受聖經的教訓和聖靈的光照，以接受神新的思想，而有的去舊更新。</li>
+                <li><span class="sub-num">4.</span> 我們要作主的門徒，在基督自己這生命裏得救，而在生命中作王，勝過撒但、罪與死，就必須被神的聖言重新構成，好使我們受祂的話指教、管治、管理並控制——羅五10、17，申十七18~20，提後三15~17。</li>
+              </ul>
+            </div>
+
+            <div id="sec-1-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>我們學基督，就是藉着喫基督而被基督頂替；那在耶穌身上是實際者（耶穌個人的神人生活），得以成為基督身體的實際（團體基督的神人生活），乃是藉着我們喫基督以享受祂作供應，供給我們，加力量給我們，加強我們，並使我們有能力，以揀選並實行神的旨意，使祂在召會中得榮耀——約六57，賽七14~15，約十七4，來五8。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>我們學基督，是藉着每早晨被祂喚醒，使我們能有受教者的耳朵和舌頭，好用言語扶助疲乏的人；我們是主的門徒、受教者，應當依賴祂，信靠祂的名，不自行造光——賽五十4~5、10~11。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-4" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">四、</span>
+                <p>我們學基督作那心裏柔和謙卑者，祂的軛是容易的，祂的擔子是輕省的，並且祂將自己賜給我們，作我們魂的安息（完全的平安和完滿的滿足）——太十一28~30。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-5" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">五、</span>
+                <p>我們學基督作那內住於我們之充足的祕訣，使我們在祂人性的美德裏彰顯神的屬性，在各種環境、光景和境遇中活基督以顯大基督——腓四5~13。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-6" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">六、</span>
+                <p>我們照着基督愛和赦免的心並祂牧養和尋找的靈，學基督作那喜愛憐憫者——太九12~13。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-7" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">七、</span>
+                <p>門徒跟從主三年半，看見主所作的、主如何行事為人並如何說話；吹入他們裏面的生命與實際之靈（約二十22），要引導他們進入他們對主所觀察之一切的實際（十六13）。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-8" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">八、</span>
+                <p>主耶穌是在復活中，不憑自己，乃憑另一個源頭——祂的父——而過人性生活的人；當我們憑另一個生命——內住於我們的基督——而在人性裏活着，這種生活就使我們成為主真正的門徒。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-9" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">九、</span>
+                <p>主的門徒有三一神真實的同在作他們的大喜樂，而使他們成為那有『耶穌的人性』的人，對他們所接觸者是甜美、迷人、吸引人的，毫無虛謊或偽善——太一23，詩四三4，羅十四17，尼八10，腓一25，四5、8~9，提前四15~16。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-10" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">十、</span>
+                <p>跟從基督的人受門徒訓練，乃是藉着基督在地上的人性生活，作為神人的模型——藉着在人性裏否認祂自己而活神（約五19、30）；這徹底改變了他們關於人的觀念（腓三10，一21上）。</p>
+              </div>
+            </div>
+
+            <div id="sec-1-11" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">十一、</span>
+                <p>『我在主的恢復中觀察倪弟兄如何行事為人十八年之久。我在他身上所觀察到的一切，都成了將我構成門徒的事物。』（李常受文集一九九四至一九九七年第五冊，活力排，一○二頁）</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Section 2 -->
+        <section id="section-2" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">貳</span>
+            <div class="section-header-wrap">
+              <h3>我們是基督裏的信徒，就是憑神兒子的信得生並活着的人；信廢除我們，並使我們活神、彰顯神且將神供應到人裏面：</h3>
+              <div class="section-daily-tags">
+                <a href="第一週.週四.html" class="daily-tag" title="進入週四進度">進入 週四</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div id="sec-2-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>在基督裏的信徒（約三15~16）已經從亞當裏遷到基督裏（林前十五22），已經重生成為在基督裏的新造（林後五17），現今在基督永遠的生命裏與祂聯結，並與基督聯合成為一靈（林前六17）：</p>
+              </div>
+              <ul class="level-3-list">
+                <li><span class="sub-num">1.</span> 我們在基督裏的信徒已經出生兩次，第一次出生為天然的人，但有一天我們再次出生，成為有神聖、永遠生命之重生的人。</li>
+                <li><span class="sub-num">2.</span> 我們的第二張出生證明（屬靈出生證明），見於羅馬八章十六節，那裏說，那靈同我們的靈見證我們是神的兒女；我們神聖奧祕的出生證明乃是一個雙重的靈，就是那靈同我們的靈（我們的靈已與主成為一靈）。</li>
+              </ul>
+            </div>
+
+            <div id="sec-2-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>人聽見基督，認識祂，欣賞祂，寶貴祂，祂就在人裏面生髮出信，叫人相信祂；這樣，祂就成了人裏面對祂的信——來十二2。</p>
+              </div>
+            </div>
+
+            <div id="sec-2-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>信來自聽見話；當我們聽見基督，在神寫出來的話裏接觸祂這神活的話，祂就成了應用的話，作為那靈分賜到我們裏面，成為我們的信；因此，神化身在基督裏，又實化為那靈，與我們的靈調和，這就是信——羅十17，約一1，五39~40，六63。</p>
+              </div>
+            </div>
+
+            <div id="sec-2-4" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">四、</span>
+                <p>聽信仰喚起我們愛的珍賞，我們越愛主，信就越運行，帶我們進入那包羅萬有之靈的豐富和益處裏——加三2、5，五6。</p>
+              </div>
+            </div>
+
+            <div id="sec-2-5" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">五、</span>
+                <p>羅馬十二章三節說，『不要看自己過於所當看的，乃要照着神所分給各人信心的度量，看得清明適度』：</p>
+              </div>
+              <ul class="level-3-list">
+                <li><span class="sub-num">1.</span> 看自己過於所當看的，而不清明適度，就是抹煞身體生活中正確的等次；神給我們的信心，在質上是同樣的，在量上卻是不同的；量的多少乃在於我們如何長大；如果我們今天像使徒保羅一樣長大，我們所接受那一分的信心就要大大的擴充。</li>
+                <li><span class="sub-num">2.</span> 神分給我們多少信心，乃在於我們的態度；如果我們不是清明適度的（看自己過於所當看的，不看別人比自己強，以及自以為是甚麼，其實我們甚麼也不是），神就不會在分給我們的信心上增加度量，甚至可能會把它減少——腓二2~3，加六3，林前八1~3。</li>
+              </ul>
+            </div>
+
+            <div id="sec-2-6" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">六、</span>
+                <p>我們信徒在以下與基督的關係裏憑信而活：</p>
+              </div>
+              <ul class="level-3-list card-sublist">
+                <li><span class="sub-num">1.</span> 基督是葡萄樹，我們是祂的枝子——約十五1~8。</li>
+                <li><span class="sub-num">2.</span> 基督是頭，我們是祂的肢體——林前十二27。</li>
+                <li><span class="sub-num">3.</span> 基督是生命的氣、生命的水、生命的糧，我們是呼吸祂、喫祂並喝祂的人——約二十22，四10、14。</li>
+                <li><span class="sub-num">4.</span> 基督是新郎，我們是祂的新婦——三29，弗五25~27，啟十九7~9，林後十一2~3。</li>
+                <li><span class="sub-num">5.</span> 基督是孤兒的父，我們是孤兒，成了祂的兒女，享受祂的照顧和拯救（含示祂每天的救拔和解救）——約十四18，詩六八5~6。</li>
+                <li><span class="sub-num">6.</span> 基督是我們的醫生，我們是祂的病人，享受祂作我們的醫治者，成為我們的赦免、享受、喜樂、滿足和自由——出十五23~26。</li>
+                <li><span class="sub-num">7.</span> 基督是世界的光，我們是跟從祂的人，使我們得着生命的光，並成為擴散祂神聖之光的透光體——約八12，太五14~16。</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Section 3 -->
+        <section id="section-3" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">叁</span>
+            <div class="section-header-wrap">
+              <h3>我們是神的聖徒，是被分別且聖別歸神的人——羅一7，林前一2、30，參民六1~9：</h3>
+              <div class="section-daily-tags">
+                <a href="第一週.週五.html" class="daily-tag" title="進入週五進度">進入 週五</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div id="sec-3-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>我們在地位上，藉祂救贖的血已經得着聖別——來十三12。</p>
+              </div>
+            </div>
+
+            <div id="sec-3-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>我們在性質上，藉祂聖別的性情正在被聖化——帖後二13，來二10~11，林前六11，弗五26，帖前五23~24。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <hr class="section-divider">
+
+        <!-- Section 4 -->
+        <section id="section-4" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <span class="numeral">肆</span>
+            <div class="section-header-wrap">
+              <h3>我們是基督徒，基督人，與基督是一，因着與基督生機的聯結，有祂作我們全備供應的內容，好在日常生活中活祂，使祂得以顯大——徒十一26，二六28，彼前四16，林前六17，林後四7，腓一19~21上：</h3>
+              <div class="section-daily-tags">
+                <a href="第一週.週六.html" class="daily-tag" title="進入週六進度">進入 週六</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="section-body">
+            <div id="sec-4-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>作基督徒的目標，以及神在祂的經綸裏為我們所定的定命，乃是要我們憑那靈生活行動，好活基督，使神得着榮耀，就是得着彰顯——加二20，五16、25，六17，賽四三7，林前六20，十31。</p>
+              </div>
+            </div>
+
+            <div id="sec-4-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>每一個基督徒在地上，都有主在他身上所定的特別路程，作基督盡功用的肢體，為着祂身體的建造；這路程需要每一個基督徒自己走，沒有人能取代他，他也不能取代任何人——徒十三22、25、36，二十24，林前九24。</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>2026年六月半年度訓練《信徒（一）》 — 淡水會所晨興聖言網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
