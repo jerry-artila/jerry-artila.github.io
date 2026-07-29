@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function applyFontSize(size) {
     fontSizes.forEach(s => document.body.classList.remove(`font-${s}`));
     document.body.classList.add(`font-${size}`);
-    fontSizeLabel.textContent = size;
+    if (fontSizeLabel) {
+      fontSizeLabel.textContent = size;
+    }
     localStorage.setItem('outline_font_size', size);
   }
 
@@ -23,12 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
   applyFontSize(currentFontSize);
 
   // Toggle font size on click
-  fontSizeBtn.addEventListener('click', () => {
-    const currentIndex = fontSizes.indexOf(currentFontSize);
-    const nextIndex = (currentIndex + 1) % fontSizes.length;
-    currentFontSize = fontSizes[nextIndex];
-    applyFontSize(currentFontSize);
-  });
+  if (fontSizeBtn) {
+    fontSizeBtn.addEventListener('click', () => {
+      const currentIndex = fontSizes.indexOf(currentFontSize);
+      const nextIndex = (currentIndex + 1) % fontSizes.length;
+      currentFontSize = fontSizes[nextIndex];
+      applyFontSize(currentFontSize);
+    });
+  }
 
   // ==========================================================================
   // 2. Theme Toggle (Light / Dark)
@@ -43,13 +47,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (theme === 'dark') {
       document.body.classList.remove('theme-light');
       document.body.classList.add('theme-dark');
-      sunIcon.classList.add('hidden');
-      moonIcon.classList.remove('hidden');
+      if (sunIcon) sunIcon.classList.add('hidden');
+      if (moonIcon) moonIcon.classList.remove('hidden');
     } else {
       document.body.classList.remove('theme-dark');
       document.body.classList.add('theme-light');
-      sunIcon.classList.remove('hidden');
-      moonIcon.classList.add('hidden');
+      if (sunIcon) sunIcon.classList.remove('hidden');
+      if (moonIcon) moonIcon.classList.add('hidden');
     }
     localStorage.setItem('outline_theme', theme);
   }
@@ -58,10 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
   applyTheme(currentTheme);
 
   // Toggle theme on click
-  themeBtn.addEventListener('click', () => {
-    currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-    applyTheme(currentTheme);
-  });
+  if (themeBtn) {
+    themeBtn.addEventListener('click', () => {
+      currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+      applyTheme(currentTheme);
+    });
+  }
 
   // ==========================================================================
   // 3. Mobile TOC Drawer Toggle
@@ -72,14 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const tocCloseBtn = document.getElementById('toc-close-btn');
 
   function openToc() {
-    tocSidebar.classList.add('open');
-    tocOverlay.classList.add('active');
+    if (tocSidebar) tocSidebar.classList.add('open');
+    if (tocOverlay) tocOverlay.classList.add('active');
     document.body.style.overflow = 'hidden';
   }
 
   function closeToc() {
-    tocSidebar.classList.remove('open');
-    tocOverlay.classList.remove('active');
+    if (tocSidebar) tocSidebar.classList.remove('open');
+    if (tocOverlay) tocOverlay.classList.remove('active');
     document.body.style.overflow = '';
   }
 
