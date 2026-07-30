@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="職事文摘 - 信徒的信（第十一卷．第一期）網頁版電子書，支援明亮/米黃/深色閱讀模式、字級動態微調及閱讀進度追蹤。">
+  <meta name="description" content="職事文摘 - 信徒的信（第十一卷．第一期）網頁版電子書，支援明亮/深色閱讀模式、字級動態微調及閱讀進度追蹤。">
   <title>信徒的信 - 職事文摘</title>
 
   <!-- Google Fonts -->
@@ -38,23 +38,6 @@
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
       --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
       --progress-color: #8c2520;
-    }
-
-    [data-theme="sepia"] {
-      --bg-main: #f4ecd8;
-      --bg-paper: #fbf0d9;
-      --text-main: #3d3429;
-      --text-muted: #736452;
-      --accent-color: #8c531d;
-      --accent-hover: #aa6828;
-      --border-color: #e2d3b9;
-      --card-bg: #eee0c5;
-      --quote-bg: #ede0c6;
-      --quote-border: #8c531d;
-      --header-bg: rgba(244, 236, 216, 0.92);
-      --shadow-sm: 0 2px 8px rgba(61, 52, 41, 0.05);
-      --shadow-md: 0 4px 20px rgba(61, 52, 41, 0.1);
-      --progress-color: #8c531d;
     }
 
     [data-theme="dark"] {
@@ -536,9 +519,7 @@
 
         <!-- Theme Switcher -->
         <div class="control-item" title="切換閱讀主題">
-          <button class="control-btn active" id="themeLightBtn" onclick="setTheme('light')" aria-label="明亮模式">明</button>
-          <button class="control-btn" id="themeSepiaBtn" onclick="setTheme('sepia')" aria-label="米黃護眼">米</button>
-          <button class="control-btn" id="themeDarkBtn" onclick="setTheme('dark')" aria-label="深色夜間">暗</button>
+          <button class="control-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="切換閱讀主題">☀️ 明亮</button>
         </div>
       </div>
     </div>
@@ -662,7 +643,8 @@
   <script>
     // Config State
     let currentFontSize = parseInt(localStorage.getItem('reading_font_size')) || 24;
-    let currentTheme = localStorage.getItem('reading_theme') || 'light';
+    let savedTheme = localStorage.getItem('reading_theme');
+    let currentTheme = (savedTheme === 'dark') ? 'dark' : 'light';
 
     const minFontSize = 20;
     const maxFontSize = 34;
@@ -698,14 +680,24 @@
 
     // Theme Switcher Handler
     function setTheme(theme) {
-      currentTheme = theme;
-      body.setAttribute('data-theme', theme);
-      localStorage.setItem('reading_theme', theme);
+      currentTheme = (theme === 'dark') ? 'dark' : 'light';
+      body.setAttribute('data-theme', currentTheme);
+      localStorage.setItem('reading_theme', currentTheme);
 
-      // Update button state
-      document.getElementById('themeLightBtn').classList.toggle('active', theme === 'light');
-      document.getElementById('themeSepiaBtn').classList.toggle('active', theme === 'sepia');
-      document.getElementById('themeDarkBtn').classList.toggle('active', theme === 'dark');
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      if (themeToggleBtn) {
+        if (currentTheme === 'dark') {
+          themeToggleBtn.innerHTML = '🌙 深色';
+          themeToggleBtn.setAttribute('aria-label', '目前深色模式，點擊切換為明亮模式');
+        } else {
+          themeToggleBtn.innerHTML = '☀️ 明亮';
+          themeToggleBtn.setAttribute('aria-label', '目前明亮模式，點擊切換為深色模式');
+        }
+      }
+    }
+
+    function toggleTheme() {
+      setTheme(currentTheme === 'light' ? 'dark' : 'light');
     }
 
     // Scroll Progress Bar
