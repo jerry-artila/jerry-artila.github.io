@@ -138,42 +138,45 @@
     }
 
     .brand-title {
-      font-size: 1.05rem;
+      font-size: 28px;
       font-weight: 700;
       color: var(--accent-color);
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 12px;
       letter-spacing: 0.5px;
-      margin-bottom: 14px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
     }
 
     .brand-title span.badge {
-      font-size: 0.75rem;
+      font-size: 18px;
       background: var(--card-bg);
       color: var(--text-muted);
-      padding: 2px 8px;
-      border-radius: 12px;
+      padding: 4px 12px;
+      border-radius: 14px;
       border: 1px solid var(--border-color);
-      font-weight: 500;
+      font-weight: 600;
     }
 
     .controls-group {
       display: flex;
       align-items: center;
+      justify-content: center;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
-    /* Control Buttons */
+    /* Control Buttons for Elderly Reading */
     .control-item {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 4px 8px;
-      border-radius: 8px;
+      border: 2px solid var(--border-color);
+      padding: 6px 12px;
+      border-radius: 12px;
     }
 
     .control-btn {
@@ -181,15 +184,17 @@
       border: none;
       color: var(--text-main);
       font-family: var(--font-ui);
-      font-size: 0.9rem;
-      font-weight: 600;
-      padding: 4px 8px;
-      border-radius: 6px;
+      font-size: 28px;
+      font-weight: 700;
+      padding: 8px 16px;
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s ease;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-width: 52px;
+      min-height: 48px;
     }
 
     .control-btn:hover {
@@ -203,11 +208,11 @@
     }
 
     .font-size-display {
-      font-size: 0.85rem;
+      font-size: 28px;
       font-weight: 700;
-      min-width: 42px;
+      min-width: 68px;
       text-align: center;
-      color: var(--text-muted);
+      color: var(--text-main);
       font-family: 'Outfit', sans-serif;
     }
 
@@ -240,17 +245,16 @@
       align-items: center;
       gap: 10px;
       font-family: var(--font-ui);
-      font-size: 0.95rem;
+      font-size: 1.1rem;
       color: var(--accent-color);
       font-weight: 700;
       margin-bottom: 16px;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     .meta-tag::before, .meta-tag::after {
       content: '❖';
-      font-size: 0.8rem;
+      font-size: 0.85rem;
     }
 
     h1.article-title {
@@ -548,13 +552,8 @@
         <div class="brand-title">
           職事文摘 <span class="badge">第十一卷．第一期</span>
         </div>
-        <div class="meta-tag">生命</div>
+        <div class="meta-tag">生命 ‧ 50-58 頁</div>
         <h1 class="article-title">信徒的信</h1>
-        <div class="article-info-bar">
-          <span>頁碼：50 - 58 頁</span>
-          <span>•</span>
-          <span>職事文摘電子版</span>
-        </div>
       </header>
 
       <!-- Lead Quote Card -->
