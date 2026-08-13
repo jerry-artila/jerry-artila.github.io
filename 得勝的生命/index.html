@@ -23,7 +23,7 @@
       --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
       --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
       --font-family: 'Noto Serif TC', serif;
-      --font-size-base: 16px;
+      --font-size-base: 18px;
       --content-max-width: 800px;
     }
 
@@ -120,27 +120,17 @@
     }
 
     .book-name {
-      font-size: 1.85rem; font-weight: 700; color: var(--accent-color);
+      font-size: calc(var(--font-size-base) * 1.75); font-weight: 700; color: var(--accent-color);
       margin-bottom: 0.5rem; letter-spacing: 0.05em;
     }
 
     .book-author {
-      font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem;
+      font-size: calc(var(--font-size-base) * 0.95); color: var(--text-muted); margin-bottom: 1.25rem;
       display: flex; align-items: center; justify-content: center; gap: 0.4rem;
     }
 
-    .book-badge-group {
-      display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;
-    }
-
-    .badge {
-      font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.65rem;
-      background: var(--accent-light); color: var(--accent-color);
-      border-radius: 20px; border: 1px solid var(--border-color);
-    }
-
     .book-intro {
-      font-size: 0.95rem; color: var(--text-color); line-height: 1.7;
+      font-size: calc(var(--font-size-base) * 0.95); color: var(--text-color); line-height: 1.7;
       max-width: 620px; margin: 0 auto 1.5rem auto; text-align: justify; text-justify: inter-ideograph;
     }
 
@@ -148,34 +138,13 @@
       display: inline-flex; align-items: center; gap: 0.5rem;
       padding: 0.8rem 1.75rem; background: var(--accent-color); color: #ffffff;
       text-decoration: none; border-radius: 30px; font-weight: 600;
-      font-size: 1rem; box-shadow: 0 4px 12px rgba(140, 42, 28, 0.25);
+      font-size: calc(var(--font-size-base) * 0.95); box-shadow: 0 4px 12px rgba(140, 42, 28, 0.25);
       transition: all 0.25 ease;
     }
     .start-read-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(140, 42, 28, 0.35); }
 
-    .search-filter-section {
-      margin-bottom: 1.5rem; display: flex; gap: 0.75rem; align-items: center;
-    }
-
-    .search-box {
-      flex: 1; position: relative; display: flex; align-items: center;
-    }
-
-    .search-box i {
-      position: absolute; left: 1rem; color: var(--text-muted); font-size: 0.95rem;
-    }
-
-    .search-input {
-      width: 100%; padding: 0.7rem 1rem 0.7rem 2.5rem;
-      background: var(--card-bg); border: 1px solid var(--border-color);
-      border-radius: 12px; color: var(--text-color); font-size: 0.95rem;
-      outline: none; transition: border-color 0.2s ease;
-    }
-
-    .search-input:focus { border-color: var(--accent-color); }
-
     .section-title {
-      font-size: 1.2rem; font-weight: 700; color: var(--text-color);
+      font-size: calc(var(--font-size-base) * 1.15); font-weight: 700; color: var(--text-color);
       margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;
     }
 
@@ -196,7 +165,7 @@
     }
 
     .card-num {
-      font-size: 1.1rem; font-weight: 700; color: var(--accent-color);
+      font-size: calc(var(--font-size-base) * 1.05); font-weight: 700; color: var(--accent-color);
       background: var(--accent-light); width: 44px; height: 44px;
       border-radius: 10px; display: flex; align-items: center;
       justify-content: center; flex-shrink: 0;
@@ -205,20 +174,20 @@
     .card-content { flex: 1; min-width: 0; }
 
     .card-title {
-      font-size: 1.05rem; font-weight: 700; color: var(--text-color);
+      font-size: calc(var(--font-size-base) * 1.05); font-weight: 700; color: var(--text-color);
       margin-bottom: 0.35rem; line-height: 1.35;
     }
 
     .chapter-card:hover .card-title { color: var(--accent-color); }
 
     .card-desc {
-      font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.5rem;
+      font-size: calc(var(--font-size-base) * 0.86); color: var(--text-muted); margin-bottom: 0.5rem;
       line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2;
       -webkit-box-orient: vertical; overflow: hidden;
     }
 
     .card-link {
-      font-size: 0.8rem; font-weight: 600; color: var(--accent-color);
+      font-size: calc(var(--font-size-base) * 0.8); font-weight: 600; color: var(--accent-color);
       display: inline-flex; align-items: center; gap: 0.3rem;
     }
 
@@ -312,12 +281,6 @@
     <div class="hero-card">
       <h1 class="book-name">得勝的生命</h1>
       <div class="book-author"><i class="fa-solid fa-user"></i> 倪柝聲 著</div>
-      
-      <div class="book-badge-group">
-        <span class="badge">十一篇經典訊息</span>
-        <span class="badge">RWD 行動閱讀版</span>
-        <span class="badge">水流職事站</span>
-      </div>
 
       <p class="book-intro">
         《得勝的生命》乃是倪柝聲弟兄於一九三五年在上海特會中釋放的極重要訊息。本書詳細剖析基督徒在靈性、肉體與思想上的失敗，引導人看見基督乃是我們得勝的生命，並指出如何藉著降服與相信，進入得勝並活出奉獻的生活。
@@ -326,13 +289,6 @@
       <a href="01.html" class="start-read-btn">
         <i class="fa-solid fa-circle-play"></i> 從第一篇開始閱讀
       </a>
-    </div>
-
-    <div class="search-filter-section">
-      <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-        <input type="text" id="chapter-search" class="search-input" placeholder="搜尋篇名或關鍵字 (例如：降服、相信)..." />
-      </div>
     </div>
 
     <div class="section-title">
@@ -467,11 +423,11 @@
       <div class="setting-group">
         <div class="setting-label">
           <i class="fa-solid fa-text-height"></i> 自訂字體大小
-          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">16px</span>
+          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">18px</span>
         </div>
         <div class="font-size-control">
           <button class="stepper-btn" id="btn-font-dec" title="縮小字體"><i class="fa-solid fa-minus"></i></button>
-          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="16" class="font-range-input" />
+          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="18" class="font-range-input" />
           <button class="stepper-btn" id="btn-font-inc" title="放大字體"><i class="fa-solid fa-plus"></i></button>
         </div>
       </div>
@@ -512,7 +468,7 @@
         setTheme(localStorage.getItem('pref_theme') || 'sepia');
         setFont(localStorage.getItem('pref_font') || 'serif');
         
-        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '16';
+        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '18';
         setCustomFontSize(savedCustomSize);
       }
 
@@ -529,7 +485,7 @@
       }
 
       function setCustomFontSize(sizeVal) {
-        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 16));
+        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 18));
         html.style.setProperty('--font-size-base', size + 'px');
         localStorage.setItem('pref_custom_font_size', size);
         
@@ -548,13 +504,13 @@
       const btnFontInc = document.getElementById('btn-font-inc');
       if (btnFontDec) {
         btnFontDec.addEventListener('click', () => {
-          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '16', 10);
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
           setCustomFontSize(cur - 1);
         });
       }
       if (btnFontInc) {
         btnFontInc.addEventListener('click', () => {
-          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '16', 10);
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
           setCustomFontSize(cur + 1);
         });
       }
@@ -563,20 +519,6 @@
       document.querySelectorAll('[data-font-val]').forEach(btn => btn.addEventListener('click', () => setFont(btn.dataset.fontVal)));
 
       loadPreferences();
-
-      // Filter Chapters Search
-      const searchInput = document.getElementById('chapter-search');
-      const cards = document.querySelectorAll('.chapter-card');
-
-      if (searchInput) {
-        searchInput.addEventListener('input', (e) => {
-          const q = e.target.value.trim().toLowerCase();
-          cards.forEach(card => {
-            const text = card.textContent.toLowerCase();
-            card.style.display = text.includes(q) ? 'flex' : 'none';
-          });
-        });
-      }
     });
   </script>
 </body>

@@ -166,9 +166,6 @@
     }
     p.highlight-p { background-color: var(--accent-light); padding: 0.25rem 0.5rem; margin-left: -0.5rem; margin-right: -0.5rem; }
 
-    mark.search-highlight { background-color: #fef08a; color: #854d0e; border-radius: 2px; padding: 0 2px; }
-    [data-theme="dark"] mark.search-highlight { background-color: #854d0e; color: #fef08a; }
-
     .font-size-control {
       display: flex; align-items: center; gap: 0.75rem;
       background: var(--bg-color); padding: 0.5rem 0.75rem;
@@ -272,11 +269,6 @@
     }
     .segment-btn.active { background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
 
-    .search-container { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-    .search-input { flex: 1; padding: 0.65rem 1rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--bg-color); color: var(--text-color); font-size: 0.95rem; outline: none; }
-    .search-input:focus { border-color: var(--accent-color); }
-    .search-status { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-
     @media (max-width: 600px) {
       .container { padding: 1.25rem 1rem 3rem 1rem; }
       .article-title { font-size: 1.4rem; }
@@ -294,7 +286,6 @@
     <div class="header-actions">
       <a href="index.html" class="icon-btn" title="返回主目錄"><i class="fa-solid fa-house"></i></a>
       <button class="icon-btn" id="btn-toc" title="目錄"><i class="fa-solid fa-list-ul"></i></button>
-      <button class="icon-btn" id="btn-search" title="搜尋內文"><i class="fa-solid fa-magnifying-glass"></i></button>
       <button class="icon-btn" id="btn-settings" title="閱讀設定"><i class="fa-solid fa-sliders"></i></button>
     </div>
   </header>
@@ -441,21 +432,6 @@
     </div>
   </aside>
 
-  <!-- Search Drawer -->
-  <aside class="drawer drawer-bottom" id="drawer-search">
-    <div class="drawer-header">
-      <span class="drawer-title"><i class="fa-solid fa-magnifying-glass"></i> 內文搜尋</span>
-      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
-    </div>
-    <div class="drawer-body">
-      <div class="search-container">
-        <input type="text" id="search-input" class="search-input" placeholder="輸入關鍵字..." />
-        <button class="icon-btn" id="search-clear" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
-      </div>
-      <div class="search-status" id="search-status">尚未輸入搜尋關鍵字</div>
-    </div>
-  </aside>
-
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const html = document.documentElement;
@@ -463,11 +439,9 @@
       const overlay = document.getElementById('overlay');
       const drawerToc = document.getElementById('drawer-toc');
       const drawerSettings = document.getElementById('drawer-settings');
-      const drawerSearch = document.getElementById('drawer-search');
       
       const btnToc = document.getElementById('btn-toc');
       const btnSettings = document.getElementById('btn-settings');
-      const btnSearch = document.getElementById('btn-search');
       const btnBackTop = document.getElementById('btn-back-top');
       const closeBtns = document.querySelectorAll('.close-drawer');
 
@@ -499,17 +473,10 @@
         overlay.classList.remove('active');
         if (drawerToc) drawerToc.classList.remove('active');
         if (drawerSettings) drawerSettings.classList.remove('active');
-        if (drawerSearch) drawerSearch.classList.remove('active');
       }
 
       if (btnToc) btnToc.addEventListener('click', () => openDrawer(drawerToc));
       if (btnSettings) btnSettings.addEventListener('click', () => openDrawer(drawerSettings));
-      if (btnSearch) {
-        btnSearch.addEventListener('click', () => {
-          openDrawer(drawerSearch);
-          setTimeout(() => document.getElementById('search-input').focus(), 300);
-        });
-      }
 
       if (overlay) overlay.addEventListener('click', closeAllDrawers);
       closeBtns.forEach(btn => btn.addEventListener('click', closeAllDrawers));
@@ -579,57 +546,11 @@
 
       loadPreferences();
 
-      // Search Logic
-      const searchInput = document.getElementById('search-input');
-      const searchStatus = document.getElementById('search-status');
-      const searchClear = document.getElementById('search-clear');
       const articleBody = document.querySelector('.article-body');
-      if (articleBody && searchInput) {
-        let originalHtml = articleBody.innerHTML;
-
-        searchInput.addEventListener('input', (e) => {
-          const query = e.target.value.trim();
-          if (!query) {
-            articleBody.innerHTML = originalHtml;
-            searchStatus.textContent = '尚未輸入搜尋關鍵字';
-            searchClear.style.display = 'none';
-            return;
-          }
-
-          searchClear.style.display = 'inline-flex';
-          const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
-          const matches = (articleBody.textContent.match(regex) || []).length;
-
-          if (matches === 0) {
-            searchStatus.textContent = `未找到與「${query}」相關的內容`;
-            articleBody.innerHTML = originalHtml;
-          } else {
-            searchStatus.textContent = `找到 ${matches} 處與「${query}」相關的內容`;
-            articleBody.innerHTML = originalHtml;
-            const elements = articleBody.querySelectorAll('p, h2, h3');
-            elements.forEach(el => {
-              const text = el.innerHTML;
-              if (regex.test(text)) {
-                el.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
-              }
-            });
-          }
-        });
-
-        searchClear.addEventListener('click', () => {
-          searchInput.value = '';
-          articleBody.innerHTML = originalHtml;
-          searchStatus.textContent = '尚未輸入搜尋關鍵字';
-          searchClear.style.display = 'none';
-        });
-
-        function escapeRegExp(string) {
-          return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-        }
-
+      if (articleBody) {
         articleBody.addEventListener('click', (e) => {
           const p = e.target.closest('p');
-          if (p && !e.target.classList.contains('search-highlight')) {
+          if (p) {
             document.querySelectorAll('.article-body p').forEach(el => el.classList.remove('highlight-p'));
             p.classList.add('highlight-p');
           }
