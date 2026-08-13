@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia" data-font="serif">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>第十篇、得勝的音調 — 得勝的生命 | 倪柝聲</title>
+  <meta name="description" content="《得勝的生命》 第十篇、得勝的音調。倪柝聲著。手機 RWD 最佳化閱讀體驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-color: #f8f5ee;
+      --card-bg: #ffffff;
+      --text-color: #2b2927;
+      --text-muted: #6b6560;
+      --accent-color: #8c2a1c;
+      --accent-light: rgba(140, 42, 28, 0.08);
+      --border-color: #e5ded0;
+      --header-bg: rgba(248, 245, 238, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --font-family: 'Noto Serif TC', serif;
+      --font-size-base: 18px;
+      --line-height-base: 1.85;
+      --content-max-width: 740px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-color: #1f2937;
+      --text-muted: #6b7280;
+      --accent-color: #991b1b;
+      --accent-light: rgba(153, 27, 27, 0.08);
+      --border-color: #e5e7eb;
+      --header-bg: rgba(250, 250, 250, 0.90);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121316;
+      --card-bg: #1c1e24;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-color: #ef4444;
+      --accent-light: rgba(239, 68, 68, 0.15);
+      --border-color: #2a2d37;
+      --header-bg: rgba(18, 19, 22, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    [data-theme="green"] {
+      --bg-color: #dce7d7;
+      --card-bg: #e6efe2;
+      --text-color: #233522;
+      --text-muted: #4e634c;
+      --accent-color: #2b6832;
+      --accent-light: rgba(43, 104, 50, 0.12);
+      --border-color: #c7d9c1;
+      --header-bg: rgba(220, 231, 215, 0.90);
+    }
+
+    [data-font="sans"] {
+      --font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    [data-lh="compact"] { --line-height-base: 1.6; }
+    [data-lh="comfortable"] { --line-height-base: 1.85; }
+    [data-lh="spacious"] { --line-height-base: 2.1; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent-color); width: 0%; z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    .app-header {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .brand-info { display: flex; flex-direction: column; overflow: hidden; margin-right: 0.5rem; }
+    .book-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent-color); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .chapter-tag { font-size: 0.95rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .header-actions { display: flex; gap: 0.35rem; align-items: center; }
+    .icon-btn {
+      background: transparent; border: none; color: var(--text-color);
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .icon-btn:hover { background-color: var(--accent-light); color: var(--accent-color); }
+    .icon-btn:active { transform: scale(0.92); }
+
+    .container { max-width: var(--content-max-width); margin: 0 auto; padding: 1.5rem 1.25rem 3rem 1.25rem; }
+
+    .article-header {
+      margin-bottom: 2rem; text-align: center; padding-bottom: 1.5rem;
+      border-bottom: 2px dashed var(--border-color);
+    }
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.45); font-weight: 700;
+      color: var(--accent-color); margin-bottom: 0.75rem; line-height: 1.3; text-wrap: balance;
+    }
+    .article-meta {
+      font-size: 0.875rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .meta-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+    .scripture-box {
+      background: var(--card-bg); border-left: 4px solid var(--accent-color);
+      border-radius: 0 12px 12px 0; padding: 1.25rem; margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm); border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    }
+    .scripture-title {
+      font-size: 0.9rem; font-weight: 700; color: var(--accent-color);
+      margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .scripture-item {
+      font-style: italic; color: var(--text-color); margin-bottom: 0.65rem;
+      padding-left: 0.6rem; border-left: 2px solid var(--border-color); line-height: 1.6;
+    }
+    .scripture-item:last-child { margin-bottom: 0; }
+
+    h2.section-heading {
+      font-size: calc(var(--font-size-base) * 1.2); font-weight: 700;
+      color: var(--accent-color); margin: 2.25rem 0 1.25rem 0; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.6rem;
+      scroll-margin-top: 80px; text-wrap: balance;
+    }
+
+    h3.sub-heading {
+      font-size: calc(var(--font-size-base) * 1.05); font-weight: 700;
+      color: var(--text-color); margin: 1.75rem 0 0.85rem 0; padding: 0.4rem 0.75rem;
+      background: var(--accent-light); border-radius: 6px; display: inline-block;
+      scroll-margin-top: 80px; border-left: 3px solid var(--accent-color);
+    }
+
+    p {
+      margin-bottom: 1.35rem; text-align: justify; text-justify: inter-ideograph;
+      text-wrap: pretty; position: relative; transition: background-color 0.2s ease; border-radius: 4px;
+    }
+    p.highlight-p { background-color: var(--accent-light); padding: 0.25rem 0.5rem; margin-left: -0.5rem; margin-right: -0.5rem; }
+
+    mark.search-highlight { background-color: #fef08a; color: #854d0e; border-radius: 2px; padding: 0 2px; }
+    [data-theme="dark"] mark.search-highlight { background-color: #854d0e; color: #fef08a; }
+
+    .font-size-control {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--bg-color); padding: 0.5rem 0.75rem;
+      border-radius: 10px; border: 1px solid var(--border-color);
+    }
+
+    .stepper-btn {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      color: var(--text-color); width: 34px; height: 34px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.9rem; font-weight: bold;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .stepper-btn:hover { background: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .stepper-btn:active { transform: scale(0.92); }
+
+    .font-range-input {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 3px; background: var(--border-color); outline: none;
+    }
+
+    .font-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .font-range-input::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: none;
+    }
+
+    .chapter-nav-bar {
+      margin-top: 3.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.1rem;
+      background: var(--card-bg); color: var(--text-color); text-decoration: none;
+      border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.9rem;
+      font-weight: 600; box-shadow: var(--shadow-sm); transition: all 0.2s ease; flex: 1; justify-content: center;
+    }
+    .nav-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .nav-btn.disabled { opacity: 0.4; pointer-events: none; }
+
+    .floating-nav { position: fixed; bottom: 1.25rem; right: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 850; }
+    .fab-btn {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--card-bg);
+      color: var(--text-color); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .fab-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+
+    .drawer-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; background: var(--card-bg); color: var(--text-color);
+      z-index: 1001; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-md); display: flex; flex-direction: column;
+    }
+    .drawer-bottom { bottom: 0; left: 0; width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0; transform: translateY(100%); }
+    .drawer-bottom.active { transform: translateY(0); }
+    .drawer-left { top: 0; left: 0; width: 85%; max-width: 340px; height: 100%; transform: translateX(-100%); }
+    .drawer-left.active { transform: translateX(0); }
+
+    .drawer-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .drawer-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); display: flex; align-items: center; gap: 0.5rem; }
+    .drawer-body { padding: 1.25rem; overflow-y: auto; flex: 1; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 0.35rem; }
+    .toc-link {
+      display: block; padding: 0.65rem 0.85rem; color: var(--text-color);
+      text-decoration: none; border-radius: 8px; font-size: 0.95rem;
+      transition: all 0.2s ease; line-height: 1.4;
+    }
+    .toc-link:hover, .toc-link.active { background-color: var(--accent-light); color: var(--accent-color); font-weight: 600; }
+
+    .setting-group { margin-bottom: 1.5rem; }
+    .setting-label { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4rem; }
+    .theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .theme-btn {
+      padding: 0.6rem 0.3rem; border-radius: 8px; border: 2px solid var(--border-color);
+      background: var(--bg-color); color: var(--text-color); cursor: pointer; font-size: 0.8rem; font-weight: 600;
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: all 0.2s ease;
+    }
+    .theme-btn.active { border-color: var(--accent-color); background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .btn-group { display: flex; background: var(--bg-color); padding: 3px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .segment-btn {
+      flex: 1; padding: 0.55rem 0.5rem; border: none; background: transparent;
+      color: var(--text-muted); font-size: 0.875rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .segment-btn.active { background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .search-container { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .search-input { flex: 1; padding: 0.65rem 1rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--bg-color); color: var(--text-color); font-size: 0.95rem; outline: none; }
+    .search-input:focus { border-color: var(--accent-color); }
+    .search-status { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.25rem 1rem 3rem 1rem; }
+      .article-title { font-size: 1.4rem; }
+      .chapter-nav-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header class="app-header">
+    <div class="brand-info">
+      <a href="index.html" class="book-tag"><i class="fa-solid fa-chevron-left"></i> 《得勝的生命》</a>
+      <span class="chapter-tag">第十篇、得勝的音調</span>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="icon-btn" title="返回主目錄"><i class="fa-solid fa-house"></i></a>
+      <button class="icon-btn" id="btn-toc" title="目錄"><i class="fa-solid fa-list-ul"></i></button>
+      <button class="icon-btn" id="btn-search" title="搜尋內文"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon-btn" id="btn-settings" title="閱讀設定"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="article-header">
+      <h1 class="article-title">第十篇、得勝的音調</h1>
+      <div class="article-meta">
+        <span class="meta-item"><i class="fa-solid fa-user-pen"></i> 倪柝聲</span>
+        <span class="meta-item"><i class="fa-solid fa-book-open"></i> 《得勝的生命》</span>
+        <span class="meta-item"><i class="fa-solid fa-bookmark"></i> 第 10/11 篇</span>
+      </div>
+    </header>
+<article class="article-body">
+<div class="scripture-box" id="scripture">
+  <div class="scripture-title"><i class="fa-solid fa-quote-left"></i> 讀經</div>
+  <div class="scripture-item">詩篇二十篇五節：「我們要因你的救恩誇勝，要奉我們神的名豎立旌旗；願耶和華成就你一切所求的。」</div>
+  <div class="scripture-item">歷代志下二十章一節：「此後，摩押人和亞捫人，又有米烏尼人，一同來攻擊約沙法。」</div>
+  <div class="scripture-item">三節：「約沙法便懼怕，定意尋求耶和華；在猶大全地宣告禁食。」</div>
+  <div class="scripture-item">十二節：「我們的神啊，你不懲罰他們麼? 因為我們無力抵擋這來攻擊我們的大軍；我們也不知道怎樣行，我們的眼目，單仰望你。」</div>
+  <div class="scripture-item">十五節：「他說，猶大眾人，耶路撒冷的居民，和約沙法王，你們請聽，耶和華對你們如此說，不要因這大軍恐懼、驚惶，因為勝敗不在乎你們，乃在乎神。」</div>
+  <div class="scripture-item">十七節：「猶大和耶路撒冷人哪，這次你們不要爭戰，要擺陣站著，看耶和華為你們施行拯救；不要恐懼，也不要驚惶；明日當出去迎敵；因為耶和華與你們同在。」</div>
+  <div class="scripture-item">十八至二十二節：「約沙法就面伏於地；猶大眾人，和耶路撒冷的居民，也俯伏在耶和華面前，叩拜耶和華。哥轄族和可拉族的利未人，都起來，用極大的聲音讚美耶和華以色列的神。次日清早眾人起來，往提哥亞的曠野去；出去的時候，約沙法站著說，猶大人，和耶路撒冷的居民哪，要聽我說，信耶和華你們的神，就必立穩；信他的先知，就必亨通。約沙法既與民商議了，就設立歌唱的人，頌贊耶和華，使他們穿上聖潔的禮服，走在軍前讚美耶和華說，當稱謝耶和華；因他的慈愛永遠長存。眾人方唱歌讚美的時候，耶和華就派伏兵擊殺那來攻擊猶大人的亞捫人、摩押人、和西珥山人；他們就被打敗了。」</div>
+  <div class="scripture-item">二十四節：「猶大人來到曠野的望樓，向那大軍觀看，見屍橫遍地，沒有一個逃脫的。」</div>
+  <div class="scripture-item">二十六節：「第四日眾人聚集在比拉迦穀，在那裏稱頌耶和華；因此那地方名叫比拉迦穀，直到今日。」</div>
+  <div class="scripture-item">二十七至二十八節：「猶大人和耶路撒冷人，都歡歡喜喜地回耶路撒冷，約沙法率領他們；因為耶和華使他們戰勝仇敵，就歡喜快樂。他們彈琴、鼓瑟、吹號，來到耶路撒冷，進了耶和華的殿。」</div>
+</div>
+<p>這幾天晚上，我們在這裏一直看一個問題，就是基督人是如何得勝的。感謝神，在我們的當中，有許多弟兄姊妹已經過了得勝的關。昨天晚上，我們看見得勝生命是如何長進的。今天我們要另外看一個問題，就是得勝的音調。你們知道，許多的時候人唱詩，字是對的，但是調不對。請你們記得，得勝的生命也是有音調的。字對了還不夠，調還得對。所以，今天我要提到什麼叫得勝的音調。</p>
+<p>詩篇二十篇五節：「我們要因你的救恩誇勝。」  「救恩」也可譯作「得勝」；「誇勝」也可譯作「快樂」。所以，「我們要因你的救恩誇勝」，也可譯作「我們要因你的救恩快樂」，也可譯作「我們要因你的得勝誇勝」。 這個實在無大緊要。救恩和得勝，實在沒有分別，不過是一件事的兩段而已。</p>
+<p>感謝神，許多的弟兄姊妹，已經過了得勝的關。但是，你們過了得勝的關，你們得勝的音調還得對。或者你們不懂得什麼叫音調，我就換一句話說，得勝是有它的標記的。你怎麼知道你是得勝的呢? 你什麼時候知道你是得勝的呢? 這沒有別的，就是詩篇二十篇五節所說，「我們要因你的救恩誇勝。」</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 得勝與誇勝的不同</h2>
+<p>我不知道你們知不知道得勝和誇勝的不同。什麼叫得勝呢? 什麼叫誇勝呢? 我要告訴你們，得勝完全是基督作的，誇勝是我們作的。得勝是基督的工作，誇勝是我們作的。得勝是那個工作一直得勝，誇勝是在得勝了之後，一直誇口。比方：從前我喜歡打棍球，打的時候真苦，球很重，打得手很痛。和人比賽一個鐘頭，要流汗出力，一門打進去，再一門打進去，再一門打進去，這就叫得勝了。這個時候，同學們因我們這一隊打了勝仗，就在那裏掀帽揚巾，一直在那裏歡呼喜樂，這就叫誇勝。得勝的是我們一隊，但是，他們誇勝。感謝神，得勝是基督作成的! 我們並沒有流血，我們卻能在這裏誇勝。</p>
+<p>所以，請你們記得，每一個基督人得勝之後，他的口就得誇勝。每一天沒有阿利路亞，每一天沒有誇勝，每一天隻看見淚的泉源，這就是沒有誇勝。我們的音調，是要因他的救恩喜樂，因他的得勝誇勝。我們棍球比賽得勝了，把得勝送給學校，讓同學一直誇勝。照樣，我們的主得勝了，把得勝賜給我們，讓我們一直誇勝。</p>
+<p>所以，我們要說，阿利路亞! 基督得勝! 所以，凡不會說阿利路亞的，我不說他沒有得勝，但是，我可以說他得勝的音調不對。一個江西人說北平話，字是對的，但是，腔調不對。不能說阿利路亞的，他的腔調不對。我們不只說得勝，我們的腔調還得對。如果你的腔調不對，人要疑惑你是怎麼回事，你自己也要疑惑你是怎麼回事了。彼得的腔調，是加利利的腔調，連那個使女都聽出來了。我們缺乏加利利的腔調。我們的聲音，不能顯出我們的得勝。哦，我們天天要有加利利的腔調。我們要被人說，你是跟過耶穌的，因為你是加利利的腔調。</p>
+<p>約沙法王的誇勝</p>
+<p>在舊約裏，猶大國有一個王叫約沙法，我們要讀一讀代下二十章，看看他得勝的腔調是如何。</p>
+<p>那個時候，「摩押人和亞捫人，又有米烏尼人，一同來攻擊約沙法。」(1) 在約沙法的時候，猶大國很弱，對於外敵一點辦法都沒有。約沙法看自己，自然是怕得很。從前是如何沒有辦法，現在也仍是如何沒有辦法。這些老仇敵又來了，他有什麼辦法呢? 他什麼辦法都沒有。</p>
+<p>但是，他是一個敬畏神的人。他就「定意尋求耶和華；在猶大全地宣告禁食。」(3) 他沒有別的辦法，他只有來到神的面前。</p>
+<p>他對神說，「我們的神啊，你不懲罰他們麼? 因為我們無力抵擋這來攻擊我們的大軍；我們也不知道怎樣行，我們的眼目，單仰望你。」(12) 他承認他們自己的無力，他們的眼目單仰望神。弟兄姊妹們，這幾天我一直說，降服的條件，第一，就是我不能；第二，就是我也不打算能。另一方面，就是相信神。約沙法就是這樣。他承認說，我們無力抵擋，我們也不知道怎樣行。神啊，我們只有仰望你。</p>
+<p>神就立刻打發一位先知來說，「你們……不要因這大軍恐懼、驚惶，因為勝敗不在乎你們，乃在乎神。」(15) 打仗是神的事! 得勝或失敗，和你一點關係都沒有。脾氣、驕傲、多疑、污穢的思想、貪心，各式各樣的罪，和你一點關係都沒有。因為勝敗不在乎你們，乃在乎神。神說，「這次你們不要爭戰，要擺陣站著。」(17) 神祇要你不動。神要你把手完全放下，神祇要你完全不理。你只管站在那裏，「看耶和華為你們施行拯救。」(17) 哦，弟兄姊妹們，我們不是爭戰的人，我們都是觀戰的人。什麼時候你沒有誇勝，什麼時候你已經失敗了。你們在神的面前不要怕，因為神要為你們爭戰。</p>
+<p>但是，約沙法作更進一步的事。他不只不動，不只在旁邊觀戰；當他聽見了先知的話語之後，他就面伏於地敬拜神；猶大眾人，和耶路撒冷的居民，也俯伏在耶和華面前，叩拜耶和華。人家那麼多的人聯合起來攻擊他，他這邊怎樣作呢? 他叫一班利未人起來，頌贊耶和華。使他們穿上聖潔的禮服，走在軍前讚美耶和華。他這樣豈不像瘋了麼? 他們不怕石頭，不怕箭矢。他們唱詩讚美神，這就是得勝的音調。得勝的音調，就是知道耶和華已經把得勝給你，就是知道仇敵已經失敗，就是知道你已經得勝了。人是說，看見試探來，就掙扎，就抵擋。但神是說，「眾人方唱歌讚美的時候，耶和華就派伏兵擊殺那來攻擊猶大人的亞捫人、摩押人、和西珥山人；他們就被打敗了。」(22) 什麼時候唱詩讚美耶和華，什麼時候仇敵就被打敗了。</p>
+<p>結局呢? 「猶大人來到曠野的望樓，向那大軍觀看，見屍橫遍地，沒有一個逃脫的。」(24) 神不給得勝則已，神一給得勝，就一個也不留下。是我們，也許留下五、六個；是神，就一個也不留下。方唱詩的「方」字，就派伏兵的「就」字，是頂有意思的。眾人方唱歌讚美的時候，耶和華就派伏兵擊殺那來攻擊猶大人的亞捫人、摩押人、和西珥山人。弟兄姊妹們，神祇能當你讚美的時候作工。什麼時候你讚美，什麼時候神就作工。</p>
+<p>弟兄姊妹們，我知道你們有不少的試探，我知道你們有不少的試煉。或是身體的軟弱，或是環境的不順，或是事業方面各種各樣的困難。你們要說，哦，我們怎麼辦呢? 哦，我們怎樣能得勝呢? 弟兄姊妹，你知道得勝是不錯的，但是，你的音調不對。你看見試探來，你說，阿利路亞；你看見試煉來，你說阿利路亞! 你看見難處來，你說阿利路亞! 你一說阿利路亞，仇敵就失敗了。我們的神，當你一讚美，他就作工；當你一唱詩，神就作工。</p>
+<p>弟兄姊妹們，你承認你的不能，這不夠；你相信神能，這也不夠。你還當從心裏說阿利路亞! 神啊，我感謝你，因為我受試煉；神啊，我感謝你，因為我沒有辦法；神啊，我感謝你，因為得勝是我的。約沙法一直唱詩，因他相信已經得勝了。從約沙法的眼睛看來，個個都是屍首，所以他一往直前，一直唱詩。他不怕矢石，因為他算他們已經死了。他們上望樓一看，都是屍首，都已經死了。</p>
+<p>兩段的感謝讚美</p>
+<p>「第四日眾人聚集在比拉迦穀，在那裏稱頌耶和華；……猶大人和耶路撒冷人，都歡歡喜喜地回耶路撒冷，約沙法率領他們；因為耶和華使他們戰勝仇敵，就歡喜快樂。他們彈琴、鼓瑟、吹號，來到耶路撒冷，進了耶和華的殿。」(26～28) 感謝讚美有兩段，一段是在沒有成功之先，一段是在既得成功之後。今天的大錯，就是在事先沒有讚美，把讚美扣起來，要等一等看到底如何。許多的弟兄姊妹，已經承認自己不能，也不打算能了；已經相信神的事實，已經相信基督就是他的得勝了；但是，他不敢說，阿利路亞，我得勝了。有一位弟兄說，我要看行不行。有一位姊妹說，我要看有沒有效力。他們的意思是，明天有一點行，才感謝讚美神；明天有一點果效，才感謝讚美神。但是，約沙法有兩次的讚美。每一得勝者，都有兩次的讚美：肉眼沒有看見就讚美，肉眼已經看見了又讚美。這個就是得勝的音調。什麼時候沒有讚美，什麼時候就已經失敗了，就已經失去得勝了。</p>
+<p>你是問有沒有得勝，我是問有沒有阿利路亞。阿利路亞，是得勝的音調。音調是對的，就表明是真得勝。什麼都有法子假，這個沒有法子假。所以凡得勝的人，都有一個腔調，就是一直歡樂，一直讚美。人有什麼音調，你就知道他是什麼地方的人。看人有沒有得勝，只要聽他的音調如何。得勝的標記，就是能說阿利路亞，就是能說讚美主。得勝的標記，就是當試探一來，能說阿利路亞，能說讚美主。因為沒有一個看自己的人能讚美主的，只有仰望主的人才能讚美主。你一看自己，還是那樣不能，你就不能說阿利路亞，讚美主。你一看主，你就能說阿利路亞，讚美主。試探再大一點不要緊，摩押人。亞捫人再多一點也不要緊，因為爭戰的是主，不是我們。是主負所有的責任。所以，得勝的音調，就是歡喜快樂，感謝讚美神。你不必等到你實在失敗的時候，實在污穢的時候，實在犯大罪的時候，你才說你失敗了。只要你什麼時候失去感謝讚美，你就已經失去得勝了。不必你犯大罪，只要你不能誇勝，不能歡喜快樂，不能感謝讚美，你就已經失去得勝了。弟兄姊妹們，神賜給我們的得勝生命，是天天能唱阿利路亞的，是天天能歡喜快樂的。標記一失，就得勝已經失去了。</p>
+<p>在歡喜快樂裏保守得勝</p>
+<p>有一節頂熟的聖經節，就是尼希米八章十節：「因靠耶和華而得的喜樂是你們的力量。」 神所賜的生命，是借著什麼表明呢? 就是借著喜樂。我們的主耶穌基督，呼吸的空氣，是在歡喜快樂裏的，是在感謝讚美裏的。我這幾年學這功課。我已經赦免了，已經忍耐了，已經奉獻了，已經順服了，但是，我在那裏有一點覺得苦，有一點埋怨。我不能說感謝讚美主。什麼時候，你不能說感謝讚美主，什麼時候，就已經失敗了。弟兄姊妹們，你們的得勝在喜樂裏。什麼時候，歡喜快樂一丟掉，立刻就把得勝丟掉了。什麼時候，歡喜快樂一丟掉，立刻就癟氣了。一位弟兄說，從來不知道喜樂的力量有這麼大，這些日子才知道。什麼時候不歡喜快樂，氣就癟了。你要在歡喜快樂裏保守你的得勝。得勝象魚一樣，要養在水裏。得勝要養在歡喜快樂裏。我們該在歡喜快樂裏保守得勝。</p>
+<p>在患難試煉中有歡喜快樂</p>
+<p>但是，怎麼能歡喜快樂呢? 當然，你在許多的事上，都能歡喜快樂讚美神。就如你過了得勝的關，你過了能力的關，你自然能歡喜快樂讚美神。但是，聖經說，就是在許多不能歡喜快樂的事上，還能歡喜快樂。我們可以看聖經告訴我們，在哪些事情上，我們能歡喜快樂。</p>
+<p>林後八章二節：「就是他們在患難中受大試煉的時候，仍有滿足的快樂。」  在這裏告訴我們，馬其頓人在患難中受大試煉的時候，仍有滿足的快樂。他們不是有一滴兩滴的喜樂，乃是有滿足的喜樂。弟兄姊妹們，我們要常常喜樂，要有滿足的喜樂，要在大患難中也有喜樂。基督的生命，是得勝的生命，你能誇勝。就是在大軍進攻，在大患難的時候，你還能喜樂讚美神。得勝的特點，就是在患難中充滿了感謝和讚美。</p>
+<p>有一位弟兄，在鐵道上作分道夫。有一次有火車過來，他一不小心，就被軋斷了一隻腿。在醫院裏醒過來的時候，有人問他說，你還能說感謝讚美麼? 他回答說，我感謝讚美神，只軋斷了一隻腿。弟兄姊妹們，這大不同。患難，他真是遇見患難，但他還能感謝讚美神。這個就是得勝的音調。得勝的音調，是在大患難中還有感謝和讚美。</p>
+<p>雅各書一章二節:「我的弟兄們，你們落在百般試煉中，都要以為大喜樂。」 彼前一章六節:「因此，你們是大有喜樂。」  這是怎麼回事呢? 一章八節:「你們雖然沒有見過他，卻是愛他；如今雖不得看見，卻因信他就有說不出來、滿有榮光的大喜樂。」 四章十二至十三節：「親愛的弟兄啊，有火煉的試驗臨到你們，不要以為奇怪， (似乎是遭遇非常的事,) 倒要歡喜；因為你們是與基督一同受苦，使你們在他榮耀顯現的時候，也可以歡喜快樂。」 這幾處的聖經，說到在受試煉的時候，怎樣過日子。雅各書說，百般的試煉。該有的來，不該有的也來；仇敵來，朋友也來；外教人來，弟兄也來；有理的來，無理的也來。各式各樣的試煉都有。但是，這些並不能叫我們不喜樂。請你記得，聖經講喜樂，都是用這樣的字眼，就是大有喜樂、滿足的喜樂。神所給的，都是大的、滿足的。彼前一章六節說喜樂，是大有喜樂；說憂愁，不過是暫時憂愁。是否可憂愁呢? 憂愁是免不了的。有兩眼在，淚還得流；有淚河在，淚還得流。雖然流淚，仍是喜樂。所以一章八節說，因信就有說不出來，滿有榮光的大喜樂。這個喜樂，是沒有法子說出的。哦，多少時候，淚還沒有幹，口裏已經能說阿利路亞。多少時候，淚還在流，口裏已說感謝讚美主。頂多的人，是一面流淚，一面感謝讚美主。你們記得，和受恩教士有一首詩說，「雖然心可傷痛，願靈仍讚頌。」(詩歌二八二首) 當你活在地上的時候，你的心不能不痛，心是有感覺的，但靈仍可樂。彼前四章十二節，意即不只是在試煉的時候要喜樂，是有試煉臨到的時候就要喜樂。意即要歡迎試煉，要感謝讚美主說，又來了。</p>
+<p>有的弟兄姊妹，一見試煉來到，就皺起眉頭說，又來了! 但彼得說，要歡喜地感謝神說，又來了。什麼時候你能感謝讚美神，你就在患難之上了，沒有一件東西能把我們擺在試探上面，擺在環境上面，擺在難處上面，過於喜樂和感謝讚美的。這是一個得勝者所該顯出的得勝音調。</p>
+<p>在煙臺，有一位姊妹過了得勝的關，真是受試煉。一個女兒過了幾個鐘頭死了，丈夫在離得很遠的地方。她的女兒一死，弟兄姊妹們去安慰她。她的眼睛雖然流淚，她的面孔還會笑。她說，感謝讚美神，孩子死了是可惜，但不知道為什麼還能頂歡喜快樂。弟兄姊妹們本來打算去安慰她，反而被她安慰了一頓回來。這個假不來。得勝就是用這樣的音調保守著。就是在受試煉的時候，還能歡喜讚美神。</p>
+<p>今天基督人在地上，我說句不好聽的話，就好像米樣，好像貨樣，好像樣本。神把你擺在地上作樣本。這樣子好看不好看呢? 人哭你也哭，人難你也難，你與世人一樣無二，你的得勝在哪裡呢? 我們該在這些事的上面，叫他們看見我們有喜樂，有力量。雖然好像瘋子，但是他們羨慕能叫你好像瘋子的基督。但願神施恩給我們，叫我們在試煉中，能顯出基督的得勝來。</p>
+<p>馬太五章十一至十二節：「人若因我辱罵你們，逼迫你們，捏造各樣壞話譭謗你們，你們就有福了。應當歡喜快樂 (希臘文作『大大歡喜快樂』)；因為你們在天上的賞賜是大的。」 人家罵你，你說我現在要忍耐；人家辱罵你，你說我現在不還嘴。你不要以為你忍耐，你不還嘴就已經夠了。若是你只有忍耐，只不還嘴，就已經失敗了。忍耐、不還嘴，這種態度世界上的人作得到，和尚作得到，儒者作得到。我們應當和他們不一樣。人家在那裏罵你的時候，你說，主，我感謝讚美你，你以人罵你為可喜樂的。人家逼迫你的時候，你說，主，我感謝讚美你，你以人逼迫你為可喜樂的。你的得勝如果是得勝，你必定大大歡喜快樂。得勝如果不過是忍耐，就不過是人作的。一切人作的，都是壓制的。一切主作的，都是能歡喜快樂的。</p>
+<p>所以，弟兄姊妹們，這裏的問題，是腔調對不對。今天最大的難處，是以為忍耐是無上的道德了。當人罵你的時候，你能不能大大快樂呢? 當人罵你的時候，你還是面朝下，不過不作聲而已呢? 有頂多的人，受人家的逼迫。有頂多的姊妹，受丈夫的逼迫。有頂多的人，受人捏造言語的譭謗。我們怎麼作呢? 我們求主保守我們不發脾氣，我們求主保守我們不冒火。我們沒有發脾氣，沒有冒火，就以為得勝了。你大得勝沒有? 你自己得勝了是不錯，但是，這不是主給你的得勝。如果是主的得勝，就當有人辱罵你的時候，你能大大感謝讚美主；當有人逼迫你的時候，你能大大感謝讚美主。我再說，什麼時候你不感謝神，什麼時候你不讚美神，你就已經失敗了。得勝的音調，就是感謝和讚美。</p>
+<p>有一個人在電車上，和他的一個大仇敵坐在一起。這一個是弟兄，就求主說，主啊，求你保守我。他一面這樣對主說。他外面還有好好的態度，並且還和這位仇敵一直談話，連什麼新聞，像現在的運動會都談到。裏面卻對主說，主啊，你叫他先下去，或者我能得勝。哦，好不容易，到了目的地，下了車子，歎一口氣說，我得勝了。哦，這是什麼得勝呢? 這是說謊的得勝。這是人造的得勝，這是虛空的得勝。如果是神的得勝，就不必求主保守，不必求主叫你忍耐，就只須說，神啊，我感謝讚美你，你把我擺在這個地方。既然這樣，就時間再長些也無妨了。</p>
+<p>腓立比四章四節：「你們要靠主常常喜樂。」 聖經裏說到喜樂，不是大，就是滿有；不是滿有，就是常常。「常常」是一直的。你們聽見了沒有? 如果沒有聽見的話，「我再說，你們要喜樂。」 這是保羅的意思，意即你們若沒有聽見，我就再說，你們要喜樂。神所給的生命，是喜樂的生命。喜樂，是基督人天天的生活。別的地方是患難，是試煉，但是仍然能喜樂。這裏的對面是掛慮。許多人替兒女掛慮，許多人替錢財掛慮，許多人替買賣掛慮。但是，主的話是說，「應當一無掛慮。」 我們以為掛慮是有理由的。但主是說，「應當一無掛慮」，為的是要常常喜樂。</p>
+<p>我們一天不喜樂，就是犯罪。有一次聚會，一位弟兄講道說，應當一無掛慮。有一位姊妹聽了很氣說，人哪裡能夠不掛慮呢? 你們弟兄多掛慮一點，我們伙食就要好一點 (因是弟兄管伙食)。 但是，主一直抓住她，叫她看見掛慮是罪，後來她就得勝了。</p>
+<p>如果要說下去，有頂多的話好說，所以保羅在林後十二章十節說，「我為基督的緣故，就以軟弱、淩辱、急難、逼迫、困苦，為可喜樂的。」 保羅以軟弱、淩辱、急難、逼迫、困苦，為可喜樂的。弟兄姊妹們，我們不知道要遭遇什麼事。我們知道我們在地上不會多順利。有的人自己病，有的人親屬病，有的人遭遇親人要去世，有的人前途要遭遇逼迫。我告訴你說，你怎麼辦? 你說，主，我忍耐忍耐。你這樣說，你失敗了。如果你說，主，我感謝讚美你! 你就得勝了。這樣，基督立刻能表現在你身上。這樣就有機會給主顯能力，所以就能歡喜快樂。這一個是我們天天在地上的生活。我們要常常喜樂感謝讚美主。</p>
+<p>帖前五章十八節：「凡事謝恩。」 一切的事，都該謝恩。歌羅西三章十七節：「無論作什麼，或說話，或行事，都要奉主耶穌的名，借著他感謝父神。」 這兩處的聖經，把一切都包括在內。今天漏掉沒有念出的，都在這裏了。我感謝讚美神。我說，阿利路亞。人看我們這樣，要有些莫名其妙。但是，我們還是凡事謝恩，凡事讚美。弟兄姊妹們，你們若能這樣，就試探無一能抵擋得住你，試煉無一能抵擋得住你。任何的試探，任何的試煉，都不能摸著你。什麼人能這樣，什麼人就有信心去碰試探。對於試煉，你能感謝讚美神，是因你順服神。</p>
+<p>有的人也許以為我和忍耐作對。我說，忍耐頂寶貝。忍耐是該忍耐，但忍耐不是咬著牙齒的忍耐。歌羅西一章十一節說，「凡事歡歡喜喜地忍耐寬容。」 是要歡歡喜喜地忍耐，不是勉勉強強地忍耐，不是憂憂愁愁地忍耐。凡事歡歡喜喜地忍耐寬容，這是基督人日常生活的腔調。凡事謝恩，凡事讚美，這是三層天的生活。</p>
+<p>主給的是得勝有餘的得勝</p>
+<p>為什麼我們要歡喜快樂，才算是得勝的生命呢? 為什麼必須有歡喜快樂，才算得著了得勝的生命呢? 羅馬八章三十七節說，「在這一切的事上，已經得勝有餘了。」  神給的得勝只有一種，就是得勝有餘的得勝。凡是僅僅的得勝，凡是剛剛的得勝，都不是主賜給的得勝。主賜給的得勝，都是得勝有餘的得勝。剛剛得勝，僅僅得勝，都不是得勝。主給的得勝，都是得勝有餘的得勝。得勝有餘的得勝，只有一條路，就是能歡喜快樂。</p>
+<p>弟兄姊妹們，我們的杯是滿溢的。神所賜的，都是滿溢的。凡不是滿溢的，就不是神所賜的。神所賜的得勝，是「有人打你的右臉，連左臉也轉過來由他打。有人想要告你，要拿你的裏衣，連外衣也由他拿去。有人強逼你走一裏路，你就同他走二裏。」(太五39～41)  得勝有餘剩的才是神的得勝。僅僅的得勝，都是人力、人工作出來的。</p>
+<p>弟兄姊妹們，這一個是得勝的音調。我巴不得神開我們的眼睛。凡不是得勝有餘的得勝，是在那裏仿造得勝。你在那裏壓制、降服，你就是在那裏仿造得勝。如果是基督活在你裏面，你就在任何的事上，都能歡喜快樂，同時也能感謝讚美神，能說阿利路亞讚美神，從今時直到永遠。</p>
+</article>
+    <!-- Chapter Bottom Navigation -->
+    <nav class="chapter-nav-bar">
+      <a href="09.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> 上一篇</a>
+      <a href="index.html" class="nav-btn"><i class="fa-solid fa-list"></i> 本書目錄</a>
+      <a href="11.html" class="nav-btn">下一篇 <i class="fa-solid fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <div class="floating-nav">
+    <button class="fab-btn" id="btn-back-top" title="回到頂部" style="display:none;"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+
+  <div class="drawer-overlay" id="overlay"></div>
+
+  <!-- TOC Drawer -->
+  <aside class="drawer drawer-left" id="drawer-toc">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-book-bookmark"></i> 本書目錄</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <ul class="toc-list">
+        <li class="toc-item"><a href="01.html" class="toc-link">第一篇、我們的經歷</a></li>
+<li class="toc-item"><a href="02.html" class="toc-link">第二篇、聖經所啟示基督人的生命</a></li>
+<li class="toc-item"><a href="03.html" class="toc-link">第三篇、得勝生命的性質</a></li>
+<li class="toc-item"><a href="04.html" class="toc-link">第四篇、如何經歷得勝的生命</a></li>
+<li class="toc-item"><a href="05.html" class="toc-link">第五篇、如何進入得勝的生命</a></li>
+<li class="toc-item"><a href="06.html" class="toc-link">第六篇、降服</a></li>
+<li class="toc-item"><a href="07.html" class="toc-link">第七篇、相信</a></li>
+<li class="toc-item"><a href="08.html" class="toc-link">第八篇、信心的試驗</a></li>
+<li class="toc-item"><a href="09.html" class="toc-link">第九篇、長進</a></li>
+<li class="toc-item"><a href="10.html" class="toc-link">第十篇、得勝的音調</a></li>
+<li class="toc-item"><a href="11.html" class="toc-link">第十一篇、奉獻</a></li>
+
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Settings Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-settings">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-sliders"></i> 閱讀設定</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-palette"></i> 閱讀配色</div>
+        <div class="theme-grid">
+          <button class="theme-btn" data-theme-val="sepia"><span>📜 羊皮</span></button>
+          <button class="theme-btn" data-theme-val="light"><span>☀️ 潔白</span></button>
+          <button class="theme-btn" data-theme-val="dark"><span>🌙 夜間</span></button>
+          <button class="theme-btn" data-theme-val="green"><span>🍃 護眼</span></button>
+        </div>
+      </div>
+      
+      <!-- Custom Font Size Control -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <i class="fa-solid fa-text-height"></i> 自訂字體大小
+          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">18px</span>
+        </div>
+        <div class="font-size-control">
+          <button class="stepper-btn" id="btn-font-dec" title="縮小字體"><i class="fa-solid fa-minus"></i></button>
+          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="18" class="font-range-input" />
+          <button class="stepper-btn" id="btn-font-inc" title="放大字體"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-font"></i> 字體風格</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-font-val="serif">明體</button>
+          <button class="segment-btn" data-font-val="sans">黑體</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-align-left"></i> 行高間距</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-lh-val="compact">緊湊</button>
+          <button class="segment-btn" data-lh-val="comfortable">舒適</button>
+          <button class="segment-btn" data-lh-val="spacious">寬鬆</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Search Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-search">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-magnifying-glass"></i> 內文搜尋</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="輸入關鍵字..." />
+        <button class="icon-btn" id="search-clear" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-status" id="search-status">尚未輸入搜尋關鍵字</div>
+    </div>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const progressBar = document.getElementById('progress-bar');
+      const overlay = document.getElementById('overlay');
+      const drawerToc = document.getElementById('drawer-toc');
+      const drawerSettings = document.getElementById('drawer-settings');
+      const drawerSearch = document.getElementById('drawer-search');
+      
+      const btnToc = document.getElementById('btn-toc');
+      const btnSettings = document.getElementById('btn-settings');
+      const btnSearch = document.getElementById('btn-search');
+      const btnBackTop = document.getElementById('btn-back-top');
+      const closeBtns = document.querySelectorAll('.close-drawer');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (btnBackTop) btnBackTop.style.display = scrollTop > 300 ? 'flex' : 'none';
+        localStorage.setItem('pos_10.html', scrollTop);
+      });
+
+      if (btnBackTop) {
+        btnBackTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      const savedPos = localStorage.getItem('pos_10.html');
+      if (savedPos && !window.location.hash) {
+        window.scrollTo({ top: parseInt(savedPos, 10), behavior: 'smooth' });
+      }
+
+      function openDrawer(drawer) {
+        closeAllDrawers();
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+      }
+
+      function closeAllDrawers() {
+        overlay.classList.remove('active');
+        if (drawerToc) drawerToc.classList.remove('active');
+        if (drawerSettings) drawerSettings.classList.remove('active');
+        if (drawerSearch) drawerSearch.classList.remove('active');
+      }
+
+      if (btnToc) btnToc.addEventListener('click', () => openDrawer(drawerToc));
+      if (btnSettings) btnSettings.addEventListener('click', () => openDrawer(drawerSettings));
+      if (btnSearch) {
+        btnSearch.addEventListener('click', () => {
+          openDrawer(drawerSearch);
+          setTimeout(() => document.getElementById('search-input').focus(), 300);
+        });
+      }
+
+      if (overlay) overlay.addEventListener('click', closeAllDrawers);
+      closeBtns.forEach(btn => btn.addEventListener('click', closeAllDrawers));
+
+      // Preferences Management
+      function loadPreferences() {
+        setTheme(localStorage.getItem('pref_theme') || 'sepia');
+        setFont(localStorage.getItem('pref_font') || 'serif');
+        setLineHeight(localStorage.getItem('pref_lh') || 'comfortable');
+        
+        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '18';
+        setCustomFontSize(savedCustomSize);
+      }
+
+      function setTheme(val) {
+        html.setAttribute('data-theme', val);
+        localStorage.setItem('pref_theme', val);
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.themeVal === val));
+      }
+
+      function setFont(val) {
+        html.setAttribute('data-font', val);
+        localStorage.setItem('pref_font', val);
+        document.querySelectorAll('[data-font-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.fontVal === val));
+      }
+
+      function setLineHeight(val) {
+        html.setAttribute('data-lh', val);
+        localStorage.setItem('pref_lh', val);
+        document.querySelectorAll('[data-lh-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.lhVal === val));
+      }
+
+      function setCustomFontSize(sizeVal) {
+        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 18));
+        html.style.setProperty('--font-size-base', size + 'px');
+        localStorage.setItem('pref_custom_font_size', size);
+        
+        const display = document.getElementById('font-size-val-display');
+        const slider = document.getElementById('font-size-slider');
+        if (display) display.textContent = size + 'px';
+        if (slider) slider.value = size;
+      }
+
+      const fontSlider = document.getElementById('font-size-slider');
+      if (fontSlider) {
+        fontSlider.addEventListener('input', (e) => setCustomFontSize(e.target.value));
+      }
+
+      const btnFontDec = document.getElementById('btn-font-dec');
+      const btnFontInc = document.getElementById('btn-font-inc');
+      if (btnFontDec) {
+        btnFontDec.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur - 1);
+        });
+      }
+      if (btnFontInc) {
+        btnFontInc.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur + 1);
+        });
+      }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.themeVal)));
+      document.querySelectorAll('[data-font-val]').forEach(btn => btn.addEventListener('click', () => setFont(btn.dataset.fontVal)));
+      document.querySelectorAll('[data-lh-val]').forEach(btn => btn.addEventListener('click', () => setLineHeight(btn.dataset.lhVal)));
+
+      loadPreferences();
+
+      // Search Logic
+      const searchInput = document.getElementById('search-input');
+      const searchStatus = document.getElementById('search-status');
+      const searchClear = document.getElementById('search-clear');
+      const articleBody = document.querySelector('.article-body');
+      if (articleBody && searchInput) {
+        let originalHtml = articleBody.innerHTML;
+
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.trim();
+          if (!query) {
+            articleBody.innerHTML = originalHtml;
+            searchStatus.textContent = '尚未輸入搜尋關鍵字';
+            searchClear.style.display = 'none';
+            return;
+          }
+
+          searchClear.style.display = 'inline-flex';
+          const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+          const matches = (articleBody.textContent.match(regex) || []).length;
+
+          if (matches === 0) {
+            searchStatus.textContent = `未找到與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+          } else {
+            searchStatus.textContent = `找到 ${matches} 處與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+            const elements = articleBody.querySelectorAll('p, h2, h3');
+            elements.forEach(el => {
+              const text = el.innerHTML;
+              if (regex.test(text)) {
+                el.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+              }
+            });
+          }
+        });
+
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          articleBody.innerHTML = originalHtml;
+          searchStatus.textContent = '尚未輸入搜尋關鍵字';
+          searchClear.style.display = 'none';
+        });
+
+        function escapeRegExp(string) {
+          return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        articleBody.addEventListener('click', (e) => {
+          const p = e.target.closest('p');
+          if (p && !e.target.classList.contains('search-highlight')) {
+            document.querySelectorAll('.article-body p').forEach(el => el.classList.remove('highlight-p'));
+            p.classList.add('highlight-p');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia" data-font="serif">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>第八篇、信心的試驗 — 得勝的生命 | 倪柝聲</title>
+  <meta name="description" content="《得勝的生命》 第八篇、信心的試驗。倪柝聲著。手機 RWD 最佳化閱讀體驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-color: #f8f5ee;
+      --card-bg: #ffffff;
+      --text-color: #2b2927;
+      --text-muted: #6b6560;
+      --accent-color: #8c2a1c;
+      --accent-light: rgba(140, 42, 28, 0.08);
+      --border-color: #e5ded0;
+      --header-bg: rgba(248, 245, 238, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --font-family: 'Noto Serif TC', serif;
+      --font-size-base: 18px;
+      --line-height-base: 1.85;
+      --content-max-width: 740px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-color: #1f2937;
+      --text-muted: #6b7280;
+      --accent-color: #991b1b;
+      --accent-light: rgba(153, 27, 27, 0.08);
+      --border-color: #e5e7eb;
+      --header-bg: rgba(250, 250, 250, 0.90);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121316;
+      --card-bg: #1c1e24;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-color: #ef4444;
+      --accent-light: rgba(239, 68, 68, 0.15);
+      --border-color: #2a2d37;
+      --header-bg: rgba(18, 19, 22, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    [data-theme="green"] {
+      --bg-color: #dce7d7;
+      --card-bg: #e6efe2;
+      --text-color: #233522;
+      --text-muted: #4e634c;
+      --accent-color: #2b6832;
+      --accent-light: rgba(43, 104, 50, 0.12);
+      --border-color: #c7d9c1;
+      --header-bg: rgba(220, 231, 215, 0.90);
+    }
+
+    [data-font="sans"] {
+      --font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    [data-lh="compact"] { --line-height-base: 1.6; }
+    [data-lh="comfortable"] { --line-height-base: 1.85; }
+    [data-lh="spacious"] { --line-height-base: 2.1; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent-color); width: 0%; z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    .app-header {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .brand-info { display: flex; flex-direction: column; overflow: hidden; margin-right: 0.5rem; }
+    .book-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent-color); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .chapter-tag { font-size: 0.95rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .header-actions { display: flex; gap: 0.35rem; align-items: center; }
+    .icon-btn {
+      background: transparent; border: none; color: var(--text-color);
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .icon-btn:hover { background-color: var(--accent-light); color: var(--accent-color); }
+    .icon-btn:active { transform: scale(0.92); }
+
+    .container { max-width: var(--content-max-width); margin: 0 auto; padding: 1.5rem 1.25rem 3rem 1.25rem; }
+
+    .article-header {
+      margin-bottom: 2rem; text-align: center; padding-bottom: 1.5rem;
+      border-bottom: 2px dashed var(--border-color);
+    }
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.45); font-weight: 700;
+      color: var(--accent-color); margin-bottom: 0.75rem; line-height: 1.3; text-wrap: balance;
+    }
+    .article-meta {
+      font-size: 0.875rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .meta-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+    .scripture-box {
+      background: var(--card-bg); border-left: 4px solid var(--accent-color);
+      border-radius: 0 12px 12px 0; padding: 1.25rem; margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm); border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    }
+    .scripture-title {
+      font-size: 0.9rem; font-weight: 700; color: var(--accent-color);
+      margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .scripture-item {
+      font-style: italic; color: var(--text-color); margin-bottom: 0.65rem;
+      padding-left: 0.6rem; border-left: 2px solid var(--border-color); line-height: 1.6;
+    }
+    .scripture-item:last-child { margin-bottom: 0; }
+
+    h2.section-heading {
+      font-size: calc(var(--font-size-base) * 1.2); font-weight: 700;
+      color: var(--accent-color); margin: 2.25rem 0 1.25rem 0; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.6rem;
+      scroll-margin-top: 80px; text-wrap: balance;
+    }
+
+    h3.sub-heading {
+      font-size: calc(var(--font-size-base) * 1.05); font-weight: 700;
+      color: var(--text-color); margin: 1.75rem 0 0.85rem 0; padding: 0.4rem 0.75rem;
+      background: var(--accent-light); border-radius: 6px; display: inline-block;
+      scroll-margin-top: 80px; border-left: 3px solid var(--accent-color);
+    }
+
+    p {
+      margin-bottom: 1.35rem; text-align: justify; text-justify: inter-ideograph;
+      text-wrap: pretty; position: relative; transition: background-color 0.2s ease; border-radius: 4px;
+    }
+    p.highlight-p { background-color: var(--accent-light); padding: 0.25rem 0.5rem; margin-left: -0.5rem; margin-right: -0.5rem; }
+
+    mark.search-highlight { background-color: #fef08a; color: #854d0e; border-radius: 2px; padding: 0 2px; }
+    [data-theme="dark"] mark.search-highlight { background-color: #854d0e; color: #fef08a; }
+
+    .font-size-control {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--bg-color); padding: 0.5rem 0.75rem;
+      border-radius: 10px; border: 1px solid var(--border-color);
+    }
+
+    .stepper-btn {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      color: var(--text-color); width: 34px; height: 34px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.9rem; font-weight: bold;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .stepper-btn:hover { background: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .stepper-btn:active { transform: scale(0.92); }
+
+    .font-range-input {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 3px; background: var(--border-color); outline: none;
+    }
+
+    .font-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .font-range-input::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: none;
+    }
+
+    .chapter-nav-bar {
+      margin-top: 3.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.1rem;
+      background: var(--card-bg); color: var(--text-color); text-decoration: none;
+      border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.9rem;
+      font-weight: 600; box-shadow: var(--shadow-sm); transition: all 0.2s ease; flex: 1; justify-content: center;
+    }
+    .nav-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .nav-btn.disabled { opacity: 0.4; pointer-events: none; }
+
+    .floating-nav { position: fixed; bottom: 1.25rem; right: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 850; }
+    .fab-btn {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--card-bg);
+      color: var(--text-color); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .fab-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+
+    .drawer-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; background: var(--card-bg); color: var(--text-color);
+      z-index: 1001; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-md); display: flex; flex-direction: column;
+    }
+    .drawer-bottom { bottom: 0; left: 0; width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0; transform: translateY(100%); }
+    .drawer-bottom.active { transform: translateY(0); }
+    .drawer-left { top: 0; left: 0; width: 85%; max-width: 340px; height: 100%; transform: translateX(-100%); }
+    .drawer-left.active { transform: translateX(0); }
+
+    .drawer-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .drawer-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); display: flex; align-items: center; gap: 0.5rem; }
+    .drawer-body { padding: 1.25rem; overflow-y: auto; flex: 1; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 0.35rem; }
+    .toc-link {
+      display: block; padding: 0.65rem 0.85rem; color: var(--text-color);
+      text-decoration: none; border-radius: 8px; font-size: 0.95rem;
+      transition: all 0.2s ease; line-height: 1.4;
+    }
+    .toc-link:hover, .toc-link.active { background-color: var(--accent-light); color: var(--accent-color); font-weight: 600; }
+
+    .setting-group { margin-bottom: 1.5rem; }
+    .setting-label { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4rem; }
+    .theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .theme-btn {
+      padding: 0.6rem 0.3rem; border-radius: 8px; border: 2px solid var(--border-color);
+      background: var(--bg-color); color: var(--text-color); cursor: pointer; font-size: 0.8rem; font-weight: 600;
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: all 0.2s ease;
+    }
+    .theme-btn.active { border-color: var(--accent-color); background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .btn-group { display: flex; background: var(--bg-color); padding: 3px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .segment-btn {
+      flex: 1; padding: 0.55rem 0.5rem; border: none; background: transparent;
+      color: var(--text-muted); font-size: 0.875rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .segment-btn.active { background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .search-container { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .search-input { flex: 1; padding: 0.65rem 1rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--bg-color); color: var(--text-color); font-size: 0.95rem; outline: none; }
+    .search-input:focus { border-color: var(--accent-color); }
+    .search-status { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.25rem 1rem 3rem 1rem; }
+      .article-title { font-size: 1.4rem; }
+      .chapter-nav-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header class="app-header">
+    <div class="brand-info">
+      <a href="index.html" class="book-tag"><i class="fa-solid fa-chevron-left"></i> 《得勝的生命》</a>
+      <span class="chapter-tag">第八篇、信心的試驗</span>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="icon-btn" title="返回主目錄"><i class="fa-solid fa-house"></i></a>
+      <button class="icon-btn" id="btn-toc" title="目錄"><i class="fa-solid fa-list-ul"></i></button>
+      <button class="icon-btn" id="btn-search" title="搜尋內文"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon-btn" id="btn-settings" title="閱讀設定"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="article-header">
+      <h1 class="article-title">第八篇、信心的試驗</h1>
+      <div class="article-meta">
+        <span class="meta-item"><i class="fa-solid fa-user-pen"></i> 倪柝聲</span>
+        <span class="meta-item"><i class="fa-solid fa-book-open"></i> 《得勝的生命》</span>
+        <span class="meta-item"><i class="fa-solid fa-bookmark"></i> 第 8/11 篇</span>
+      </div>
+    </header>
+<article class="article-body">
+<div class="scripture-box" id="scripture">
+  <div class="scripture-title"><i class="fa-solid fa-quote-left"></i> 讀經</div>
+  <div class="scripture-item">彼前一章七節：「叫你們的信心既被試驗，就比那被火試驗，仍然能壞的金子，更顯寶貴。」</div>
+</div>
+<p>今天晚上，我要說到什麼叫作信心受試驗。聖經裏給我們看見，沒有一次的信心，是不經過試驗的。所有的信心，都要經過試驗。信心所以要經過試驗，有以下幾個大原因。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 信心要經過試驗的原因</h2>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 一 為要叫我們長進</h2>
+<p>神試驗我們的信心，乃是要我們有長進。沒有一個基督人有長進，而他的信心是沒有經過試驗的。全世界的基督人，所有長進的，信心都是經過試驗的。我沒有保留地說這話，所有基督人的信心，都是經過試驗的。信心長進惟一的方法，就是經過試驗。神要帶領我們進步，惟一的方法就是叫信心經過試驗。因為我們來到神面前，是借著信心，接受神的一切恩典。所以神叫我們的信心經過試驗，我們就自然而然地長進了。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 二 為要滿足神的心</h2>
+<p>神叫我們的信心受試驗，不只叫我們有長進，也是叫他的心得著滿足。世界上沒有一個人信了主，蒙了神的恩典，而他的信心是沒有經過試驗的。所以要試驗你的信心，就是證明說，你實實在在是信了。你信心的實在，叫神得了滿足。這經過試驗的信心，是叫神的名得榮耀的。在世上能榮耀神的名的，就是經過試驗的信心。你無論經過什麼種的患難，什麼種的逼迫，什麼種的攔阻，什麼種的黑暗，你經過了試驗還能信，經過了試驗還不倒，這一種的信心，要叫神的名得著榮耀。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 三 為要堵住撒但的口</h2>
+<p>神叫我們的信心經過試驗，不只叫我們有長進，不只叫我們能滿足神的心。神叫我們的信心經過試驗，也是要堵住撒但的口。撒但不肯說我們是信了。撒但不肯讓我們說，信是已經得著的，就已經得著了。他總要來捉弄你一下，他總要來為難你一下。神試驗你的信心，就是叫撒但無話可說。撒但看見你不是易與的，他才肯退去。若是可能，他總不肯讓你平平安安地過去。若是可能，他總不肯讓你得著神的祝福。若不是真無辦法了，他總不肯讓你過去。為著要堵住撒但的口，所以神必須試驗我們的信心。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 四 為要叫我們幫助別人</h2>
+<p>神所以試驗我們的信心，也是為要叫我們能幫助別人。一個沒有經過試驗的信心，是不能幫助別人的。別的弟兄姊妹，能得著你的幫助，都是因為你的信心經過了試驗。一個人，如果他說他已經信了，而他的信心並未經過試驗，就他的信心還有點靠不住。真是受過試驗的信心，叫撒但沒有辦法，叫撒但怎麼弄也弄不倒，這樣的信心，才能叫全教會得著幫助。</p>
+<p>哦，弟兄姊妹們，經過試驗的信心，是比能壞的金子，更顯為寶貴的。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 信心受試驗和得勝的關係</h2>
+<p>現在我要講到信心受試驗和我們得勝的關係是如何。神所以試驗我們的信心，就是叫我們看見信心就是信心。真實的信心，都是長命的。凡是短命的，就不是信心。真實的信心，總是長命的。過三天，還能信；過一月，還能信；過一年，還能信；過十年，還能信；過五十年，還能信。真實的信心，受得住一次的攔阻，受得住五次的攔阻，受得住十次的攔阻。真實的信心，經過一次的試驗，還是信；經過五次的試驗，還是信；經過七次的試驗，還是信。凡是短命的信心，凡是一碰就倒，一碰就終了的信心，定規不是信心。凡是信心，定規是長命的。</p>
+<p>在聖經中，給我們看見，得勝是在乎信神的話語。神說他的兒子是我們的生命，神說他的兒子是我們的頭，神說他的兒子是我們的得勝，神說他的兒子是我們的聖潔，神說他的兒子是我們的能力。我知道是他擔當我一切的重擔，我知道是他擔負我一切的責任，我知道是他供給我的忍耐，我知道是他供給我的溫柔，我知道是他在我裏面供給我一切。感謝讚美主! 我信，我也知道。但是，這樣的信心，還須經過試驗。</p>
+<p>今天早起，有一位弟兄對我說，我已經放手了，我已經相信了，我已經過得勝的關了。但是，昨天聚會完，我騎腳踏車回家去，行到大馬路先施公司那裏，被一老人碰倒了。當時我的外面雖然沒有說什麼，可是我的裏面已經發脾氣了。這是怎麼回事呢? 我已經放手了，已經承認自己的不能了，已經相信了，已經相信基督是我的得勝了，可是我沒有想到發脾氣，但脾氣卻已經來了。這是為什麼呢? 弟兄姊妹們，我告訴你們，這有兩個原因。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 一 我們得勝並非自己有了改變</h2>
+<p>我們過了得勝的關之後，以為我有一個禮拜不犯罪了，我有兩個禮拜不犯罪了，我有三個禮拜不犯罪了，我有四、五個禮拜不犯罪了，就以為我好了，我現在改變了，我現在進步了。你在那裏得意，你在那裏自誇。所以，神定規給你試驗一下，叫你失敗一下，叫你知道你自己一點改變都沒有。你如果能忍耐，這不是因為你改變了，而是因為你改換了，是主替你忍耐了。如果你說你改變了，你就定規失敗。你要知道，如果你能忍耐，這是基督替你忍耐；如果你能溫柔，這是基督替你溫柔；如果你能聖潔，這是基督替你聖潔。你得勝了多少日之後，你還是你，你永遠還是你，你一點改變都沒有。倪柝聲永遠是倪柝聲，過五十年，倪柝聲還是倪柝聲。恩典一出去，倪柝聲還是倪柝聲。我感謝讚美主! 得勝是基督，和我一點關係都沒有。我還是會犯罪，我一點改變都沒有。</p>
+<p>在煙臺，有內地會的幾位西國教士問我說，什麼叫作改變? 什麼叫作改換? 我說，保羅，加上彼得，加上約翰，減去恩典，還是等於罪人。不要說保羅、彼得、約翰，一除去恩典，還是和普通的人一樣一式的；我們離了神的恩典，和馬路上的強盜，和許多的妓女，並沒有兩樣。若是有恩典，那是主代替了我，並不是我自己有了什麼改變。有一首詩裏面有一句說，「當我的心稍為高仰，我就近乎跌倒危地!」 (詩歌四二三首)  這是真的。弟兄姊妹，要知道，你還是這麼一回事，你一點改變都沒有。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 二 到底是神的話靠得住呢，還是我們的經歷靠得住?</h2>
+<p>我們頂容易相信自己的經歷。我們以為說，像我這樣的軟弱，像我這樣的失敗，像我這樣的脾氣，哪裡有得勝呢? 我們因為看見自己的經歷是這樣，就說神的話是假的。但是，弟兄姊妹們，我問你，到底是神的話靠得住呢? 還是你的經歷靠得住?</p>
+<p>在煙臺，李常受師母有一次來見我說，我已經降服了，我也已經完全相信主是我的得勝，我實在過了得勝的關。但是，我的得勝頂短，一個禮拜之後，就不得勝了。兩個孩子會吵，我忍耐不住，這兩三天又沒有得勝，這是怎麼回事呢? 我說，基督有沒有改變? 她說，沒有。神的話有沒有改變? 她說，沒有。我說，基督既然沒有改變，神的話也沒有改變，為什麼你說不得勝呢? 她說，因為我的經歷不對。我說，比方你的孩子蒙光，跑到馬路上，碰見一個人對他說，蒙光，你不是你媽生的，你是你媽花兩角錢從藥材店裏買來的。蒙光跑回家問你說，媽，到底我是你生的，還是你用二角錢向藥材店裏買來的呢? 因為外面的人說我是你買來的。你就說，蒙光，你是我生的，你不要相信外面的人的話。他又出去，又碰見那個人，又是向他這樣說，並且說，你媽買你的時候，我還親眼看見的。蒙光就又回家問你，你就說，蒙光，難道你還不相信我的話麼? 後來，蒙光出去，又碰見那個人對他說，蒙光，你問清楚你媽了沒有? 真的，你媽用二角錢買你的那天，不只我看見的哪；還有這個洋車夫也看見的；另外哪，還有他，還有他也看見的。這人差不多能拉出一、二十個人來作見證說，蒙光不是媽生的，是用二角錢買來的。這個時候，一邊是母親的話語，母親的話是不用證據的；另一邊是外人的話語，有二十個人作見證，有五十個人作見證，是充滿了憑據的謊言。那時候蒙光是聽自己的母親不需證據的話語呢? 還是聽路上的人充滿了憑據的謊言呢? 如果蒙光仍然回來對你說，媽，那個人用許多憑據說我是你買的。媽，我到底是你生的，還是你買的呢? 到這時候，你必定說，你這孩子，真不中用! 李師母，今天，神也要對你說，你這一個不中用的孩子! 神說，他叫他兒子作你的聖潔，作你的生命，作你的得勝。神說了，就是了。可是你一出來，有點發急，就說，不對呀，有憑有據的我還沒有得勝呀! 雖然神說，他的兒子是我的聖潔，但是，我說，不對呀，我是有憑有據的沒有聖潔呀! 你這樣的行為，和蒙光一樣一式的。你相信充滿了憑據的撒但的謊言，而沒有宣告神的話語。如果人用話騙蒙光的時候，蒙光就笑著說，我媽說的是靠得住的，你是騙子。如果人第二次騙他，他還是笑著說，你是騙子。人十次騙他，二十次騙他，五十次騙他，他總是笑著說，你是騙子，我母親的話是靠得住的。這樣，蒙光就羞辱了仇敵，榮耀了他的母親! 如果撒但來，叫你覺得冷淡；你還是說，我是得勝的，因為基督是我的得勝。如果撒但來，叫你覺得急躁；你還是說，我是得勝的，因為基督是我的得勝。你宣告說，撒但所說的是謊言，只有神的話是真的，這就是信心，這就是經過試驗的信心，這就是叫神的名得榮耀的信心。如果我們口裏說信，但是，一受試探就哭回來，就你的信到哪裡去了呢? 這種的信心，是短命的。真實的信心，定規是要經過試驗的。如果你一碰見試探，就說沒有得勝，那就完了。</p>
+<p>哦，弟兄姊妹們，你碰見試探的時候，如果你說神的話是靠得住的，如果你說萬軍之耶和華的話是靠得住的，如果你說他說了就是了，如果你說神的話是安定在天，直到永遠的，你就站得住了。所以，現在的問題是你信誰的話?</p>
+<p>信心在這裏，山就得挪開</p>
+<p>有一位姊妹，難題和李師母一樣，也說，信是信了，還是不得勝。我說，我們要有移山的信心。如果一試就不行的信心，就不是信心。什麼叫作大的信心呢? 什麼叫作移山的信心呢? 堅信不移的信心，就叫移山的信心。移山的信心，就是不因任何的攔阻而受阻擋的。信心在那裏，難處就得挪開，這就叫移山的信心。山在這裏，信心在這裏，這二者不能同時存在。不是山挪開，就是信心挪開。山在這裏，信心就得挪開；信心在這裏，山就得挪開。每一次的受試驗，就是要把山挪開。所以，現在的問題，不是受試驗的問題，乃是山在那裏，信心就得挪開；信心在那裏，山就得挪開。問題是我們是信路人的謊言呢，還是信神的話語? 一經試驗就倒的，就不是信心。</p>
+<p>有一位弟兄過關了，還沒有看見得勝。撒但對他說，你看，過了得勝的關還是失敗，你上當了，哪裡有這麼一回事呢? 哦，弟兄姊妹們，如果你也說上當了，就定規完了。神定規照你所信的成全了。</p>
+<p>我記得，有一次我病在這樓上。有一天有一位弟兄替我試熱度，查脈搏。熱度很高，脈搏很快。前幾夜我一連幾夜不能睡，真是快近死門了。那天夜裏我禱告，到第二天下午我得了主的話，主已經聽禱告了。主給我羅馬八章十一節：「然而叫耶穌從死裏復活者的靈，若住在你們心裏，那叫基督耶穌從死裏復活的，也必借著住在你們心裏的聖靈，使你們必死的身體又活過來。」  那一天我以為特別要睡得好，哪知道我那一天特別睡得不好。第二天那位弟兄再替我試寒熱，熱度更高，脈搏更快。撒但頂忙，他一點不慢地來說，這是什麼應許呢? 神應許你活過來，你看，你哪裡活過來呢? 撒但說的話很有道理。在這個時候，神立刻給我兩節聖經。一處是約拿書二章八節：「那信從虛無的人，離棄憐愛他們的主。」(原文) 這是約拿在大魚的腹中說的。外面的景況、外面的情形，都是虛無的，都是虛謊的。一處是約翰十七章十七節：「你的道就是真理。」 神說，我的話就是真的，其餘的話都是假的。如果神的話是真的，那麼我熱度的高就是假的，我脈搏的快就是假的，我夜裏的睡不好也是假的。所以我立刻感謝神說，羅馬八章十一節的話是真的，其餘的病狀都是假的。我就是這樣相信，我就是這樣宣告。到了下午，我的熱退了，脈搏也慢了。到了夜間，我也能睡了。</p>
+<p>真實的信心只相信神的話</p>
+<p>弟兄姊妹們，這就是信心的試驗。什麼叫真實的信心呢? 真實的信心，就是光相信神的話，而不相信自己的經歷，不相信自己的感覺，不相信黑暗的環境。阿利路亞! 只有神的話是真的! 如果環境和經歷與神的話相合，我們感謝讚美神! 如果環境和經歷與神的話不合，就只有神的話是真的。凡和神的話相反的，都是假的。撒但對你說，你說你得勝了，你看，你還是和從前一樣敗壞，你還是和從前一樣軟弱，你哪裡得勝了呢? 你可以對撒但說，是的，我還是我，我永遠不會改變。但是，神說基督是我的聖潔，神說基督是我的生命，神說基督是我的得勝。撒但說你還是敗壞，但神的話是真的。撒但說你還是軟弱，但神的話是真的。撒但說你還是污穢，但神的話是真的。撒但對你說的都是謊言，只有神的話是真的!</p>
+<p>在煙臺，我學了一個功課。有一天，我和巴小姐都特別求神賜給恩賜。我是求信心的恩賜，巴小姐是求醫病的恩賜。我們只禱告了一刻多鍾，就都得著了。晚上去聚會，有一位安姊妹對我說，住在聚會樓下的一位姊妹發神經病了。從前她一月發一兩次，最近常常發。聚會完已十點半了，我回去的時候，心裏想，一個人住在聚會樓下，竟然發神經病了，這怎麼辦? 我和一位弟兄話別後，神的話立刻臨到我，就是彼前一章七節：「信心既被試驗，就比那被火試驗，仍然能壞的金子，更顯寶貴。」 我就說好，信心要受試驗，就受試驗。第二天我去找巴姊妹。本來我一個人可以去，但是，她昨天才得醫病的恩賜，我昨天才得信心的恩賜，現在要去應用啊! 巴姊妹聽見我邀她去，好像有點作難。但是，她說，我禱告禱告看。她禱告了，就定規去。我們一到那裏，病人那一陣剛剛有點睡著。作大夫的史弟兄說，還是等她醒了再說。他說，按人看來，一點辦法都沒有。巴姊妹是十一點半就要下船離開的。但是我們等到十點五十分，才有人請我們進去。我和那生病的姊妹說了兩三句話，我看見她的頭髮都直了，你們知道，那是一個人快到發瘋的那個樣子。但是，感謝讚美主! 我禱告了一兩分鐘，神就給我信心，信心爬起來了。我就讚美神! 我知道她必定好。巴小姐禱告了幾句，也有信心了，她也讚美神。然後還有兩位弟兄，一位姊妹也陪我們禱告了幾句，不過他們不在這個流中。因為時候到了，我們就送巴小姐上船，等到我從碼頭回來去看她，她又是哭，又是笑，大吵大鬧起來。等一等，她暈過去了。他們都沒有辦法。這個時候，我才知道信心的受試驗。作大夫的弟兄把我拉出去說，弟兄，快禱告，不然的話，我作大夫的，真沒有辦法。我說，不必禱告。我笑著說，撒但，你再試試看，再作大一點看，盡你的力量作作看。她瘋了，我也像瘋了。她在裏頭鬧，我在外頭鬧。她鬧到三點半鍾，我笑到三點半鍾。那時我的信心是爬起來的。四點有聚會，我要走了，就對史大夫說，你一點不必發急，你一點不必想辦法，看撒但盡他的力量作。神說了就是了，神從來不捉弄我們。晚上，史大夫對我說，快好了。第二天上午，史大夫說，快和常人一樣了。但我知道她還要發，因為還有好幾位弟兄的信心要受試驗。這位病人，好的時候最長一點鍾，頂好的時候只有半點鍾。下午她又大鬧了。史大夫又來問怎麼辦? 我去跪下禱告，沒有話，信心好像爬不起來。這個時候，撒但頂忙地說，你再笑笑看。昨天你會笑，今天你再笑笑看。這個時候，好像我的信心丟掉了。撒但在旁邊說，你昨天會笑，你今天這樣冷。但是，感謝讚美主! 我裏面有聲音說，你昨天和今天，感覺是有改變，昨天會笑，今天發冷；但是，我沒有改變。我說，是的，主沒有改變。我立即感謝讚美主說，主，你沒有改變。昨天我信神的話，那樣笑，並不能叫神更信實一點；今天的感覺這樣冷，不會笑，也不能叫神的信實減少一點。所以我只感謝主，我不禱告了。到了晚上，據史大夫說，按醫學的診斷，她完全好了。到第二天，臉色也轉了。阿利路亞! 神的話是靠得住的! 這是信心的試驗。</p>
+<p>弟兄姊妹們，我們是巴不得一信就有結果，我們是巴不得一信就有經歷。但是，弟兄姊妹們，我問你，難道你不能信神三天麼? 難道你不能信神三個月麼? 你不能信神三天，不能信神三個月，就你的信到哪裡去了呢?  「信靠的人必不著急。」(賽二八16) 我說了，我再說。</p>
+<p>有一天晚上，主命門徒渡到那邊去。忽然起了暴風，波浪打入船內，甚至船要滿了水。主耶穌在船尾上，枕著枕頭睡覺；門徒叫醒了他，說，夫子，我們喪命，你不顧麼? 主起來斥責了風浪之後，對門徒怎麼說呢? 在馬可福音是說，「你們還沒有信心麼?」(四40) 在馬太福音是說，「你們這小信的人哪!」(八26) 可見許多急得要命的禱告，就是不信的表示。如果有信心，就是站在那裏。主是命你渡到那邊去，主不是命你渡到海底去。主已經吩咐了，風再吹大一點也不要緊，浪再打高一點也不要緊，看船翻得了翻不了。沒有信，一碰見試驗就要躲起來。有信，就是碰見試驗，還能站在那裏。小的信心，一碰見試驗就要躲起來；大的信心，碰見試驗還是站住。假的信心，一碰見試驗就倒了；真的信心，碰見試驗還是站住。</p>
+<p>只站在信心這一邊</p>
+<p>有一個人，罵我頂厲害；我越忍耐，他越罵我。那個時候我就求神說，神啊，求你快一點給我忍耐，求你快一點給我力量，使我能忍受得住，不然，我的脾氣快要發了。如果是現在，我不但不會急，我還可以笑著說，撒但，你借著人罵得再厲害一點也不要緊，看你能不能把我裏面的基督罵得發起急來。我不但不恨那個罵我的人，我還能愛他。真的，你一這樣，撒但就無奈你何。弟兄姊妹們，感謝讚美神，得勝是基督，不是我。如果是我的話，我的忍耐只有這麼多，再過一過，就要發脾氣了。如果是基督，就沒有一次的試探是太厲害的。如果是基督，就沒有一次的試驗是太難當的。我們站在神的話這一邊，我們站在信心這一邊，撒但就無奈你何。主命令渡到那邊去，就定規能渡到那邊去。並不是我們的話算得什麼，乃是因神的話靠得住，因神是信實的。</p>
+<p>弟兄姊妹們，末了讓我問你，你有沒有一兩件老犯的罪把你嚇倒了? 我想一定有。弟兄姊妹們，我頂直地問你，住在你裏面的基督，把你帶到受試驗的時候，是試驗誰? 我告訴你，每一次臨到你的試驗，不是試驗你，乃是試驗神。我們的信心受試驗，是神的兒子受試驗，是神的信實受試驗，不是我們受試驗。所有的試驗來到，是試驗基督能作什麼。每一次的試驗來到，是試驗神的信實到底如何。你站在神的這邊，你站在神的話這一邊，你站在與環境相反的這一邊，這個就叫信心，這個就叫得勝。撒但說，你還是污穢的，但你說，基督是我的聖潔。撒但說，你還是驕傲的，但你說，基督是我的謙卑。撒但說，你還是失敗的，但你說基督是我的得勝。無論撒但怎麼說，你總是說，基督是靠得住的，神的話是靠得住的。這個就是信心，這個就是顯明神的話的實在。阿利路亞，基督是得勝的! 阿利路亞，神是信實的! 阿利路亞，神的話是靠得住的!</p>
+<p>弟兄姊妹們，請你們記得，信心的試驗，不會長久的。就在你才得勝的那一段時候，試探特別多。但是，信心受了試驗，就叫別人能得你的益處，能受你的幫助。信心受了試驗，就使神的心得著滿足，神的名得著榮耀。信心受了試驗，就堵住了撒但的口，就叫撒但無奈你何了。阿利路亞，因為神的話是靠得住的! 感謝讚美神! 當你站在神面前的時候，沒有什麼在你面前能站得住。當你站在信心面前的時候，沒有一座山不能挪移。信心是專門移山的，只要是山，都得挪開。阿利路亞! 因為神是信實的。</p>
+</article>
+    <!-- Chapter Bottom Navigation -->
+    <nav class="chapter-nav-bar">
+      <a href="07.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> 上一篇</a>
+      <a href="index.html" class="nav-btn"><i class="fa-solid fa-list"></i> 本書目錄</a>
+      <a href="09.html" class="nav-btn">下一篇 <i class="fa-solid fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <div class="floating-nav">
+    <button class="fab-btn" id="btn-back-top" title="回到頂部" style="display:none;"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+
+  <div class="drawer-overlay" id="overlay"></div>
+
+  <!-- TOC Drawer -->
+  <aside class="drawer drawer-left" id="drawer-toc">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-book-bookmark"></i> 本書目錄</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <ul class="toc-list">
+        <li class="toc-item"><a href="01.html" class="toc-link">第一篇、我們的經歷</a></li>
+<li class="toc-item"><a href="02.html" class="toc-link">第二篇、聖經所啟示基督人的生命</a></li>
+<li class="toc-item"><a href="03.html" class="toc-link">第三篇、得勝生命的性質</a></li>
+<li class="toc-item"><a href="04.html" class="toc-link">第四篇、如何經歷得勝的生命</a></li>
+<li class="toc-item"><a href="05.html" class="toc-link">第五篇、如何進入得勝的生命</a></li>
+<li class="toc-item"><a href="06.html" class="toc-link">第六篇、降服</a></li>
+<li class="toc-item"><a href="07.html" class="toc-link">第七篇、相信</a></li>
+<li class="toc-item"><a href="08.html" class="toc-link">第八篇、信心的試驗</a></li>
+<li class="toc-item"><a href="09.html" class="toc-link">第九篇、長進</a></li>
+<li class="toc-item"><a href="10.html" class="toc-link">第十篇、得勝的音調</a></li>
+<li class="toc-item"><a href="11.html" class="toc-link">第十一篇、奉獻</a></li>
+
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Settings Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-settings">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-sliders"></i> 閱讀設定</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-palette"></i> 閱讀配色</div>
+        <div class="theme-grid">
+          <button class="theme-btn" data-theme-val="sepia"><span>📜 羊皮</span></button>
+          <button class="theme-btn" data-theme-val="light"><span>☀️ 潔白</span></button>
+          <button class="theme-btn" data-theme-val="dark"><span>🌙 夜間</span></button>
+          <button class="theme-btn" data-theme-val="green"><span>🍃 護眼</span></button>
+        </div>
+      </div>
+      
+      <!-- Custom Font Size Control -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <i class="fa-solid fa-text-height"></i> 自訂字體大小
+          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">18px</span>
+        </div>
+        <div class="font-size-control">
+          <button class="stepper-btn" id="btn-font-dec" title="縮小字體"><i class="fa-solid fa-minus"></i></button>
+          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="18" class="font-range-input" />
+          <button class="stepper-btn" id="btn-font-inc" title="放大字體"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-font"></i> 字體風格</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-font-val="serif">明體</button>
+          <button class="segment-btn" data-font-val="sans">黑體</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-align-left"></i> 行高間距</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-lh-val="compact">緊湊</button>
+          <button class="segment-btn" data-lh-val="comfortable">舒適</button>
+          <button class="segment-btn" data-lh-val="spacious">寬鬆</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Search Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-search">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-magnifying-glass"></i> 內文搜尋</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="輸入關鍵字..." />
+        <button class="icon-btn" id="search-clear" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-status" id="search-status">尚未輸入搜尋關鍵字</div>
+    </div>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const progressBar = document.getElementById('progress-bar');
+      const overlay = document.getElementById('overlay');
+      const drawerToc = document.getElementById('drawer-toc');
+      const drawerSettings = document.getElementById('drawer-settings');
+      const drawerSearch = document.getElementById('drawer-search');
+      
+      const btnToc = document.getElementById('btn-toc');
+      const btnSettings = document.getElementById('btn-settings');
+      const btnSearch = document.getElementById('btn-search');
+      const btnBackTop = document.getElementById('btn-back-top');
+      const closeBtns = document.querySelectorAll('.close-drawer');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (btnBackTop) btnBackTop.style.display = scrollTop > 300 ? 'flex' : 'none';
+        localStorage.setItem('pos_08.html', scrollTop);
+      });
+
+      if (btnBackTop) {
+        btnBackTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      const savedPos = localStorage.getItem('pos_08.html');
+      if (savedPos && !window.location.hash) {
+        window.scrollTo({ top: parseInt(savedPos, 10), behavior: 'smooth' });
+      }
+
+      function openDrawer(drawer) {
+        closeAllDrawers();
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+      }
+
+      function closeAllDrawers() {
+        overlay.classList.remove('active');
+        if (drawerToc) drawerToc.classList.remove('active');
+        if (drawerSettings) drawerSettings.classList.remove('active');
+        if (drawerSearch) drawerSearch.classList.remove('active');
+      }
+
+      if (btnToc) btnToc.addEventListener('click', () => openDrawer(drawerToc));
+      if (btnSettings) btnSettings.addEventListener('click', () => openDrawer(drawerSettings));
+      if (btnSearch) {
+        btnSearch.addEventListener('click', () => {
+          openDrawer(drawerSearch);
+          setTimeout(() => document.getElementById('search-input').focus(), 300);
+        });
+      }
+
+      if (overlay) overlay.addEventListener('click', closeAllDrawers);
+      closeBtns.forEach(btn => btn.addEventListener('click', closeAllDrawers));
+
+      // Preferences Management
+      function loadPreferences() {
+        setTheme(localStorage.getItem('pref_theme') || 'sepia');
+        setFont(localStorage.getItem('pref_font') || 'serif');
+        setLineHeight(localStorage.getItem('pref_lh') || 'comfortable');
+        
+        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '18';
+        setCustomFontSize(savedCustomSize);
+      }
+
+      function setTheme(val) {
+        html.setAttribute('data-theme', val);
+        localStorage.setItem('pref_theme', val);
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.themeVal === val));
+      }
+
+      function setFont(val) {
+        html.setAttribute('data-font', val);
+        localStorage.setItem('pref_font', val);
+        document.querySelectorAll('[data-font-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.fontVal === val));
+      }
+
+      function setLineHeight(val) {
+        html.setAttribute('data-lh', val);
+        localStorage.setItem('pref_lh', val);
+        document.querySelectorAll('[data-lh-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.lhVal === val));
+      }
+
+      function setCustomFontSize(sizeVal) {
+        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 18));
+        html.style.setProperty('--font-size-base', size + 'px');
+        localStorage.setItem('pref_custom_font_size', size);
+        
+        const display = document.getElementById('font-size-val-display');
+        const slider = document.getElementById('font-size-slider');
+        if (display) display.textContent = size + 'px';
+        if (slider) slider.value = size;
+      }
+
+      const fontSlider = document.getElementById('font-size-slider');
+      if (fontSlider) {
+        fontSlider.addEventListener('input', (e) => setCustomFontSize(e.target.value));
+      }
+
+      const btnFontDec = document.getElementById('btn-font-dec');
+      const btnFontInc = document.getElementById('btn-font-inc');
+      if (btnFontDec) {
+        btnFontDec.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur - 1);
+        });
+      }
+      if (btnFontInc) {
+        btnFontInc.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur + 1);
+        });
+      }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.themeVal)));
+      document.querySelectorAll('[data-font-val]').forEach(btn => btn.addEventListener('click', () => setFont(btn.dataset.fontVal)));
+      document.querySelectorAll('[data-lh-val]').forEach(btn => btn.addEventListener('click', () => setLineHeight(btn.dataset.lhVal)));
+
+      loadPreferences();
+
+      // Search Logic
+      const searchInput = document.getElementById('search-input');
+      const searchStatus = document.getElementById('search-status');
+      const searchClear = document.getElementById('search-clear');
+      const articleBody = document.querySelector('.article-body');
+      if (articleBody && searchInput) {
+        let originalHtml = articleBody.innerHTML;
+
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.trim();
+          if (!query) {
+            articleBody.innerHTML = originalHtml;
+            searchStatus.textContent = '尚未輸入搜尋關鍵字';
+            searchClear.style.display = 'none';
+            return;
+          }
+
+          searchClear.style.display = 'inline-flex';
+          const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+          const matches = (articleBody.textContent.match(regex) || []).length;
+
+          if (matches === 0) {
+            searchStatus.textContent = `未找到與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+          } else {
+            searchStatus.textContent = `找到 ${matches} 處與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+            const elements = articleBody.querySelectorAll('p, h2, h3');
+            elements.forEach(el => {
+              const text = el.innerHTML;
+              if (regex.test(text)) {
+                el.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+              }
+            });
+          }
+        });
+
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          articleBody.innerHTML = originalHtml;
+          searchStatus.textContent = '尚未輸入搜尋關鍵字';
+          searchClear.style.display = 'none';
+        });
+
+        function escapeRegExp(string) {
+          return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        articleBody.addEventListener('click', (e) => {
+          const p = e.target.closest('p');
+          if (p && !e.target.classList.contains('search-highlight')) {
+            document.querySelectorAll('.article-body p').forEach(el => el.classList.remove('highlight-p'));
+            p.classList.add('highlight-p');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia" data-font="serif">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>第四篇、如何經歷得勝的生命 — 得勝的生命 | 倪柝聲</title>
+  <meta name="description" content="《得勝的生命》 第四篇、如何經歷得勝的生命。倪柝聲著。手機 RWD 最佳化閱讀體驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-color: #f8f5ee;
+      --card-bg: #ffffff;
+      --text-color: #2b2927;
+      --text-muted: #6b6560;
+      --accent-color: #8c2a1c;
+      --accent-light: rgba(140, 42, 28, 0.08);
+      --border-color: #e5ded0;
+      --header-bg: rgba(248, 245, 238, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --font-family: 'Noto Serif TC', serif;
+      --font-size-base: 18px;
+      --line-height-base: 1.85;
+      --content-max-width: 740px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-color: #1f2937;
+      --text-muted: #6b7280;
+      --accent-color: #991b1b;
+      --accent-light: rgba(153, 27, 27, 0.08);
+      --border-color: #e5e7eb;
+      --header-bg: rgba(250, 250, 250, 0.90);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121316;
+      --card-bg: #1c1e24;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-color: #ef4444;
+      --accent-light: rgba(239, 68, 68, 0.15);
+      --border-color: #2a2d37;
+      --header-bg: rgba(18, 19, 22, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    [data-theme="green"] {
+      --bg-color: #dce7d7;
+      --card-bg: #e6efe2;
+      --text-color: #233522;
+      --text-muted: #4e634c;
+      --accent-color: #2b6832;
+      --accent-light: rgba(43, 104, 50, 0.12);
+      --border-color: #c7d9c1;
+      --header-bg: rgba(220, 231, 215, 0.90);
+    }
+
+    [data-font="sans"] {
+      --font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    [data-lh="compact"] { --line-height-base: 1.6; }
+    [data-lh="comfortable"] { --line-height-base: 1.85; }
+    [data-lh="spacious"] { --line-height-base: 2.1; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      padding-bottom: 90px;
+    }
+
+    #progress-bar {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--accent-color); width: 0%; z-index: 1000;
+      transition: width 0.1s ease-out;
+    }
+
+    .app-header {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .brand-info { display: flex; flex-direction: column; overflow: hidden; margin-right: 0.5rem; }
+    .book-tag { font-size: 0.75rem; font-weight: 600; color: var(--accent-color); text-decoration: none; display: inline-flex; align-items: center; gap: 0.3rem; }
+    .chapter-tag { font-size: 0.95rem; font-weight: 700; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .header-actions { display: flex; gap: 0.35rem; align-items: center; }
+    .icon-btn {
+      background: transparent; border: none; color: var(--text-color);
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease;
+      text-decoration: none;
+    }
+    .icon-btn:hover { background-color: var(--accent-light); color: var(--accent-color); }
+    .icon-btn:active { transform: scale(0.92); }
+
+    .container { max-width: var(--content-max-width); margin: 0 auto; padding: 1.5rem 1.25rem 3rem 1.25rem; }
+
+    .article-header {
+      margin-bottom: 2rem; text-align: center; padding-bottom: 1.5rem;
+      border-bottom: 2px dashed var(--border-color);
+    }
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.45); font-weight: 700;
+      color: var(--accent-color); margin-bottom: 0.75rem; line-height: 1.3; text-wrap: balance;
+    }
+    .article-meta {
+      font-size: 0.875rem; color: var(--text-muted);
+      display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap;
+    }
+    .meta-item { display: inline-flex; align-items: center; gap: 0.35rem; }
+
+    .scripture-box {
+      background: var(--card-bg); border-left: 4px solid var(--accent-color);
+      border-radius: 0 12px 12px 0; padding: 1.25rem; margin-bottom: 2.25rem;
+      box-shadow: var(--shadow-sm); border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);
+    }
+    .scripture-title {
+      font-size: 0.9rem; font-weight: 700; color: var(--accent-color);
+      margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;
+    }
+    .scripture-item {
+      font-style: italic; color: var(--text-color); margin-bottom: 0.65rem;
+      padding-left: 0.6rem; border-left: 2px solid var(--border-color); line-height: 1.6;
+    }
+    .scripture-item:last-child { margin-bottom: 0; }
+
+    h2.section-heading {
+      font-size: calc(var(--font-size-base) * 1.2); font-weight: 700;
+      color: var(--accent-color); margin: 2.25rem 0 1.25rem 0; padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color); display: flex; align-items: center; gap: 0.6rem;
+      scroll-margin-top: 80px; text-wrap: balance;
+    }
+
+    h3.sub-heading {
+      font-size: calc(var(--font-size-base) * 1.05); font-weight: 700;
+      color: var(--text-color); margin: 1.75rem 0 0.85rem 0; padding: 0.4rem 0.75rem;
+      background: var(--accent-light); border-radius: 6px; display: inline-block;
+      scroll-margin-top: 80px; border-left: 3px solid var(--accent-color);
+    }
+
+    p {
+      margin-bottom: 1.35rem; text-align: justify; text-justify: inter-ideograph;
+      text-wrap: pretty; position: relative; transition: background-color 0.2s ease; border-radius: 4px;
+    }
+    p.highlight-p { background-color: var(--accent-light); padding: 0.25rem 0.5rem; margin-left: -0.5rem; margin-right: -0.5rem; }
+
+    mark.search-highlight { background-color: #fef08a; color: #854d0e; border-radius: 2px; padding: 0 2px; }
+    [data-theme="dark"] mark.search-highlight { background-color: #854d0e; color: #fef08a; }
+
+    .font-size-control {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--bg-color); padding: 0.5rem 0.75rem;
+      border-radius: 10px; border: 1px solid var(--border-color);
+    }
+
+    .stepper-btn {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      color: var(--text-color); width: 34px; height: 34px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.9rem; font-weight: bold;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .stepper-btn:hover { background: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .stepper-btn:active { transform: scale(0.92); }
+
+    .font-range-input {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 3px; background: var(--border-color); outline: none;
+    }
+
+    .font-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .font-range-input::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: none;
+    }
+
+    .chapter-nav-bar {
+      margin-top: 3.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-color);
+      display: flex; align-items: center; justify-content: space-between; gap: 0.75rem;
+    }
+    .nav-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.1rem;
+      background: var(--card-bg); color: var(--text-color); text-decoration: none;
+      border-radius: 10px; border: 1px solid var(--border-color); font-size: 0.9rem;
+      font-weight: 600; box-shadow: var(--shadow-sm); transition: all 0.2s ease; flex: 1; justify-content: center;
+    }
+    .nav-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .nav-btn.disabled { opacity: 0.4; pointer-events: none; }
+
+    .floating-nav { position: fixed; bottom: 1.25rem; right: 1.25rem; display: flex; flex-direction: column; gap: 0.5rem; z-index: 850; }
+    .fab-btn {
+      width: 46px; height: 46px; border-radius: 50%; background: var(--card-bg);
+      color: var(--text-color); border: 1px solid var(--border-color); box-shadow: var(--shadow-md);
+      display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 1.1rem;
+      transition: all 0.2s ease;
+    }
+    .fab-btn:hover { background-color: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+
+    .drawer-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; background: var(--card-bg); color: var(--text-color);
+      z-index: 1001; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-md); display: flex; flex-direction: column;
+    }
+    .drawer-bottom { bottom: 0; left: 0; width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0; transform: translateY(100%); }
+    .drawer-bottom.active { transform: translateY(0); }
+    .drawer-left { top: 0; left: 0; width: 85%; max-width: 340px; height: 100%; transform: translateX(-100%); }
+    .drawer-left.active { transform: translateX(0); }
+
+    .drawer-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .drawer-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); display: flex; align-items: center; gap: 0.5rem; }
+    .drawer-body { padding: 1.25rem; overflow-y: auto; flex: 1; }
+
+    .toc-list { list-style: none; }
+    .toc-item { margin-bottom: 0.35rem; }
+    .toc-link {
+      display: block; padding: 0.65rem 0.85rem; color: var(--text-color);
+      text-decoration: none; border-radius: 8px; font-size: 0.95rem;
+      transition: all 0.2s ease; line-height: 1.4;
+    }
+    .toc-link:hover, .toc-link.active { background-color: var(--accent-light); color: var(--accent-color); font-weight: 600; }
+
+    .setting-group { margin-bottom: 1.5rem; }
+    .setting-label { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4rem; }
+    .theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .theme-btn {
+      padding: 0.6rem 0.3rem; border-radius: 8px; border: 2px solid var(--border-color);
+      background: var(--bg-color); color: var(--text-color); cursor: pointer; font-size: 0.8rem; font-weight: 600;
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: all 0.2s ease;
+    }
+    .theme-btn.active { border-color: var(--accent-color); background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .btn-group { display: flex; background: var(--bg-color); padding: 3px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .segment-btn {
+      flex: 1; padding: 0.55rem 0.5rem; border: none; background: transparent;
+      color: var(--text-muted); font-size: 0.875rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .segment-btn.active { background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .search-container { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .search-input { flex: 1; padding: 0.65rem 1rem; border: 1px solid var(--border-color); border-radius: 10px; background: var(--bg-color); color: var(--text-color); font-size: 0.95rem; outline: none; }
+    .search-input:focus { border-color: var(--accent-color); }
+    .search-status { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+
+    @media (max-width: 600px) {
+      .container { padding: 1.25rem 1rem 3rem 1rem; }
+      .article-title { font-size: 1.4rem; }
+      .chapter-nav-bar { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <div id="progress-bar"></div>
+  <header class="app-header">
+    <div class="brand-info">
+      <a href="index.html" class="book-tag"><i class="fa-solid fa-chevron-left"></i> 《得勝的生命》</a>
+      <span class="chapter-tag">第四篇、如何經歷得勝的生命</span>
+    </div>
+    <div class="header-actions">
+      <a href="index.html" class="icon-btn" title="返回主目錄"><i class="fa-solid fa-house"></i></a>
+      <button class="icon-btn" id="btn-toc" title="目錄"><i class="fa-solid fa-list-ul"></i></button>
+      <button class="icon-btn" id="btn-search" title="搜尋內文"><i class="fa-solid fa-magnifying-glass"></i></button>
+      <button class="icon-btn" id="btn-settings" title="閱讀設定"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+  </header>
+
+  <main class="container">
+    <header class="article-header">
+      <h1 class="article-title">第四篇、如何經歷得勝的生命</h1>
+      <div class="article-meta">
+        <span class="meta-item"><i class="fa-solid fa-user-pen"></i> 倪柝聲</span>
+        <span class="meta-item"><i class="fa-solid fa-book-open"></i> 《得勝的生命》</span>
+        <span class="meta-item"><i class="fa-solid fa-bookmark"></i> 第 4/11 篇</span>
+      </div>
+    </header>
+<article class="article-body">
+<div class="scripture-box" id="scripture">
+  <div class="scripture-title"><i class="fa-solid fa-quote-left"></i> 讀經</div>
+  <div class="scripture-item">加拉太書二章二十節：「我已經與基督同釘十字架；現在活著的，不再是我，乃是基督在我裏面活著；並且我如今在肉身活著，是因信神的兒子而活，他是愛我，為我捨己。」</div>
+</div>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 不再是我，乃是基督</h2>
+<p>加拉太二章二十節是我們頂熟的一節聖經，今天下午我們在這裏要好好地把它再提一次。昨天在這裏，我們已經看過了什麼叫作得勝的生命，得勝的生命到底是什麼。我們知道，得勝的生命就是基督。我們知道，得勝的生命就是基督住在我們裏面。現在的問題就是說，我怎樣能夠進到這一個生命的裏面去。基督要作我們的生命，他能叫我們得勝；這是不錯；但是，怎麼能夠得著基督作我們的生命呢? 怎麼能夠讓基督住在我們裏面，活出他的生命來呢? 不錯，我聽見了福音，耶穌是救主；但是我怎麼得著他作我的救主呢? 不錯，我知道十字架的救法；但是我怎麼與十字架的救法聯在一起呢? 所以今天下午我們所要看的問題，就是到底我們怎麼才能與基督聯在一起；到底我應該怎麼樣，基督才能作我們的生命，在我們裏面替我們生活。所以今天下午，我們要來看加拉太二章二十節。</p>
+<p>對於這一節聖經，我們也不從開頭說起，也不從末尾說起，我們乃是要從中間說起。你看見在這一節聖經裏有一句話頂好，它說，現在活著的不再是我，乃是基督在我裏面活著。所以不再是我，乃是基督。「不再是我，乃是基督」，這八個字是什麼呢? 這八個字就是得勝。這八個字就是我們這幾天所講得勝的生命。得勝的生命沒有別的，得勝的生命第一就是「不再是我」；第二就是「乃是基督」。得勝的生命就是這一個。只要你能「不再是我」一下，只要你能「乃是基督」一下，只要「不再是我」加上「乃是基督」就得勝了，就所有的難處都沒有了。</p>
+<p>我們昨天已經看見了，得勝的生命就是不再是我，乃是基督；但是今天有一個問題，就是一個基督人怎麼能夠達到不再是我，乃是基督的地步? 我們怎麼能夠達到這一個生命? 我們是從哪一條路走，才能夠說不再是我，乃是基督? 所以我們要仔細一點來讀加拉太二章二十節。因為加拉太二章二十節把「不再是我，乃是基督」放在當中，它上面還有一句話，下面也還有一句話；所以我們要看，到底保羅是從哪一點走起，走到哪一個地步，才說不再是我，乃是基督；我們看見了，就能也從那一條路走，好叫我們也說不再是我，乃是基督。所以保羅所經過的，我們也得經過；他所用的那一個方法，就是我們所要用的那一個方法；他所走的那一條路，就是我們所要走的那一條路。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 怎樣能夠不再是我，乃是基督</h2>
+<p>現在我們來看，我們怎麼能夠不再是我，乃是基督? 我們要從第一句話讀起。</p>
+<p>「我已經與基督同釘十字架；現在活著的，不再是我，乃是基督在我裏面活著。」  保羅怎麼能夠達到一個地步說，不再是我，乃是基督? 這是很熟的一句話，就是我已經與基督同釘十字架，現在活著的，不再是我；我出去了。我在十字架上，我過去了。所以，我現在能說不再是我。但是弟兄姊妹們，十字架同死這面的真理，在我們中間，不是今天下午第一次聽見的；我們早已經知道說，我已經與基督同釘十字架了。為什麼我們所知道與基督同釘十字架的道，在我們身上不發生效力? 陸弟兄，我問你，「我已經與基督同釘十字架」的道理，你知道了多少年? 陸弟兄說，十多年了。發生效力或者不發生效力? 請你不客氣地說，在你身上發生效力有多少? 陸弟兄說不多。季弟兄，請你作見證說，你所知道十字架的道理，引導你多少? 有沒有效力? 有沒有保羅那樣的能力? 季弟兄說，這兩天力量大了。哦! 我告訴你們說，我已經與基督同釘十字架的道理，我已經知道十多年了，但是不發生效力。有，但是只有一點點，不多；簡直與不發生效力差不多。我們不能與保羅一樣說，我已經與基督同釘十字架，下面就說現在活著不再是我；好像那一個道理，在我們身上沒有發生那麼大的效力。所以今天下午，我在這裏不是要把十字架的道理再傳一遍，我不作這件事，我們已經知道得太多了。我們今天要在神的面前看見說，到底與基督同釘十字架這一句話，在我的身上要作什麼，我應該作了什麼，才能夠說我已經與基督同釘十字架。</p>
+<p>弟兄姊妹們，我們都知道一件事，主耶穌釘死在十字架上，不是我們把他釘死，也不是我們在那裏死，乃是基督死。神把我們包括在他裏面死了。這我們都知道。但是，我要問你們一句話，神把我釘死是不錯，但是我自己應該經過什麼手續，應該經過什麼事情，才能夠說實實在在我是已經與基督同釘十字架了? 在過去的許多年之中，我們一直看見神替我們所作的；我們沒有看見我們自己的責任是什麼。我們一直看見神怎麼將我們釘死了；我們沒有看見對於我們自己的釘死，應該怎麼看才可以。所以今天下午在這裏，我們在神的面前要來看，對於這一個我已經與基督同釘十字架，我到底有什麼責任。</p>
+<h2 class="section-heading"><i class="fa-solid fa-bookmark"></i> 接受神對我們的估價</h2>
+<p>神為什麼把基督釘死? 我今天下午不打算講道，我打算與你們談談。這是我們每一個人的事，不單是我的事；所以我們每一個人都得好好地想想，為什麼神要把我與主耶穌一同釘死? 或者我引一個比方給你們聽。在這裏有一個強盜，法官將他判決了，覺得這個人罪不太重，所以判他關監十年。你知道為什麼要把他關監十年? 還有一個強盜，法官說要槍斃他。你知道為什麼要槍斃他? 為什麼一個要關監十年，一個要槍斃? 這是什麼緣故? 因為這一個關監十年的強盜，法官對他還有盼望，國家對他還有盼望，盼望他作一個好國民，所以判決把他關十年，再把他放出來。但是還有一個強盜，國家對他沒有盼望，看他罪太重了，他對於國家一點用處都沒用，所以只有一個辦法，就是把他槍斃了。神今天對於我們是怎麼看法呢? 神是將我們釘在十字架上。為什麼? 我老實對你說，這話有一點不大好聽，但這是事實。神對於你一點盼望都沒有，神沒有盼望。神看你這個人一點辦法都沒有，神看你沒有辦法變好了的；你的肉體是敗壞到極點，真是沒有辦法，只有死。主耶穌的工作不能改變你的肉體，神的能力不能改變你的肉體，聖靈也不能改變你的肉體，你讀經禱告也不能改變你的肉體。從肉身生的就是肉身，永遠不能盼望，也永遠不能改變。神看你的肉體除了死之外，不能得著什麼。神對於你沒有盼望了，所以才把你和我包括在基督裏面釘死了。你這個人，除了死之外沒有別的盼望。所以每一個基督人得救之後，神對於他第一件事就是受浸。受浸就是宣告說神對於他絕望了，把他釘死了。受浸也是你說，我是該死的，所以我托人把我抬去埋了。你看見麼? 受浸就是神宣告說，也是我們承認說，我們是死了。受浸就是我們對於神對我們的估價，說一聲阿們。神說你該死，我說我進一步把他埋了。我對於我自己沒有盼望，我自己一點盼望都沒有，我只好死，今天我是站在死的地位上。</p>
+<p>但是許多基督人，都忘了受浸的時候所作的。許多基督人也忘了我們在神面前的估價是什麼。神的估價是什麼? 神對於我們的估價就是死。我們只配死，除了死之外沒有別的辦法了。就是你修也沒有法子修，就是你補也沒有法子補，就是你要進步也進步不來，就是你要改也改不好，你這個人除了死了之外，一點用處都沒有。因此神才將你包括在主耶穌的死裏。他把我們釘在十字架上，就是對於我們一種估價的表示。所以請你們記得，十字架就是神對於你和我的估價。神用這一個來表示說，你這個人只配死，一點盼望都沒有。</p>
+<p>但是我問你，你到底承認不承認這一個? 我們人常常作矛盾的事情，我們對於自己也常常有矛盾的思想。我們一面在那裏想說，我已經與基督同釘十字架，這一句話我們說了十多年了，一直在那裏說。另外一面呢? 我們對於自己還充滿了盼望。我們在那裏覺得自己不能，但是我們還在那裏盼望能。我們軟弱失敗了，我們還盼望能得勝。</p>
+<p>我看見過一張照片，有一個女人，她的丈夫死了，她把她丈夫的棺材放在門口，放了三十多年，不肯讓人把他埋了。她說他現在是睡了，她一直等他復活。我們對於自己也是這樣的盼望。我們是相信我們是只好死了的，我們是相信我們是死在罪孽裏的人，但是我們還想說我還有一口氣，恐怕我還有一點用處。所以我們一直想說，這一次因為我立志立得不夠大，所以失敗了；下一次立志立得大一點就可以得勝了。這一次也許是因為不儆醒，所以失敗了；下一次好好儆醒就可以站住了。這一次因為我沒有拒絕，所以失敗了；下一次我如果拒絕的話，就可以得勝了。這一次因為我禱告不夠多的緣故，所以失敗了；下一次如果禱告多一點的話，就可以得勝了。你看見了沒有? 神把你釘在十字架上，神說你是死了的。但是今天你沒有看見你是死了的，也沒有承認你是死了的。你一直在那裏盼望說，已經熄滅的火，煽一煽就會著，所以你一直在那裏煽。</p>
+<p>所以什麼叫作我已經與基督同釘十字架? 要經歷這一個，我們這一邊有一個永遠不能減少的條件，就是要對神說，神啊，你對於我失望了，我對於我自己也失望了。你看我一點盼望都沒有了，我也看我自己一點盼望都沒有了。你看我該死，我也看我該死。你看我是軟弱的，我也承認我是軟弱的。你說我不能，我也承認我是不能的。你就在這一個地位上，這一個叫作我已經與基督同釘十字架。神所作的事，是永遠不能推翻的，是已經作成功了的。現在你這一邊有你一部分的責任，就是要接受那一個估價。神對於我絕望，我對於我自己也絕望。我告訴你們說，什麼時候你對於自己絕望，什麼時候你立刻就看見說不再是我。</p>
+<p>今天最難的，就是許多基督人都把眼睛閉起來，看不見神對於他是沒有盼望，沒有要求的，根本他是一點用處都沒有的。陸弟兄，我不怕得罪你，我敢指著你在眾人面前宣告說，陸弟兄這個人一點用處都沒有。這還是客氣的說法，如果不客氣一點說的話，陸弟兄你壞透了，你壞透了。但是感謝神，我不只說你，我也說我自己，我們都壞透了。我們都一無用處，除了死之外，什麼用處都沒有，只好死了。我這一個人改也改不好，一點盼望都沒有，壞透了，所以只配死。這是神的看法。我們在神面前不該有另外的看法。</p>
+<p>我們對於我們自己的看法多得很，我們對於我們自己充滿了盼望，所以今天下午我們還要進一步來看，到底在實行方面，我們怎麼樣才能夠接受這一個而說，我已經與基督同釘十字架呢? 不錯，神對於我們是絕望了，那我怎麼樣呢? 我們要對神說，我對於我自己也絕望了。所以我們在這裏還要進一步地來說。也許我們要把加拉太二章暫時放在一邊，到將來用得著的時候再來看它。現在請看路加十八章十八節到二十七節。</p>
+<p>還缺少一件的原則</p>
+<p>這一段聖經，我自己頂寶貝它。這一段聖經給我們看見，得勝的第一個條件是什麼。我盼望你們要忍耐一些，與我一同來看這一段聖經到底是說什麼事情。在這裏有一個官，他來對主耶穌說，我要得著永生，我要得著那永遠的生命，就是神的生命。這一個永生，得救包括在裏面，得勝也包括在裏面，所以下文也說起得救，也說起進入神的國度。我們看見，這裏所說的範圍是把得救和得勝都包括在裏面。</p>
+<p>這一個官對主耶穌說，我該作什麼事，才可以承受永生呢? 主耶穌就提出五條頂厲害的條件：不可姦淫、不可殺人、不可偷盜、不可作假見證、當孝敬父母。這是一個少年的官所辦不到的。一個少年的官不能不姦淫，一個少年的官不能不殺人，一個少年的官不能不偷盜，一個少年的官不能不作假見證，一個少年的官不能孝敬父母。我告訴你說，一個少年的官，對於這五個條件是不能過去的。但是頂希奇，這一個少年人對耶穌說，這一切我從小都遵守了，連一次都沒有犯過。夫子，沒有別的條件了麼? 那我可以承受永生了，那我能夠有那永遠的生命了。主耶穌說，你還缺少一件。哦，你還缺少一件。我不曉得你知不知道，你還缺少一件? 什麼叫作還缺少一件? 主耶穌說，你還缺少一件，有了這一件才弄得好。這是不是說，每一個人到主耶穌面前來，都得把一切所有的都賣掉了? 是不是說，每一個相信主耶穌的人，在地上必須什麼東西都沒有呢? 不，我們承認許多有錢的人他們能夠得到永生。但是為什麼不多，而是這麼少呢? 有的人說，要變賣自己一切所有的，這個我不能。二十六節就是說到，聽見的人說，這樣，誰能得救呢? 然而在二十七節主耶穌說，在人所不能的事，在神卻能。主耶穌對那少年的官所講的一件事，就是要證明說在人不能。那一個少年人不肯承認自己的不能，他以為不姦淫能，不殺人能，不偷盜能，不作假見證能，要孝敬父母能。主耶穌的目的，卻是要證明給他看在人不能。在得救的事情上人不能，在得勝的事情上人也不能。但是他說他能。所以主耶穌就再開出條件給他看。好，你說這五樣能，我就再把一件事放在你面前，以後再補進去一件事，再補上去一件事，看看你能不能。現在這少年的官知道自己不能了，所以就憂憂愁愁地回去了。</p>
+<p>我告訴你們說，你要得勝和得救，神常常把一個還缺少一件擺在你面前。許多時候，我們覺得自己作得真不錯了，我有一個急躁的脾氣，現在我稍微能夠管住它不急了。我這個人是頂驕傲的人，現在我能夠稍微謙卑下來了。我本來是很嫉妒人的，但是現在我不大嫉妒了。我這個人本來是多話的，現在話也不多了。我們想說得勝已經差不多了，我這個人能得勝了。但是我不知道為什麼緣故，我也不急，我也不驕傲，我也不嫉妒，我也不多話，可惜我這個人還有一個缺點。其餘的好像都作得差不多了，可惜還差一點。或者是一件頂小的事，或者是我頂喜歡吃東西，或者是我早晨爬不起來，到八、九點還爬不起來，你不知道為什麼緣故，所有的罪都能夠勝過，就是這一個不能勝過，就是這一點總是沒有辦法。你在這裏用頂多的力氣，請人來喊你，用鬧鐘來鬧你，但是總不能起來。你莫名其妙，許多事情能，就是這一件事情不能。我告訴你們說，沒有別的，這一個就是路加十八章，還缺少一件的原則。神是要證明給你看，你不能。你總得說，你不能。所以主在那裏，有一些讓你能，但是你還缺少一件。主要給你看見說，你總有一件是不能的。神如果要你得勝，神總得證明給你看見說，你是不能的。得勝是基督給你的，你自己不能得勝。所以神留下一樣，留下兩樣叫我們越不過去。神叫我們看見說，我們還缺少一件。</p>
+<p>得勝的第一步是看見自己不能</p>
+<p>我告訴你們說，這一個少年人，五個條件可以過去，五十個條件可以過去，五百個條件可以過去，但是神總把一件東西放在那裏給他看見，他不能。朋友! 得勝的第一步就是找出來說我不能。你一看見你自己不能，第一步你已經過來了。今天在我們中間，每一個人都有所缺少的一件。你莫名其妙，你不知道為什麼緣故，每一次碰著這一個就失敗。有的人所缺少的一件是他的脾氣，或者是他污穢的思想，或者是他的多話，或者是他早晨爬不起來，或者是他喜歡多提議，或者是他的嫉妒，或者是他的驕傲。不知道為什麼緣故，每一個人都有他所缺少的一件。每一個打算得勝的人，都得找出來說，我在神面前所缺少的是什麼。每一個人都有他特別的一件，起碼特別有一件，也許還不只。我們在神面前，神就是要給我們看見說，我們不能。</p>
+<p>有一位姊妹盼望要得勝，她在神的面前對付了許多問題。她天天寫信向人賠不是，天天整天到山上去禱告。每一次她上山禱告下來，我就問她說，關過去了沒有? 她說，我在山上又挖了一個墳墓，把自己埋進去了。第二天我又問她，她說，神又給我找出我的罪來，我又埋了，我對付了許多事情。就這樣有二十多天，她天天都對付罪。我問她，現在總差不多了吧? 她說，哦，對付了許多，現在差不多得勝了。我私下就對一個同工姊妹說，看她作，看她作。有一天我到她家裏，我看見她頂憂愁，我不問她為什麼。憂愁總是好東西，不要停了她，所以我不說。就這樣一連六天，看她都是憂憂愁愁的。</p>
+<p>過了六天之後，我們中間有一位弟兄請大家吃飯，這位姊妹也在內。她也吃飯，頂勉強地吃。她坐在我對面，面孔是笑的，但是實在是在那裏憂愁。那一天弟兄有二十多個，姊妹只有三個。吃了飯之後，因為我才寫了一首詩，我就請她彈琴。她唱了兩節，眼淚就流下來了。我讓她流淚，我不說。等了一會兒，我問她說，到底怎麼一回事? 她說，一點辦法都沒有。有一件事情我不能勝過，怎麼對付都不能勝過。她是一個臉皮頂薄的姊妹，但是她在二十多個弟兄面前哭。沒有辦法，一直哭，一直哭。我問她到底是什麼事情不能過去? 她說，有一件事情，我弄了一個禮拜都不能過去。她說，倪弟兄，你知道在這幾個禮拜裏面，我天天對付我的罪，我把我所有的罪都對付過去了。我承認，她實實在在對付她的罪。她說，但是我無論怎麼作，都證明我這一個禮拜不能對付罪。我想這一位姊妹的罪一定是不得了的罪。我就問她，到底有什麼罪不能對付呢? 她說，小得很，但是沒有法子對付。我這個人從小起有一個習慣，就是喜歡零食。早飯吃了，喜歡零零碎碎吃一點。中午沒有到，先要零零碎碎吃一點。吃完了午飯，又要零零碎碎吃一點。晚上要睡覺了，還喜歡零零碎碎地吃。這幾天我覺得我在主的面前，這一件事情不能過去。我不應該這樣零零碎碎地吃，所以我就對付這一件事情。她說，我對付了六天，天天都失敗。我比我的三個孩子還會吃，一看見零零碎碎的東西，手就去拿了。我沒有法子不吃。她一面講，一面哭。但是我聽了，頂快樂，我在那裏笑。我真是頂快樂，我在那裏快樂極了。那些弟兄姊妹，有的弟兄就到前面去了，有的姊妹也避開了，她在那裏一直哭，哭得不得了，我在那裏就一直笑，笑得不得了。她在那裏一直哭，我就在那裏一直笑。她說，到底是什麼事情? 我說，我心裏快樂極了，我心裏快樂極了。某師母，你今天才知道你不能麼? 你作了二十多天才知道你不能麼? 感謝神，也有一天你不能。我告訴你說，你不能，就有辦法了。你要看見，整個原則都在這裏。再過一點多鍾，她完全過了得勝的關。</p>
+<p>我告訴你們說，得勝的路就是這一個還缺少一件。你自己以為這不差了，那也不差了；你以為自己會，你以為自己能，但是神要證明給你看說，你不能。所以弟兄姊妹們，每一個要過得勝關的人，第一件事就是要找出這一個不能來。你憑著那一件事情才會知道到底你能或者不能。你有沒有什麼特別的罪，有沒有什麼特別不能勝過的罪? 我告訴你們說，籠統的人，不能過得勝的關。你要專一地知道自己特別軟弱的點。這就可以拿來證明你過得勝的關。有的人是他的驕傲，有的人是他的嫉妒，有的人是太容易被人所摸著，稍微有一點點他裏面就覺得了。有的人是他的思想不潔淨，有的人是他的話特別多，有的人是喜歡吹毛求疵。有的人是喜歡背後說人、傳話，有的人就是在身體上不能節制。我告訴你們說，總有一件事情。許多人都是在那裏有一件事情不能過去。所以，等到今天下午聚會散了之後，我盼望你們回去把聖經打開來，在聖經上寫說，還缺少一件。你把你所缺少的一件寫出來。</p>
+<p>那一個少年人所缺少的一件，就是變賣他一切所有的。恐怕在我們中間，也有人是放不下他的錢。有的人不是放不下錢，但是總有一件是他還缺少的。如果不是錢，你要去寫出來，到底你所特別沒有辦法的罪是什麼。你知道了你的病在哪裡，就使你在神面前可以專一地過得勝關。每一個人必須清楚知道，他特別的點是什麼。每一個人都有他特別軟弱的點，他必須求神用光來光照。每一個人至少有一件，起碼有一件，有的人也許還不只有一件。你要看見，你所不能的那一件東西。當你看見了你不能之後，你也就能夠看見神能。如果你不能看見你自己的軟弱，你也就不能看見基督的能力。</p>
+<p>所以，弟兄姊妹們，神為什麼放一件、二件東西在那裏? 就是為要給我們看見，我們不能。我告訴你們說，這是聖經裏一個頂普通的原則，也是一個頂要緊的原則。當我們每一次說，我們的主耶穌已經替我們釘在十字架上的時候，我們所頂容易忘記的就是這一個原則。哦! 神知道你無用，神也知道我無用。神知道凡出於你肉體的都沒有良善。神知道了，神早就知道了。但是你不知道，你並不知道你的肉體沒有良善。所以你一直盼望，你一直盡力量想討神的喜悅。</p>
+<p>神知道我們的肉體沒有用處，我們卻不知道我們的肉體沒有用處。所以，神就把律法賜給我們。神賜下律法來是要證明人有罪，是要證明給你看你不能。律法賜下來並不是要你遵守，神知道你不能守律法；律法賜下來的目的是要你多犯幾條。律法賜下來，不是要人守，律法賜下來是要人犯。神知道你定規要犯律法，但是你不知道你定規要犯律法，所以神就將律法賜下來，神讓你犯律法。這樣你才知道神所已經知道的，這樣你才知道你是一個無用的人。頂奇怪的，就是我們基督人說，我們基督人是在律法之外。我們以為十條誡是律法，我們忘了所有新約的命令都是律法。神就是借著這些命令給你看見，你能作或者不能作。神要帶領你到一個地步說，我不能，而後你才會對神說，你把我釘在十字架上沒有錯，我實在不行，除了死之外沒有辦法。不然的話，神把我釘在十字架上就是釘錯了；你以為你還會作什麼。</p>
+<p>羅馬七章的寶貝就是在這裏。我們看見羅馬七章的那一個人，一直在那裏掙扎。為什麼緣故呢? 因為神對於他早就完全失望了，但是羅馬七章的那一個人，對於他自己還是充滿了盼望。他一直想要得神的喜悅，想要行律法，但是完全失敗，結局才肯承認說，神把我釘在十字架上，並沒有釘錯，神說我該死，真的我是該死。</p>
+<p>我告訴你們說，許多基督人不得勝，是因為他失敗不夠多。許多基督人犯罪犯得不夠多，所以他不得勝。罪如果多犯一點，就容易得勝。如果真是看見肉體的敗壞，就更容易得勝。羅馬七章的那一個人，到末了沒有法子了，就歎一口氣說，誰能救我脫離這取死的身體呢? 他看見他自己不能，問說誰能呢? 誰能救我脫離這取死的身體呢? 當他看見「誰」這一個字的時候，就得勝了。當他看見「誰」這一個字的時候，立刻就有人救他了。</p>
+<p>所以請弟兄姊妹們今天下午第一件事就是看見說，我們在神的面前，按著神的看法是一點用處都沒有的。神是看我們一點用處都沒有的，我們自己也得看我們自己是不能的。你如果沒有看見自己是不能的，你就不能接受十字架的估價。你就不能說我已經與基督同釘十字架，你就不能說不再是我。如果說我還有盼望的話，那我還有用處，你就不肯說不再是我。</p>
+<p>不能，也不打算能</p>
+<p>我想在這裏，我們還要進一步再看一些。許多弟兄姊妹知道自己是不能的，你知道你自己不能。或者讓我再問一句話，到底你能不能? 弟兄! 你對於你自己的心死了沒有? 你能得勝不能得勝? 昨天下午我們所看的都是客觀的，今天下午才是第一次看主觀的。不錯，是基督替你得勝，但是基督替你得勝是有條件的。這條件就是看見你自己不能。你到底能不能? 神已經在過去的許多年裏面，給你這許多失敗，你的心還沒有死。到底能不能，這是所有的問題。以後你能夠不能夠進步，關鍵都在這裏。你如果心裏以為說能，一直說你自己能，我告訴你，基督不能替你活。基督只替那些完全不能的人活。得勝是為著完全失敗的人預備的，只有完全失敗的人才有得勝。人如果沒有完全失敗，神不能替他得勝。這是第一個條件，我不能，我不能。</p>
+<p>但是在這裏，不能是一件事，不打算能又是一件事。你聽見過這一句話麼? 不能，又不打算能。許多時候我們知道不能，但是我們還打算要能。得勝第一個條件是不能，同時又不打算能。如果我們能夠承認我不能，又加上我不打算能，我們就得勝了。難處就在這裏，我們知道我們不能，但是我們卻打算能。我們要加進自己的力量。我們想，如果我們多禱告一點，我們就能了；如果我們多立志一點，我們就站住了。不能，但是還打算能。</p>
+<p>比方這裏有一個擔子有三百斤重。你自己只會挑二百斤，你知道你不能挑三百斤。但是許多人明明知道擔子太重，不能挑，卻對你說，挑是挑不起，讓我試試看。他不能，卻要去試試看。所以不能是一件事情，不去試試看又是一件事情。我們不能了，就不去試試看了。主啊，我不能了，我也不打算能，我也不試試看。你要完全放手。放手這一個問題，是一個大問題。你知道你自己是不能了，你自己就得停在那裏，不打算能。我這一次碰著好些弟兄，他們一直犯一個罪。他們說，他們不能勝過。我問他們，你打算不打算能? 他們說，還能挑什麼呢，沒有辦法了。神把你釘在十字架上，神說你沒有辦法了。你呢? 你就得承認你自己沒有辦法，你就得那麼樣地承認。</p>
+<p>但是我們還打算能。什麼叫作還打算能? 我想可以拿脾氣作為比方。比方你有一個很急的脾氣，你沒有辦法管住自己的脾氣。你一直作，一直作，但就是一直失敗。對於你的脾氣，你承認你沒有辦法。那怎麼樣呢? 我們明明知道脾氣沒有法子管，但還是用力氣去管它。我們怎麼作呢? 同人講話的時候要小心一點；與我交情不大好的，少去同他們來往；順我意思的那些人，就多與他們來往一些；那些叫我有刺的人，就不與他們交通，不見他們的面。每一次脾氣快要發的時候，我就盡力量地壓制。我要多禱告一點，把它壓下去。這叫什麼? 這就是叫不能還打算能。不能，還在那裏試試要能。不能，還要加上一些能力，想叫他能。這樣的人永遠不能得勝。這樣的人永遠不能說，我已經與基督同釘十字架。</p>
+<p>弟兄姊妹們，請你們記得，得勝的條件就是不能。但是得勝最大的難處，就是我們打算能。得勝是基督給我們得勝，是基督替我活。這得勝的生命，必須要你站在一個地位上，對主說，主啊，我不能，我也不打算能。求你替我能，我不假冒我的得勝。若是這樣，你看見你要得著得勝。神所沒有辦法的一班人，就是在那裏打算能的人。這樣的人，神一點辦法都沒有。你在那裏試試看要能，你在那裏打算要能，你一作，神就不作了。基督在你裏面，要顯出他的生命來，但是難的就是你要保守自己工作的完整。你必須完全拒絕自己的工作，基督才能夠顯出他的生命來。若是你在那裏想幫助一些，你看見人的行為一加進去，神的恩典就出去了。如果不是基督替你得勝，就是你自己得勝。基督的力量並不是為著補你自己工作的不及。基督的生命，不是為著補你生命的缺欠。他要在你裏面替你活。如果要基督替你活，你就必須不活。所以我們必須知道自己不能才有辦法。並且不要再戀戰，一戰就敗了。你盼望你能，你就是想如果我能的話就好了。你在那裏用力氣的時候，基督就不能在你裏面活。</p>
+<p>我們人作事常常有重疊的可能。我家裏有一個傭人，他要辭工回去了，我就再去請一個新的傭人。我對那一個老的傭人說，你再住兩個禮拜，你教那一個新的傭人作事，教會了以後才回去。我們人作事總有重疊的時間。老的傭人要回去，新的傭人在兩個禮拜之前就來了。但是基督永遠不肯作這樣的事。你這一邊還沒有走，他就不起頭。你什麼地方停止，他就什麼地方起頭。如果盼望他在那裏，你自己也在那裏，那辦不到。什麼時候你完全停止你的工作，什麼時候基督就起首工作。什麼時候你自己還在那裏作，基督就一動都不動。昨天我們看見，不再是我，乃是基督。什麼時候「乃是基督」呢? 要等到「不再是我」的時候。你打算我與基督有重疊的時候，這永遠辦不到。所以不只要不能，並且還得不打算能。你的手要完全挪開，從今以後，全部交在主的手中。從今以後，所有的事情都交在主手裏，我不能，我也不打算能。我告訴你，你就得勝了。</p>
+<p>雖然是這樣，還不夠。許多人看見他不能，就在那裏流淚。你哭起來了，自然流淚。哭是頂好的，許多時候，我們常常要掉了眼淚才能把罪孽洗得乾淨。洗罪必須要有眼淚才得乾淨。許多的時候，我們在主的面前流淚太少了。但是請你記得一件事情，頂希奇的，許多基督人打算得勝，他看見他自己有難處，他看見他自己還缺少一件，他就傚法那少年的官，憂憂愁愁地回去了。他想說，我不能，神也不能。他想，我不能把所有的產業都拿出去周濟窮人。他想，完全沒有盼望了。不，還有盼望。</p>
+<p>我常常想，路加十八章和十九章連在一起是頂有意思的。你知道十九章是什麼事情? 十九章是撒該的故事。撒該是什麼人? 撒該是老人。十八章的官是少年人。少年人有錢，撒該也有錢。按著人來說，少年人總是闊一些，老年人總是緊一些。但是頂希奇，當撒該從樹上下來的時候，主耶穌沒有說要把錢拿出來，他自己說我如果勒索了誰，我願意以四倍償還，我還要把家產的一半分給窮人。他把錢一下都拿出來了，主耶穌叫少年人拿出錢來，他不能；這老年人，主耶穌沒有叫他拿出錢來，他倒一下都拿了出來。原因在哪裡呢? 在人不能，在神卻能。少年人表明說人不能，撒該表明說神能。神能什麼呢? 主耶穌說，他也是亞伯拉罕的子孫。今天救恩到了這家，所以是神救他的。這個少年人真知道他自己不能，但是沒有求神救他。人不能，神能。</p>
+<p>今天許多基督人看見自己有一個壞的脾氣，看見自己有污穢的思想，看見自己有身體上的罪，有靈性上的罪，他怎麼作呢? 他就在那裏覺得說，如果我沒有這些難處就好了。我曾聽見好幾位姊妹對我說，倪弟兄，如果我的脾氣忍耐一點就好了。但是我總是對她們說，要感謝神，因為你脾氣急得很。你看見你不能就好了，你要快樂，因為你不能。</p>
+<p>誇自己的軟弱</p>
+<p>林後十二章九節說，「他對我說，我的恩典夠你用的；因為我的能力，是在人的軟弱上顯得完全；所以我更喜歡誇自己的軟弱，好叫基督的能力覆庇我。」 你看見麼? 軟弱不是一件可悲、可流淚的事；軟弱反而是可誇的事。你能誇口說，感謝讚美神，因為你叫我得勝。但是你有沒有說，感謝讚美神，因為你叫我大失敗? 你在那裏感謝神、讚美神，因為神叫你忍耐。你有沒有感謝神、讚美神，因為你有一個勝不過的脾氣? 你有沒有感謝神、讚美神，因為你驕傲? 你有沒有感謝神、讚美神，因為你嫉妒? 你有沒有感謝神、讚美神，因為在你裏面有污穢? 因為在你裏面充滿了罪惡? 我告訴你說，如果你有這些難處，你要感謝讚美神。所以第一是不能，第二是不打算能，第三就是感謝神、讚美神，因為我不能。阿利路亞，我不能! 阿利路亞，我不能!</p>
+<p>為什麼保羅說，我更喜歡誇自己的軟弱? 你知道「誇」字在原文就是榮耀。保羅說，我把這軟弱當作我的榮耀。這是為什麼緣故呢? 因為有機會給基督顯出他的能力來，好叫基督的能力覆庇我。沒有軟弱的人，基督的能力不能覆庇他。有軟弱的人，基督的能力才有機會覆庇他。所以我在這裏誇我的軟弱，因為我軟弱，就叫主有機會作工。我有機會證明主的能力，我給主機會替我作什麼。</p>
+<p>弟兄姊妹們，你有沒有什麼罪是你所不能承認的? 你有沒有什麼事情要奉獻給神，但是奉獻不來? 或者你有沒有什麼東西是不能除去的? 或者你有沒有什麼恩典是你在神面前所不能得著的? 你怎麼作? 憂愁? 那麼你是那一個少年人的朋友。他憂愁，你也憂愁，結局你和他都走一條路。他憂憂愁愁地回去了，你也憂憂愁愁地回去了。哦! 我們不必憂愁。少年人的錯，不在於他看見自己的不能；少年人的錯，是在於他沒有看見神的能。少年人錯，並不是因為他自己辦不到；少年人的錯，是因為他沒有從神那裏支取「辦得到」。找出自己的軟弱不是罪，不相信神的剛強，這是罪。看見自己的錢拿不出去不是罪，不相信神能叫你把錢拿出去，這是罪。有一個壞脾氣不是罪，不相信神替你忍耐，這是罪。有一個不能勝過的罪不是罪，不相信神能替你得勝，這是罪。</p>
+<p>看見自己無依無靠是頂榮耀的一件事。主的目的是要那一個少年人看見自己的無依無靠。但是那一個少年人回家去的時候，不快樂，是憂憂愁愁的。主一旦證明給你看見你不能，立刻就要你看見神能。主給你看見自己不能，不是要你灰心；主給你看見自己不能，乃是要你相信主今天有一個好機會在你身上了。所以在這裏，我們要對主說，主啊! 我不能；主啊! 我也不打算能。感謝你、讚美你，我不能。當你看見自己不能作的時候，當你看見自己沒有辦法的時候，當你看見主能叫你能的時候，你能感謝神、讚美神。你看見說，感謝主，讚美主，是一件頂自然的事。從前的時候，你為你的軟弱憂愁；從前的時候，你為著你的罪流淚。你今天能夠誇口，你今天能夠讚美，你今天能夠對主說，主，我感謝你，因為我不能；主，我感謝你，因為我沒有辦法，我不能得勝，我不能。感謝你，我不能。我快樂，我不能。我快樂，我一點辦法都沒有，你能。我告訴你說，這時候你就要得勝。</p>
+<p>主耶穌只醫絕症</p>
+<p>這一次在煙臺，有一個弟兄過得勝的關。這一個弟兄是從東三省來的，他在軍隊裏過了十多年的生活，他是一個大夫。當他在東北的時候，弟兄們引導他相信主。信主之後，他就來到煙臺行醫，有一年多的工夫。我在煙臺有一個禮拜的聚會，他也在那裏。我在聚會的時候，提起得勝的問題。有一天，他來找我，頂急地說，好不好明天來找你? 我說，明天早起恐怕有事情，今天夜裏說好不好? 他說，我的事情頂要緊，今天夜裏時間太少，非有一個長的時間不可。所以就定規明天早起。他說，我明天早起九點來找你，你明天不再約別人，明天整個上午都要給我，我有一個頂大的問題。這一個人真是像一個軍人，又高又大，頂魁梧的。好，我們約定明天早起到李弟兄家裏談。我在九點前到那裏，他已經早在那裏了。我們見了面，他一坐下來就說，倪弟兄，我的故事長哩! 他就說他從前怎樣在軍隊裏過日子；後來怎樣相信主，怎樣來煙臺。他告訴我，現在怎樣把所有的罪都勝過了；從前在軍隊裏所有的罪都勝過了，但只有一件事情沒有辦法。我一聽，心裏就快樂了，又有一件了。總有一件，不能說，一件都沒有。我說，是什麼事呢? 他就把手拿給我看，告訴我是吃煙的事勝不過。他說，各種各樣頂厲害的罪、頂不好的罪都勝過了，但就是這一件勝不過。他吃煙已經有十年了，相信主已經有三、四年了，在煙臺已經有一年了。在這三、四年之中，甚至一年戒七、八次，總是戒不掉，沒有辦法。他說，我在這裏吃煙頂苦；煙臺地方又小，弟兄姊妹又多，如果給他們知道我史某人吃煙的話，不得了了，所以只得偷著吃。如果在家裏吃的話，不行，因為我的師母又是一個姊妹，在家裏監視著。如果在外面吃，又怕被弟兄姊妹碰著。所以這煙不能公開地吃。我把煙放在口袋裏，如果在醫院裏，我還能夠在我的房間裏抽，但是又不能明抽，總是在門口那裏抽。聽見人的聲音時，就只好偷偷地把煙弄熄了。因為在醫院裏也怕護士們知道，去通知弟兄姊妹。如果給師母看見了，那又要鬧，所以吃煙真是苦得很。弟兄姊妹又是頂親熱，兩下子又有人來看看你。這一邊在抽煙，聽見弟兄們來，就只能把仁丹放在口裏，怕口裏的煙味給他們聞到。這一年在煙臺，被這煙弄得真是苦。我不喜歡吃，但是想盡方法總是不能戒。你看見他坐在你的面前頂高的身體，頂魁梧的身體，真是象軍人，但是他在那裏哭、哭，真是像一個小孩子一樣在那裏哭。</p>
+<p>我就對他說，這是一件可快樂的事情。為著這一件事情你該感謝讚美神。他說，你不知道別人戒煙戒得掉，我戒不掉；你如果看見我在那裏戒煙，你就知道我的苦了。我有一次成功了三天，沒有吃煙，手裏沒有拿煙，但是思想裏、頭腦裏，無論到什麼地方去都是充滿了煙。沒有辦法，後來只好再吃。我恨我的自己，我沒有法子。我說，這是可快樂的一件事，這真是可快樂的一件事。他問我說，你這話到底是什麼意思? 我就對他說，你史大夫是一個國手，醫道頂好，但是你碰著我倪某人，就沒有用處，我身體頂好。你是全煙臺頂好的醫生，我是全煙臺身體頂好的人。我也用不著你，你也用不著我。如果你今天能把煙戒掉了，你對於主也就像我與你一樣，你就用不著主。但是如果我是一個軟弱的人，身體多病，任何的大夫都醫不好，而你是一個國手，那麼我到你這裏來，你就有機會、有地方顯本事了。我又對他說，史大夫，你敢不敢在你醫院的門口掛一塊牌說，專醫絕症? 他說，我不敢。如果醫不好怎麼辦呢? 我說，但是主耶穌別的病一個都不醫，主耶穌只醫一種的病，就是絕症。主耶穌只醫絕症。今天你是不是一個絕症? 你今天戒煙是一個絕症。他說，當然是絕症。我四年以來，一年之內戒七、八次，都戒不掉，這不是絕症麼? 我說，那麼好，主耶穌能醫治你了。那是不是可以快樂呢? 你要感謝神，因為你有資格給主耶穌看病，你的病絕了。你對主耶穌說，主耶穌，我不能戒煙，我沒有辦法；主耶穌，我把我自己放在你面前。耶穌肯收留你這一個病人，所以你要心裏快樂。但是他問我說，倪弟兄，你不要和我鬧玩笑，你要知道我真是沒有辦法。他又在那裏哭了。</p>
+<p>後來我就把林後十二章九節打開來給他看，念給他聽。我問他說，那對於你的軟弱應該怎樣? 流淚麼? 不必流淚。怎麼辦? 我喜歡我的軟弱，我誇我的軟弱，我喜歡誇我的軟弱。因為我的軟弱，基督的能力就能覆庇我。我說，你今天能不能到主耶穌的面前去，對他說，我十多年了，我一直吃煙；主耶穌，我感謝你，我不能戒煙。主耶穌，我感謝你，我戒了四年都完全失敗了。主耶穌，我感謝你、讚美你，因為我去年戒了七、八次還不能得勝。主耶穌，我感謝你，我一點辦法都沒有。主耶穌，我感謝你，我軟弱。主耶穌，我感謝你，因為我沒有辦法。主耶穌，我感謝你，我會吃煙。主耶穌，從今以後，我不能戒煙，我自己也不打算能戒煙，你替我戒。你不替我戒，我自己也不戒了。我無論如何，不要用自己的力量來戒了。你替我戒。感謝你，讚美你，因為你的能力要顯在我的身上。好，我們跪下來禱告。</p>
+<p>他就說，好，我禱告。他真是像一個軍人一樣，頂快地跪在那裏了。我就先禱告，我禱告說，主，我感謝你，因為今天有機會在一個絕症的人身上顯出你的能力來。他真是沒有辦法。我們在這裏要看你行一個神跡。我禱告完了，後來他自己禱告。他禱告得頂好。他禱告說，我讚美你，因為我自己吃煙，我也不會戒煙，因此我來到你的面前。主，從今以後，我不戒了。你替我戒吧，我也不打算戒了。我把事情交在你的手裏。感謝你，讚美你，你能。禱告完了，他真是快樂，他爬起來，把桌子上的帽子拿了就走。我就說，慢一點，我還有話要問你。你從今以後，會不會再吃煙呢? 他給我一個頂好的回答，他說，我會吃煙，我當然會，史再臨會吃煙。我這個人會，但是主耶穌替我戒煙。說了，他就走了。</p>
+<p>到了第二天晚上，他又來聚會。他對我見證，他告訴他的師母說，一年多來，你一直和我吵，一直說我吃煙不對，但是我怎麼戒都戒不掉。你看我昨天早晨到神的面前去，只有半點鍾，煙就不吃了。你吵沒有用處，到神的面前去半點鍾就好了。我問他，那你還會不會吃煙呢? .他說，我怎麼不會? 會呀! 我就說，你還要吃，那怎麼辦呢? 他說，我永遠是會吃煙的，我史再臨再過五年、十年，還是會吃煙的。叫我不吃煙的是主耶穌。我聽了這話心裏就平安了，我知道事情好了。他認識他自己，他也認識他的神。他知道這不是他改變，這是主耶穌把他改換了。當我離開煙臺的時候，過了兩個月，他一枝煙都沒有吃。弟兄們說他一直進步，進步得頂快。</p>
+<p>我們不能，神能</p>
+<p>我告訴你說，神能。所以你如果要看見，你已經與基督同釘十字架，第一件事就是要看見你自己不能，第二件事就是要你不打算能，第三件事就是你在那裏感謝神、讚美神，說你不能。我們的軟弱不會攔阻我們，我們的失敗也不會攔阻我們，我們的思想也不會攔阻我們，我們的嗜好也不會攔阻我們，我們的脾氣也不會攔阻我們。主耶穌能。我告訴你說，主耶穌能。今天下午，主耶穌在這聚會之中，要替每一個承認自己不能的人行神跡。所以在這裏，你要看見你不能，你要站在神所給你的地位上。神是給你看見你不能，神是看你只配死。你說，主! 我只配死，我不打算把我改變修理，我就是這樣不能地到你面前來。我感謝你，因為我不能。</p>
+<p>我告訴你說，在過去的幾個月之中，多少時候撒但來對我說話，他從來不放鬆。他一直在那裏說，你得勝了麼? 你看你還是不好。我就回答他說，如果是我，我就憂愁了。但是，是主得勝。他說，你看，你這樣不好。我就說，感謝神、讚美神，我是不好。他說，你頂軟弱。我說，那好，基督就有機會彰顯神的能力了。在這裏你看見軟弱寶貝，你看見軟弱是可以快樂的事。你不怕，你心裏能充滿感謝和讚美，因為你自己不能。</p>
+<p>哦! 弟兄姊妹們，不能不是一個攔阻，不能是一個幫助。我們越不能，基督越有機會顯出他的能力來。他專門把我們的不能、軟弱解決了。在我身上我越沒有、越失敗、越軟弱、越不能，就越有機會給我的主在我身上顯出能力來。阿利路亞! 耶穌是救主。阿利路亞! 耶穌是我的主。阿利路亞! 他是我們的生命。阿利路亞! 他的能力是專門覆庇我們的軟弱。在這裏，我們的眼睛要看他，不要看自己。</p>
+</article>
+    <!-- Chapter Bottom Navigation -->
+    <nav class="chapter-nav-bar">
+      <a href="03.html" class="nav-btn"><i class="fa-solid fa-arrow-left"></i> 上一篇</a>
+      <a href="index.html" class="nav-btn"><i class="fa-solid fa-list"></i> 本書目錄</a>
+      <a href="05.html" class="nav-btn">下一篇 <i class="fa-solid fa-arrow-right"></i></a>
+    </nav>
+  </main>
+
+  <div class="floating-nav">
+    <button class="fab-btn" id="btn-back-top" title="回到頂部" style="display:none;"><i class="fa-solid fa-arrow-up"></i></button>
+  </div>
+
+  <div class="drawer-overlay" id="overlay"></div>
+
+  <!-- TOC Drawer -->
+  <aside class="drawer drawer-left" id="drawer-toc">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-book-bookmark"></i> 本書目錄</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <ul class="toc-list">
+        <li class="toc-item"><a href="01.html" class="toc-link">第一篇、我們的經歷</a></li>
+<li class="toc-item"><a href="02.html" class="toc-link">第二篇、聖經所啟示基督人的生命</a></li>
+<li class="toc-item"><a href="03.html" class="toc-link">第三篇、得勝生命的性質</a></li>
+<li class="toc-item"><a href="04.html" class="toc-link">第四篇、如何經歷得勝的生命</a></li>
+<li class="toc-item"><a href="05.html" class="toc-link">第五篇、如何進入得勝的生命</a></li>
+<li class="toc-item"><a href="06.html" class="toc-link">第六篇、降服</a></li>
+<li class="toc-item"><a href="07.html" class="toc-link">第七篇、相信</a></li>
+<li class="toc-item"><a href="08.html" class="toc-link">第八篇、信心的試驗</a></li>
+<li class="toc-item"><a href="09.html" class="toc-link">第九篇、長進</a></li>
+<li class="toc-item"><a href="10.html" class="toc-link">第十篇、得勝的音調</a></li>
+<li class="toc-item"><a href="11.html" class="toc-link">第十一篇、奉獻</a></li>
+
+      </ul>
+    </div>
+  </aside>
+
+  <!-- Settings Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-settings">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-sliders"></i> 閱讀設定</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-palette"></i> 閱讀配色</div>
+        <div class="theme-grid">
+          <button class="theme-btn" data-theme-val="sepia"><span>📜 羊皮</span></button>
+          <button class="theme-btn" data-theme-val="light"><span>☀️ 潔白</span></button>
+          <button class="theme-btn" data-theme-val="dark"><span>🌙 夜間</span></button>
+          <button class="theme-btn" data-theme-val="green"><span>🍃 護眼</span></button>
+        </div>
+      </div>
+      
+      <!-- Custom Font Size Control -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <i class="fa-solid fa-text-height"></i> 自訂字體大小
+          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">18px</span>
+        </div>
+        <div class="font-size-control">
+          <button class="stepper-btn" id="btn-font-dec" title="縮小字體"><i class="fa-solid fa-minus"></i></button>
+          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="18" class="font-range-input" />
+          <button class="stepper-btn" id="btn-font-inc" title="放大字體"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-font"></i> 字體風格</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-font-val="serif">明體</button>
+          <button class="segment-btn" data-font-val="sans">黑體</button>
+        </div>
+      </div>
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-align-left"></i> 行高間距</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-lh-val="compact">緊湊</button>
+          <button class="segment-btn" data-lh-val="comfortable">舒適</button>
+          <button class="segment-btn" data-lh-val="spacious">寬鬆</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Search Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-search">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-magnifying-glass"></i> 內文搜尋</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="search-container">
+        <input type="text" id="search-input" class="search-input" placeholder="輸入關鍵字..." />
+        <button class="icon-btn" id="search-clear" style="display:none;"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="search-status" id="search-status">尚未輸入搜尋關鍵字</div>
+    </div>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const progressBar = document.getElementById('progress-bar');
+      const overlay = document.getElementById('overlay');
+      const drawerToc = document.getElementById('drawer-toc');
+      const drawerSettings = document.getElementById('drawer-settings');
+      const drawerSearch = document.getElementById('drawer-search');
+      
+      const btnToc = document.getElementById('btn-toc');
+      const btnSettings = document.getElementById('btn-settings');
+      const btnSearch = document.getElementById('btn-search');
+      const btnBackTop = document.getElementById('btn-back-top');
+      const closeBtns = document.querySelectorAll('.close-drawer');
+
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const progress = (scrollTop / scrollHeight) * 100;
+        if (progressBar) progressBar.style.width = `${progress}%`;
+        if (btnBackTop) btnBackTop.style.display = scrollTop > 300 ? 'flex' : 'none';
+        localStorage.setItem('pos_04.html', scrollTop);
+      });
+
+      if (btnBackTop) {
+        btnBackTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+
+      const savedPos = localStorage.getItem('pos_04.html');
+      if (savedPos && !window.location.hash) {
+        window.scrollTo({ top: parseInt(savedPos, 10), behavior: 'smooth' });
+      }
+
+      function openDrawer(drawer) {
+        closeAllDrawers();
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+      }
+
+      function closeAllDrawers() {
+        overlay.classList.remove('active');
+        if (drawerToc) drawerToc.classList.remove('active');
+        if (drawerSettings) drawerSettings.classList.remove('active');
+        if (drawerSearch) drawerSearch.classList.remove('active');
+      }
+
+      if (btnToc) btnToc.addEventListener('click', () => openDrawer(drawerToc));
+      if (btnSettings) btnSettings.addEventListener('click', () => openDrawer(drawerSettings));
+      if (btnSearch) {
+        btnSearch.addEventListener('click', () => {
+          openDrawer(drawerSearch);
+          setTimeout(() => document.getElementById('search-input').focus(), 300);
+        });
+      }
+
+      if (overlay) overlay.addEventListener('click', closeAllDrawers);
+      closeBtns.forEach(btn => btn.addEventListener('click', closeAllDrawers));
+
+      // Preferences Management
+      function loadPreferences() {
+        setTheme(localStorage.getItem('pref_theme') || 'sepia');
+        setFont(localStorage.getItem('pref_font') || 'serif');
+        setLineHeight(localStorage.getItem('pref_lh') || 'comfortable');
+        
+        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '18';
+        setCustomFontSize(savedCustomSize);
+      }
+
+      function setTheme(val) {
+        html.setAttribute('data-theme', val);
+        localStorage.setItem('pref_theme', val);
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.themeVal === val));
+      }
+
+      function setFont(val) {
+        html.setAttribute('data-font', val);
+        localStorage.setItem('pref_font', val);
+        document.querySelectorAll('[data-font-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.fontVal === val));
+      }
+
+      function setLineHeight(val) {
+        html.setAttribute('data-lh', val);
+        localStorage.setItem('pref_lh', val);
+        document.querySelectorAll('[data-lh-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.lhVal === val));
+      }
+
+      function setCustomFontSize(sizeVal) {
+        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 18));
+        html.style.setProperty('--font-size-base', size + 'px');
+        localStorage.setItem('pref_custom_font_size', size);
+        
+        const display = document.getElementById('font-size-val-display');
+        const slider = document.getElementById('font-size-slider');
+        if (display) display.textContent = size + 'px';
+        if (slider) slider.value = size;
+      }
+
+      const fontSlider = document.getElementById('font-size-slider');
+      if (fontSlider) {
+        fontSlider.addEventListener('input', (e) => setCustomFontSize(e.target.value));
+      }
+
+      const btnFontDec = document.getElementById('btn-font-dec');
+      const btnFontInc = document.getElementById('btn-font-inc');
+      if (btnFontDec) {
+        btnFontDec.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur - 1);
+        });
+      }
+      if (btnFontInc) {
+        btnFontInc.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '18', 10);
+          setCustomFontSize(cur + 1);
+        });
+      }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.themeVal)));
+      document.querySelectorAll('[data-font-val]').forEach(btn => btn.addEventListener('click', () => setFont(btn.dataset.fontVal)));
+      document.querySelectorAll('[data-lh-val]').forEach(btn => btn.addEventListener('click', () => setLineHeight(btn.dataset.lhVal)));
+
+      loadPreferences();
+
+      // Search Logic
+      const searchInput = document.getElementById('search-input');
+      const searchStatus = document.getElementById('search-status');
+      const searchClear = document.getElementById('search-clear');
+      const articleBody = document.querySelector('.article-body');
+      if (articleBody && searchInput) {
+        let originalHtml = articleBody.innerHTML;
+
+        searchInput.addEventListener('input', (e) => {
+          const query = e.target.value.trim();
+          if (!query) {
+            articleBody.innerHTML = originalHtml;
+            searchStatus.textContent = '尚未輸入搜尋關鍵字';
+            searchClear.style.display = 'none';
+            return;
+          }
+
+          searchClear.style.display = 'inline-flex';
+          const regex = new RegExp(`(${escapeRegExp(query)})`, 'gi');
+          const matches = (articleBody.textContent.match(regex) || []).length;
+
+          if (matches === 0) {
+            searchStatus.textContent = `未找到與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+          } else {
+            searchStatus.textContent = `找到 ${matches} 處與「${query}」相關的內容`;
+            articleBody.innerHTML = originalHtml;
+            const elements = articleBody.querySelectorAll('p, h2, h3');
+            elements.forEach(el => {
+              const text = el.innerHTML;
+              if (regex.test(text)) {
+                el.innerHTML = text.replace(regex, '<mark class="search-highlight">$1</mark>');
+              }
+            });
+          }
+        });
+
+        searchClear.addEventListener('click', () => {
+          searchInput.value = '';
+          articleBody.innerHTML = originalHtml;
+          searchStatus.textContent = '尚未輸入搜尋關鍵字';
+          searchClear.style.display = 'none';
+        });
+
+        function escapeRegExp(string) {
+          return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        articleBody.addEventListener('click', (e) => {
+          const p = e.target.closest('p');
+          if (p && !e.target.classList.contains('search-highlight')) {
+            document.querySelectorAll('.article-body p').forEach(el => el.classList.remove('highlight-p'));
+            p.classList.add('highlight-p');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

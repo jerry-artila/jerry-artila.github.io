@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia" data-font="serif">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>得勝的生命 — 倪柝聲 | 全書目錄與訊息</title>
+  <meta name="description" content="《得勝的生命》倪柝聲著。全書十一篇訊息經典重現，手機 RWD 最佳化閱讀體驗。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --bg-color: #f8f5ee;
+      --card-bg: #ffffff;
+      --text-color: #2b2927;
+      --text-muted: #6b6560;
+      --accent-color: #8c2a1c;
+      --accent-light: rgba(140, 42, 28, 0.08);
+      --border-color: #e5ded0;
+      --header-bg: rgba(248, 245, 238, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.05);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.08);
+      --font-family: 'Noto Serif TC', serif;
+      --font-size-base: 16px;
+      --content-max-width: 800px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fafafa;
+      --card-bg: #ffffff;
+      --text-color: #1f2937;
+      --text-muted: #6b7280;
+      --accent-color: #991b1b;
+      --accent-light: rgba(153, 27, 27, 0.08);
+      --border-color: #e5e7eb;
+      --header-bg: rgba(250, 250, 250, 0.90);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #121316;
+      --card-bg: #1c1e24;
+      --text-color: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent-color: #ef4444;
+      --accent-light: rgba(239, 68, 68, 0.15);
+      --border-color: #2a2d37;
+      --header-bg: rgba(18, 19, 22, 0.90);
+      --shadow-sm: 0 2px 8px rgba(0,0,0,0.4);
+      --shadow-md: 0 8px 24px rgba(0,0,0,0.5);
+    }
+
+    [data-theme="green"] {
+      --bg-color: #dce7d7;
+      --card-bg: #e6efe2;
+      --text-color: #233522;
+      --text-muted: #4e634c;
+      --accent-color: #2b6832;
+      --accent-light: rgba(43, 104, 50, 0.12);
+      --border-color: #c7d9c1;
+      --header-bg: rgba(220, 231, 215, 0.90);
+    }
+
+    [data-font="sans"] {
+      --font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-family: var(--font-family);
+      font-size: var(--font-size-base);
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      min-height: 100vh;
+      padding-bottom: 60px;
+    }
+
+    .app-header {
+      position: sticky; top: 0; z-index: 900;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 0.75rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .brand-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); display: flex; align-items: center; gap: 0.5rem; }
+
+    .header-actions { display: flex; gap: 0.35rem; align-items: center; }
+    .icon-btn {
+      background: transparent; border: none; color: var(--text-color);
+      width: 38px; height: 38px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 1.1rem; transition: all 0.2s ease;
+    }
+    .icon-btn:hover { background-color: var(--accent-light); color: var(--accent-color); }
+
+    .container { max-width: var(--content-max-width); margin: 0 auto; padding: 1.75rem 1.25rem 3rem 1.25rem; }
+
+    .hero-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; width: 100%; height: 5px;
+      background: linear-gradient(90deg, var(--accent-color), #d97706);
+    }
+
+    .book-name {
+      font-size: 1.85rem; font-weight: 700; color: var(--accent-color);
+      margin-bottom: 0.5rem; letter-spacing: 0.05em;
+    }
+
+    .book-author {
+      font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.4rem;
+    }
+
+    .book-badge-group {
+      display: flex; justify-content: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.25rem;
+    }
+
+    .badge {
+      font-size: 0.78rem; font-weight: 600; padding: 0.25rem 0.65rem;
+      background: var(--accent-light); color: var(--accent-color);
+      border-radius: 20px; border: 1px solid var(--border-color);
+    }
+
+    .book-intro {
+      font-size: 0.95rem; color: var(--text-color); line-height: 1.7;
+      max-width: 620px; margin: 0 auto 1.5rem auto; text-align: justify; text-justify: inter-ideograph;
+    }
+
+    .start-read-btn {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.8rem 1.75rem; background: var(--accent-color); color: #ffffff;
+      text-decoration: none; border-radius: 30px; font-weight: 600;
+      font-size: 1rem; box-shadow: 0 4px 12px rgba(140, 42, 28, 0.25);
+      transition: all 0.25 ease;
+    }
+    .start-read-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(140, 42, 28, 0.35); }
+
+    .search-filter-section {
+      margin-bottom: 1.5rem; display: flex; gap: 0.75rem; align-items: center;
+    }
+
+    .search-box {
+      flex: 1; position: relative; display: flex; align-items: center;
+    }
+
+    .search-box i {
+      position: absolute; left: 1rem; color: var(--text-muted); font-size: 0.95rem;
+    }
+
+    .search-input {
+      width: 100%; padding: 0.7rem 1rem 0.7rem 2.5rem;
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 12px; color: var(--text-color); font-size: 0.95rem;
+      outline: none; transition: border-color 0.2s ease;
+    }
+
+    .search-input:focus { border-color: var(--accent-color); }
+
+    .section-title {
+      font-size: 1.2rem; font-weight: 700; color: var(--text-color);
+      margin-bottom: 1rem; display: flex; align-items: center; justify-content: space-between;
+    }
+
+    .chapter-grid {
+      display: grid; grid-template-columns: 1fr; gap: 1rem;
+    }
+
+    .chapter-card {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      border-radius: 12px; padding: 1.1rem 1.25rem; text-decoration: none;
+      color: var(--text-color); display: flex; gap: 1.1rem; align-items: flex-start;
+      transition: all 0.2s ease; box-shadow: var(--shadow-sm);
+    }
+
+    .chapter-card:hover {
+      border-color: var(--accent-color); transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .card-num {
+      font-size: 1.1rem; font-weight: 700; color: var(--accent-color);
+      background: var(--accent-light); width: 44px; height: 44px;
+      border-radius: 10px; display: flex; align-items: center;
+      justify-content: center; flex-shrink: 0;
+    }
+
+    .card-content { flex: 1; min-width: 0; }
+
+    .card-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--text-color);
+      margin-bottom: 0.35rem; line-height: 1.35;
+    }
+
+    .chapter-card:hover .card-title { color: var(--accent-color); }
+
+    .card-desc {
+      font-size: 0.86rem; color: var(--text-muted); margin-bottom: 0.5rem;
+      line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .card-link {
+      font-size: 0.8rem; font-weight: 600; color: var(--accent-color);
+      display: inline-flex; align-items: center; gap: 0.3rem;
+    }
+
+    /* Custom Font Size Control Styling */
+    .font-size-control {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--bg-color); padding: 0.5rem 0.75rem;
+      border-radius: 10px; border: 1px solid var(--border-color);
+    }
+
+    .stepper-btn {
+      background: var(--card-bg); border: 1px solid var(--border-color);
+      color: var(--text-color); width: 34px; height: 34px; border-radius: 8px;
+      display: inline-flex; align-items: center; justify-content: center;
+      cursor: pointer; font-size: 0.9rem; font-weight: bold;
+      transition: all 0.2s ease; flex-shrink: 0;
+    }
+    .stepper-btn:hover { background: var(--accent-color); color: #ffffff; border-color: var(--accent-color); }
+    .stepper-btn:active { transform: scale(0.92); }
+
+    .font-range-input {
+      flex: 1; -webkit-appearance: none; appearance: none;
+      height: 6px; border-radius: 3px; background: var(--border-color); outline: none;
+    }
+
+    .font-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none; appearance: none;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .font-range-input::-moz-range-thumb {
+      width: 20px; height: 20px; border-radius: 50%;
+      background: var(--accent-color); cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2); border: none;
+    }
+
+    .drawer-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+      z-index: 1000; opacity: 0; visibility: hidden; transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .drawer-overlay.active { opacity: 1; visibility: visible; }
+
+    .drawer {
+      position: fixed; background: var(--card-bg); color: var(--text-color);
+      z-index: 1001; transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-md); display: flex; flex-direction: column;
+    }
+    .drawer-bottom { bottom: 0; left: 0; width: 100%; max-height: 85vh; border-radius: 20px 20px 0 0; transform: translateY(100%); }
+    .drawer-bottom.active { transform: translateY(0); }
+
+    .drawer-header { padding: 1.1rem 1.25rem; border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; }
+    .drawer-title { font-size: 1.1rem; font-weight: 700; color: var(--accent-color); display: flex; align-items: center; gap: 0.5rem; }
+    .drawer-body { padding: 1.25rem; overflow-y: auto; flex: 1; }
+
+    .setting-group { margin-bottom: 1.5rem; }
+    .setting-label { font-size: 0.875rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.4rem; }
+    .theme-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+    .theme-btn {
+      padding: 0.6rem 0.3rem; border-radius: 8px; border: 2px solid var(--border-color);
+      background: var(--bg-color); color: var(--text-color); cursor: pointer; font-size: 0.8rem; font-weight: 600;
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem; transition: all 0.2s ease;
+    }
+    .theme-btn.active { border-color: var(--accent-color); background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    .btn-group { display: flex; background: var(--bg-color); padding: 3px; border-radius: 10px; border: 1px solid var(--border-color); }
+    .segment-btn {
+      flex: 1; padding: 0.55rem 0.5rem; border: none; background: transparent;
+      color: var(--text-muted); font-size: 0.875rem; font-weight: 600; border-radius: 8px; cursor: pointer; transition: all 0.2s ease;
+    }
+    .segment-btn.active { background: var(--card-bg); color: var(--accent-color); box-shadow: var(--shadow-sm); }
+
+    @media (min-width: 640px) {
+      .chapter-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="app-header">
+    <span class="brand-title"><i class="fa-solid fa-book-journal-whills"></i> 《得勝的生命》</span>
+    <div class="header-actions">
+      <button class="icon-btn" id="btn-settings" title="閱讀設定"><i class="fa-solid fa-sliders"></i></button>
+    </div>
+  </header>
+
+  <main class="container">
+    
+    <div class="hero-card">
+      <h1 class="book-name">得勝的生命</h1>
+      <div class="book-author"><i class="fa-solid fa-user"></i> 倪柝聲 著</div>
+      
+      <div class="book-badge-group">
+        <span class="badge">十一篇經典訊息</span>
+        <span class="badge">RWD 行動閱讀版</span>
+        <span class="badge">水流職事站</span>
+      </div>
+
+      <p class="book-intro">
+        《得勝的生命》乃是倪柝聲弟兄於一九三五年在上海特會中釋放的極重要訊息。本書詳細剖析基督徒在靈性、肉體與思想上的失敗，引導人看見基督乃是我們得勝的生命，並指出如何藉著降服與相信，進入得勝並活出奉獻的生活。
+      </p>
+
+      <a href="01.html" class="start-read-btn">
+        <i class="fa-solid fa-circle-play"></i> 從第一篇開始閱讀
+      </a>
+    </div>
+
+    <div class="search-filter-section">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="chapter-search" class="search-input" placeholder="搜尋篇名或關鍵字 (例如：降服、相信)..." />
+      </div>
+    </div>
+
+    <div class="section-title">
+      <span><i class="fa-solid fa-list-ol"></i> 本書目錄 (共 11 篇)</span>
+    </div>
+
+    <div class="chapter-grid" id="chapter-grid">
+      
+    <a href="01.html" class="chapter-card" data-title="第一篇、我們的經歷">
+      <div class="card-num">01</div>
+      <div class="card-content">
+        <h3 class="card-title">第一篇、我們的經歷</h3>
+        <p class="card-desc">探討神所定規的生命與基督徒經歷中的落差，詳細剖析靈性、肉體、思想、身體、個性等八種常見失敗。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="02.html" class="chapter-card" data-title="第二篇、聖經所啟示基督人的生命">
+      <div class="card-num">02</div>
+      <div class="card-content">
+        <h3 class="card-title">第二篇、聖經所啟示基督人的生命</h3>
+        <p class="card-desc">聖經所揭示基督人的生命是基督自己，是超凡、得勝、完全、喜樂與豐富的生命。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="03.html" class="chapter-card" data-title="第三篇、得勝生命的性質">
+      <div class="card-num">03</div>
+      <div class="card-content">
+        <h3 class="card-title">第三篇、得勝生命的性質</h3>
+        <p class="card-desc">得勝生命的性質不是改換，不是進步，乃是基督替我們活；得勝是主作的，不是我們作的。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="04.html" class="chapter-card" data-title="第四篇、如何經歷得勝的生命">
+      <div class="card-num">04</div>
+      <div class="card-content">
+        <h3 class="card-title">第四篇、如何經歷得勝的生命</h3>
+        <p class="card-desc">經歷得勝生命的前提是看見「我已经與基督同釘十字架」，不再是自己，乃是基督在裡面活。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="05.html" class="chapter-card" data-title="第五篇、如何進入得勝的生命">
+      <div class="card-num">05</div>
+      <div class="card-content">
+        <h3 class="card-title">第五篇、如何進入得勝的生命</h3>
+        <p class="card-desc">進入得勝生命的兩大關口：徹底的降服（交出來）與純潔的相信（接過來）。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="06.html" class="chapter-card" data-title="第六篇、降服">
+      <div class="card-num">06</div>
+      <div class="card-content">
+        <h3 class="card-title">第六篇、降服</h3>
+        <p class="card-desc">降服是將自己的主權完全移交給神，不再自己掙扎，把自己像死人一樣交在神的手中。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="07.html" class="chapter-card" data-title="第七篇、相信">
+      <div class="card-num">07</div>
+      <div class="card-content">
+        <h3 class="card-title">第七篇、相信</h3>
+        <p class="card-desc">相信不是憑感覺，乃是憑神信實的話語與應許，接受基督作為我們即刻的得勝。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="08.html" class="chapter-card" data-title="第八篇、信心的試驗">
+      <div class="card-num">08</div>
+      <div class="card-content">
+        <h3 class="card-title">第八篇、信心的試驗</h3>
+        <p class="card-desc">信心必受試驗。環境與感覺可能違背應許，但真實的信心只看神的話，不看眼見的風浪。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="09.html" class="chapter-card" data-title="第九篇、長進">
+      <div class="card-num">09</div>
+      <div class="card-content">
+        <h3 class="card-title">第九篇、長進</h3>
+        <p class="card-desc">得勝之後的靈命長進，是在恩典和主的知識上不斷深入，活在與神的交通中。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="10.html" class="chapter-card" data-title="第十篇、得勝的音調">
+      <div class="card-num">10</div>
+      <div class="card-content">
+        <h3 class="card-title">第十篇、得勝的音調</h3>
+        <p class="card-desc">得勝的音調是讚美與感謝。在難處與戰鬥之前就發出讚美的歌聲，仇敵便即刻潰敗。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    <a href="11.html" class="chapter-card" data-title="第十一篇、奉獻">
+      <div class="card-num">11</div>
+      <div class="card-content">
+        <h3 class="card-title">第十一篇、奉獻</h3>
+        <p class="card-desc">奉獻是得勝生命的自然結果，將身體、時間、財物與全人徹底奉獻給主，活出奉獻的生活。</p>
+        <span class="card-link">開始閱讀 <i class="fa-solid fa-chevron-right"></i></span>
+      </div>
+    </a>
+    
+    </div>
+
+  </main>
+
+  <div class="drawer-overlay" id="overlay"></div>
+
+  <!-- Settings Drawer -->
+  <aside class="drawer drawer-bottom" id="drawer-settings">
+    <div class="drawer-header">
+      <span class="drawer-title"><i class="fa-solid fa-sliders"></i> 閱讀設定</span>
+      <button class="icon-btn close-drawer"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-palette"></i> 閱讀配色</div>
+        <div class="theme-grid">
+          <button class="theme-btn" data-theme-val="sepia"><span>📜 羊皮</span></button>
+          <button class="theme-btn" data-theme-val="light"><span>☀️ 潔白</span></button>
+          <button class="theme-btn" data-theme-val="dark"><span>🌙 夜間</span></button>
+          <button class="theme-btn" data-theme-val="green"><span>🍃 護眼</span></button>
+        </div>
+      </div>
+
+      <!-- Custom Font Size Control -->
+      <div class="setting-group">
+        <div class="setting-label">
+          <i class="fa-solid fa-text-height"></i> 自訂字體大小
+          <span id="font-size-val-display" style="margin-left: auto; color: var(--accent-color); font-weight: bold;">16px</span>
+        </div>
+        <div class="font-size-control">
+          <button class="stepper-btn" id="btn-font-dec" title="縮小字體"><i class="fa-solid fa-minus"></i></button>
+          <input type="range" id="font-size-slider" min="14" max="34" step="1" value="16" class="font-range-input" />
+          <button class="stepper-btn" id="btn-font-inc" title="放大字體"><i class="fa-solid fa-plus"></i></button>
+        </div>
+      </div>
+
+      <div class="setting-group">
+        <div class="setting-label"><i class="fa-solid fa-font"></i> 字體風格</div>
+        <div class="btn-group">
+          <button class="segment-btn" data-font-val="serif">明體</button>
+          <button class="segment-btn" data-font-val="sans">黑體</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const overlay = document.getElementById('overlay');
+      const drawerSettings = document.getElementById('drawer-settings');
+      const btnSettings = document.getElementById('btn-settings');
+      const closeBtns = document.querySelectorAll('.close-drawer');
+
+      function openDrawer(drawer) {
+        overlay.classList.add('active');
+        drawer.classList.add('active');
+      }
+
+      function closeAllDrawers() {
+        overlay.classList.remove('active');
+        if (drawerSettings) drawerSettings.classList.remove('active');
+      }
+
+      if (btnSettings) btnSettings.addEventListener('click', () => openDrawer(drawerSettings));
+      if (overlay) overlay.addEventListener('click', closeAllDrawers);
+      closeBtns.forEach(btn => btn.addEventListener('click', closeAllDrawers));
+
+      function loadPreferences() {
+        setTheme(localStorage.getItem('pref_theme') || 'sepia');
+        setFont(localStorage.getItem('pref_font') || 'serif');
+        
+        const savedCustomSize = localStorage.getItem('pref_custom_font_size') || '16';
+        setCustomFontSize(savedCustomSize);
+      }
+
+      function setTheme(val) {
+        html.setAttribute('data-theme', val);
+        localStorage.setItem('pref_theme', val);
+        document.querySelectorAll('.theme-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.themeVal === val));
+      }
+
+      function setFont(val) {
+        html.setAttribute('data-font', val);
+        localStorage.setItem('pref_font', val);
+        document.querySelectorAll('[data-font-val]').forEach(btn => btn.classList.toggle('active', btn.dataset.fontVal === val));
+      }
+
+      function setCustomFontSize(sizeVal) {
+        const size = Math.max(12, Math.min(36, parseInt(sizeVal, 10) || 16));
+        html.style.setProperty('--font-size-base', size + 'px');
+        localStorage.setItem('pref_custom_font_size', size);
+        
+        const display = document.getElementById('font-size-val-display');
+        const slider = document.getElementById('font-size-slider');
+        if (display) display.textContent = size + 'px';
+        if (slider) slider.value = size;
+      }
+
+      const fontSlider = document.getElementById('font-size-slider');
+      if (fontSlider) {
+        fontSlider.addEventListener('input', (e) => setCustomFontSize(e.target.value));
+      }
+
+      const btnFontDec = document.getElementById('btn-font-dec');
+      const btnFontInc = document.getElementById('btn-font-inc');
+      if (btnFontDec) {
+        btnFontDec.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '16', 10);
+          setCustomFontSize(cur - 1);
+        });
+      }
+      if (btnFontInc) {
+        btnFontInc.addEventListener('click', () => {
+          const cur = parseInt(localStorage.getItem('pref_custom_font_size') || '16', 10);
+          setCustomFontSize(cur + 1);
+        });
+      }
+
+      document.querySelectorAll('.theme-btn').forEach(btn => btn.addEventListener('click', () => setTheme(btn.dataset.themeVal)));
+      document.querySelectorAll('[data-font-val]').forEach(btn => btn.addEventListener('click', () => setFont(btn.dataset.fontVal)));
+
+      loadPreferences();
+
+      // Filter Chapters Search
+      const searchInput = document.getElementById('chapter-search');
+      const cards = document.querySelectorAll('.chapter-card');
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          const q = e.target.value.trim().toLowerCase();
+          cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(q) ? 'flex' : 'none';
+          });
+        });
+      }
+    });
+  </script>
+</body>
+</html>
