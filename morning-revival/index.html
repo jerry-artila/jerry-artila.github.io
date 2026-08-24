@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第四週 • 首頁 | 晨興聖言</title>
+  <title>第五週 • 首頁 | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -26,13 +26,11 @@
       </div>
 
       <div class="header-controls">
-        <!-- Font Size Toggle Button -->
         <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
           <span class="btn-icon-text">A+</span>
           <span id="font-size-label">20px</span>
         </button>
 
-        <!-- Theme Toggle Button -->
         <button id="theme-btn" class="btn-control" title="切換深淺模式">
           <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
@@ -55,7 +53,6 @@
 
   <!-- Main Container -->
   <div class="layout-container">
-    <!-- TOC Sidebar / Mobile Drawer -->
     <aside id="toc-sidebar" class="toc-sidebar">
       <div class="toc-header">
         <h2>頁面導覽</h2>
@@ -65,7 +62,7 @@
         <ul>
           <li><a href="index.html" class="toc-link level-1 active">🏠 首頁</a></li>
           <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
-          <li><a href="經文.html" class="toc-link level-1">📖 經文匯總</a></li>
+          <li><a href="經文.html" class="toc-link level-1">📖 經文彙總</a></li>
           <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
           <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
           <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
@@ -76,25 +73,20 @@
       </nav>
     </aside>
 
-    <!-- Overlay for mobile drawer -->
     <div id="toc-overlay" class="toc-overlay"></div>
 
-    <!-- Main Content Area -->
     <main class="main-content">
       <article class="outline-article">
-        <!-- Title Card -->
         <div class="title-card">
           <h2 class="sub-title" style="margin-bottom: 1.25rem;">
-            主題：神的後嗣
+            主題：活石和羊
           </h2>
 
-          <!-- Line 1: 綱目 & 經文 -->
           <div class="daily-nav-container" style="border-top: none; padding-top: 0; margin-bottom: 0.85rem;">
             <a href="綱目.html" class="daily-link-btn" style="padding: 0.5rem 1.25rem; font-size: 0.95em; font-weight: 700;">綱目</a>
             <a href="經文.html" class="daily-link-btn" style="padding: 0.5rem 1.25rem; font-size: 0.95em; font-weight: 700;">經文</a>
           </div>
 
-          <!-- Line 2: 週一 ～ 週六 -->
           <div class="daily-nav-container" style="border-top: 1px solid var(--border-color); padding-top: 1rem;">
             <a href="週一.html" class="daily-link-btn">週一</a>
             <a href="週二.html" class="daily-link-btn">週二</a>
