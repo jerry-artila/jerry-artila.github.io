@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六週 • 週二 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-20px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <!-- Font Size Toggle Button -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">20px</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="經文.html" class="toc-link level-1">📖 經文匯總</a></li>
+          <li><a href="週一.html" class="toc-link level-1 ">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 active">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1 ">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1 ">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1 ">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 ">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌱</span>
+            <h3>晨興餧養 (週二)</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">徒十三32~33</span>
+              『我們也傳福音給你們，就是那給祖宗的應許，神已經向我們這作兒女的完全應驗，叫耶穌復活了，正如詩篇第二篇上所記：「你是我的兒子，我今日生了你。」』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              〔基督〕是神的長子，是大衛那聖的，那可靠的。赦罪是藉這一位傳給人的，凡信祂的，就在一切事上得了稱義。
+            </p>
+            <p class="content-paragraph">
+              在行傳十三章三十二至三十三節，…我們…看見，基督作神的長子，乃是神向祖宗的應許，神藉着叫耶穌復活，向他們的兒女應驗這應許。…在復活裏，祂被神生為許多弟兄中的長子（羅八29）。祂從永遠就是神的獨生子（約一18，三16）。成為肉體以後，祂藉着復活，在人性裏被神生為長子（新約總論第九冊，二八○頁）。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+              <h4 class="reading-sub-heading">主在復活裏第二次的出生與生命的分賜</h4>
+              <p class="content-paragraph">
+                保羅能在詩篇第二篇，『你是我的兒子，我今日生了你』（7）這話中，看見主的復活。保羅把『今日』一辭應用到主復活的日子。…人子耶穌藉着神使祂從死人中復活，生為神的兒子。所以，神使耶穌從死人中復活，乃是將祂生為神的長子。
+              </p>
+              <p class="content-paragraph">
+                主耶穌有兩次出生。首先，祂由馬利亞生為人子。然後，在三十三年半以後，祂被釘十字架、埋葬並從死人中復活。藉着復活，祂有了第二次的出生。作為人，祂在復活裏生為神的兒子。因此，在祂的第一次出生裏，祂是由馬利亞生為人的兒子；在祂的第二次出生裏，祂是在復活裏由神生為神的兒子。
+              </p>
+              <p class="content-paragraph">
+                按照新約，祂在兩方面是神的兒子。第一，祂是神的獨生子；第二，祂如今是神的長子。『獨生』一辭指明神只有一個兒子。約翰一章十八節和三章十六節說到神的獨生子。就永遠來說，基督是神的獨生子，這是祂永遠的身分。但是藉着復活，祂乃是人而生為神的長子。『長子』一辭指明神如今有許多兒子（來二10）。羅馬八章二十九節和希伯來一章六節都說到基督是長子。我們這些相信基督的人，是神許多的兒子，是主許多的弟兄，神長子的許多弟兄（羅八29）。
+              </p>
+              <p class="content-paragraph">
+                就神的獨生子而言，主是神聖生命的具體化身。約翰福音強調耶穌基督是神的兒子；作為神的兒子，祂乃是神聖生命的具體化身（一4）。藉着復活，基督成為神的長子，就是生命的分賜者，來為着生命的繁殖。首先祂是獨生子，是生命的具體化身；現今祂是長子，是為着生命的繁殖。藉着祂在復活裏成為神的長子，神聖的生命已經分賜到所有相信祂的人裏面，使具體化身在祂裏面的生命得以繁殖。
+              </p>
+              <p class="content-paragraph">
+                在行傳十三章…保羅不是傳講基督為神的獨生子，如約翰福音所作的；保羅在這裏乃是傳講基督為神的長子，為着繁殖。為這緣故，他傳講主耶穌的復活是祂第二次的出生。藉着祂第二次的出生，祂在復活裏的出生，基督成了神的長子，為着神聖生命的繁殖。
+              </p>
+              <p class="content-paragraph">
+                在行傳十三章三十四節保羅進一步說到基督的復活：『論到神叫祂從死人中復活，不再歸於朽壞，就這樣說：「我必將大衛那聖的，那可靠的，賜給你們。」』三十三至三十四節論到復活的基督。三十三節指明，基督的復活是祂第二次的出生，將祂生為神的長子（新約總論第九冊，二八○至二八二頁）。
+              </p>
+            </div>
+
+            <div class="ref-note">
+              <strong>📚 參讀：</strong>《新約總論》第二百九十三篇。
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

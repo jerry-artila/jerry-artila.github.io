@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六週 • 經文匯總 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-20px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <!-- Font Size Toggle Button -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">20px</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="經文.html" class="toc-link level-1 active">📖 經文匯總</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <h2 class="sub-title">
+            主題：神長子基督的眾弟兄
+          </h2>
+        </div>
+
+        <!-- 週一經文 -->
+        <section id="sec-mon" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週一 經文</h3>
+            <a href="週一.html" class="daily-tag" style="margin-left: auto;" title="進入週一內文">進入 週一</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">撒下七12~14上</span>
+              『…我必興起你腹中所出的後裔接續你，我也必堅定他的國。他必為我的名建造殿宇；我必堅定他的國位，直到永遠。我要作他的父，他要作我的子。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週二經文 -->
+        <section id="sec-tue" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週二 經文</h3>
+            <a href="週二.html" class="daily-tag" style="margin-left: auto;" title="進入週二內文">進入 週二</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">徒十三32~33</span>
+              『我們也傳福音給你們，就是那給祖宗的應許，神已經向我們這作兒女的完全應驗，叫耶穌復活了，正如詩篇第二篇上所記：「你是我的兒子，我今日生了你。」』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週三經文 -->
+        <section id="sec-wed" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週三 經文</h3>
+            <a href="週三.html" class="daily-tag" style="margin-left: auto;" title="進入週三內文">進入 週三</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅一3~4</span>
+              『論到祂的兒子，我們的主耶穌基督：按肉體說，是從大衛後裔生的，按聖別的靈說，是從死人的復活，以大能標出為神的兒子。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週四經文 -->
+        <section id="sec-thu" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週四 經文</h3>
+            <a href="週四.html" class="daily-tag" style="margin-left: auto;" title="進入週四內文">進入 週四</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">彼前一3</span>
+              『我們主耶穌基督的神與父是當受頌贊的，祂曾照自己的大憐憫，藉耶穌基督從死人中復活，重生了我們，使我們有活的盼望。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">羅八29</span>
+              『因為神所豫知的人，祂也豫定他們模成神兒子的形像，使祂兒子在許多弟兄中作長子。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週五經文 -->
+        <section id="sec-fri" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週五 經文</h3>
+            <a href="週五.html" class="daily-tag" style="margin-left: auto;" title="進入週五內文">進入 週五</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅六5</span>
+              『我們若在祂死的樣式裏與祂聯合生長，也必要在祂復活的樣式裏與祂聯合生長。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">羅八11</span>
+              『然而那叫耶穌從死人中復活者的靈，若住在你們裏面，那叫基督從死人中復活的，也必藉着祂住在你們裏面的靈，賜生命給你們必死的身體。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週六經文 -->
+        <section id="sec-sat" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週六 經文</h3>
+            <a href="週六.html" class="daily-tag" style="margin-left: auto;" title="進入週六內文">進入 週六</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">來二10~11</span>
+              『原來萬有因祂而有，藉祂而造的那位，為着要領許多的兒子進榮耀裏去，就藉着苦難成全他們救恩的創始者，這對祂本是合宜的。因那聖別人的，和那些被聖別的，都是出於一；因這緣故，祂稱他們為弟兄，並不以為恥…。』
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

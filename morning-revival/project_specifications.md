@@ -20,7 +20,7 @@
 ## 📖 二、 內容完整性與對照標準
 
 1. **100% 忠實還原來源網頁**：
-   - [`週一.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html) 至 [`週六.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html) 每日內容必須與淡水會所來源網頁文字完全一致。
+   - [`週一.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html) 至 [`週六.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html) 每日內容必須與淡水會所來源網頁文字完全一致。
 2. **完整收錄項目**：
    - **晨興餧養**：收錄完整段落文字，包含文中書目頁碼引用（例如：`（李常受文集一九三二至一九四九年第三冊，二九七至二九八頁）`）。
    - **信息選讀**：收錄完整段落文字與相關書目頁碼引用。
@@ -28,7 +28,7 @@
 
 ---
 
-## 📐 三、 綱目層級與符號規格 ([`綱目.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html))
+## 📐 三、 綱目層級與符號規格 ([`綱目.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html))
 
 | 層級 | 說明 | 符號 / 編號格式 | 範例 |
 | :--- | :--- | :--- | :--- |
@@ -57,10 +57,10 @@
 
 ## 🧭 五、 頂部導覽列 (App Header) 規範
 
-1. **週一~週六頁面 ([`週一.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html)～[`週六.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html)) 及 經文頁面 ([`經文.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E7%B6%93%E6%96%87.html))**：
+1. **週一~週六頁面 ([`週一.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html)～[`週六.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html)) 及 經文頁面 ([`經文.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E7%B6%93%E6%96%87.html))**：
    - 採用統一標準 header 結構：包含左側導覽抽屜切換按鈕 (`#mobile-toc-toggle`)、中央標題 `<h1>晨興聖言</h1>`、右側字體放大鈕 (`#font-size-btn`) 與深淺模式切換鈕 (`#theme-btn`)。
    - 不擺放額外頂部快捷按鈕，由側邊欄選單提供全站頁面切換。
-2. **綱目頁面 ([`綱目.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html))**：
+2. **綱目頁面 ([`綱目.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html))**：
    - 頂部導覽列於 `<h1>晨興聖言</h1>` 前保留一個返首頁快捷連結。
    - 連結圖示採用與 header 圖示一致之**描邊形式 SVG (Stroke SVG Icon)**，並保留 **「首頁」** 文字。
 3. **全站 Body Class 統一**：
@@ -69,5 +69,5 @@
 ---
 
 > [!TIP]
-> 專案樣式維護檔為 [`styles.css`](file:///D:/myGit/jerry-artila.github.io/morning-revival/styles.css)，結構內容維護檔為 [`綱目.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html)、[`經文.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E7%B6%93%E6%96%87.html) 與 [`週一.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html)～[`週六.html`](file:///D:/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html)。
+> 專案樣式維護檔為 [`styles.css`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/styles.css)，結構內容維護檔為 [`綱目.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E7%B6%B1%E7%9B%AE.html)、[`經文.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E7%B6%93%E6%96%87.html) 與 [`週一.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E4%B8%80.html)～[`週六.html`](file:///Users/uj/myGit/jerry-artila.github.io/morning-revival/%E9%80%B1%E5%85%AD.html)。
 

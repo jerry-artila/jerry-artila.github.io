@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第六週 • 週三 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-20px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <!-- Font Size Toggle Button -->
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">20px</span>
+        </button>
+
+        <!-- Theme Toggle Button -->
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="經文.html" class="toc-link level-1">📖 經文匯總</a></li>
+          <li><a href="週一.html" class="toc-link level-1 ">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 ">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1 active">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1 ">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1 ">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 ">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Overlay for mobile drawer -->
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌱</span>
+            <h3>晨興餧養 (週三)</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅一3~4</span>
+              『論到祂的兒子，我們的主耶穌基督：按肉體說，是從大衛後裔生的，按聖別的靈說，是從死人的復活，以大能標出為神的兒子。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              基督的身位有兩面。…在這一個人位裏，有神性也有人性…調和在一起。…讓我們來看基督的人性。…大衛的後裔是指基督的人性（太二二42~45）。
+            </p>
+            <p class="content-paragraph">
+              基督作大衛的後裔，乃是屬於神舊造（舊人—羅六6）的人性後裔（西一15下）。…基督在祂的人性裏，乃是按着肉體，就是有『罪之肉體』的樣式，卻沒有罪（羅八3下）。…撒但和罪（指我們性情中內裏的罪）都牽連於這肉體（來二14，約三14，羅八3下）。…罪現今既在我們的肉體裏，並且撒但也與罪相連，撒但與罪就都與肉體有了牽連，甚至與基督的肉體也有了間接的牽連。…藉着世界的王撒但，世界與這肉體也有了牽連（約十二31）。這位大衛後裔的肉體，是屬於舊造的舊人，與撒但、罪和世界有牽連。
+            </p>
+            <p class="content-paragraph">
+              當耶穌基督死在十字架上時，祂就帶着這一切專案，被釘死在那裏。祂包羅萬有的死，清除了整個宇宙（李常受文集一九九四至一九九七年第一冊，二五八至二六○、二八五頁）。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+              <h4 class="reading-sub-heading">基督的人性在復活裏子化與得榮</h4>
+              <p class="content-paragraph">
+                希伯來九章十四節給我們看見，基督不僅僅是一個人死在十字架上，祂也藉着永遠的靈，將自己獻給神。永遠的靈與祂同在，並加給祂力量去受死。
+              </p>
+              <p class="content-paragraph">
+                耶穌在祂人性的那一部分裏，還不是神的兒子。祂是屬於舊造、舊人，祂有肉體，而這肉體牽連了撒但、罪和世界。所以這一部分必須成為神聖的，必須子化、標出，使其成為神兒子的一部分。
+              </p>
+              <p class="content-paragraph">
+                基督是一個奇妙的人位。祂有兩部分：人的部分和神的部分。人的部分是屬人的，神的部分是神聖的。屬人的部分是在肉體裏的，牽連了消極的事物，而神聖的部分是奇妙的。…基督乃是在祂的復活裏，使祂的人性成為神聖的。祂的復活將耶穌的人性提高到神性的水準。這裏就是基督身位的素質。這是非常非常深的。耶穌的神性就是聖別的靈，有神聖的能力和神聖的元素，能變化耶穌的人性，使其成為神聖的。這就是『標出』的意思，這也就是子化。
+              </p>
+              <p class="content-paragraph">
+                這是應驗撒下七章十二至十四節豫表中的豫言。我們在這應驗中看見，基督作大衛的後裔，在祂人性裏之身位的素質。…祂在肉體裏是人子，祂怎能成為這樣神聖的神的兒子？這乃是藉着在復活裏的標出。…這個標出乃是以大能，按着聖別的靈而標出。聖別的靈是在大衛後裔這個具有人性之人（羅五15、17下、19）裏的神性（九5）。羅馬九章五節給我們看見，基督乃是神。祂既是神，就在祂自己裏面有神性，卻成了大衛的後裔，一個具有人性的人。
+              </p>
+              <p class="content-paragraph">
+                基督的神性有大能提高祂被釘死的人性，叫那人性復活。當保羅說耶穌基督被標出為神的兒子，這意思是說，基督的復活提高了祂的人性，並將祂的神性放到這人性裏。所以藉着這復活，祂的人性生為神兒子的一部分。這就是為甚麼行傳十三章三十三節告訴我們，基督這位人子在復活裏生為神的兒子。身為神子帶着人性，祂乃是神人。這個神性與人性的組合，成了一個神人，而這神人乃是原型，為要產生一些東西（李常受文集一九九四至一九九七年第一冊，二八五、二六○至二六二、二八七頁）。
+              </p>
+            </div>
+
+            <div class="ref-note">
+              <strong>📚 參讀：</strong>《羅馬書的結晶》第一至二篇。
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
