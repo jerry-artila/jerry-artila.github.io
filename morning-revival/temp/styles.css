@@ -69,13 +69,8 @@ body.theme-dark {
 }
 
 /* ==========================================================================
-   Font Size Cycles (20px / 22px / 24px)
+   Font Size Cycles (22px / 24px / 26px)
    ========================================================================== */
-body.font-20px {
-  font-size: 20px;
-  --base-line-height: 1.75;
-}
-
 body.font-22px {
   font-size: 22px;
   --base-line-height: 1.8;
@@ -84,6 +79,11 @@ body.font-22px {
 body.font-24px {
   font-size: 24px;
   --base-line-height: 1.85;
+}
+
+body.font-26px {
+  font-size: 26px;
+  --base-line-height: 1.9;
 }
 
 /* Base Styles */
@@ -581,7 +581,7 @@ body {
   font-weight: 500;
 }
 
-/* Level 3 & Sub-level Items */
+/* Level 3 Items */
 .level-3-list {
   list-style: none;
   margin-top: 0.6rem;
@@ -591,41 +591,17 @@ body {
   gap: 0.6rem;
 }
 
-/* Level 5 List - No indentation relative to Level 4 */
-.level-3-list .level-3-list .level-3-list,
-.level-5-list {
-  padding-left: 0;
-  margin-top: 0.5rem;
-}
-
-/* Level 5 Bullet Symbol - 0.7em font size */
-.sub-num-level-5 {
-  font-size: 0.7em;
-  font-weight: 600;
-  color: var(--text-muted);
-  flex-shrink: 0;
-  margin-right: 0.2rem;
-}
-
-.level-3-list li {
+.level-3-item {
   display: flex;
   align-items: flex-start;
   gap: 0.5rem;
   color: var(--text-secondary);
 }
 
-.sub-num {
+.level-3-num {
   font-weight: 600;
   color: var(--text-muted);
   flex-shrink: 0;
-}
-
-.card-sublist {
-  background: var(--bg-primary);
-  padding: 1rem 1.25rem;
-  border-radius: 10px;
-  border: 1px solid var(--border-color);
-  margin-top: 0.75rem;
 }
 
 /* Verse Cards & Paragraphs */
@@ -672,23 +648,6 @@ body {
   border-left: 3px solid var(--primary);
 }
 
-.ref-note {
-  font-size: 0.9em;
-  color: var(--text-muted);
-  background: var(--bg-primary);
-  padding: 0.85rem 1rem;
-  border-radius: 8px;
-  border: 1px solid var(--border-color);
-  margin-top: 1.5rem;
-}
-
-.section-divider {
-  border: none;
-  border-top: 1px solid var(--border-color);
-  margin: 0.5rem 0;
-}
-
-/* Footer */
 .app-footer {
   text-align: center;
   padding: 2rem 0 1rem;
@@ -749,56 +708,7 @@ body {
   }
 }
 
-/* Hub / Index Page Cards */
-.hub-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.25rem;
-}
-
-.hub-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 1.75rem 1.25rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: 14px;
-  text-decoration: none;
-  color: var(--text-primary);
-  box-shadow: var(--shadow-sm);
-  transition: all 0.2s ease;
-}
-
-.hub-card:hover {
-  border-color: var(--primary);
-  background: var(--bg-accent);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
-}
-
-.hub-card-icon {
-  font-size: 2.2rem;
-  margin-bottom: 0.6rem;
-}
-
-.hub-card-title {
-  font-size: 1.15em;
-  font-weight: 700;
-  color: var(--primary);
-}
-
-.hub-card-desc {
-  font-size: 0.85em;
-  color: var(--text-muted);
-  margin-top: 0.4rem;
-  text-align: center;
-}
-
-/* ==========================================================================
-   Accordion Styles for 綱目.html
-   ========================================================================== */
+/* Accordion Styles for 綱目.html */
 .accordion-controls {
   display: flex;
   align-items: center;
@@ -829,28 +739,6 @@ body {
   color: var(--primary);
 }
 
-/* Level 1 Accordion Heading */
-.section-heading.level-1-heading {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  margin-bottom: 0.85rem;
-  padding-bottom: 0;
-  border-bottom: none;
-  cursor: pointer;
-  user-select: none;
-  position: relative;
-  transition: background-color 0.2s ease, padding 0.2s ease;
-  border-radius: 10px;
-  padding: 0.4rem;
-  margin-left: -0.4rem;
-  margin-right: -0.4rem;
-}
-
-.section-heading.level-1-heading:hover {
-  background: var(--bg-accent);
-}
-
 .level-1-top-bar {
   display: flex;
   align-items: center;
@@ -875,7 +763,6 @@ body {
   padding: 0.1rem;
 }
 
-/* Level 1 Collapsed State */
 .outline-section.collapsed .section-body {
   display: none !important;
 }
@@ -889,7 +776,6 @@ body {
   border-bottom: none;
 }
 
-/* Level 2 Accordion Item */
 .level-2-item.has-children .item-title {
   cursor: pointer;
   user-select: none;

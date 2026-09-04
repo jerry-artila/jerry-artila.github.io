@@ -1,15 +1,15 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // 1. Font Size Cycling (20px -> 22px -> 24px -> 20px)
+  // 1. Font Size Cycling (22px -> 24px -> 26px -> 22px)
   // ==========================================================================
-  const fontSizes = ['20px', '22px', '24px'];
+  const fontSizes = ['22px', '24px', '26px'];
   const fontSizeBtn = document.getElementById('font-size-btn');
   const fontSizeLabel = document.getElementById('font-size-label');
 
-  // Load initial font size from localStorage or default to 20px
-  let currentFontSize = localStorage.getItem('outline_font_size') || '20px';
+  // Load initial font size from localStorage or default to 22px
+  let currentFontSize = localStorage.getItem('outline_v2_font_size') || '22px';
   if (!fontSizes.includes(currentFontSize)) {
-    currentFontSize = '20px';
+    currentFontSize = '22px';
   }
 
   function applyFontSize(size) {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (fontSizeLabel) {
       fontSizeLabel.textContent = size;
     }
-    localStorage.setItem('outline_font_size', size);
+    localStorage.setItem('outline_v2_font_size', size);
   }
 
   // Apply initial font size
@@ -132,91 +132,7 @@ document.addEventListener('DOMContentLoaded', () => {
   sections.forEach(section => observer.observe(section));
 
   // ==========================================================================
-  // 5. Accordion Functionality for 綱目.html (Default Collapsed)
+  // 5. Outline Expanded State Handling
   // ==========================================================================
-  const outlineSections = document.querySelectorAll('.outline-section');
-  const level2Items = document.querySelectorAll('.level-2-item');
-
-  // Level 1 Accordion Toggle (第壹大點...) - Collapsed by default
-  outlineSections.forEach(section => {
-    section.classList.add('collapsed');
-    const heading = section.querySelector('.level-1-heading');
-    if (heading) {
-      const topBar = heading.querySelector('.level-1-top-bar') || heading;
-      if (!topBar.querySelector('.accordion-arrow')) {
-        const arrow = document.createElement('span');
-        arrow.className = 'accordion-arrow';
-        arrow.innerHTML = '▼';
-        topBar.appendChild(arrow);
-      }
-
-      heading.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' || e.target.closest('a')) return;
-        section.classList.toggle('collapsed');
-      });
-    }
-  });
-
-  // Level 2 Accordion Toggle (一、二、三...) - Collapsed by default
-  level2Items.forEach(item => {
-    const list = item.querySelector('.level-3-list');
-    const title = item.querySelector('.item-title');
-    if (list && title) {
-      item.classList.add('has-children');
-      item.classList.add('collapsed');
-      if (!title.querySelector('.sub-accordion-arrow')) {
-        const arrow = document.createElement('span');
-        arrow.className = 'sub-accordion-arrow';
-        arrow.innerHTML = '▼';
-        title.appendChild(arrow);
-      }
-
-      title.addEventListener('click', (e) => {
-        if (e.target.tagName === 'A' || e.target.closest('a')) return;
-        item.classList.toggle('collapsed');
-      });
-    }
-  });
-
-  // Expand All / Collapse All Buttons
-  const expandAllBtn = document.getElementById('expand-all-btn');
-  const collapseAllBtn = document.getElementById('collapse-all-btn');
-
-  if (expandAllBtn) {
-    expandAllBtn.addEventListener('click', () => {
-      outlineSections.forEach(s => s.classList.remove('collapsed'));
-      level2Items.forEach(i => i.classList.remove('collapsed'));
-    });
-  }
-
-  if (collapseAllBtn) {
-    collapseAllBtn.addEventListener('click', () => {
-      outlineSections.forEach(s => s.classList.add('collapsed'));
-      level2Items.forEach(i => i.classList.add('collapsed'));
-    });
-  }
-
-  // Auto-expand target when hash or TOC link clicked
-  function expandTarget(targetId) {
-    if (!targetId) return;
-    const targetEl = document.getElementById(targetId);
-    if (targetEl) {
-      const parentSection = targetEl.closest('.outline-section');
-      if (parentSection) parentSection.classList.remove('collapsed');
-      const parentItem = targetEl.closest('.level-2-item');
-      if (parentItem) parentItem.classList.remove('collapsed');
-    }
-  }
-
-  // Check URL hash on page load
-  if (window.location.hash) {
-    expandTarget(window.location.hash.replace('#', ''));
-  }
-
-  // Expand when clicking TOC link
-  tocLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      expandTarget(link.getAttribute('href')?.replace('#', ''));
-    });
-  });
+  // Outline sections and items remain fully expanded by default according to specification.
 });

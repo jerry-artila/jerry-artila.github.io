@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-20px theme-light">
+<body class="font-22px theme-light">
   <!-- Header / Navigation Bar -->
   <header class="app-header">
     <div class="header-container">
@@ -22,24 +22,15 @@
       </button>
 
       <div class="header-title">
-        <a href="index.html" class="btn-control btn-back-toc" title="返回首頁">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-            <polyline points="9 22 9 12 15 12 15 22"></polyline>
-          </svg>
-          首頁
-        </a>
         <h1>晨興聖言</h1>
       </div>
 
       <div class="header-controls">
-        <!-- Font Size Toggle Button -->
-        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
           <span class="btn-icon-text">A+</span>
-          <span id="font-size-label">20px</span>
+          <span id="font-size-label">22px</span>
         </button>
 
-        <!-- Theme Toggle Button -->
         <button id="theme-btn" class="btn-control" title="切換深淺模式">
           <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
@@ -65,50 +56,36 @@
     <!-- TOC Sidebar / Mobile Drawer -->
     <aside id="toc-sidebar" class="toc-sidebar">
       <div class="toc-header">
-        <h2>綱目導覽</h2>
+        <h2>頁面導覽</h2>
         <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
       </div>
       <nav id="toc-nav" class="toc-nav">
         <ul>
-          <li>
-            <a href="#section-1" class="toc-link level-1">壹、大衛的後裔要成為神的兒子</a>
-          </li>
-          <li>
-            <a href="#section-2" class="toc-link level-1">貳、在復活裏被生為神的長子</a>
-          </li>
-          <li>
-            <a href="#section-3" class="toc-link level-1">叁、基督被標出為神長子的過程</a>
-          </li>
-          <li>
-            <a href="#section-4" class="toc-link level-1">肆、我們被標出為神眾子的過程</a>
-          </li>
-          <li>
-            <a href="#section-5" class="toc-link level-1">伍、產生祂長子的許多弟兄</a>
-          </li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="綱目.html" class="toc-link level-1 active">📋 綱目</a></li>
+          <li><a href="經文.html" class="toc-link level-1">📖 經文匯總</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
         </ul>
       </nav>
     </aside>
 
-    <!-- Overlay for mobile drawer -->
     <div id="toc-overlay" class="toc-overlay"></div>
 
-    <!-- Main Content Area -->
     <main class="main-content">
       <article class="outline-article">
         <!-- Title Card -->
         <div class="title-card">
           <div class="title-meta">
-            <span class="badge">第六週</span>
-            <span class="scripture">讀經：撒下七12上、14上，羅一3~4，八28~30，來二10~12，林前十五31、36</span>
+            <span class="badge">第六週 綱目</span>
           </div>
           <h2 class="main-title">
-            篇題：神長子基督的眾弟兄
+            神長子基督的眾弟兄
           </h2>
-          <!-- Expand/Collapse Controls -->
-          <div class="accordion-controls" style="margin-top: 1rem; display: flex; gap: 0.5rem; justify-content: flex-end;">
-            <button id="expand-all-btn" class="btn-control" style="font-size: 0.85em; padding: 0.3rem 0.75rem;">全部展開</button>
-            <button id="collapse-all-btn" class="btn-control" style="font-size: 0.85em; padding: 0.3rem 0.75rem;">全部折疊</button>
-          </div>
         </div>
 
         <!-- Section 1 -->
@@ -295,45 +272,11 @@
               <div class="level-3-list">
                 <div class="level-3-item">
                   <span class="level-3-num">1.</span>
-                  <p>基督在祂的神性裏是神的獨生子（約一18），藉着成為肉體，穿上與神性毫無關係的肉體（就是人性）；在祂的人性裏，祂不是神的兒子：</p>
-                  <div class="level-4-list" style="margin-top: 0.5rem;">
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">a.</span>
-                      <p style="margin: 0;">耶穌在祂的人性裏是大衛的後裔，是屬於神舊造（舊人—羅六6）的人性後裔—西一15下。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">b.</span>
-                      <p style="margin: 0;">當基督在祂的人性裏以大衛後裔的身分死在十字架上時，祂將舊人連同舊造釘死在十字架上，廢除了魔鬼，在肉體中定罪了罪，並審判了世界—羅六6，來二14，羅八3，林後五21，約三14，十二31。</p>
-                    </div>
-                  </div>
+                  <p>基督在祂的神性裏是神的獨生子（約一18），藉着成為肉體，穿上與神性毫無關係的肉體（就是人性）；在祂的人性裏，祂不是神的兒子。</p>
                 </div>
                 <div class="level-3-item">
                   <span class="level-3-num">2.</span>
-                  <p>在復活裏，祂的人性成為神聖的，得以『子化』，意思是說，祂不僅在祂的神性裏是神的兒子，也在祂的人性裏成為神的兒子：</p>
-                  <div class="level-4-list" style="margin-top: 0.5rem;">
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">a.</span>
-                      <p style="margin: 0;">在復活裏祂被標出為神的兒子，成為神的長子，兼有神性和人性—八29。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">b.</span>
-                      <p style="margin: 0;">釘十字架乃是使祂被標出、得榮耀並復活最好的路：</p>
-                    </div>
-                  </div>
-                  <div class="level-5-list" style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                    <div class="level-5-item" style="display: flex; margin-bottom: 0.4rem;">
-                      <span class="sub-num-level-5">(一)</span>
-                      <p style="margin: 0;">一粒種子若埋在土裏死了，至終就會發芽、生長並開花，因為種子生命的作用在種子死的時候就同時得以發動—約十二23~24。</p>
-                    </div>
-                    <div class="level-5-item" style="display: flex; margin-bottom: 0.4rem;">
-                      <span class="sub-num-level-5">(二)</span>
-                      <p style="margin: 0;">基督死的時候，在祂裏面的神性（就是聖別的靈）起了作用，在復活裏，祂就『開花』成了神的兒子。</p>
-                    </div>
-                    <div class="level-5-item" style="display: flex; margin-bottom: 0.4rem;">
-                      <span class="sub-num-level-5">(三)</span>
-                      <p style="margin: 0;">就着祂的肉體說，基督被釘十字架，但就着祂的靈說，祂得了加強，非常活躍，而將神性加到基督的人性裏，使其成為神聖的；這就是標出的意思，這也就是子化—彼前三18。</p>
-                    </div>
-                  </div>
+                  <p>在復活裏，祂的人性成為神聖的，得以『子化』，意思是說，祂不僅在祂的神性裏是神的兒子，也在祂的人性裏成為神的兒子。</p>
                 </div>
               </div>
             </div>
@@ -341,27 +284,7 @@
             <div id="sec-3-3" class="item-block level-2-item">
               <div class="item-title">
                 <span class="item-num">三、</span>
-                <p>基督的人性，被聖別的靈（就是基督的神性）所標出、標明、拔高；如此，基督的人性就被拔高而進入神性；這也就是說，基督在祂的人性裏再生一次，成為神的長子—徒十三33：</p>
-              </div>
-              <div class="level-4-list" style="margin-top: 0.5rem; padding-left: 1.5rem;">
-                <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                  <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">a.</span>
-                  <p style="margin: 0;">基督是第一個在復活裏重生者—羅八29：</p>
-                </div>
-                <div class="level-5-list" style="margin-top: 0.2rem; padding-left: 1.5rem;">
-                  <div class="level-5-item" style="display: flex; margin-bottom: 0.4rem;">
-                    <span class="sub-num-level-5">(一)</span>
-                    <p style="margin: 0;">祂的人性是在祂母親腹中生的；那是屬人的，不能看作是神的兒子，而是人子。</p>
-                  </div>
-                  <div class="level-5-item" style="display: flex; margin-bottom: 0.4rem;">
-                    <span class="sub-num-level-5">(二)</span>
-                    <p style="margin: 0;">基督的復活拔高了祂的人性，而將祂的神性加到這人性裏；因此藉着這復活，祂的人性再生一次，成為神兒子的一部分。</p>
-                  </div>
-                </div>
-                <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem; margin-top: 0.5rem;">
-                  <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">b.</span>
-                  <p style="margin: 0;">原型是神的長子，複製品是神的眾子，就是原型的肢體，成為祂的身體，終極完成於新耶路撒冷—彼前一3。</p>
-                </div>
+                <p>基督的人性，被聖別的靈（就是基督的神性）所標出、標明、拔高；如此，基督的人性就被拔高而進入神性；這也就是說，基督在祂的人性裏再生一次，成為神的長子—徒十三33。</p>
               </div>
             </div>
           </div>
@@ -402,29 +325,7 @@
                 </div>
                 <div class="level-3-item">
                   <span class="level-3-num">3.</span>
-                  <p>我們越在生命裏長大，使我們在生命裏被變化，就越被標出為神的兒子：</p>
-                  <div class="level-4-list" style="margin-top: 0.5rem;">
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">a.</span>
-                      <p style="margin: 0;">我們要長大，就需要有轉向主的心，並有純一向着祂的心—三16、18，太五8，提後二22。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">b.</span>
-                      <p style="margin: 0;">我們要長大，就需要得着話中純淨之奶和乾糧的餧養—彼前二2，來五12~14。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">c.</span>
-                      <p style="margin: 0;">我們要長大，就需要有恩賜之肢體的澆灌—林前三6下，約七37~39，箴十一25。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">d.</span>
-                      <p style="margin: 0;">藉着我們環境中一切的事故，並我們的失敗，我們醜陋的己就被拆毀，使主有更多的機會在我們裏面作工—羅八28~29。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">e.</span>
-                      <p style="margin: 0;">有一天這個過程要完成，我們在靈、魂、體裏都要永遠與神的長子基督一樣—約壹三2，羅八19、23，詩歌七六四首第二節。</p>
-                    </div>
-                  </div>
+                  <p>我們越在生命裏長大，使我們在生命裏被變化，就越被標出為神的兒子。</p>
                 </div>
               </div>
             </div>
@@ -441,17 +342,7 @@
                 </div>
                 <div class="level-3-item">
                   <span class="level-3-num">2.</span>
-                  <p>被標出之過程的關鍵是復活，就是內住的基督作為我們靈裏興起的靈，標出的靈，生命的能力—約十一25，羅八10~11：</p>
-                  <div class="level-4-list" style="margin-top: 0.5rem;">
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">a.</span>
-                      <p style="margin: 0;">我們急需學習如何照着靈而行，以享受並經歷標出的靈—羅八4、14。</p>
-                    </div>
-                    <div class="level-4-item" style="display: flex; margin-bottom: 0.5rem;">
-                      <span class="level-4-num" style="min-width: 1.5rem; font-weight: 700;">b.</span>
-                      <p style="margin: 0;">我們越接觸那靈，就越被聖別、變化、榮化，而在生命和性情上（但不在神格上）成為神，好建造基督的身體，以終極完成新耶路撒冷—林前十二3，羅十12，八15~16，加四6。</p>
-                    </div>
-                  </div>
+                  <p>被標出之過程的關鍵是復活，就是內住的基督作為我們靈裏興起的靈，標出的靈，生命的能力—約十一25，羅八10~11。</p>
                 </div>
               </div>
             </div>

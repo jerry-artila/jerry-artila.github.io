@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-20px theme-light">
+<body class="font-22px theme-light">
   <!-- Header / Navigation Bar -->
   <header class="app-header">
     <div class="header-container">
@@ -26,13 +26,11 @@
       </div>
 
       <div class="header-controls">
-        <!-- Font Size Toggle Button -->
-        <button id="font-size-btn" class="btn-control" title="調整字體大小 (20px -> 22px -> 24px 循環)">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
           <span class="btn-icon-text">A+</span>
-          <span id="font-size-label">20px</span>
+          <span id="font-size-label">22px</span>
         </button>
 
-        <!-- Theme Toggle Button -->
         <button id="theme-btn" class="btn-control" title="切換深淺模式">
           <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="12" cy="12" r="5"></circle>
@@ -76,25 +74,26 @@
       </nav>
     </aside>
 
-    <!-- Overlay for mobile drawer -->
     <div id="toc-overlay" class="toc-overlay"></div>
 
-    <!-- Main Content Area -->
     <main class="main-content">
       <article class="outline-article">
         <!-- Title Card -->
         <div class="title-card">
-          <h2 class="sub-title">
-            主題：神長子基督的眾弟兄
+          <div class="title-meta">
+            <span class="badge">第六週 經文匯總</span>
+          </div>
+          <h2 class="main-title">
+            神長子基督的眾弟兄
           </h2>
         </div>
 
-        <!-- 週一經文 -->
+        <!-- 週一經文卡片 -->
         <section id="sec-mon" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週一 經文</h3>
-            <a href="週一.html" class="daily-tag" style="margin-left: auto;" title="進入週一內文">進入 週一</a>
+            <a href="週一.html" class="daily-tag" style="margin-left: auto;" title="進入週一信息">進入 週一</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -104,12 +103,12 @@
           </div>
         </section>
 
-        <!-- 週二經文 -->
+        <!-- 週二經文卡片 -->
         <section id="sec-tue" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週二 經文</h3>
-            <a href="週二.html" class="daily-tag" style="margin-left: auto;" title="進入週二內文">進入 週二</a>
+            <a href="週二.html" class="daily-tag" style="margin-left: auto;" title="進入週二信息">進入 週二</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -119,12 +118,12 @@
           </div>
         </section>
 
-        <!-- 週三經文 -->
+        <!-- 週三經文卡片 -->
         <section id="sec-wed" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週三 經文</h3>
-            <a href="週三.html" class="daily-tag" style="margin-left: auto;" title="進入週三內文">進入 週三</a>
+            <a href="週三.html" class="daily-tag" style="margin-left: auto;" title="進入週三信息">進入 週三</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -134,12 +133,12 @@
           </div>
         </section>
 
-        <!-- 週四經文 -->
+        <!-- 週四經文卡片 -->
         <section id="sec-thu" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週四 經文</h3>
-            <a href="週四.html" class="daily-tag" style="margin-left: auto;" title="進入週四內文">進入 週四</a>
+            <a href="週四.html" class="daily-tag" style="margin-left: auto;" title="進入週四信息">進入 週四</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -153,12 +152,12 @@
           </div>
         </section>
 
-        <!-- 週五經文 -->
+        <!-- 週五經文卡片 -->
         <section id="sec-fri" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週五 經文</h3>
-            <a href="週五.html" class="daily-tag" style="margin-left: auto;" title="進入週五內文">進入 週五</a>
+            <a href="週五.html" class="daily-tag" style="margin-left: auto;" title="進入週五信息">進入 週五</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -172,12 +171,12 @@
           </div>
         </section>
 
-        <!-- 週六經文 -->
+        <!-- 週六經文卡片 -->
         <section id="sec-sat" class="reading-section">
           <div class="section-heading reading-heading">
             <span class="reading-icon">📅</span>
             <h3>週六 經文</h3>
-            <a href="週六.html" class="daily-tag" style="margin-left: auto;" title="進入週六內文">進入 週六</a>
+            <a href="週六.html" class="daily-tag" style="margin-left: auto;" title="進入週六信息">進入 週六</a>
           </div>
           <div class="verse-card-group">
             <div class="verse-card">
@@ -186,7 +185,6 @@
             </div>
           </div>
         </section>
-
       </article>
 
       <footer class="app-footer">
