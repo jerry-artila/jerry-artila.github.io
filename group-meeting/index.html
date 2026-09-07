@@ -1,701 +1,247 @@
 <!DOCTYPE html>
-<html lang="zh-TW" data-theme="light">
+<html lang="zh-Hant" data-theme="sepia">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="職事文摘 - 幫助人認識並順從神內裏的運行（第十一卷．第一期）網頁版電子書，支援明亮/深色閱讀模式、字級動態微調及閱讀進度追蹤。">
-  <title>幫助人認識並順從神內裏的運行 - 職事文摘</title>
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@400;500;700&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>排聚會追求篇題文章</title>
+  <meta name="description" content="排聚會追求篇題文章彙整，包含《召會聚會的路》、《神聖三一乃是聖經的結構》。最佳化手機閱讀體驗。">
   <style>
-    /* ==========================================================================
-       CSS Variables & Design System
-       ========================================================================== */
     :root {
-      /* Base Font Settings */
-      --font-body: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-ui: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-      --font-heading: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-      --article-font-size: 24px;
-      --line-height: 1.85;
-
-      /* Light Theme (Default) */
-      --bg-main: #f9f8f3;
-      --bg-paper: #ffffff;
-      --text-main: #2b2927;
-      --text-muted: #666059;
-      --accent-color: #8c2520;
-      --accent-hover: #a8322a;
-      --border-color: #e5e0d8;
-      --card-bg: #f3f0e8;
-      --quote-bg: #f5f2eb;
-      --quote-border: #8c2520;
-      --header-bg: rgba(249, 248, 243, 0.92);
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #8c281f;
+      --accent-light: rgba(140, 40, 31, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
       --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
-      --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
-      --progress-color: #8c2520;
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --container-max-width: 680px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #9c2720;
+      --accent-light: rgba(156, 39, 32, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
     }
 
     [data-theme="dark"] {
-      --bg-main: #141416;
-      --bg-paper: #1f1f23;
-      --text-main: #e2e2e5;
-      --text-muted: #9999a3;
-      --accent-color: #e06c62;
-      --accent-hover: #f0837a;
-      --border-color: #313137;
-      --card-bg: #28282e;
-      --quote-bg: #26262c;
-      --quote-border: #e06c62;
-      --header-bg: rgba(20, 20, 22, 0.92);
-      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 6px 24px rgba(0, 0, 0, 0.4);
-      --progress-color: #e06c62;
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #e5534b;
+      --accent-light: rgba(229, 83, 75, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
     }
 
-    /* Reset & Base Styles */
-    *, *::before, *::after {
+    * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
-    html {
-      scroll-behavior: smooth;
-      text-size-adjust: 100%;
-    }
-
     body {
-      background-color: var(--bg-main);
-      color: var(--text-main);
-      font-family: var(--font-body);
-      font-size: var(--article-font-size);
-      font-weight: 500;
-      line-height: var(--line-height);
-      transition: background-color 0.3s ease, color 0.3s ease;
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
       min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Reading Progress Bar */
-    .progress-bar-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: transparent;
-      z-index: 1000;
-    }
-
-    .progress-bar {
-      height: 100%;
-      width: 0%;
-      background: var(--progress-color);
-      transition: width 0.1s ease-out;
-    }
-
-    /* Header Bar */
-    header.top-nav {
-      position: sticky;
-      top: 0;
-      background: var(--header-bg);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 900;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .nav-container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 10px 24px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-family: var(--font-ui);
-    }
-
-    .brand-title {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--accent-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 12px;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      flex-wrap: wrap;
-    }
-
-    .brand-title span.badge {
-      font-size: 18px;
-      background: var(--card-bg);
-      color: var(--text-muted);
-      padding: 4px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border-color);
-      font-weight: 600;
-    }
-
-    .controls-group {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    /* Control Buttons for Elderly Reading */
-    .control-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--card-bg);
-      border: 2px solid var(--border-color);
-      padding: 6px 12px;
-      border-radius: 12px;
-    }
-
-    .control-btn {
-      background: transparent;
-      border: none;
-      color: var(--text-main);
-      font-family: var(--font-ui);
-      font-size: 28px;
-      font-weight: 700;
-      padding: 8px 16px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-width: 52px;
-      min-height: 48px;
-    }
-
-    .control-btn:hover {
-      background: var(--bg-paper);
-      color: var(--accent-color);
-    }
-
-    .control-btn.active {
-      background: var(--accent-color);
-      color: #ffffff;
-    }
-
-    .font-size-display {
-      font-size: 28px;
-      font-weight: 700;
-      min-width: 68px;
-      text-align: center;
-      color: var(--text-main);
-      font-family: 'Outfit', sans-serif;
-    }
-
-    /* Main Container & Article Layout */
-    main.content-wrapper {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-    }
-
-    article.paper-card {
-      background: var(--bg-paper);
-      border-radius: 20px;
-      border: 1px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-      padding: 56px 48px;
-      transition: background-color 0.3s ease, border-color 0.3s ease;
-    }
-
-    .article-header {
-      text-align: center;
-      margin-bottom: 44px;
-      padding-bottom: 32px;
-      border-bottom: 2px dashed var(--border-color);
-    }
-
-    .meta-tag {
-      display: inline-block;
-      font-size: 20px;
-      font-weight: 700;
-      color: var(--accent-color);
-      letter-spacing: 1px;
-      margin-bottom: 20px;
-    }
-
-    .main-article-title {
-      font-size: 42px;
-      font-weight: 700;
-      line-height: 1.35;
-      color: var(--text-main);
-      letter-spacing: -0.5px;
-    }
-
-    /* Paragraph & Lead Quote Styles */
-    p {
-      margin-bottom: 1.6em;
-      text-align: justify;
-      text-justify: inter-ideograph;
-    }
-
-    .lead-quote {
-      background: var(--quote-bg);
-      border-left: 6px solid var(--quote-border);
-      border-radius: 8px;
-      padding: 24px 28px;
-      margin-bottom: 40px;
-      position: relative;
-      font-weight: 500;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .lead-quote::before {
-      content: "“";
-      position: absolute;
-      top: -10px;
-      left: 16px;
-      font-size: 80px;
-      color: var(--accent-color);
-      opacity: 0.15;
-      font-family: 'Noto Serif TC', serif;
-      line-height: 1;
-    }
-
-    .lead-quote p {
-      margin-bottom: 0;
-    }
-
-    /* Section Headings */
-    h2.section-title {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--accent-color);
-      margin-top: 52px;
-      margin-bottom: 24px;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      scroll-margin-top: 100px;
-    }
-
-    h2.section-title::before {
-      content: "❖";
-      font-size: 24px;
-      color: var(--accent-color);
-    }
-
-    /* Reference Box */
-    footer.reference-box {
-      margin-top: 60px;
-      padding: 24px;
-      background: var(--card-bg);
-      border-radius: 12px;
-      border: 1px solid var(--border-color);
-      font-size: 0.9em;
-      color: var(--text-muted);
-    }
-
-    /* Floating Action Buttons (FAB) */
-    .fab-group {
-      position: fixed;
-      bottom: 32px;
-      right: 32px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
-      z-index: 950;
+      padding: 24px 16px 40px;
     }
 
-    .fab-btn {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      background: var(--bg-paper);
-      color: var(--accent-color);
-      border: 2px solid var(--border-color);
-      box-shadow: var(--shadow-md);
-      font-size: 26px;
-      font-weight: 700;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.2s ease;
-    }
-
-    .fab-btn:hover {
-      transform: translateY(-3px);
-      background: var(--accent-color);
-      color: #ffffff;
-    }
-
-    /* TOC Modal Drawer */
-    .toc-modal {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.5);
-      backdrop-filter: blur(4px);
-      z-index: 1100;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .toc-modal.open {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .toc-content {
+    .container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
       width: 100%;
-      max-width: 400px;
-      height: 100%;
-      background: var(--bg-paper);
-      box-shadow: -4px 0 24px rgba(0, 0, 0, 0.2);
-      padding: 40px 32px;
-      overflow-y: auto;
-      transform: translateX(100%);
-      transition: transform 0.3s ease;
-      display: flex;
-      flex-direction: column;
+      flex: 1;
     }
 
-    .toc-modal.open .toc-content {
-      transform: translateX(0);
-    }
-
-    .toc-header {
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 32px;
-      padding-bottom: 16px;
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
       border-bottom: 2px solid var(--border-color);
     }
 
-    .toc-header h3 {
-      font-size: 26px;
+    .site-title {
+      font-size: 1.4rem;
+      font-weight: 800;
       color: var(--accent-color);
     }
 
-    .close-toc-btn {
-      background: transparent;
-      border: none;
-      font-size: 32px;
-      color: var(--text-muted);
+    .theme-toggle-btn {
+      width: 42px;
+      height: 42px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
-      padding: 4px 8px;
+      font-size: 1.1rem;
+      color: var(--text-color);
+      box-shadow: var(--shadow-sm);
     }
 
-    .toc-list {
-      list-style: none;
+    .intro-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.8rem;
+      line-height: 1.6;
+    }
+
+    .article-list {
       display: flex;
       flex-direction: column;
       gap: 16px;
     }
 
-    .toc-list a {
-      color: var(--text-main);
-      text-decoration: none;
-      font-size: 20px;
-      font-weight: 600;
-      display: block;
-      padding: 10px 14px;
-      border-radius: 8px;
-      transition: all 0.2s ease;
-      border: 1px solid transparent;
-    }
-
-    .toc-list a:hover {
+    .article-card {
       background: var(--card-bg);
-      color: var(--accent-color);
-      border-color: var(--border-color);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px 22px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: block;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.22s ease;
+      position: relative;
     }
 
-    /* Responsive Adjustments */
-    @media (max-width: 768px) {
-      main.content-wrapper {
-        padding: 20px 12px 60px;
-      }
-      article.paper-card {
-        padding: 32px 20px;
-        border-radius: 14px;
-      }
-      .main-article-title {
-        font-size: 30px;
-      }
-      h2.section-title {
-        font-size: 26px;
-      }
-      .fab-group {
-        bottom: 20px;
-        right: 20px;
-      }
-      .fab-btn {
-        width: 52px;
-        height: 52px;
-        font-size: 22px;
-      }
-      .controls-group {
-        gap: 10px;
-      }
-      .control-btn {
-        padding: 6px 12px;
-        font-size: 24px;
-        min-width: 44px;
-        min-height: 44px;
-      }
+    .article-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent-color);
+    }
+
+    .card-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      background: var(--accent-light);
+      padding: 3px 10px;
+      border-radius: 12px;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--accent-color);
+    }
+
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .card-arrow {
+      margin-left: auto;
+      font-weight: bold;
+      color: var(--accent-color);
+    }
+
+    footer {
+      margin-top: 3rem;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <header>
+      <div class="site-title">📖 排聚會追求系列</div>
+      <button id="themeBtn" class="theme-toggle-btn" aria-label="切換顏色主題">🌓</button>
+    </header>
 
-  <!-- Top Reading Progress Bar -->
-  <div class="progress-bar-container">
-    <div class="progress-bar" id="progressBar"></div>
-  </div>
+    <p class="intro-text">
+      點選以下篇題進入閱讀。支援手機排版最佳化、20px / 22px / 24px 字級一鍵循環切換、以及漢堡選單段落快速跳轉。
+    </p>
 
-  <!-- Sticky Top Nav Controls -->
-  <header class="top-nav">
-    <div class="nav-container">
-      <div class="controls-group">
-        <div class="control-item" title="字級調整">
-          <button class="control-btn" id="btnFontDec" aria-label="縮小字體">A-</button>
-          <span class="font-size-display" id="fontSizeDisplay">24px</span>
-          <button class="control-btn" id="btnFontInc" aria-label="放大字體">A+</button>
+    <div class="article-list">
+      <a href="召會聚會的路/index.html" class="article-card">
+        <span class="card-badge">事奉篇 · 職事文摘 第十一卷·第一期</span>
+        <h2 class="card-title">召會聚會的路</h2>
+        <p class="card-desc">
+          『我要向我的弟兄宣告你的名，在召會中我要歌頌你。』從希伯來二章看基督在復活裏向祂的弟兄宣告父的名，並憑父的生命和性情聚集。
+        </p>
+        <div class="card-meta">
+          <span>8 頁內容完整擷取</span>
+          <span>含 8 個段落目錄導航</span>
+          <span class="card-arrow">閱讀全文 →</span>
         </div>
-        <div class="control-item">
-          <button class="control-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="切換主題">☀️ 明亮</button>
+      </a>
+
+      <a href="神聖三一乃是聖經的結構/index.html" class="article-card">
+        <span class="card-badge">真理篇 · 職事文摘 第十一卷·第一期</span>
+        <h2 class="card-title">神聖三一乃是聖經的結構</h2>
+        <p class="card-desc">
+          神聖三一是整本聖經的鋼架結構。三一神渴望將祂自己作到三部分的人裏，生機的與人成為一，並在新約中啟示神聖三一的分賜。
+        </p>
+        <div class="card-meta">
+          <span>8 頁內容完整擷取</span>
+          <span>含 6 個段落目錄導航</span>
+          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </div>
+      </a>
     </div>
-  </header>
 
-  <!-- Main Article Content -->
-  <main class="content-wrapper">
-    <article class="paper-card">
-
-      <header class="article-header">
-        <h1 class="brand-title">
-          職事文摘 <span class="badge">第十一卷．第一期</span>
-        </h1>
-        <div class="meta-tag">❖ 事奉 ‧ 102-109 頁 ❖</div>
-        <h2 class="main-article-title">幫助人認識並順從神內裏的運行</h2>
-      </header>
-
-      <!-- Lead Quote Box -->
-      <div class="lead-quote">
-        <p>聖經給我們看見，我們的神雖然無所不在、無所不能、且滿了救罪之恩，卻是一位自隱的神。（賽四五15。）一面，神在我們裏面的工作常是隱藏的；另一面，祂卻一直默默而強有力的在我們裏面運行，使我們立志並行事。（腓二13。）因此，在餵養初信者時，你需要幫助他們認識：今天主乃是那靈，在我們裏面運行；我們需要照著祂的運行立志並行事，順從祂的引導，學習跟隨裏面聖靈的聲音，好成為正常、健康的基督徒，並經歷神作我們全人的救恩。</p>
-      </div>
-
-      <!-- Section 1 -->
-      <h2 class="section-title" id="sec-1">認識並經歷那靈</h2>
-
-      <p>一個人得救以後，我們應當立刻幫助他認識二靈，就是聖靈與我們人的靈調和為一。我們需要幫助得救的人領悟，今天主就是那靈，（林後三17，）住在我們的靈裏，（提後四22，）你需要與祂來往、接觸，憑祂活著並經歷祂。</p>
-
-      <p>主作為那靈非常便利、真實且無所不在，因為祂乃是屬靈的氣息，屬天的空氣。我們只要接觸祂並將祂吸入，祂就成為我們的忍耐、能力、謙卑、智慧和光、以及我們所需要的一切。基督徒乃是一個在那靈裏的人，正常的基督徒生活乃是在那靈裏的生活。</p>
-
-      <p>接着我們需要幫助人看見，宇宙中有一個原則：真實真正的事物並不外顯。電是一個很好的例子。電是有力且真實的，但電本身卻是看不見的。沒有人看過電，也沒有人能否認電的存在。原子能也是如此，它的能力極大，卻是隱藏的。</p>
-
-      <p>許多初得救的人以為能力必定是外顯的；然而，真實真正的能力往往是隱藏且內在的。我們必須認識這種隱藏的能力。空氣有能力，卻沒有外在的顯揚。照樣，神是大能的，卻沒有人能看見祂。神無所不在，但祂是隱藏的。聖經告訴我們，神是自隱的神。（賽四五15。）任何真實屬神的事物，外表往往是微小而隱藏的。所以，我們從起頭就必須幫助得救的人領悟，凡真實且真正屬於主的，總是隱藏並微小的。</p>
-
-      <p>我們必須幫助人認識這事，因為人天然的性情總是喜歡偉大的事物。我們若告訴人那靈是有大能的，許多人會覺得這大能必定是外在的，想要看見並感受它；但真實的事物乃是溫和、隱藏並微小的。我們必須幫助人領悟，今天那靈是無往不透的。我們看不見祂，祂卻是真實且實在的。那靈不是為著使人有外在的大顯揚，乃是為著在人裏面運行。</p>
-
-      <!-- Section 2 -->
-      <h2 class="section-title" id="sec-2">神在人裏面運行，使人立志並行事</h2>
-
-      <p>初信者需要認識，當他信主得救之後，主作為那靈就進到他裏面，因此他可以操練與主交通並享受主。這對基督徒而言，並不是一件抽象的事，而是具體重大的事。腓立比二章十三節說，『因為乃是神為著祂的美意，在你們裏面運行，使你們立志並行事。』這裏譯作『運行』的希臘字，相當於英文的 energize，有『用力、加力、使…有力』的意思。好比電扇插上電，有電流通過，風扇就開始滿有力量的轉動。照樣，我們裏面的立志和外面的行事，都是神在我們裏面運行並加力的結果。</p>
-
-      <p>當人得救時，神作為那靈就進到人裏面，住在人的靈裏。神在人裏面作供應的源頭，作推動的能力，使人自然而然的愛人、行善、追求公義並活出聖別。這就像電燈插上電，電流一通，便自然的發光。</p>
-
-      <p>不信主的人對基督徒的行為常感到好奇，因為有的人得救前偷了東西，得救後卻願意向人認罪並賠償人的損失；有的信徒受到冤屈時，不僅不埋怨，還能歡喜快樂並感謝。所以，有些不信主的人雖然拒絕基督徒所傳的福音，還是不得不由衷佩服基督徒的行為和表現。信徒之所以在遭遇患難、逼迫、為難時，仍然能歡喜快樂、剛強並讚美神，是因為有神在他們裏面運行並推動；這乃是神大能救恩的表顯。</p>
-
-      <p>十二節說，『你們既是常順從的，…就當…作成你們自己的救恩。』因為神在我們裏面運行，所以我們需要順從。換句話說，我們要順從神在我們裏面的運行。作為基督徒，我們不是順從道理，也不是僅僅順從我們身外聖經的教訓，乃是順從神在我們裏面的運行，讓祂在我們裏面更新我們。我們得救之後，能蒙拯救多少，在於我們順從多少。我們需要絕對順從神在我們裏面的運行，使我們裏面立志，外面行事，而成就祂的美意。</p>
-
-      <!-- Section 3 -->
-      <h2 class="section-title" id="sec-3">順從神的引導</h2>
-
-      <p>行傳十六章給我們看見，使徒們如何順從那靈在他們裏面的引導。六至七節說，『聖靈既禁止表們在亞西亞講道，他們就經過弗呂家和加拉太地區。到了每西亞的邊界，他們試著要往庇推尼去，耶穌的靈卻不許。』在此，聖靈不是禁止人作壞事，乃是禁止人『作好事』，甚至不許人去傳道。我們可以把六至七節當作座右銘，提醒自己留意聖靈的禁止。聖靈的管治猶如鐵路的兩條軌道，我們如火車行在其上，不能偏離左右。我們乃是在聖靈的管治下，順從神的引導。</p>
-
-      <p>詩篇二十七篇八節：『你說，你們當尋求我的面；那時我的心向你說，耶和華阿，你的面我正要尋求。』達秘（J.N. Darby）將本節譯為：『我的心替你說，你們當尋求我的面；耶和華阿，你的面我正要尋求。』這意思是在我們的心能替神說話。神的工作都是作在我們裏面。祂在我們裏面所有的故事，皆從我們靈裏發動。神的工作是從裏面開始，然後漸漸向外擴展；開始於中心，然後達到圓周。這正如石頭投入湖中，波動從中心向圓周擴展，漸漸遍及全湖。基督徒所過的生活，是一個從裏面開始發生，再向外發展的故事。</p>
-
-      <p>真基督徒的故事皆是裏面運行出來的故事，而非外在的改正或作為。一個真實的基督徒，不是從外面作，乃是從裏面作。基督徒並非只是遵守聖經諸多的教訓和道理，照著召會所立的條條規矩而行；這不是神救恩的方式。神不是從外面來改變人，乃把自己放到人的靈裏，在人靈裏攪動人。我們為甚麼要讀聖經？讀經能更新我們的心思，啟發我們裏面屬靈的感覺，這是我們讀聖經的主要目的。作基督徒首要的不是遵守聖經，乃是藉著心思得更新，讓活的神在我們裏面運行出故事來。</p>
-
-      <!-- Section 4 -->
-      <h2 class="section-title" id="sec-4">神在人裏面運行的實例</h2>
-
-      <p>有一位杜兄弟的父親，本身是個老教友，有時去作禮拜，有時也禱告。他喜歡打牌、喝酒，一日三餐，無酒不能喫飯。有一天，他的長子在我們中間得救，生活有了大改變，在家中有許多見證。父親剛開始相當反對，卻逐漸對兒子身上的大改變覺得好奇。因為他們全家都已成為教友，但只有長子有生命的改變。於是老人家來到我們中間聽道，竟感動得痛哭流涕，幾乎哭倒在主面前，一禱告就流眼淚。他真正得救了，生命上有很大的轉變。隨後，他的妻子也來了，也變了；兒女也來了，也有很大的改變；全家都變了。從此在他們家中常有聚會。三年後，這位老兄弟成為當地召會的負責兄弟。</p>
-
-      <p>另一位正值中年的楊兄弟，比杜老兄弟更喜歡打牌、喝酒、吸煙。過去他經常和杜老兄弟相約喫飯喝酒。每喫必喝，每喝必醉。有一晚他喝醉了，躺在臭水溝裏睡覺。家人到處找他，最後他的妻子在臭水溝裏找到了他，纔帶他回家。後來楊兄弟好奇杜老兄弟的轉變，也來我們中間看看，摸著了主，生命有了改變。某日，楊兄弟和杜老兄弟很喜樂的一起交通，隨後一同用餐。楊兄弟曉得聖經裏說到保羅勸提摩太稍微用點酒，（提前五23，）就說，『我們來喝一點「提摩太酒」不要緊。』兩人按照往例把酒擺上，彼此舉杯。只喝了幾口，立刻感覺不舒服，喝不下去。兩人分別回到家裏，向主禱告都不喜樂。後來兩人又在一起交通，彼此有同樣的感覺，雖然聖經許可喝『提摩太酒』，但聖靈既然在裏面禁止，兩人就不該再喝酒了。這兩位兄弟都真實的經歷了神在他們裏面的運行。</p>
-
-      <!-- Section 5 -->
-      <h2 class="section-title" id="sec-5">學習跟隨裏面聖靈的聲音</h2>
-
-      <p>前面題到在使徒行傳，聖靈禁止保羅和他的同工在亞西亞講道，耶穌的靈也不許他們往庇推尼去。（十六6～7。）我們要讓初得救的人看見，就連『講道』這樣的好事聖靈都禁止，更何況是惡事。聖靈在我們裏面，不僅叫我們厭惡罪惡，有時甚至不允許我們作好事或傳道。這就是神和基督在我們裏面的故事。基督徒的生活行動不需要在外面找憑據、講理由，卻需要學習聽裏面聖靈的聲音。我們的心常在我們裏面替神說話，不懂的人會說是心理作用。然而，神藉著我們的心向我們所說的一句話，我們都要聽從。</p>
-
-      <p>我們的神是自隱的神。許多時候，神在我們裏面很隱藏的說話，從我們裏面最深處向我們說話，給我們感覺。我們不必分析，都應該聽從。有時候事情可能看起來是錯的，但在原則上是對的。原則就是要跟隨神在我們裏面的感覺，因為神是在我們裏面引導我們。許多事沒有甚麼理由，只要神對我們說一句話，只要我們感覺裏面禁止、不許，就需要停下來。如果神在我們裏面有微小柔細的聲音，（參王上十九12，）或是裏面有禁止，我們就要立刻順服。</p>
-
-      <!-- Section 6 -->
-      <h2 class="section-title" id="sec-6">操練的路</h2>
-
-      <p>為著學習聽從神在我們裏面的聲音，我們需要鼓勵初信者操練幾件事。第一，每日早晨更新我們的奉獻。就如舊約的燔祭需要天天獻上，（利六12，）我們每早晨也需要在主面前把自己重新奉獻給主。要學習對主說，『主阿，我更新的把自己交給你。』</p>
-
-      <p>第二，禱告時，不要打算禱告許多事。要學習安靜下來，將裏面的故事和感覺擺在主面前，把我們的愛好、心意、擔心、懼怕等，都一一向主述說。（腓四6。）若有一件事是我們不肯擺在主面前的，這就表示其中有毛病。凡是在我們裏面的，無論是什麼樣的毛病，都要放在主面前，讓主來光照。</p>
-
-      <p>第三，要學習聽從裏面細微的感覺和聲音，並將一切化作禱告，帶到主面前。不要講理由，也不要分析，乃要順從裏面的感覺。我們若感覺主給我們感覺要做甚麼，就跟隨那感覺一點一點去做。一個人要身體好，必須按時喫飯睡覺。照樣，要作正確的基督徒，每天必須有一段在主面前的時間。總要照著這個原則去做，即使每次只有五至十分鐘都可以。要在主面前守住這段時間，正如我們每天洗臉刷牙一樣。</p>
-
-      <p>第四，要操練養成一個習慣，常常回到裏面與主有交通，敬拜祂。我們也可以鼓勵初信者，每次無論是準備要做一件事，或去做一件事，都需要問問裏面的感覺。也許有人說這樣作基督徒太難，怕給人感覺像是精神異常。開頭也許有點難，但我們如果願意天天操練凡事與主有交通，就會天天蒙拯救。神的救恩需要我們的合作，順服那靈。我們若肯定順從那靈在我們裏面的引導，神就要把祂自己塗抹到我們全人的各部分。這拯救不是一勞永逸，乃是日日加多，天天擴展。</p>
-
-      <p>我們若如此操練，主就能從我們的靈擴展到我們的全人。此外，我們還需要讀經、禱告、聚會，並與兄弟姊妹多有交通，相互幫助、彼此扶持。這樣，我們就會成為正確的基督徒，並且要經歷神作我們全人的救恩。</p>
-
-      <!-- Footer Reference Box -->
-      <footer class="reference-box">
-        <strong>出處說明：</strong>
-        （手冊：李常受文集一九六六年第二冊，結果子的路，第六章；喫喝享受神的操練，第七篇；神內裏的運行與人三部分的救恩，第八篇。）
-      </footer>
-
-    </article>
-  </main>
-
-  <!-- Floating Action Buttons -->
-  <div class="fab-group">
-    <button class="fab-btn" onclick="toggleTocModal()" title="文章目錄" aria-label="文章目錄">☰</button>
-    <button class="fab-btn" onclick="scrollToTop()" title="回到頂部" aria-label="回到頂部">↑</button>
+    <footer>
+      排聚會追求篇題 · 手機友善排版
+    </footer>
   </div>
 
-  <!-- TOC Modal Drawer -->
-  <div class="toc-modal" id="tocModal" onclick="handleTocClick(event)">
-    <div class="toc-content">
-      <div class="toc-header">
-        <h3>文章目錄</h3>
-        <button class="close-toc-btn" onclick="toggleTocModal()">×</button>
-      </div>
-      <ul class="toc-list">
-        <li><a href="#sec-1" onclick="toggleTocModal()">1. 認識並經歷那靈</a></li>
-        <li><a href="#sec-2" onclick="toggleTocModal()">2. 神在人裏面運行，使人立志並行事</a></li>
-        <li><a href="#sec-3" onclick="toggleTocModal()">3. 順從神的引導</a></li>
-        <li><a href="#sec-4" onclick="toggleTocModal()">4. 神在人裏面運行的實例</a></li>
-        <li><a href="#sec-5" onclick="toggleTocModal()">5. 學習跟隨裏面聖靈的聲音</a></li>
-        <li><a href="#sec-6" onclick="toggleTocModal()">6. 操練的路</a></li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- Interactive Logic -->
   <script>
-    // Config State
-    let currentFontSize = parseInt(localStorage.getItem('reading_font_size')) || 24;
-    let savedTheme = localStorage.getItem('reading_theme');
-    let currentTheme = (savedTheme === 'dark') ? 'dark' : 'light';
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    const STORAGE_KEY = 'meeting_reader_theme';
+    let currentTheme = localStorage.getItem(STORAGE_KEY) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
 
-    const minFontSize = 20;
-    const maxFontSize = 34;
+    const themeBtn = document.getElementById('themeBtn');
 
-    // DOM Elements
-    const body = document.documentElement;
-    const fontSizeDisplay = document.getElementById('fontSizeDisplay');
-    const progressBar = document.getElementById('progressBar');
-    const tocModal = document.getElementById('tocModal');
-
-    // Initialize Settings
-    function init() {
-      setFontSize(currentFontSize);
-      setTheme(currentTheme);
-      updateProgressBar();
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      themeBtn.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY, theme);
     }
 
-    // Font Size Handlers
-    function setFontSize(size) {
-      currentFontSize = Math.min(Math.max(size, minFontSize), maxFontSize);
-      document.body.style.fontSize = currentFontSize + 'px';
-      fontSizeDisplay.textContent = currentFontSize + 'px';
-      localStorage.setItem('reading_font_size', currentFontSize);
-    }
-
-    document.getElementById('btnFontDec').addEventListener('click', () => {
-      setFontSize(currentFontSize - 2);
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const next = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(next);
     });
 
-    document.getElementById('btnFontInc').addEventListener('click', () => {
-      setFontSize(currentFontSize + 2);
-    });
-
-    // Theme Switcher Handler
-    function setTheme(theme) {
-      currentTheme = (theme === 'dark') ? 'dark' : 'light';
-      body.setAttribute('data-theme', currentTheme);
-      localStorage.setItem('reading_theme', currentTheme);
-
-      const themeToggleBtn = document.getElementById('themeToggleBtn');
-      if (themeToggleBtn) {
-        if (currentTheme === 'dark') {
-          themeToggleBtn.innerHTML = '🌙 深色';
-          themeToggleBtn.setAttribute('aria-label', '目前深色模式，點擊切換為明亮模式');
-        } else {
-          themeToggleBtn.innerHTML = '☀️ 明亮';
-          themeToggleBtn.setAttribute('aria-label', '目前明亮模式，點擊切換為深色模式');
-        }
-      }
-    }
-
-    function toggleTheme() {
-      setTheme(currentTheme === 'light' ? 'dark' : 'light');
-    }
-
-    // Scroll Progress Bar
-    function updateProgressBar() {
-      const scrollTop = window.scrollY || document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      progressBar.style.width = Math.min(Math.max(progress, 0), 100) + '%';
-    }
-
-    window.addEventListener('scroll', updateProgressBar);
-
-    // Scroll to Top
-    function scrollToTop() {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-      });
-    }
-
-    // TOC Modal Toggle
-    function toggleTocModal() {
-      tocModal.classList.toggle('open');
-    }
-
-    function handleTocClick(event) {
-      if (event.target === tocModal) {
-        toggleTocModal();
-      }
-    }
-
-    // Keyboard Shortcuts
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && tocModal.classList.contains('open')) {
-        toggleTocModal();
-      }
-    });
-
-    // Launch Initialization
-    init();
+    applyTheme(currentTheme);
   </script>
 </body>
 </html>
+
