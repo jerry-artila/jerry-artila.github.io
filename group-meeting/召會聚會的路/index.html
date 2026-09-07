@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>召會聚會的路</title>
+  <meta name="description" content="召會聚會的路 - 職事文摘。手機閱讀體驗最佳化，支援 20px / 22px / 24px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #8c281f;
+      --accent-light: rgba(140, 40, 31, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 20px;
+      --line-height-base: 1.88;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #9c2720;
+      --accent-light: rgba(156, 39, 32, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #e5534b;
+      --accent-light: rgba(229, 83, 75, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left));
+      padding-right: max(16px, env(safe-area-inset-right));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    /* Header Action Buttons */
+    .icon-btn {
+      min-width: 44px;
+      height: 38px;
+      padding: 0 10px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-sm);
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .font-toggle-btn {
+      min-width: 72px;
+      background: var(--accent-light);
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+    }
+
+    .hamburger-btn svg {
+      width: 22px;
+      height: 22px;
+      fill: currentColor;
+    }
+
+    /* Main Content Container */
+    main.article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 18px 60px 18px;
+    }
+
+    .article-header {
+      margin-bottom: 2.2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--accent-color);
+      background: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+    }
+
+    h1.article-title {
+      font-size: calc(var(--font-size-base) * 1.55);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--accent-color);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.3);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.6rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    h3.sub-section-title {
+      font-size: calc(var(--font-size-base) * 1.12);
+      line-height: 1.45;
+      font-weight: 700;
+      color: var(--text-color);
+      margin-top: 1.8rem;
+      margin-bottom: 0.9rem;
+      padding: 4px 10px;
+      background: var(--accent-light);
+      border-left: 3px solid var(--accent-color);
+      border-radius: 4px;
+      scroll-margin-top: calc(var(--header-height) + 16px);
+    }
+
+    /* Text Paragraphs */
+    p {
+      margin-bottom: 1.45rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    /* Scripture & Blockquotes */
+    blockquote.scripture-quote {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.85;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    blockquote.scripture-quote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 86%;
+      max-width: 360px;
+      height: 100%;
+      background: var(--card-bg);
+      box-shadow: var(--shadow-lg);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      padding-top: env(safe-area-inset-top, 0px);
+      padding-bottom: env(safe-area-inset-bottom, 0px);
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      width: 36px;
+      height: 36px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      cursor: pointer;
+    }
+
+    .close-btn:hover {
+      background: var(--border-color);
+      color: var(--text-color);
+    }
+
+    .drawer-controls {
+      padding: 12px 20px;
+      background: var(--bg-color);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px 12px;
+      list-style: none;
+    }
+
+    .toc-item {
+      margin-bottom: 6px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.96rem;
+      font-weight: 500;
+      line-height: 1.4;
+      transition: all 0.18s ease;
+    }
+
+    .toc-link.sub-item {
+      padding-left: 28px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .toc-link:hover, .toc-link.active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="召會聚會的路">召會聚會的路</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (20px -> 22px -> 24px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 20px / 22px / 24px">
+        20px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="文章目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📖 章節目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：20px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#intro" class="toc-link">引言：希伯來二章十二節</a></li>
+      <li class="toc-item"><a href="#sec-life-nature" class="toc-link">一、憑父的生命和性情聚集</a></li>
+      <li class="toc-item"><a href="#sec-christ-with-brothers" class="toc-link">二、基督在召會中與祂的弟兄聚集</a></li>
+      <li class="toc-item"><a href="#sec-christ-with-us" class="toc-link">三、基督與我們一同聚集</a></li>
+      <li class="toc-item"><a href="#sec-declare-fathers-name" class="toc-link">四、向我們宣告父的名</a></li>
+      <li class="toc-item">
+        <a href="#sec-governing-principles" class="toc-link">五、召會聚會的支配原則</a>
+        <ul style="list-style:none;">
+          <li class="toc-item"><a href="#sec-gp-gather-with-christ" class="toc-link sub-item">1. 基督與信徒一同聚集</a></li>
+          <li class="toc-item"><a href="#sec-gp-resurrection-reality" class="toc-link sub-item">2. 在基督復活的實際裏聚會</a></li>
+        </ul>
+      </li>
+      <li class="toc-item"><a href="#sec-fatherhood-economy" class="toc-link">六、使信徒知道神在為父身分裏的經綸</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag">職事文摘 第十一卷·第一期</span>
+        <h1 class="article-title">召會聚會的路</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》事奉</span>
+          <span>適合手機閱讀體驗</span>
+        </div>
+      </header>
+
+      <!-- Section: 引言 -->
+      <section id="intro">
+        <blockquote class="scripture-quote">
+          <p><strong>希伯來二章十二節：</strong>『我要向我的弟兄宣告你的名，在召會中我要歌頌你。』</p>
+        </blockquote>
+        <p>主這話啟示，我們藉着基督的復活成了神的眾子，就是基督的眾弟兄。如今當我們聚集時，主也與我們一同聚集，向我們宣告父的名，使我們認識父神為我們所已經作的、正在作的、和將要作的一切。我們在聚會中越讓主這樣在我們裏面說話，並在我們的說話裏說話時，就越把讚美歸給父。這是召會聚會的路。</p>
+      </section>
+
+      <!-- Section: 憑父的生命和性情聚集 -->
+      <section id="sec-life-nature">
+        <h2 class="section-title">憑父的生命和性情聚集</h2>
+        <p>論到召會的聚會，我們都必須看見：召會是藉基督的死蒙救贖，（徒二十28下，）並藉基督的復活而產生的。（弗二6。）我們原是亞當的後裔，卻在基督的復活裏蒙了重生，成為召會。（彼前一3。）在基督的復活裏，我們成了神的眾子。（來二10上。）這不僅改變了我們的地位，更改變了我們的性情、所是和身分。如今我們不僅是人的子孫，更是神的眾子，是一班在復活裏的人。</p>
+        <p>當基督在地上時，父神在祂裏面，祂憑着父的生命和性情生活行動，以致祂所作的一切，都是父神的彰顯。每逢祂說話，就是說出父神。（約十四10。）今天我們和基督一樣，有神作我們的父，也有父的生命和性情在我們裏面。（二十17。）因此，當我們聚會時，必須領悟我們乃是神的眾子，憑着神的生命和性情一同聚集。凡我們在聚會中所作的，都該彰顯我們的父。我們若在聚會中彼此爭吵，就表明我們忘了自己的身分，忘了自己乃是神的眾子。</p>
+      </section>
+
+      <!-- Section: 基督在召會中與祂的弟兄聚集 -->
+      <section id="sec-christ-with-brothers">
+        <h2 class="section-title">基督在召會中與祂的弟兄聚集</h2>
+        <p>約翰二十章給我們看見，基督復活之後回到祂的弟兄那裏，不僅將祂自己作為那靈吹入門徒裏面，（22，）也與他們一同聚集，並向他們宣告父的名。（來二11～12。）</p>
+      </section>
+
+      <!-- Section: 基督與我們一同聚集 -->
+      <section id="sec-christ-with-us">
+        <h2 class="section-title">基督與我們一同聚集</h2>
+        <p>我們需要領悟，當我們聚集時，主也與我們一同聚集。（太十八20。）在聚會中無論我們作甚麼，神的兒子耶穌都在我們的作事中作事，在我們的說話中說話，並使自己與我們成為一。在這個意義上，我們都有『雙重人格』，有耶穌基督在我們的說話裏說話。</p>
+        <p>基督現今在諸天之上，也在我們裏面，使我們成為在復活裏的人。這樣的異象和領悟會改變我們聚會的光景和性質。我們要看見，我們是在復活裏聚會，因為這位復活的基督與我們一同聚集，要將每一位都帶進祂的復活裏。因此，基督徒的聚會應當聯於復活和升天的基督。</p>
+      </section>
+
+      <!-- Section: 向我們宣告父的名 -->
+      <section id="sec-declare-fathers-name">
+        <h2 class="section-title">向我們宣告父的名</h2>
+        <p>基督在復活裏，不僅在召會中與祂的弟兄聚集，也向祂的弟兄宣告父的名。『宣告父的名』是甚麼意思？子向我們宣告父的名，是要使我們認識，在全宇宙中有一個獨一的源頭，就是永遠的父。我們每一位信徒都是由祂所生，成為神的兒子。祂是我們這些眾子的源頭。子也要使我們認識，神有一個經綸，就是祂的安排或計畫，要得着一班兒子來彰顯祂自己。</p>
+        <p>主所有的門徒，除了猶大之外，都是從加利利來的猶太人。他們認識神是他們的創造者，也認識耶和華是他們的主。但他們不認識，這位在復活基督裏的耶和華神，已成了他們的父，他們是父的兒子。這意思是，他們不僅是受造之物，更是有神生命和性情的人，他們是出於同一個源頭，就是父神；並且在這一位裏，他們彼此乃是一。在基督復活以前，門徒與神的關係和其他受造之物並沒有不同。神是他們的創造者，他們是神的造物。但基督的復活改變了他們的身分，使他們不僅是神的造物，更成為神的兒子。</p>
+        <p>假設一個家庭，有父親和八個孩子，還有狗、貓、鳥、魚等寵物。當全家聚集時，這些寵物在生命或性情上與父親毫無關係；然而八個孩子卻與父親在生命和性情上有關，因為他們是出自相同的源頭。家中的大哥可以告訴年幼的弟妹：『我們都有我們父親的生命和性情，並且我們都出於他這源頭。』</p>
+        <p>宣告父的名就是使眾聖徒認識他們與神的關係，並且知道自己今天所擁有的是甚麼。他們已得着兒子的名分，不再僅僅是受造之物，而是神的兒子。他們出自同一個源頭，就是永遠的父，有父的生命和性情。在生命和性情上，他們與父完全一樣，甚至與父是一。</p>
+        <p>當子在復活裏與祂的弟兄一同聚集，凡祂所作的都是讚美。讚美的內在性質就是顯明父。當主耶穌在我們裏面說話，並在我們的說話裏說話時，這個說話就是對父的讚美，因為這個說話顯大、彰顯並顯明神。每當我們以主為內容禱告、讚美、讀經或說話時，凡我們所作的就是父的顯大、顯明、彰顯。因此，我們所作的就是讚美父。這樣的讚美乃是宇宙中獨一源頭的顯明、顯大和彰顯。</p>
+      </section>
+
+      <!-- Section: 召會聚會的支配原則 -->
+      <section id="sec-governing-principles">
+        <h2 class="section-title">召會聚會的支配原則</h2>
+
+        <h3 id="sec-gp-gather-with-christ" class="sub-section-title">基督與信徒一同聚集</h3>
+        <p>召會聚會的支配原則，頭一項乃是基督與信徒一同聚集。我們若沒有基督與我們一同聚集，就不是真實的基督徒聚會。要有真實的基督徒聚會，我們必須有基督與我們一同聚集。</p>
+
+        <h3 id="sec-gp-resurrection-reality" class="sub-section-title">在基督復活的實際裏聚會</h3>
+        <p>我們也必須在基督復活的實際裏，就是在復活之基督的靈與生命裏聚會。我們都需要認識，只要我們在天然的生命裏憑自己禱告或說話，我們就不在靈裏，也不在復活基督的生命裏。我們或許不容易確定自己何時在靈裏，卻很容易知道自己何時不在靈裏。若有人在聚會中站起來說，『我不喜歡弟兄姊妹，』他必定不是在復活基督的靈與生命裏說話，而是在他天然的仇恨裏說話。然而，如果他說，『阿利路亞！照天然來說，我不能愛你們眾人。但今天在基督裏，我愛你們，也愛所有的弟兄們。』這樣的話乃是出於復活基督的靈與生命。當我們在天然的生命和肉體裏說話時，我們很容易知道。我們一旦察覺這點，就曉得自己已不在基督的靈與生命裏。這時，我們必須改變說話的方式，直到我們確信自己不是照天然的生命說話。</p>
+      </section>
+
+      <!-- Section: 使信徒知道神在為父身分裏的經綸 -->
+      <section id="sec-fatherhood-economy">
+        <h2 class="section-title">使信徒知道神在為父身分裏的經綸</h2>
+        <p>基督徒的聚會，也是為使信徒知道神在祂為父身分裏的經綸，好使父得着稱讚。神的經綸就是神的計畫、安排和心意，為要完成祂的喜悅。這經綸是在祂為父的身分裏。『為父的身分』這辭，意指父的所是，同祂一切的定意、願望和定旨。子宣告父的名，包含示子不僅告訴祂的弟兄，父是生他們的源頭，也告訴他們，這位生他們的源頭有許多的定意、定旨、期望和願望，要為祂的眾子完成許多事。</p>
+        <p>為父的身分包括父神為我們所已經作的、正在作的、和將要作的一切。新約告訴我們，這位生我們的父按着祂的計畫和經綸，在創世以前揀選了我們，將我們標出，並且豫定了我們。（弗一4～5。）在時間裏，當我們仍在世界的事務裏忙碌，或陷在罪惡中時，祂來呼召我們、抓住我們、得着我們。父進到我們的光景中，呼召我們與祂同去。當我們呼求：『哦，主耶穌，』父同着子作為那靈，就進到我們裏面，赦免、救贖、稱義並重生我們。</p>
+        <p>現今祂住在我們裏面，聖別我們，變化我們，並且要模成我們，榮化我們；最終，祂要把我們帶進祂自己這無比的榮耀裏。我們與祂要在全宇宙中成為極大的榮耀！我們要與祂同得榮耀，並且祂要在我們裏面得着榮耀。那時我們要在父的榮耀裏聚集，不住的讚美祂，顯明祂，直到永永遠遠。神完全救恩的這些項目，乃是父要在我們裏面成就的定旨和願望；這些都包括在為父的身分裏。因此長子耶穌基督來到祂的弟兄們中間，向他們解釋這一切事。</p>
+        <p>看見這為父身分的啟示，會使我們滿了『阿利路亞』。我們是神聖之父的眾子，正在享受祂的為父身分！我們可能不能完全明白為父的身分，但我們可以享受並嘗到祂為父的身分。我們已經在祂為父的身分裏，如今需要多而又多留在其中。今天我們享受祂為父身分的小影，有一天我們要完滿享受祂為父身分。我們都要宣告：『神是我的父，我是祂眾子中的一位來彰顯祂、顯明祂。阿利路亞！』</p>
+        <p>早期在中國有許多大家庭是五代同堂。在高祖父生日那天，所有的兒子、孫子、曾孫、和玄孫都來在一起，談論從高祖父所已經承受的，以及他們將要承受的。高祖父聽他們並看他們時，就非常的高興。他們越談論這些事，就越彰顯並顯明那位年長的老人，把讚美歸給他。</p>
+        <p>這乃是我們今日聚會的模型。我們來在一起，講說父的一切所是，談論父為我們所作並賜給我們的一切。我們所談論的，包括父所已經作的、正在作的、以及將要作的。我們越在聚會中談論這些事，就越把讚美歸給父。這樣的說話使父喜樂。我們都必須學習說話。每當我們來在一起，我們必須將我們的聚會聯於那生我們的源頭。祂不僅生了我們，也為祂所生的眾子作了許多奇妙的事。現今我們在祂為父的身分裏，從各面各方享受祂，但我們還必須學習說話。</p>
+        <p>讓我們再看上述這位老父親的例子。倘若他家中有兩百人來慶祝他的生日，可是每個人都安靜的來，兩百人安靜的坐在他面前，這位老父親會覺得如何？他可能說，『你們怎麼了？我沒有生啞吧孩子。你們是我的子孫麼？你們有我的生命麼？你們有我的性情麼？你們為甚麼這樣啞口無聲？你們到底發生了甚麼事？』我們的天父若來到基督徒的聚會中，祂的兒女卻一言不發，祂可能同樣的想責備他們。祂可能說，『我為你們作了這麼多事，我對你們是如此豐富。你們為甚麼不說說我？』</p>
+        <p>詩篇四十五篇一節說，『我心裏湧出美辭，講說我論到王的作品。我的舌頭是快手筆。』我們是湧出美辭的基督徒麼？我們來聚會時，是湧出美辭的與會者麼？我們應當都有可說的。我們需要花時間進入聖經和屬靈書報，學習許多關於神家事物。這會使我們有膽量和把握說話。</p>
+        <p>在主復活以前，祂還沒有弟兄。照約翰十五章來看，祂把門徒當作朋友。（13～15。）但祂復活後，立刻告訴馬利亞：『你往我弟兄那裏去，告訴他們說，我要升到我的父，也是你們的父那裏，到我的神，也是你們的神那裏。』（二十17。）在主的復活裏，祂的朋友為祂的父所生，成了祂的弟兄。在祂復活的那天晚上，祂回到祂的弟兄那裏。（19。）照希伯來二章十一至十二節，作長兄的子回到祂的弟兄那裏，宣告父的名；父的名包含父的身位、父的所是、連同祂對祂所生的孩子一切的心意、期望、願望和定旨。子將這偉大的為父身分，啟示給有分於這為父身分的弟兄們。基督徒的聚會是在父神為父的身分裏，並為着這為父的身分。</p>
+        <p>現今我們乃是在父神這為父的身分裏聚集。我們在子的名裏聚集，（太十八20，）並且宣告父的名。凡我們在聚會中所作和所說的，該宣告父，使父得着讚美、顯大、顯明和彰顯。我們的聚會是為着讚美父，就是顯大並榮耀神聖三一這源頭。我們的聚會就是為着讚美這生我們的源頭，而我們的讚美就是我們至極的顯大祂、榮耀祂並彰顯祂。這就是召會在基督的復活裏作為神的眾子聚會的路。</p>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 參讀：為着建造基督的身體那合乎聖經的聚會與事奉之路，第一章。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="../index.html" class="nav-card-btn">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">← 聚會文章列表</span>
+        </a>
+        <a href="../神聖三一乃是聖經的結構/index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">下一篇</span>
+          <span class="nav-card-title">神聖三一乃是聖經的結構 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (20px -> 22px -> 24px) ---
+    const FONT_SIZES = [20, 22, 24];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 20;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 20;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
+
