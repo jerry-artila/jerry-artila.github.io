@@ -1,72 +1,82 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>以色列十二支派：雅各十二子互動檔案庫</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        parchment: {
-                            50: '#fdfbf7',
-                            100: '#f7f2e7',
-                            200: '#eee3ce',
-                            300: '#e1d0b0',
-                            800: '#4a3b2c',
-                            900: '#2c2219',
-                        },
-                        ochre: {
-                            100: '#ffedd5',
-                            700: '#c2410c',
-                            800: '#9a3412',
-                            900: '#7c2d12',
-                        }
-                    }
-                }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>以色列十二支派：雅各十二子互動檔案庫</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            parchment: {
+              50: '#fdfbf7',
+              100: '#f7f2e7',
+              200: '#eee3ce',
+              300: '#e1d0b0',
+              800: '#4a3b2c',
+              900: '#2c2219',
+            },
+            ochre: {
+              100: '#ffedd5',
+              700: '#c2410c',
+              800: '#9a3412',
+              900: '#7c2d12',
             }
+          }
         }
-    </script>
-    <style>
-        /* 專為長輩與手機端設計之大字體與高對比規範 */
-        body {
-            font-size: 22px;
-            line-height: 1.75;
-            background-color: #fdfbf7;
-            color: #1a1a1a;
-            -webkit-tap-highlight-color: transparent;
-        }
+      }
+    }
+  </script>
+  <style>
+    /* 專為長輩與手機端設計之大字體與高對比規範 */
+    /* 主字級以 CSS 變數控制：預設 24px，可經由「字級放大」按鈕於 22/24/26px 間循環切換 */
+    :root {
+      --senior-base: 24px;
+    }
 
-        .senior-text {
-            font-size: 22px !important;
-            line-height: 1.75 !important;
-        }
+    body {
+      font-size: var(--senior-base);
+      line-height: 1.75;
+      background-color: #fdfbf7;
+      color: #1a1a1a;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-        .senior-title {
-            font-size: 28px !important;
-            line-height: 1.4 !important;
-        }
+    .senior-text {
+      font-size: var(--senior-base) !important;
+      line-height: 1.75 !important;
+    }
 
-        .senior-subtitle {
-            font-size: 24px !important;
-            line-height: 1.5 !important;
-        }
+    /* 標題字級隨主字級等比放大（主字級 +6px，22→28px） */
+    .senior-title {
+      font-size: calc(var(--senior-base) + 6px) !important;
+      line-height: 1.4 !important;
+    }
 
-        /* 客製化捲軸 */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #f7f2e7;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #9a3412;
-            border-radius: 4px;
-        }
-    </style>
+    /* 次標題字級隨主字級等比放大（主字級 +2px，22→24px） */
+    .senior-subtitle {
+      font-size: calc(var(--senior-base) + 2px) !important;
+      line-height: 1.5 !important;
+    }
+
+    /* 客製化捲軸 */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f7f2e7;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #9a3412;
+      border-radius: 4px;
+    }
+  </style>
 </head>
 <!-- Chosen Palette: Warm Senior-Friendly Parchment & Deep Ochre (溫暖羊皮紙與赭紅高對比主題) -->
 <!-- Application Structure Plan:
@@ -85,254 +95,317 @@
 
 <body class="bg-parchment-50 text-gray-900 font-sans antialiased min-h-screen flex flex-col pb-12">
 
-    <!-- 頂部頁首區塊 -->
-    <header class="bg-parchment-100 border-b-2 border-parchment-200 sticky top-0 z-30 shadow-sm">
-        <div class="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="text-3xl">📜</span>
-                <div>
-                    <h1 class="font-extrabold text-2xl sm:text-3xl text-ochre-900 leading-tight">雅各十二子互動檔案庫</h1>
-                    <p class="text-lg text-parchment-800 font-medium">大字易讀版・以色列十二支派</p>
-                </div>
-            </div>
+  <!-- 頂部頁首區塊 -->
+  <header class="bg-parchment-100 border-b-2 border-parchment-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-4xl mx-auto px-4 py-3 space-y-1.5">
+      <!-- 第一行：標題 + 字級放大按鈕 -->
+      <div class="flex items-center justify-between gap-3">
+        <div class="flex items-center gap-3 min-w-0">
+          <span class="text-3xl shrink-0">📜</span>
+          <h1 class="font-extrabold text-xl min-[400px]:text-2xl sm:text-3xl text-ochre-900 leading-tight">雅各十二子互動檔案庫</h1>
         </div>
-    </header>
 
-    <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6 space-y-6">
+        <!-- 字級放大切換按鈕（22 / 24 / 26px 循環，預設 24px） -->
+        <button id="fontSizeBtn" type="button"
+          title="點擊放大字級（22 / 24 / 26px 循環切換）"
+          aria-label="切換字級大小，目前 24px"
+          class="shrink-0 flex items-center gap-2 min-h-[48px] px-3 rounded-xl border-2 border-ochre-800 bg-white text-ochre-900 shadow-sm transition hover:bg-ochre-800 hover:text-white active:scale-95">
+          <span class="text-2xl font-black leading-none">Ａ</span>
+          <span class="flex flex-col items-start leading-none text-left">
+            <span class="text-[11px] font-bold leading-none opacity-80">字級</span>
+            <span id="fontSizeLabel" class="text-lg font-black leading-none tabular-nums">24</span>
+          </span>
+        </button>
+      </div>
 
-        <!-- 導覽操作提示 -->
-        <section class="bg-white rounded-2xl p-5 border-2 border-parchment-200 shadow-sm space-y-2">
-            <h2 class="senior-subtitle font-bold text-ochre-800 flex items-center gap-2">
-                <span>💡</span> 操作說明
-            </h2>
-            <p class="senior-text text-gray-800">
-                點擊下方按鈕可依生母分類。點擊任意兒子的卡片，即可開啟完整聖經記載、臨終預言與重要後代英雄。
-            </p>
-        </section>
-
-        <!-- 生母篩選控制區 -->
-        <section class="bg-white p-5 rounded-2xl border-2 border-parchment-200 shadow-sm space-y-4">
-            <!-- 生母分類篩選按鈕 (大觸控範圍) -->
-            <div>
-                <span class="block font-bold text-gray-800 text-xl mb-2">👤 按生母分類篩選：</span>
-                <div class="flex flex-wrap gap-2.5" id="motherFilters">
-                    <button data-mother="all" class="filter-btn active min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-ochre-800 bg-ochre-800 text-white shadow-sm">全部 (12)</button>
-                    <button data-mother="利亞" class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">利亞 (6)</button>
-                    <button data-mother="拉結" class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">拉結 (2)</button>
-                    <button data-mother="辟拉" class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">辟拉 (2)</button>
-                    <button data-mother="悉帕" class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">悉帕 (2)</button>
-                </div>
-            </div>
-        </section>
-
-        <!-- 卡片展示區域 (大字體 22px+) -->
-        <section id="sonsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-            <!-- 動態注入卡片內容 -->
-        </section>
-
-    </main>
-
-    <!-- 詳細資料彈出視窗 (Modal Dialog) -->
-    <div id="sonModal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5">
-        <div class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto border-4 border-parchment-300 shadow-2xl p-6 relative">
-            <!-- 關閉按鈕 -->
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-800 bg-parchment-200 hover:bg-ochre-800 hover:text-white text-2xl font-black w-12 h-12 flex items-center justify-center rounded-full border-2 border-parchment-300 transition">
-                ✕
-            </button>
-            <div id="modalContent" class="space-y-4">
-                <!-- 動態注入詳細資料 -->
-            </div>
-        </div>
+      <!-- 第二行：副標 -->
+      <p class="text-lg text-parchment-800 font-medium">大字易讀版・以色列十二支派</p>
     </div>
+  </header>
 
-    <!-- 頁尾 -->
-    <footer class="max-w-4xl mx-auto px-4 text-center senior-text text-gray-600 border-t-2 border-parchment-200 pt-6 mt-8">
-        <p>以色列十二支派源流・雅各十二子互動檔案庫</p>
-    </footer>
+  <main class="flex-grow max-w-4xl w-full mx-auto px-4 py-6 space-y-6">
 
-    <!-- JavaScript 邏輯與資料 -->
-    <script>
-        // 十二子完整資料庫
-        const sonsData = [
-            {
-                id: 1,
-                name: "流便",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "失序長子 / 救助嘗試",
-                descendants: "無重大君王或祭司領袖",
-                blessing: "雅各預言：「能力由尊榮浮躁如水，必不得立為尊位」。",
-                territoryNote: "定居於約旦河東岸（基列地一帶），歷史上影響力漸微。",
-                summary: "雅各肉身的首生長子，因衝動行事失去長子名分與領導權。曾試圖拯救被賣的約瑟。",
-                fullDetail: "流便為雅各的肉身長子。性格衝動且缺乏自制，曾與父親的妾辟拉同寢，因而觸怒雅各，失去長子繼承權與家族領導地位。在約瑟被其他兄弟謀害時，流便曾暗中介入想保全約瑟的性命，提案將其投入坑中以便事後救出，但最終未能阻止約瑟被賣至埃及。出埃及後，流便支派因擁有眾多牲畜，選擇在約旦河東岸安居，歷史上未曾出過重要領袖或君王。"
-            },
-            {
-                id: 2,
-                name: "西緬",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "激進戰士 / 散居支派",
-                descendants: "無著名大領袖",
-                blessing: "雅各預言：「他們的怒氣暴烈可詛，殘忍可恨。我要使他們分居在雅各家，散住在以色列中」。",
-                territoryNote: "領地完全被包圍在強大的猶大支派境內，後逐漸融入猶大。",
-                summary: "雅各次子。因妹底拿遭玷污而屠殺示劍城男子，受雅各斥責，日後支派逐漸融入猶大。",
-                fullDetail: "雅各次子。因妹妹底拿在示劍遭玷污，他與三弟利未聯手用計屠殺示劍城全城男子，引發雅各強烈斥責，臨終祝福時被預言後代必分散在以色列中。進迦南後，西緬支派分到的地業全被包圍在強大的猶大支派境內，日後勢力迅速減弱並逐漸融入猶大支派中。"
-            },
-            {
-                id: 3,
-                name: "利未",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "聖職祭司 / 屬神職分",
-                descendants: "摩西、亞倫、施洗約翰",
-                blessing: "臨終時與西緬一同被預言分散，但因西奈山金牛犢事件中的忠心，被轉化為神聖職分。",
-                territoryNote: "不分配獨立省分土地，分散居住於其他支派劃出的48座城邑中，以神為產業。",
-                summary: "雅各三子。後代在西奈山金牛犢事件中堅持公義，獲選為全以色列事奉聖所的祭司家族。",
-                fullDetail: "雅各三子。曾與西緬一同屠殺示劍城居民。但其後裔在西奈山「金牛犢事件」中堅定站在摩西與神的一邊，執行公義，因而被神分別出來成為事奉聖所的祭司家族。進迦南時利未支派不分配獨立省分土地，而是分散居住在各支派所劃出的48座城邑中，以神為他們的產業。以色列重要領袖摩西與首任大祭司亞倫皆出自此支派。"
-            },
-            {
-                id: 4,
-                name: "猶大",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "王權統治 / 救恩譜系",
-                descendants: "大衛王、所羅門王、耶穌基督（肉身家譜）",
-                blessing: "雅各預言：「圭必不離猶大，杖必不離他兩腳之間，直等細羅來到，萬民都必歸順」。",
-                territoryNote: "分配到南部龐大肥沃的廣袤土地，成為南國猶大王國的核心。",
-                summary: "雅各四子。承接王權與領導權，具備擔當與犧牲精神，為大衛王室與耶穌基督的祖先。",
-                fullDetail: "雅各四子。承接了長子的統治權與王權祝福。在約瑟被賣時提議將其賣給商旅以保全性命；多年後在埃及面對宰相約瑟時，主動挺身願代替幼弟便雅憫為奴，展現了犧牲與擔當。雅各臨終預言「圭必不離猶大，杖必不離他兩腳之間」。大衛王朝、所羅門王以及耶穌基督（肉身家譜）皆出自猶大支派。"
-            },
-            {
-                id: 5,
-                name: "但",
-                mother: "辟拉",
-                motherBadge: "bg-emerald-100 text-emerald-950 border-emerald-400",
-                role: "邊境審判 / 宗教破口",
-                descendants: "士師參孫",
-                blessing: "雅各預言：「但必作道旁的蛇，路邊的蝮蛇，咬傷馬蹄，使騎馬的墜落於後」。",
-                territoryNote: "初期沿海領地攻取不利，後集體北遷至黑門山腳下。",
-                summary: "辟拉所生長子。後代出傳奇士師參孫，但也因北遷後私設神像成為宗教墮落的破口。",
-                fullDetail: "辟拉為拉結所生的長子。雅各臨終預言但為「道旁的蛇，路邊的蝮蛇，咬傷馬蹄，使騎馬的墜落於後」。士師時代的傳奇英雄參孫即出自但支派。但支派因初期無法完全攻佔沿海分配地，後集體北遷至黑門山腳下，並在當地私設神像，成為以色列宗教墮落與拜偶像的破口之一。"
-            },
-            {
-                id: 6,
-                name: "拿弗他利",
-                mother: "辟拉",
-                motherBadge: "bg-emerald-100 text-emerald-950 border-emerald-400",
-                role: "敏捷勇士 / 言語嘉美",
-                descendants: "巴拉（與底波拉同工）",
-                blessing: "雅各預言：「拿弗他利是被釋放的母鹿，他出嘉美的言語」。",
-                territoryNote: "分得加利利海西北方極為肥沃廣袤的土地。",
-                summary: "辟拉次子。領地極為肥沃，士師時代英勇抗敵，新約時代為耶穌主要傳道區域。",
-                fullDetail: "辟拉所生次子。雅各祝福他為「被釋放的母鹿，他出嘉美的言語」。其支派分得加利利海西北方極為肥沃廣袤的土地。在士師時代，拿弗他利勇士曾跟隨女先知底波拉與巴拉英勇抗敵，贏得名留青史的勝利；新約時代耶穌的重要傳道事工也多半展開於此區域。"
-            },
-            {
-                id: 7,
-                name: "迦得",
-                mother: "悉帕",
-                motherBadge: "bg-cyan-100 text-cyan-950 border-cyan-400",
-                role: "驍勇騎兵 / 東岸守護",
-                descendants: "勇猛的大衛勇士們",
-                blessing: "雅各預言：「迦得必被敵軍追逼，他卻要追逼他們的腳跟」。",
-                territoryNote: "與流便、瑪拿西半支派定居於水草豐美的約旦河東岸（基列地）。",
-                summary: "悉帕所生長子。後代驍勇善戰，定居約旦河東岸，仍渡河協助兄弟征服迦南地。",
-                fullDetail: "悉帕為利亞所生的長子。雅各預言其後代驍勇善戰：「迦得必被敵軍追逼，他卻要追逼他們的腳跟」。出埃及進迦南前夕，因迦得支派擁有大量牲畜，便與流便支派、瑪拿西半支派一同向摩西請求定居於水草豐美的約旦河東岸（基列地），但仍派勇士渡河協助其餘兄弟征服迦南。"
-            },
-            {
-                id: 8,
-                name: "亞設",
-                mother: "悉帕",
-                motherBadge: "bg-cyan-100 text-cyan-950 border-cyan-400",
-                role: "富庶農耕 / 君王美味",
-                descendants: "女先知亞拿",
-                blessing: "雅各預言：「亞設之地必出豐盛的糧食，並要出君王的美味」。",
-                territoryNote: "地中海北部沿岸平原與山地，盛產橄欖油與豐盛農產品。",
-                summary: "悉帕次子。領地盛產優質農產與橄欖油，新約聖殿中認出嬰孩耶穌的女先知亞拿出自此支派。",
-                fullDetail: "悉帕所生次子。雅各預言「亞設之地必出豐盛的糧食，並要出君王的美味」。其支派分得地中海北部沿岸平原與山地，盛產橄欖油與農產，富庶繁盛。新約路加福音中，在聖殿等候並認出嬰孩耶穌的女先知亞拿，即出自亞設支派。"
-            },
-            {
-                id: 9,
-                name: "以薩迦",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "任勞任怨 / 通達時勢",
-                descendants: "大衛時期的謀士首領",
-                blessing: "雅各預言：「以薩迦是強壯的驢，臥在羊圈之中...以低頭背重，成為服苦的僕人」。",
-                territoryNote: "包含耶斯列平原等農業重鎮。",
-                summary: "利亞五子。象徵勤勞農作，其後代以「通達時勢，知道以色列人所當行」的政治眼光著稱。",
-                fullDetail: "利亞所生第五子。雅各形容他為「強壯的驢，臥在羊圈之中」，象徵耐勞任怨與安於農作。其支派領地包含耶斯列平原等農業重鎮。在大衛受膏作王時期，以薩迦支派的首領以「通達時勢，知道以色列人所當行的」而著稱，具備卓越的辨析力與政治眼光。"
-            },
-            {
-                id: 10,
-                name: "西布倫",
-                mother: "利亞",
-                motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
-                role: "貿易要道 / 冒死勇士",
-                descendants: "士師以比讚（傳說）與底波拉戰歌中的勇士",
-                blessing: "雅各預言：「西布倫必住在海口，必成為停船的海口，他的境界必延到西頓」。",
-                territoryNote: "介於地中海與加利利海之間的商貿幹道上。",
-                summary: "利亞六子。領地居貿易要道，支派勇士在底波拉時期以捨生忘死、英勇抗敵聞名。",
-                fullDetail: "利亞所生第六子，也是利亞最小的兒子。領地位於加利利南部，介於地中海與加利利海之間的重要貿易幹道上。在底波拉戰歌中，西布倫人以敢於捨生忘死、冒死上陣而受到高度讚揚。以賽亞書曾預言西布倫與拿弗他利地將見大光，應驗於耶穌在加利利地區的事奉。"
-            },
-            {
-                id: 11,
-                name: "約瑟",
-                mother: "拉結",
-                motherBadge: "bg-rose-100 text-rose-950 border-rose-400",
-                role: "埃及宰相 / 雙倍產業",
-                descendants: "約書亞（以法蓮）、撒母耳（以法蓮山地）",
-                blessing: "雅各預言：「約瑟是多結果子的樹枝，是泉旁多結果的枝子，他的枝條探出牆外」。",
-                territoryNote: "個人不佔單一支派名額，由雙子「以法蓮」與「瑪拿西」承接雙份土地。",
-                summary: "拉結長子，雅各最寵之子。被賣埃及後升為宰相解救全族，其兩子各自獨立為支派。",
-                fullDetail: "拉結所生長子，雅各晚年最寵愛的兒子。因蒙受彩衣與異象招致兄長嫉妒，被賣至埃及為奴，經歷誣陷下獄，後解法老之夢被擢升為埃及全地宰相。在大饑荒中以智慧積糧，解救全家族性命並促成兄弟和解。雅各給予他長子的雙倍產業份額，由其兩個兒子「以法蓮」與「瑪拿西」分別立為兩個獨立支派。"
-            },
-            {
-                id: 12,
-                name: "便雅憫",
-                mother: "拉結",
-                motherBadge: "bg-rose-100 text-rose-950 border-rose-400",
-                role: "撕掠之狼 / 王國正統",
-                descendants: "掃羅王（首任君王）、使徒保羅（新約）",
-                blessing: "雅各預言：「便雅憫是個撕掠的狼，早晨要吃他所抓的，晚上要分他所奪的」。",
-                territoryNote: "位於猶大與以法蓮之間的戰略要衝，包含耶路撒冷邊界。",
-                summary: "雅各幼子，拉結難產所生。後代驍勇擅甩石，以色列首任君王掃羅與使徒保羅皆出自此支派。",
-                fullDetail: "雅各最小的兒子，拉結在伯利恆路旁難產時所生。拉結臨終前為他起名「便俄尼」（受苦之子），雅各改為「便雅憫」（右手之子）。其支派驍勇善戰，善用左手甩石。以色列歷史上的第一位君王掃羅王，以及新約使徒保羅，皆出自便雅憫支派。南國猶大分裂後，便雅憫支派始終與猶大支派站在一起，維持大衛王朝的正統。"
-            }
-        ];
+    <!-- 導覽操作提示 -->
+    <section class="bg-white rounded-2xl p-5 border-2 border-parchment-200 shadow-sm space-y-2">
+      <h2 class="senior-subtitle font-bold text-ochre-800 flex items-center gap-2">
+        <span>💡</span> 操作說明
+      </h2>
+      <p class="senior-text text-gray-800">
+        點擊下方按鈕可依生母分類。點擊任意兒子的卡片，即可開啟完整聖經記載、臨終預言與重要後代英雄。
+      </p>
+    </section>
 
-        let currentMotherFilter = "all";
+    <!-- 生母篩選控制區 -->
+    <section class="bg-white p-5 rounded-2xl border-2 border-parchment-200 shadow-sm space-y-4">
+      <!-- 生母分類篩選按鈕 (大觸控範圍) -->
+      <div>
+        <span class="block font-bold text-gray-800 text-xl mb-2">👤 按生母分類篩選：</span>
+        <div class="flex flex-wrap gap-2.5" id="motherFilters">
+          <button data-mother="all"
+            class="filter-btn active min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-ochre-800 bg-ochre-800 text-white shadow-sm">全部
+            (12)</button>
+          <button data-mother="利亞"
+            class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">利亞
+            (6)</button>
+          <button data-mother="拉結"
+            class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">拉結
+            (2)</button>
+          <button data-mother="辟拉"
+            class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">辟拉
+            (2)</button>
+          <button data-mother="悉帕"
+            class="filter-btn min-h-[48px] px-5 py-2.5 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-parchment-200">悉帕
+            (2)</button>
+        </div>
+      </div>
+    </section>
 
-        // 初始化
-        document.addEventListener("DOMContentLoaded", () => {
-            renderSonsCards();
-            setupEventListeners();
-        });
+    <!-- 卡片展示區域 (大字體 22px+) -->
+    <section id="sonsGrid" class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+      <!-- 動態注入卡片內容 -->
+    </section>
 
-        // 渲染兒子卡片 (確保所有文字皆在 22px 以上)
-        function renderSonsCards() {
-            const grid = document.getElementById('sonsGrid');
-            grid.innerHTML = '';
+  </main>
 
-            const filtered = sonsData.filter(son => {
-                return (currentMotherFilter === "all" || son.mother === currentMotherFilter);
-            });
+  <!-- 詳細資料彈出視窗 (Modal Dialog) -->
+  <div id="sonModal"
+    class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center p-3 sm:p-5">
+    <div
+      class="bg-white rounded-3xl max-w-2xl w-full max-h-[92vh] overflow-y-auto border-4 border-parchment-300 shadow-2xl p-6 relative">
+      <!-- 關閉按鈕 -->
+      <button id="closeModal"
+        class="absolute top-4 right-4 text-gray-800 bg-parchment-200 hover:bg-ochre-800 hover:text-white text-2xl font-black w-12 h-12 flex items-center justify-center rounded-full border-2 border-parchment-300 transition">
+        ✕
+      </button>
+      <div id="modalContent" class="space-y-4">
+        <!-- 動態注入詳細資料 -->
+      </div>
+    </div>
+  </div>
 
-            if (filtered.length === 0) {
-                grid.innerHTML = `
+  <!-- 頁尾 -->
+  <footer
+    class="max-w-4xl mx-auto px-4 text-center senior-text text-gray-600 border-t-2 border-parchment-200 pt-6 mt-8">
+    <p>以色列十二支派源流・雅各十二子互動檔案庫</p>
+  </footer>
+
+  <!-- JavaScript 邏輯與資料 -->
+  <script>
+    // 十二子完整資料庫
+    const sonsData = [
+      {
+        id: 1,
+        name: "流便",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "失序長子 / 救助嘗試",
+        descendants: "無重大君王或祭司領袖",
+        blessing: "雅各預言：「能力由尊榮浮躁如水，必不得立為尊位」。",
+        territoryNote: "定居於約旦河東岸（基列地一帶），歷史上影響力漸微。",
+        summary: "雅各肉身的首生長子，因衝動行事失去長子名分與領導權。曾試圖拯救被賣的約瑟。",
+        fullDetail: "流便為雅各的肉身長子。性格衝動且缺乏自制，曾與父親的妾辟拉同寢，因而觸怒雅各，失去長子繼承權與家族領導地位。在約瑟被其他兄弟謀害時，流便曾暗中介入想保全約瑟的性命，提案將其投入坑中以便事後救出，但最終未能阻止約瑟被賣至埃及。出埃及後，流便支派因擁有眾多牲畜，選擇在約旦河東岸安居，歷史上未曾出過重要領袖或君王。"
+      },
+      {
+        id: 2,
+        name: "西緬",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "激進戰士 / 散居支派",
+        descendants: "無著名大領袖",
+        blessing: "雅各預言：「他們的怒氣暴烈可詛，殘忍可恨。我要使他們分居在雅各家，散住在以色列中」。",
+        territoryNote: "領地完全被包圍在強大的猶大支派境內，後逐漸融入猶大。",
+        summary: "雅各次子。因妹底拿遭玷污而屠殺示劍城男子，受雅各斥責，日後支派逐漸融入猶大。",
+        fullDetail: "雅各次子。因妹妹底拿在示劍遭玷污，他與三弟利未聯手用計屠殺示劍城全城男子，引發雅各強烈斥責，臨終祝福時被預言後代必分散在以色列中。進迦南後，西緬支派分到的地業全被包圍在強大的猶大支派境內，日後勢力迅速減弱並逐漸融入猶大支派中。"
+      },
+      {
+        id: 3,
+        name: "利未",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "聖職祭司 / 屬神職分",
+        descendants: "摩西、亞倫、施洗約翰",
+        blessing: "臨終時與西緬一同被預言分散，但因西奈山金牛犢事件中的忠心，被轉化為神聖職分。",
+        territoryNote: "不分配獨立省分土地，分散居住於其他支派劃出的48座城邑中，以神為產業。",
+        summary: "雅各三子。後代在西奈山金牛犢事件中堅持公義，獲選為全以色列事奉聖所的祭司家族。",
+        fullDetail: "雅各三子。曾與西緬一同屠殺示劍城居民。但其後裔在西奈山「金牛犢事件」中堅定站在摩西與神的一邊，執行公義，因而被神分別出來成為事奉聖所的祭司家族。進迦南時利未支派不分配獨立省分土地，而是分散居住在各支派所劃出的48座城邑中，以神為他們的產業。以色列重要領袖摩西與首任大祭司亞倫皆出自此支派。"
+      },
+      {
+        id: 4,
+        name: "猶大",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "王權統治 / 救恩譜系",
+        descendants: "大衛王、所羅門王、耶穌基督（肉身家譜）",
+        blessing: "雅各預言：「圭必不離猶大，杖必不離他兩腳之間，直等細羅來到，萬民都必歸順」。",
+        territoryNote: "分配到南部龐大肥沃的廣袤土地，成為南國猶大王國的核心。",
+        summary: "雅各四子。承接王權與領導權，具備擔當與犧牲精神，為大衛王室與耶穌基督的祖先。",
+        fullDetail: "雅各四子。承接了長子的統治權與王權祝福。在約瑟被賣時提議將其賣給商旅以保全性命；多年後在埃及面對宰相約瑟時，主動挺身願代替幼弟便雅憫為奴，展現了犧牲與擔當。雅各臨終預言「圭必不離猶大，杖必不離他兩腳之間」。大衛王朝、所羅門王以及耶穌基督（肉身家譜）皆出自猶大支派。"
+      },
+      {
+        id: 5,
+        name: "但",
+        mother: "辟拉",
+        motherBadge: "bg-emerald-100 text-emerald-950 border-emerald-400",
+        role: "邊境審判 / 宗教破口",
+        descendants: "士師參孫",
+        blessing: "雅各預言：「但必作道旁的蛇，路邊的蝮蛇，咬傷馬蹄，使騎馬的墜落於後」。",
+        territoryNote: "初期沿海領地攻取不利，後集體北遷至黑門山腳下。",
+        summary: "辟拉所生長子。後代出傳奇士師參孫，但也因北遷後私設神像成為宗教墮落的破口。",
+        fullDetail: "辟拉為拉結所生的長子。雅各臨終預言但為「道旁的蛇，路邊的蝮蛇，咬傷馬蹄，使騎馬的墜落於後」。士師時代的傳奇英雄參孫即出自但支派。但支派因初期無法完全攻佔沿海分配地，後集體北遷至黑門山腳下，並在當地私設神像，成為以色列宗教墮落與拜偶像的破口之一。"
+      },
+      {
+        id: 6,
+        name: "拿弗他利",
+        mother: "辟拉",
+        motherBadge: "bg-emerald-100 text-emerald-950 border-emerald-400",
+        role: "敏捷勇士 / 言語嘉美",
+        descendants: "巴拉（與底波拉同工）",
+        blessing: "雅各預言：「拿弗他利是被釋放的母鹿，他出嘉美的言語」。",
+        territoryNote: "分得加利利海西北方極為肥沃廣袤的土地。",
+        summary: "辟拉次子。領地極為肥沃，士師時代英勇抗敵，新約時代為耶穌主要傳道區域。",
+        fullDetail: "辟拉所生次子。雅各祝福他為「被釋放的母鹿，他出嘉美的言語」。其支派分得加利利海西北方極為肥沃廣袤的土地。在士師時代，拿弗他利勇士曾跟隨女先知底波拉與巴拉英勇抗敵，贏得名留青史的勝利；新約時代耶穌的重要傳道事工也多半展開於此區域。"
+      },
+      {
+        id: 7,
+        name: "迦得",
+        mother: "悉帕",
+        motherBadge: "bg-cyan-100 text-cyan-950 border-cyan-400",
+        role: "驍勇騎兵 / 東岸守護",
+        descendants: "勇猛的大衛勇士們",
+        blessing: "雅各預言：「迦得必被敵軍追逼，他卻要追逼他們的腳跟」。",
+        territoryNote: "與流便、瑪拿西半支派定居於水草豐美的約旦河東岸（基列地）。",
+        summary: "悉帕所生長子。後代驍勇善戰，定居約旦河東岸，仍渡河協助兄弟征服迦南地。",
+        fullDetail: "悉帕為利亞所生的長子。雅各預言其後代驍勇善戰：「迦得必被敵軍追逼，他卻要追逼他們的腳跟」。出埃及進迦南前夕，因迦得支派擁有大量牲畜，便與流便支派、瑪拿西半支派一同向摩西請求定居於水草豐美的約旦河東岸（基列地），但仍派勇士渡河協助其餘兄弟征服迦南。"
+      },
+      {
+        id: 8,
+        name: "亞設",
+        mother: "悉帕",
+        motherBadge: "bg-cyan-100 text-cyan-950 border-cyan-400",
+        role: "富庶農耕 / 君王美味",
+        descendants: "女先知亞拿",
+        blessing: "雅各預言：「亞設之地必出豐盛的糧食，並要出君王的美味」。",
+        territoryNote: "地中海北部沿岸平原與山地，盛產橄欖油與豐盛農產品。",
+        summary: "悉帕次子。領地盛產優質農產與橄欖油，新約聖殿中認出嬰孩耶穌的女先知亞拿出自此支派。",
+        fullDetail: "悉帕所生次子。雅各預言「亞設之地必出豐盛的糧食，並要出君王的美味」。其支派分得地中海北部沿岸平原與山地，盛產橄欖油與農產，富庶繁盛。新約路加福音中，在聖殿等候並認出嬰孩耶穌的女先知亞拿，即出自亞設支派。"
+      },
+      {
+        id: 9,
+        name: "以薩迦",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "任勞任怨 / 通達時勢",
+        descendants: "大衛時期的謀士首領",
+        blessing: "雅各預言：「以薩迦是強壯的驢，臥在羊圈之中...以低頭背重，成為服苦的僕人」。",
+        territoryNote: "包含耶斯列平原等農業重鎮。",
+        summary: "利亞五子。象徵勤勞農作，其後代以「通達時勢，知道以色列人所當行」的政治眼光著稱。",
+        fullDetail: "利亞所生第五子。雅各形容他為「強壯的驢，臥在羊圈之中」，象徵耐勞任怨與安於農作。其支派領地包含耶斯列平原等農業重鎮。在大衛受膏作王時期，以薩迦支派的首領以「通達時勢，知道以色列人所當行的」而著稱，具備卓越的辨析力與政治眼光。"
+      },
+      {
+        id: 10,
+        name: "西布倫",
+        mother: "利亞",
+        motherBadge: "bg-amber-100 text-amber-950 border-amber-400",
+        role: "貿易要道 / 冒死勇士",
+        descendants: "士師以比讚（傳說）與底波拉戰歌中的勇士",
+        blessing: "雅各預言：「西布倫必住在海口，必成為停船的海口，他的境界必延到西頓」。",
+        territoryNote: "介於地中海與加利利海之間的商貿幹道上。",
+        summary: "利亞六子。領地居貿易要道，支派勇士在底波拉時期以捨生忘死、英勇抗敵聞名。",
+        fullDetail: "利亞所生第六子，也是利亞最小的兒子。領地位於加利利南部，介於地中海與加利利海之間的重要貿易幹道上。在底波拉戰歌中，西布倫人以敢於捨生忘死、冒死上陣而受到高度讚揚。以賽亞書曾預言西布倫與拿弗他利地將見大光，應驗於耶穌在加利利地區的事奉。"
+      },
+      {
+        id: 11,
+        name: "約瑟",
+        mother: "拉結",
+        motherBadge: "bg-rose-100 text-rose-950 border-rose-400",
+        role: "埃及宰相 / 雙倍產業",
+        descendants: "約書亞（以法蓮）、撒母耳（以法蓮山地）",
+        blessing: "雅各預言：「約瑟是多結果子的樹枝，是泉旁多結果的枝子，他的枝條探出牆外」。",
+        territoryNote: "個人不佔單一支派名額，由雙子「以法蓮」與「瑪拿西」承接雙份土地。",
+        summary: "拉結長子，雅各最寵之子。被賣埃及後升為宰相解救全族，其兩子各自獨立為支派。",
+        fullDetail: "拉結所生長子，雅各晚年最寵愛的兒子。因蒙受彩衣與異象招致兄長嫉妒，被賣至埃及為奴，經歷誣陷下獄，後解法老之夢被擢升為埃及全地宰相。在大饑荒中以智慧積糧，解救全家族性命並促成兄弟和解。雅各給予他長子的雙倍產業份額，由其兩個兒子「以法蓮」與「瑪拿西」分別立為兩個獨立支派。"
+      },
+      {
+        id: 12,
+        name: "便雅憫",
+        mother: "拉結",
+        motherBadge: "bg-rose-100 text-rose-950 border-rose-400",
+        role: "撕掠之狼 / 王國正統",
+        descendants: "掃羅王（首任君王）、使徒保羅（新約）",
+        blessing: "雅各預言：「便雅憫是個撕掠的狼，早晨要吃他所抓的，晚上要分他所奪的」。",
+        territoryNote: "位於猶大與以法蓮之間的戰略要衝，包含耶路撒冷邊界。",
+        summary: "雅各幼子，拉結難產所生。後代驍勇擅甩石，以色列首任君王掃羅與使徒保羅皆出自此支派。",
+        fullDetail: "雅各最小的兒子，拉結在伯利恆路旁難產時所生。拉結臨終前為他起名「便俄尼」（受苦之子），雅各改為「便雅憫」（右手之子）。其支派驍勇善戰，善用左手甩石。以色列歷史上的第一位君王掃羅王，以及新約使徒保羅，皆出自便雅憫支派。南國猶大分裂後，便雅憫支派始終與猶大支派站在一起，維持大衛王朝的正統。"
+      }
+    ];
+
+    let currentMotherFilter = "all";
+
+    // ---- 字級控制：22 / 24 / 26px 循環切換，預設 24px ----
+    const FONT_SIZES = [22, 24, 26];
+    let fontIndex = 1; // 預設指向 24px
+
+    function setBaseFont(px) {
+      // 透過 CSS 變數讓全文（body / senior-text / senior-title / senior-subtitle）等比放大
+      document.documentElement.style.setProperty('--senior-base', px + 'px');
+      const label = document.getElementById('fontSizeLabel');
+      if (label) label.textContent = px;
+      const btn = document.getElementById('fontSizeBtn');
+      if (btn) btn.setAttribute('aria-label', `切換字級大小，目前 ${px}px`);
+    }
+
+    function initFontControl() {
+      // 嘗試讀取先前記憶的字級，否則使用預設 24px
+      let saved = null;
+      try {
+        const raw = localStorage.getItem('jacob12sons.fontSize');
+        saved = raw ? parseInt(raw, 10) : null;
+      } catch (e) { /* localStorage 不可用時忽略 */ }
+
+      const px = (saved !== null && FONT_SIZES.includes(saved)) ? saved : 24;
+      fontIndex = FONT_SIZES.indexOf(px);
+      setBaseFont(px);
+
+      document.getElementById('fontSizeBtn').addEventListener('click', () => {
+        fontIndex = (fontIndex + 1) % FONT_SIZES.length; // 22 → 24 → 26 → 22 循環
+        const next = FONT_SIZES[fontIndex];
+        setBaseFont(next);
+        try { localStorage.setItem('jacob12sons.fontSize', String(next)); } catch (e) { /* ignore */ }
+      });
+    }
+
+    // 初始化
+    document.addEventListener("DOMContentLoaded", () => {
+      initFontControl();
+      renderSonsCards();
+      setupEventListeners();
+    });
+
+    // 渲染兒子卡片 (確保所有文字皆在 22px 以上)
+    function renderSonsCards() {
+      const grid = document.getElementById('sonsGrid');
+      grid.innerHTML = '';
+
+      const filtered = sonsData.filter(son => {
+        return (currentMotherFilter === "all" || son.mother === currentMotherFilter);
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
                     <div class="col-span-full text-center py-12 bg-white rounded-2xl border-2 border-dashed border-parchment-300">
                         <p class="senior-title font-bold text-gray-700 mb-2">沒有找到符合條件的兒子</p>
                         <p class="senior-text text-gray-500">請嘗試切換生母標籤</p>
                     </div>
                 `;
-                return;
-            }
+        return;
+      }
 
-            filtered.forEach(son => {
-                const card = document.createElement('div');
-                card.className = "bg-white rounded-2xl border-2 border-parchment-300 p-5 shadow-sm hover:shadow-md hover:border-ochre-700 transition flex flex-col justify-between cursor-pointer space-y-4";
-                card.onclick = () => openSonModal(son.id);
+      filtered.forEach(son => {
+        const card = document.createElement('div');
+        card.className = "bg-white rounded-2xl border-2 border-parchment-300 p-5 shadow-sm hover:shadow-md hover:border-ochre-700 transition flex flex-col justify-between cursor-pointer space-y-4";
+        card.onclick = () => openSonModal(son.id);
 
-                card.innerHTML = `
+        card.innerHTML = `
                     <div class="space-y-3">
                         <!-- 卡片頂部：名字與生母 -->
                         <div class="flex items-center justify-between pb-2 border-b-2 border-parchment-100">
@@ -365,17 +438,17 @@
                         <span>查看完整聖經記載 ➔</span>
                     </div>
                 `;
-                grid.appendChild(card);
-            });
-        }
+        grid.appendChild(card);
+      });
+    }
 
-        // 開啟詳細資料彈出視窗 Modal (大字體 22px+)
-        function openSonModal(id) {
-            const son = sonsData.find(s => s.id === id);
-            if (!son) return;
+    // 開啟詳細資料彈出視窗 Modal (大字體 22px+)
+    function openSonModal(id) {
+      const son = sonsData.find(s => s.id === id);
+      if (!son) return;
 
-            const modalContent = document.getElementById('modalContent');
-            modalContent.innerHTML = `
+      const modalContent = document.getElementById('modalContent');
+      modalContent.innerHTML = `
                 <div class="space-y-5">
                     <!-- Modal 標頭 -->
                     <div class="flex items-center gap-3 border-b-2 border-parchment-200 pb-3 pr-10">
@@ -430,39 +503,40 @@
                 </div>
             `;
 
-            document.getElementById('sonModal').classList.remove('hidden');
-            document.body.style.overflow = 'hidden';
-        }
+      document.getElementById('sonModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
 
-        // 事件監聽
-        function setupEventListeners() {
-            // 母系篩選按鈕
-            const filterBtns = document.querySelectorAll('.filter-btn');
-            filterBtns.forEach(btn => {
-                btn.addEventListener('click', () => {
-                    filterBtns.forEach(b => {
-                        b.classList.remove('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
-                        b.classList.add('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
-                    });
-                    btn.classList.add('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
-                    btn.classList.remove('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
+    // 事件監聽
+    function setupEventListeners() {
+      // 母系篩選按鈕
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
+            b.classList.add('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
+          });
+          btn.classList.add('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
+          btn.classList.remove('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
 
-                    currentMotherFilter = btn.getAttribute('data-mother');
-                    renderSonsCards();
-                });
-            });
+          currentMotherFilter = btn.getAttribute('data-mother');
+          renderSonsCards();
+        });
+      });
 
-            // 關閉 Modal
-            document.getElementById('closeModal').addEventListener('click', closeModal);
-            document.getElementById('sonModal').addEventListener('click', (e) => {
-                if (e.target.id === 'sonModal') closeModal();
-            });
-        }
+      // 關閉 Modal
+      document.getElementById('closeModal').addEventListener('click', closeModal);
+      document.getElementById('sonModal').addEventListener('click', (e) => {
+        if (e.target.id === 'sonModal') closeModal();
+      });
+    }
 
-        function closeModal() {
-            document.getElementById('sonModal').classList.add('hidden');
-            document.body.style.overflow = '';
-        }
-    </script>
+    function closeModal() {
+      document.getElementById('sonModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+  </script>
 </body>
+
 </html>
