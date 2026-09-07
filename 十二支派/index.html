@@ -63,6 +63,35 @@
       line-height: 1.5 !important;
     }
 
+    /* 名字快速定位錨點：捲動時預留固定頁首高度，避免卡片被遮住 */
+    .son-card {
+      scroll-margin-top: 130px;
+    }
+
+    /* 名字定位時的高亮閃爍提示 */
+    @keyframes highlightFlash {
+      0%, 100% {
+        box-shadow: 0 0 0 0 rgba(194, 65, 12, 0);
+      }
+      25%, 70% {
+        box-shadow: 0 0 0 8px rgba(194, 65, 12, 0.45);
+      }
+    }
+    .highlight-flash {
+      border-color: #c2410c !important;
+      animation: highlightFlash 1.3s ease-in-out 2;
+    }
+
+    /* 回到頂部按鈕：預設隱藏，捲動後顯示 */
+    #backToTop {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    #backToTop.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
     /* 客製化捲軸 */
     ::-webkit-scrollbar {
       width: 8px;
@@ -158,6 +187,14 @@
             (2)</button>
         </div>
       </div>
+
+      <!-- 依名字快速定位列表（點擊平滑捲動到對應卡片並高亮） -->
+      <div>
+        <span class="block font-bold text-gray-800 text-xl mb-2">🔎 依名字快速定位：</span>
+        <div class="flex flex-wrap gap-2.5" id="nameNav">
+          <!-- 由 JS 動態注入 12 位兒子的名字按鈕 -->
+        </div>
+      </div>
     </section>
 
     <!-- 卡片展示區域 (大字體 22px+) -->
@@ -180,6 +217,14 @@
       <div id="modalContent" class="space-y-4">
         <!-- 動態注入詳細資料 -->
       </div>
+
+      <!-- 完整紀錄底部：返回按鈕 -->
+      <div class="pt-5 mt-5 border-t-2 border-parchment-200">
+        <button id="backFromModal" type="button"
+          class="w-full min-h-[56px] rounded-xl border-2 border-ochre-800 bg-ochre-800 text-white text-2xl font-bold shadow-sm transition hover:bg-ochre-700 active:scale-95 flex items-center justify-center gap-2">
+          <span>⬅</span> 返回
+        </button>
+      </div>
     </div>
   </div>
 
@@ -188,6 +233,14 @@
     class="max-w-4xl mx-auto px-4 text-center senior-text text-gray-600 border-t-2 border-parchment-200 pt-6 mt-8">
     <p>以色列十二支派源流・雅各十二子互動檔案庫</p>
   </footer>
+
+  <!-- 回到頂部按鈕（捲動頁面時固定顯示於右下角，點擊平滑回到頂部） -->
+  <button id="backToTop" type="button"
+    title="回到頂部"
+    aria-label="回到頂部"
+    class="fixed bottom-6 right-5 z-40 w-14 h-14 sm:w-16 sm:h-16 rounded-full border-2 border-ochre-800 bg-ochre-800 text-white text-2xl sm:text-3xl font-black shadow-lg hover:bg-ochre-700 active:scale-95 flex items-center justify-center opacity-0 pointer-events-none translate-y-3">
+    <span aria-hidden="true">↑</span>
+  </button>
 
   <!-- JavaScript 邏輯與資料 -->
   <script>
@@ -374,10 +427,29 @@
       });
     }
 
+    // ---- 回到頂部按鈕 ----
+    function initBackToTop() {
+      const btn = document.getElementById('backToTop');
+      if (!btn) return;
+
+      // 捲動超過 400px 才顯示
+      const onScroll = () => {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      btn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    }
+
     // 初始化
     document.addEventListener("DOMContentLoaded", () => {
       initFontControl();
       renderSonsCards();
+      renderNameNav();
+      initBackToTop();
       setupEventListeners();
     });
 
@@ -402,7 +474,8 @@
 
       filtered.forEach(son => {
         const card = document.createElement('div');
-        card.className = "bg-white rounded-2xl border-2 border-parchment-300 p-5 shadow-sm hover:shadow-md hover:border-ochre-700 transition flex flex-col justify-between cursor-pointer space-y-4";
+        card.id = 'son-card-' + son.id;
+        card.className = "son-card bg-white rounded-2xl border-2 border-parchment-300 p-5 shadow-sm hover:shadow-md hover:border-ochre-700 transition flex flex-col justify-between cursor-pointer space-y-4";
         card.onclick = () => openSonModal(son.id);
 
         card.innerHTML = `
@@ -507,26 +580,68 @@
       document.body.style.overflow = 'hidden';
     }
 
+    // ---- 名字快速定位：點名字平滑捲動到對應卡片並高亮 ----
+    // 統一處理「依生母篩選」：同步按鈕外觀並重新渲染卡片
+    function applyMotherFilter(mother) {
+      document.querySelectorAll('.filter-btn').forEach(b => {
+        b.classList.remove('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
+        b.classList.add('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
+      });
+      const active = document.querySelector(`.filter-btn[data-mother="${CSS.escape(mother)}"]`);
+      if (active) {
+        active.classList.add('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
+        active.classList.remove('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
+      }
+      currentMotherFilter = mother;
+      renderSonsCards();
+    }
+
+    // 於篩選區生成 12 位兒子的名字按鈕
+    function renderNameNav() {
+      const nav = document.getElementById('nameNav');
+      if (!nav) return;
+      nav.innerHTML = '';
+      sonsData.forEach(son => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.dataset.id = son.id;
+        btn.setAttribute('aria-label', `定位到${son.name}的內容`);
+        btn.className = "name-nav-btn min-h-[48px] px-4 py-2 rounded-xl text-xl font-bold transition border-2 border-parchment-300 bg-parchment-100 text-gray-800 hover:bg-ochre-800 hover:text-white active:scale-95";
+        btn.textContent = son.name;
+        btn.addEventListener('click', () => jumpToSon(son.id));
+        nav.appendChild(btn);
+      });
+    }
+
+    // 依名字定位：先確保卡片顯示（切回「全部」），再平滑捲動並短暫高亮
+    function jumpToSon(id) {
+      if (currentMotherFilter !== 'all') applyMotherFilter('all');
+
+      const target = document.getElementById('son-card-' + id);
+      if (!target) return;
+
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // 重啟高亮動畫（連續點擊不同名字也能重新閃爍）
+      target.classList.remove('highlight-flash');
+      void target.offsetWidth;
+      target.classList.add('highlight-flash');
+      clearTimeout(target._flashTimer);
+      target._flashTimer = setTimeout(() => target.classList.remove('highlight-flash'), 2600);
+    }
+
     // 事件監聽
     function setupEventListeners() {
       // 母系篩選按鈕
-      const filterBtns = document.querySelectorAll('.filter-btn');
-      filterBtns.forEach(btn => {
+      document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          filterBtns.forEach(b => {
-            b.classList.remove('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
-            b.classList.add('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
-          });
-          btn.classList.add('active', 'bg-ochre-800', 'text-white', 'border-ochre-800');
-          btn.classList.remove('bg-parchment-100', 'text-gray-800', 'border-parchment-300');
-
-          currentMotherFilter = btn.getAttribute('data-mother');
-          renderSonsCards();
+          applyMotherFilter(btn.getAttribute('data-mother'));
         });
       });
 
       // 關閉 Modal
       document.getElementById('closeModal').addEventListener('click', closeModal);
+      document.getElementById('backFromModal').addEventListener('click', closeModal);
       document.getElementById('sonModal').addEventListener('click', (e) => {
         if (e.target.id === 'sonModal') closeModal();
       });
