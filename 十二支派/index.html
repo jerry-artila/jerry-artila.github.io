@@ -33,9 +33,9 @@
   </script>
   <style>
     /* 專為長輩與手機端設計之大字體與高對比規範 */
-    /* 主字級以 CSS 變數控制：預設 24px，可經由「字級放大」按鈕於 22/24/26px 間循環切換 */
+    /* 主字級以 CSS 變數控制：預設 26px，可經由「字級放大」按鈕於 22/24/26px 間循環切換 */
     :root {
-      --senior-base: 24px;
+      --senior-base: 26px;
     }
 
     body {
@@ -105,15 +105,15 @@
           <h1 class="font-extrabold text-xl min-[400px]:text-2xl sm:text-3xl text-ochre-900 leading-tight">雅各十二子互動檔案庫</h1>
         </div>
 
-        <!-- 字級放大切換按鈕（22 / 24 / 26px 循環，預設 24px） -->
+        <!-- 字級放大切換按鈕（22 / 24 / 26px 循環，預設 26px） -->
         <button id="fontSizeBtn" type="button"
           title="點擊放大字級（22 / 24 / 26px 循環切換）"
-          aria-label="切換字級大小，目前 24px"
+          aria-label="切換字級大小，目前 26px"
           class="shrink-0 flex items-center gap-2 min-h-[48px] px-3 rounded-xl border-2 border-ochre-800 bg-white text-ochre-900 shadow-sm transition hover:bg-ochre-800 hover:text-white active:scale-95">
           <span class="text-2xl font-black leading-none">Ａ</span>
           <span class="flex flex-col items-start leading-none text-left">
             <span class="text-[11px] font-bold leading-none opacity-80">字級</span>
-            <span id="fontSizeLabel" class="text-lg font-black leading-none tabular-nums">24</span>
+            <span id="fontSizeLabel" class="text-lg font-black leading-none tabular-nums">26</span>
           </span>
         </button>
       </div>
@@ -341,9 +341,9 @@
 
     let currentMotherFilter = "all";
 
-    // ---- 字級控制：22 / 24 / 26px 循環切換，預設 24px ----
+    // ---- 字級控制：22 / 24 / 26px 循環切換，預設 26px ----
     const FONT_SIZES = [22, 24, 26];
-    let fontIndex = 1; // 預設指向 24px
+    let fontIndex = 2; // 預設指向 26px
 
     function setBaseFont(px) {
       // 透過 CSS 變數讓全文（body / senior-text / senior-title / senior-subtitle）等比放大
@@ -355,14 +355,14 @@
     }
 
     function initFontControl() {
-      // 嘗試讀取先前記憶的字級，否則使用預設 24px
+      // 嘗試讀取先前記憶的字級，否則使用預設 26px
       let saved = null;
       try {
         const raw = localStorage.getItem('jacob12sons.fontSize');
         saved = raw ? parseInt(raw, 10) : null;
       } catch (e) { /* localStorage 不可用時忽略 */ }
 
-      const px = (saved !== null && FONT_SIZES.includes(saved)) ? saved : 24;
+      const px = (saved !== null && FONT_SIZES.includes(saved)) ? saved : 26;
       fontIndex = FONT_SIZES.indexOf(px);
       setBaseFont(px);
 
