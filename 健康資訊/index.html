@@ -3,49 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作 - 健康資訊</title>
+  <title>健康資訊專欄 - 最新健康養生文章彙總</title>
   <style>
     /* CSS 變數定義：字級三級控制與銀髮友善色系 */
     :root {
       --bg-color: #faf8f5;        /* 柔和護眼米紙白背景，防止刺眼眩光 */
-      --card-bg: #ffffff;         /* 閱讀區塊白色 */
+      --card-bg: #ffffff;         /* 卡片背景白 */
       --text-main: #222222;       /* 高對比主文字，極易辨識 */
       --text-muted: #555555;      /* 次要資訊文字 */
       --border-color: #e2ded7;    /* 樸素溫和分隔線 */
-      --primary-color: #2b5c46;   /* 穩重森林綠（健康感、不花俏） */
+      --primary-color: #2b5c46;   /* 穩重草木綠（健康感、不花俏） */
       --primary-hover: #1f4232;
-      --highlight-bg: #f2f7f4;    /* 重點提示底色 */
-      --highlight-border: #8ab89f;
+      --highlight-bg: #f2f7f4;    /* 重點底色 */
+      --badge-bg: #eaf1ed;        /* 分類標籤底色 */
       --drawer-bg: #ffffff;
       --overlay-bg: rgba(0, 0, 0, 0.45);
       
       /* 預設字級（標準 1 級） */
       --base-font-size: 20px;
-      --title-font-size: 28px;
-      --h2-font-size: 23px;
-      --h3-font-size: 21px;
-      --meta-font-size: 17px;
-      --line-height: 1.8;
+      --title-font-size: 26px;
+      --card-title-size: 22px;
+      --meta-font-size: 16px;
+      --line-height: 1.75;
     }
 
     /* 字級第 2 級：大 */
     body.font-large {
       --base-font-size: 24px;
-      --title-font-size: 33px;
-      --h2-font-size: 27px;
-      --h3-font-size: 25px;
-      --meta-font-size: 20px;
-      --line-height: 1.85;
+      --title-font-size: 31px;
+      --card-title-size: 26px;
+      --meta-font-size: 19px;
+      --line-height: 1.8;
     }
 
     /* 字級第 3 級：特大 */
     body.font-xlarge {
       --base-font-size: 28px;
-      --title-font-size: 38px;
-      --h2-font-size: 32px;
-      --h3-font-size: 29px;
-      --meta-font-size: 23px;
-      --line-height: 1.9;
+      --title-font-size: 36px;
+      --card-title-size: 30px;
+      --meta-font-size: 22px;
+      --line-height: 1.85;
     }
 
     * {
@@ -261,138 +258,161 @@
       border-left: 4px solid var(--primary-color);
     }
 
-    .drawer-item.disabled {
-      padding: 12px 12px;
-      font-size: 16px;
-      color: #888888;
-      background-color: #fbf9f6;
-      border-radius: 8px;
-      margin-top: 8px;
-      line-height: 1.5;
-    }
-
-    /* 主要文章容器 */
-    main.article-container {
+    /* 主頁面內容區 */
+    main.container {
       max-width: 800px;
       margin: 20px auto 60px auto;
       padding: 0 16px;
     }
 
-    article.content-card {
-      background-color: var(--card-bg);
+    /* 專欄首頁介紹橫幅 */
+    .hero-banner {
+      background-color: #ffffff;
       border: 1px solid var(--border-color);
       border-radius: 12px;
-      padding: 24px 20px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      padding: 22px 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
     }
 
-    /* 文章標題 */
-    h1.article-title {
+    .hero-title {
       font-size: var(--title-font-size);
       font-weight: 800;
-      color: #111111;
-      line-height: 1.4;
-      margin-bottom: 16px;
-      letter-spacing: 0.02em;
+      color: var(--primary-color);
+      margin-bottom: 10px;
     }
 
-    /* 元資訊欄 */
-    .article-meta {
-      background-color: #f7f5f0;
-      border-left: 4px solid #a39e93;
-      padding: 14px 16px;
-      border-radius: 4px;
-      font-size: var(--meta-font-size);
+    .hero-desc {
+      font-size: var(--base-font-size);
       color: var(--text-muted);
-      margin-bottom: 22px;
       line-height: 1.6;
     }
 
-    .article-meta div {
-      margin-bottom: 6px;
-    }
-
-    .article-meta div:last-child {
-      margin-bottom: 0;
-    }
-
-    .article-meta a {
-      color: var(--primary-color);
-      text-decoration: underline;
-    }
-
-    /* 核心結論重點框 */
-    .summary-box {
-      background-color: var(--highlight-bg);
-      border: 2px solid var(--highlight-border);
-      border-radius: 10px;
-      padding: 18px;
-      margin-bottom: 26px;
-    }
-
-    .summary-box-title {
-      font-weight: bold;
-      color: var(--primary-color);
-      font-size: calc(var(--base-font-size) * 1.05);
-      margin-bottom: 8px;
+    /* 文章摘要卡片列表 */
+    .section-header {
       display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      padding: 0 4px;
     }
 
-    .summary-box p {
-      margin: 0;
-    }
-
-    /* 章節標題 */
-    h2.section-title {
-      font-size: var(--h2-font-size);
-      font-weight: 700;
-      color: var(--primary-color);
-      margin-top: 30px;
-      margin-bottom: 14px;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #ede8e1;
+    .section-title {
+      font-size: calc(var(--title-font-size) * 0.9);
+      font-weight: bold;
+      color: var(--text-main);
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    p {
-      margin-bottom: 16px;
+    .article-cards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
     }
 
-    ul, ol {
-      margin-left: 24px;
-      margin-bottom: 18px;
+    /* 單一文章摘要卡片元件 */
+    .article-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
     }
 
-    li {
-      margin-bottom: 10px;
-      padding-left: 4px;
+    .article-card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
     }
 
-    li strong {
-      color: #111111;
+    .card-meta-top {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: var(--meta-font-size);
+      color: var(--text-muted);
     }
 
-    /* 重點突顯樣式 */
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      background-color: #eaf1ed;
+    .card-tag {
+      background-color: var(--badge-bg);
       color: var(--primary-color);
       font-weight: bold;
-      border-radius: 4px;
-      margin-right: 4px;
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: var(--meta-font-size);
+      letter-spacing: 0.02em;
     }
 
-    .caution-note {
-      background-color: #fff9ee;
-      border-left: 4px solid #f0b429;
-      padding: 12px 16px;
-      border-radius: 4px;
-      margin: 16px 0;
+    .card-tag.upcoming {
+      background-color: #f3f0ea;
+      color: #777777;
+    }
+
+    .card-title {
+      font-size: var(--card-title-size);
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .card-title a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .card-title a:hover {
+      color: var(--primary-color);
+    }
+
+    .card-summary {
+      font-size: var(--base-font-size);
+      color: #444444;
+      line-height: 1.7;
+    }
+
+    .card-action {
+      margin-top: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    /* 閱讀按鈕：加大觸控面積 */
+    .read-more-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-height: 48px;
+      padding: 0 20px;
+      background-color: var(--primary-color);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: var(--base-font-size);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(43, 92, 70, 0.2);
+    }
+
+    .read-more-btn:active {
+      background-color: var(--primary-hover);
+    }
+
+    .card-action .pending-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 0 14px;
+      background-color: #f3f0ea;
+      color: #777777;
+      font-size: var(--meta-font-size);
+      border-radius: 6px;
     }
 
     /* 頁尾 */
@@ -433,21 +453,21 @@
         padding: 8px 12px;
       }
       .brand-title {
-        display: none; /* 手機寬度窄時讓位給字體控制器 */
+        display: none;
       }
-      article.content-card {
-        padding: 18px 14px;
-        border-radius: 8px;
+      .article-card {
+        padding: 16px 14px;
+        border-radius: 10px;
       }
-      ul, ol {
-        margin-left: 20px;
+      .read-more-btn {
+        width: 100%;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- 頂部固定工具列 -->
+  <!-- 頂部固定導覽列 -->
   <header class="top-bar">
     <div class="top-bar-inner">
       <button id="openDrawerBtn" class="menu-toggle-btn" aria-label="開啟選單">
@@ -476,7 +496,7 @@
     <nav class="drawer-nav">
       <div class="nav-group-title">導覽索引</div>
       <ul class="drawer-list">
-        <li class="drawer-item">
+        <li class="drawer-item current">
           <a href="index.html">
             <span>🏠 專欄首頁（最新文章）</span>
           </a>
@@ -485,7 +505,7 @@
 
       <div class="nav-group-title" style="margin-top: 18px;">健康專題文章</div>
       <ul class="drawer-list">
-        <li class="drawer-item current">
+        <li class="drawer-item">
           <a href="預防失智-認真咀嚼.html">
             <span>🧠 預防失智：認真咀嚼</span>
           </a>
@@ -498,105 +518,53 @@
     </nav>
   </aside>
 
-  <!-- 主要文章內容 -->
-  <main class="article-container">
-    <article class="content-card">
-      <h1 class="article-title">不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作</h1>
+  <!-- 主頁面容器 -->
+  <main class="container">
+    <!-- 介紹區塊 -->
+    <section class="hero-banner">
+      <h1 class="hero-title">🌿 樂齡健康資訊專欄</h1>
+      <p class="hero-desc">專為長輩打造的無負擔閱讀空間。嚴選權威醫學資訊，去蕪存菁，以清晰大字與結構化圖文呈現，守護您與家人的健康活力。</p>
+    </section>
 
-      <!-- 文章基本資訊 -->
-      <div class="article-meta">
-        <div><strong>出處來源：</strong><a href="https://health.tvbs.com.tw/regimen/360291" target="_blank" rel="noopener noreferrer">TVBS 健康2.0</a></div>
-        <div><strong>受訪名醫：</strong>洛桑加參 醫師（身心靈預防醫學醫師）</div>
-        <div><strong>更新時間：</strong>2026/07/17（初版：2026/01/12）</div>
+    <!-- 文章摘要列表（上限顯示最近 10 篇） -->
+    <section>
+      <div class="section-header">
+        <h2 class="section-title">📌 最新收錄文章</h2>
       </div>
 
-      <!-- 核心結論提要 -->
-      <div class="summary-box">
-        <div class="summary-box-title">💡 核心重點摘要</div>
-        <p><strong>「好好吃飯、認真咀嚼」</strong>是被多數人忽視的最強大腦與肌肉鍛鍊！每天進餐時多咬幾下，能大幅促進大腦血液與氧氣供應、活化記憶迴路，研究證實可使<strong>失智風險降低將近 50%</strong>。</p>
+      <div class="article-cards-list">
+
+        <!-- 第 1 篇：預防失智-認真咀嚼 (已發布) -->
+        <article class="article-card">
+          <div class="card-meta-top">
+            <span class="card-tag">🧠 大腦保健</span>
+            <span>2026/07/17 · TVBS 健康2.0</span>
+          </div>
+          <h3 class="card-title">
+            <a href="預防失智-認真咀嚼.html">不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作</a>
+          </h3>
+          <p class="card-summary">
+            「好好吃飯、認真咀嚼」是被多數人忽視的最強大腦與肌肉鍛鍊！每天用餐時細細咀嚼，能促使海馬迴釋放 θ 波、帶動大腦充血含氧，醫學證實可降低近 50% 失智風險，更能防範高齡吸入性肺炎。
+          </p>
+          <div class="card-action">
+            <a href="預防失智-認真咀嚼.html" class="read-more-btn" aria-label="閱讀完整文章：預防失智認真咀嚼">
+              閱讀全文 ➔
+            </a>
+          </div>
+        </article>
+
+        <!-- 陸續更新中提醒 -->
+        <div class="article-card" style="background-color: #fbf9f6; border-style: dashed; text-align: center; padding: 28px 16px;">
+          <div style="font-size: 20px; font-weight: bold; color: var(--primary-color); margin-bottom: 8px;">
+            🌱 更多健康資訊
+          </div>
+          <p style="margin: 0; color: var(--text-muted); font-size: var(--base-font-size);">
+            陸續更新中
+          </p>
+        </div>
+
       </div>
-
-      <!-- 第一章節 -->
-      <h2 class="section-title">📌 一、餐桌上的肌肉鍛鍊：咀嚼肌與吞嚥肌</h2>
-      <ol>
-        <li>
-          <strong>鍛鍊的重要部位：</strong>
-          <ul>
-            <li><strong>咀嚼肌：</strong>負責咬合用力的咬肌、顳肌，以及雙頰與嘴唇周圍的肌群。</li>
-            <li><strong>吞嚥肌：</strong>協同運作的舌頭與喉頭深層肌群。</li>
-          </ul>
-        </li>
-        <li>
-          <strong>帶來的健康效益：</strong>
-          <ul>
-            <li><strong>防範致命嗆咳：</strong>鍛鍊吞嚥力量，大幅降低高齡長輩最擔憂的<strong>「吸入性肺炎」</strong>致命風險。</li>
-            <li><strong>天然臉部拉提：</strong>咀嚼如同臉部的阻力重訓，能有效預防臉部肌少症與下垂鬆弛，維持俐落面容。</li>
-            <li><strong>減輕腸胃負擔：</strong>充分細嚼能讓食物徹底磨碎，大幅提升腸胃營養吸收率並避免消化不良。</li>
-          </ul>
-        </li>
-      </ol>
-
-      <!-- 第二章節 -->
-      <h2 class="section-title">🧠 二、降低近 50% 失智風險的科學機轉</h2>
-      <ul>
-        <li>
-          <strong>誘發海馬迴 θ 波（Theta 波）：</strong><br>
-          醫學研究指出，咀嚼時下顎的規律運動能直接刺激大腦海馬迴釋放 θ 波，這是啟動學習與鞏固長期記憶的關鍵訊號。
-        </li>
-        <li>
-          <strong>如同大腦泵浦，腦血流與供氧激增：</strong><br>
-          口腔與大腦距離極近，咀嚼肌規律收縮能帶動大腦認知區域的血流循環，輸送豐富的氧氣與葡萄糖養分。
-        </li>
-        <li>
-          <strong>能咬能嚼者，失智風險降一半：</strong><br>
-          長期調查顯示，保持良好咀嚼功能的老年人，相較咀嚼退化者，<strong>失智發生率降低了近 50%</strong>。
-        </li>
-      </ul>
-
-      <div class="caution-note">
-        <strong>⚠️ 警訊：切忌「吃軟不吃硬」</strong><br>
-        若因牙口微恙就長期依賴稀飯、麵糊等軟爛食物，大腦會因缺乏咬合神經刺激而加速萎縮與認知退化。維持咀嚼習慣才是保腦良方。
-      </div>
-
-      <!-- 第三章節 -->
-      <h2 class="section-title">⚡ 三、提升專注力與舒緩壓力</h2>
-      <ul>
-        <li>
-          <strong>驅散腦霧、提振精神：</strong><br>
-          咀嚼動作會刺激腦幹的「網狀激活系統（RAS）」，迅速提振精神、消除午後昏沉與疲勞。
-        </li>
-        <li>
-          <strong>反應力與專注度倍增：</strong><br>
-          英國諾桑比亞大學實驗發現，有咀嚼習慣的測試者在反應敏捷度與目標專注度測驗中，均明顯超越未咀嚼組。
-        </li>
-        <li>
-          <strong>天然的解壓抗焦慮劑：</strong><br>
-          規律咀嚼能促進快樂荷爾蒙<strong>多巴胺</strong>的分泌，同時顯著降低壓力荷爾蒙<strong>皮質醇</strong>，讓身心平穩安祥。
-        </li>
-      </ul>
-
-      <!-- 第四章節 -->
-      <h2 class="section-title">🥗 四、推薦耐嚼的天然原型食材</h2>
-      <p>挑選原則為<strong>「需要稍微出力咬、但不會損害牙齒」</strong>的天然食材：</p>
-      <ul>
-        <li><strong>優質堅果類：</strong>核桃、腰果、南瓜子、杏仁（適量食用補充好油脂）。</li>
-        <li><strong>高纖脆口水果：</strong>芭樂、蘋果、水梨（洗淨帶皮細嚼更佳）。</li>
-        <li><strong>未精緻全穀雜糧：</strong>糙米、燕麥、黑米粗糧（取代過於精緻的純白米麵）。</li>
-      </ul>
-
-      <!-- 第五章節 -->
-      <h2 class="section-title">💡 五、洛桑加參名醫的 2 招日常養生法</h2>
-      <ol>
-        <li>
-          <strong>左右兩側輪流咀嚼：</strong><br>
-          習慣單邊咬東西會導致臉型不對稱，且只刺激單側大腦。進食時應有意識地左右均勻咀嚼，讓左右大腦海馬迴都能獲得均衡活化。
-        </li>
-        <li>
-          <strong>實踐「正念進食」心法：</strong><br>
-          用餐時暫時放下手機與電視遙控器，專注看著眼前的餐點，帶著感謝的心情細嚼慢嚥每一口，讓每頓飯都成為滋養身心的大腦保養療程。
-        </li>
-      </ol>
-    </article>
+    </section>
   </main>
 
   <!-- 浮動置頂按鈕 -->
@@ -605,10 +573,10 @@
   <!-- 頁尾宣告 -->
   <footer class="site-footer">
     <p>健康資訊專欄 · 銀髮友善閱讀版</p>
-    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">建議每口食物咀嚼 20～30 次，守護大腦與吞嚥健康</p>
+    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">關注健康生活，定期更新實用醫學養生新知</p>
   </footer>
 
-  <!-- 互動腳本：字體三級調整、漢堡抽屜選單、置頂滾動 -->
+  <!-- 互動腳本：三級字體、漢堡選單、回到頂部 -->
   <script>
     (function() {
       // 1. 字體大小控制（三級切換 + LocalStorage 記憶）
@@ -645,7 +613,6 @@
       fontBtns.large.addEventListener('click', () => setFontSize('large'));
       fontBtns.xlarge.addEventListener('click', () => setFontSize('xlarge'));
 
-      // 載入預設或已保存之字級
       const savedLevel = localStorage.getItem(STORAGE_KEY) || 'normal';
       setFontSize(savedLevel);
 
@@ -671,7 +638,6 @@
       closeDrawerBtn.addEventListener('click', closeDrawer);
       drawerOverlay.addEventListener('click', closeDrawer);
 
-      // 按 Esc 鍵可關閉選單
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && drawer.classList.contains('active')) {
           closeDrawer();
