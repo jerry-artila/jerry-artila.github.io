@@ -561,8 +561,8 @@ def render_daily_html(data: dict, day_name: str) -> str:
         <!-- Title & Meta Header -->
         <div class="title-card">
           <div class="title-meta">
-            <span class="badge">{day_name}</span>
             <span class="date-text">{week_str}</span>
+            <span class="badge">{day_name}</span>
           </div>
           <h2 class="main-title">
             {main_title}
