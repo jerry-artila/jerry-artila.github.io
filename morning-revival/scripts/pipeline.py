@@ -254,23 +254,24 @@ def parse_morning_revival_data(lines: list) -> dict:
 # ==============================================================================
 # 3. HTML 頁面生成器 (Page Renderer)
 # ==============================================================================
-def render_header(title: str, active_page: str) -> str:
-    return f"""  <!-- Header -->
+def render_header(title: str = "晨興聖言") -> str:
+    return f"""  <!-- Header / Navigation Bar -->
   <header class="app-header">
     <div class="header-container">
-      <div class="header-left">
-        <button id="mobile-toc-toggle" class="btn-icon mobile-only" aria-label="打開導覽選單">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
-        </button>
-        <h1 class="app-title">{title}</h1>
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>{title}</h1>
       </div>
 
-      <div class="header-actions">
-        <button id="font-size-btn" class="btn-control" title="調整字級大小 (22px ➔ 24px ➔ 26px)">
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
           <span class="btn-icon-text">A+</span>
           <span id="font-size-label">22px</span>
         </button>
@@ -373,11 +374,11 @@ def render_index_html(data: dict) -> str:
   <title>{week_str} • 首頁 (經文) | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-light">
-{render_header("晨興聖言", "index.html")}
+<body class="font-22px theme-light">
+{render_header("晨興聖言")}
 
   <!-- Main Container -->
   <div class="layout-container">
@@ -463,11 +464,11 @@ def render_outline_html(data: dict) -> str:
   <title>{week_str} • 綱目 | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-light">
-{render_header("晨興聖言", "綱目.html")}
+<body class="font-22px theme-light">
+{render_header("晨興聖言")}
 
   <!-- Main Container -->
   <div class="layout-container">
@@ -544,11 +545,11 @@ def render_daily_html(data: dict, day_name: str) -> str:
   <title>{week_str} • {day_name} | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="theme-light">
-{render_header("晨興聖言", f"{day_name}.html")}
+<body class="font-22px theme-light">
+{render_header("晨興聖言")}
 
   <!-- Main Container -->
   <div class="layout-container">
