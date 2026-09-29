@@ -6,27 +6,26 @@
   <title>第十週 • 週三 | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-22px theme-light">
-  <!-- Header / Navigation Bar -->
+<body class="theme-light">
+  <!-- Header -->
   <header class="app-header">
     <div class="header-container">
-      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="header-title">
-        <h1>晨興聖言</h1>
+      <div class="header-left">
+        <button id="mobile-toc-toggle" class="btn-icon mobile-only" aria-label="打開導覽選單">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <h1 class="app-title">晨興聖言</h1>
       </div>
 
-      <div class="header-controls">
-        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+      <div class="header-actions">
+        <button id="font-size-btn" class="btn-control" title="調整字級大小 (22px ➔ 24px ➔ 26px)">
           <span class="btn-icon-text">A+</span>
           <span id="font-size-label">22px</span>
         </button>
@@ -61,7 +60,7 @@
       </div>
       <nav id="toc-nav" class="toc-nav">
         <ul>
-          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
           <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
           <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
           <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
@@ -112,7 +111,7 @@
           <!-- Nourishment Body Text -->
           <div id="nourishment-text" class="reading-body">
             <p class="content-paragraph">
-              當我們被模成基督的死，我們就經歷祂成就一切的死。首先，我們若與基督同死，就要保守自己的魂生命歸入永遠的生命（約十二25）。其次，我們若願意模成基督的死，我們將會勝過世界並擊敗撒但（31，來二14）。第三，藉着模成基督的死，我們就在祂的死裏經歷祂，使生命得以釋放、分賜並繁增（約十二24~26，林後四12）。我們需要模成基督的死，好使我們裏面神聖的生命得着釋放，並分授到別人裏面，使神聖的生命繁增。第四，當我們模成基督的死，我們裏面神聖的生命自然而然會得着釋放，父神這生命的源頭就得着榮耀。因此，我們越模成基督的死，就越榮耀父（約十二28，十三31）。…第五，藉着基督在十字架上的死，人被吸引歸向基督（十二32）。真實的吸引是在於祂的死。當我們經歷基督的死，並且模成祂的死，我們就成為吸引人歸向基督的磁石。…這種吸引來自生命的釋放；這是釘十字架的生命，同其吸引的能力（新約總論第十二冊，三六至三七頁）。
+              當我們被模成基督的死，我們就經歷祂成就一切的死。首先，我們若與基督同死，就要保守自己的魂生命歸入永遠的生命（約十二25）。其次，我們若願意模成基督的死，我們將會勝過世界並擊敗撒但（31，來二14）。第三，藉着模成基督的死，我們就在祂的死裏經歷祂，使生命得以釋放、分賜並繁增（約十二24~26，林後四12）。我們需要模成基督的死，好使我們裏面神聖的生命得着釋放，並分授到別人裏面，使神聖的生命繁增。第四，當我們模成基督的死，我們裏面神聖的生命自然而然會得着釋放，父神這生命的源頭就得着榮耀。因此，我們越模成基督的死，就越榮耀父（約十二28，十三31）。…第五，藉着基督在十字架上的死，人被吸引歸向基督（十二32）。真實的吸引是在於祂的死。當我們經歷基督的死，並且模成祂的死，我們就成為吸引人歸向基督的磁石。…這種吸引來自生命的釋放；這是釘十字架的生命，同其吸引的能力。
             </p>
           </div>
         </section>
@@ -128,14 +127,14 @@
             <div id="read-1">
               <h4 class="reading-sub-heading">經歷成就一切的死，對付消極的事</h4>
               <p class="content-paragraph">
-                我們要模成基督的死，就必須背十字架，接受舊人釘十字架的事實，把肉體連肉體的邪情私欲釘十字架，治死身體的行為，否認己，喪失魂，並且經歷與基督同死，脫離世上的蒙學。這裏有六件消極的事需要對付：舊人、罪的身體、肉體連肉體的邪情私欲、身體的行為、己和魂（天然生命）。…在基督之死的模型裏，找不着這六件事的痕迹。事實上，模成基督的死就是對付這六件消極的事。這些事越受對付，我們就越模成基督的死，越模成神長子的形像（真理課程三級卷三，七二頁）。
-              </p>
+              我們要模成基督的死，就必須背十字架，接受舊人釘十字架的事實，把肉體連肉體的邪情私欲釘十字架，治死身體的行為，否認己，喪失魂，並且經歷與基督同死，脫離世上的蒙學。這裏有六件消極的事需要對付：舊人、罪的身體、肉體連肉體的邪情私欲、身體的行為、己和魂（天然生命）。…在基督之死的模型裏，找不着這六件事的痕迹。事實上，模成基督的死就是對付這六件消極的事。這些事越受對付，我們就越模成基督的死，越模成神長子的形像。
+            </p>
               <p class="content-paragraph">
-                我們需要忘記關於改良行為的教訓。不要想去愛人、控制脾氣，或者想要去作好丈夫或好妻子。反之，要竭力模成基督的死。…你惟一需要作的，就是模成基督的死。…我沒有負擔幫助你們控制脾氣，或者作好妻子、好丈夫。我的負擔是要囑咐你們模成基督的死。當你想要愛某人時，要模成基督的死；當你快要發脾氣時，要模成基督的死；當你想要往某地，或要作某事時，要模成基督的死。你只要模成基督的死。不信者無法模成基督的死，因為他們沒有聖靈在他們裏面。但我們有聖靈在裏面，並且我們已經由神聖的生命所重生，我們就能模成基督的死。
-              </p>
+              我們需要忘記關於改良行為的教訓。不要想去愛人、控制脾氣，或者想要去作好丈夫或好妻子。反之，要竭力模成基督的死。…你惟一需要作的，就是模成基督的死。…我沒有負擔幫助你們控制脾氣，或者作好妻子、好丈夫。我的負擔是要囑咐你們模成基督的死。當你想要愛某人時，要模成基督的死；當你快要發脾氣時，要模成基督的死；當你想要往某地，或要作某事時，要模成基督的死。你只要模成基督的死。不信者無法模成基督的死，因為他們沒有聖靈在他們裏面。但我們有聖靈在裏面，並且我們已經由神聖的生命所重生，我們就能模成基督的死。
+            </p>
               <p class="content-paragraph">
-                我們需要看見異象，就是神的經綸不在於倫理或宗教，乃在於模成基督的死。這就是說，我們需要被埋葬，一直留在死裏以模成基督的死。…我們常常照着天然的生命生活行事，甚至在作屬靈的事或合乎聖經的事上也是如此。我們可能照着聖經行事，但作的時候卻沒有模成基督的死，反而是在天然的生命裏。要基督徒不作惡事很容易，但是要模成基督的死，不憑自己天然的生命作任何事，卻非常困難。大約五十年前，我離棄了罪惡的事，但我現在仍在學習如何模成基督的死（李常受文集一九七八年第一冊，六二二頁）。--參讀：真理課程三級卷三，第四十五課。
-              </p>
+              我們需要看見異象，就是神的經綸不在於倫理或宗教，乃在於模成基督的死。這就是說，我們需要被埋葬，一直留在死裏以模成基督的死。…我們常常照着天然的生命生活行事，甚至在作屬靈的事或合乎聖經的事上也是如此。我們可能照着聖經行事，但作的時候卻沒有模成基督的死，反而是在天然的生命裏。要基督徒不作惡事很容易，但是要模成基督的死，不憑自己天然的生命作任何事，卻非常困難。大約五十年前，我離棄了罪惡的事，但我現在仍在學習如何模成基督的死。
+            </p>
             </div>
           </div>
         </section>

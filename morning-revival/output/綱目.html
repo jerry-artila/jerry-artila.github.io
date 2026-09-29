@@ -6,27 +6,26 @@
   <title>第十週 • 綱目 | 晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-22px theme-light">
-  <!-- Header / Navigation Bar -->
+<body class="theme-light">
+  <!-- Header -->
   <header class="app-header">
     <div class="header-container">
-      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
-      <div class="header-title">
-        <h1>晨興聖言</h1>
+      <div class="header-left">
+        <button id="mobile-toc-toggle" class="btn-icon mobile-only" aria-label="打開導覽選單">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <h1 class="app-title">晨興聖言</h1>
       </div>
 
-      <div class="header-controls">
-        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+      <div class="header-actions">
+        <button id="font-size-btn" class="btn-control" title="調整字級大小 (22px ➔ 24px ➔ 26px)">
           <span class="btn-icon-text">A+</span>
           <span id="font-size-label">22px</span>
         </button>
@@ -61,7 +60,7 @@
       </div>
       <nav id="toc-nav" class="toc-nav">
         <ul>
-          <li><a href="index.html" class="toc-link level-1">🏠 首頁</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
           <li><a href="綱目.html" class="toc-link level-1 active">📋 綱目</a></li>
           <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
           <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
@@ -75,12 +74,13 @@
 
     <div id="toc-overlay" class="toc-overlay"></div>
 
+    <!-- Main Content Area -->
     <main class="main-content">
       <article class="outline-article">
         <!-- Title Card -->
         <div class="title-card">
           <div class="title-meta">
-            <span class="badge">第十週 總綱</span>
+            <span class="badge">第十週 綱目</span>
           </div>
           <h2 class="main-title">
             模成基督的死與達到傑出的復活
@@ -242,6 +242,7 @@
             </div>
           </div>
         </section>
+
       </article>
 
       <footer class="app-footer">
