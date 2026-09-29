@@ -426,9 +426,16 @@ def render_outline_html(data: dict) -> str:
         for it_idx, item in enumerate(sec["items"], 1):
             sub_list_html = ""
             if item["sub_items"]:
-                lis = "\n".join([f"                    <li>{s}</li>" for s in item["sub_items"]])
+                lis = []
+                for sub_i, s in enumerate(item["sub_items"], 1):
+                    clean_s = re.sub(r"^\d+[\.、]\s*", "", s).strip()
+                    lis.append(f"""                    <li class="level-3-item">
+                      <span class="level-3-num">{sub_i}.</span>
+                      <p class="level-3-text">{clean_s}</p>
+                    </li>""")
+                lis_html = "\n".join(lis)
                 sub_list_html = f"""                  <ol class="level-3-list">
-{lis}
+{lis_html}
                   </ol>"""
 
             items_html.append(f"""            <div id="sec-{s_idx}-{it_idx}" class="item-block level-2-item">
