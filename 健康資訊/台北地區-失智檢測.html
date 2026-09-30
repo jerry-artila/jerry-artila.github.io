@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作 - 健康資訊</title>
+  <title>台北地區「高階失智檢測」醫院、記憶門診與權威醫師指南 - 健康資訊</title>
   <style>
     /* CSS 變數定義：字級三級控制與銀髮友善色系 */
     :root {
@@ -12,10 +12,11 @@
       --text-main: #222222;       /* 高對比主文字，極易辨識 */
       --text-muted: #555555;      /* 次要資訊文字 */
       --border-color: #e2ded7;    /* 樸素溫和分隔線 */
-      --primary-color: #2b5c46;   /* 穩重森林綠（健康感、不花俏） */
+      --primary-color: #2b5c46;   /* 穩重草木綠（健康感、不花俏） */
       --primary-hover: #1f4232;
       --highlight-bg: #f2f7f4;    /* 重點提示底色 */
       --highlight-border: #8ab89f;
+      --badge-bg: #eaf1ed;
       --drawer-bg: #ffffff;
       --overlay-bg: rgba(0, 0, 0, 0.45);
       
@@ -261,16 +262,6 @@
       border-left: 4px solid var(--primary-color);
     }
 
-    .drawer-item.disabled {
-      padding: 12px 12px;
-      font-size: 16px;
-      color: #888888;
-      background-color: #fbf9f6;
-      border-radius: 8px;
-      margin-top: 8px;
-      line-height: 1.5;
-    }
-
     /* 主要文章容器 */
     main.article-container {
       max-width: 800px;
@@ -314,11 +305,6 @@
 
     .article-meta div:last-child {
       margin-bottom: 0;
-    }
-
-    .article-meta a {
-      color: var(--primary-color);
-      text-decoration: underline;
     }
 
     /* 核心結論重點框 */
@@ -376,23 +362,70 @@
       color: #111111;
     }
 
-    /* 重點突顯樣式 */
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      background-color: #eaf1ed;
-      color: var(--primary-color);
+    /* 醫院卡片式排版（手機閱讀超清晰） */
+    .hospitals-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .hospital-card {
+      background-color: #fdfcf9;
+      border: 1px solid var(--border-color);
+      border-left: 5px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 16px 18px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+    }
+
+    .hospital-name {
+      font-size: calc(var(--base-font-size) * 1.1);
       font-weight: bold;
-      border-radius: 4px;
-      margin-right: 4px;
+      color: var(--primary-color);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hospital-detail {
+      font-size: var(--base-font-size);
+      line-height: 1.6;
+      margin-bottom: 6px;
+    }
+
+    .hospital-detail:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-label {
+      font-weight: bold;
+      color: #333333;
+    }
+
+    /* 步驟流程卡 */
+    .step-box {
+      background-color: #f7f9f8;
+      border: 1px solid #d2e3d9;
+      border-radius: 8px;
+      padding: 16px 18px;
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-size: calc(var(--base-font-size) * 1.05);
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 8px;
     }
 
     .caution-note {
       background-color: #fff9ee;
       border-left: 4px solid #f0b429;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-radius: 4px;
-      margin: 16px 0;
+      margin: 18px 0;
     }
 
     /* 頁尾 */
@@ -433,7 +466,7 @@
         padding: 8px 12px;
       }
       .brand-title {
-        display: none; /* 手機寬度窄時讓位給字體控制器 */
+        display: none;
       }
       article.content-card {
         padding: 18px 14px;
@@ -485,7 +518,7 @@
 
       <div class="nav-group-title" style="margin-top: 18px;">健康專題文章</div>
       <ul class="drawer-list">
-        <li class="drawer-item">
+        <li class="drawer-item current">
           <a href="台北地區-失智檢測.html">
             <span>🏙️ 台北地區：失智檢測與門診指南</span>
           </a>
@@ -495,7 +528,7 @@
             <span>🔬 基隆長庚：高階影像檢測失智</span>
           </a>
         </li>
-        <li class="drawer-item current">
+        <li class="drawer-item">
           <a href="預防失智-認真咀嚼.html">
             <span>🧠 預防失智：認真咀嚼</span>
           </a>
@@ -511,99 +544,105 @@
   <!-- 主要文章內容 -->
   <main class="article-container">
     <article class="content-card">
-      <h1 class="article-title">不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作</h1>
+      <h1 class="article-title">台北地區「高階失智檢測」醫院、記憶門診與權威醫師指南</h1>
 
       <!-- 文章基本資訊 -->
       <div class="article-meta">
-        <div><strong>出處來源：</strong><a href="https://health.tvbs.com.tw/regimen/360291" target="_blank" rel="noopener noreferrer">TVBS 健康2.0</a></div>
-        <div><strong>受訪名醫：</strong>洛桑加參 醫師（身心靈預防醫學醫師）</div>
-        <div><strong>更新時間：</strong>2026/07/17（初版：2026/01/12）</div>
+        <div><strong>主題領域：</strong>大台北醫學中心「類澱粉蛋白正子造影（Amyloid PET）」與記憶門診指南</div>
+        <div><strong>諮詢科別：</strong>神經內科、記憶障礙特診、核子醫學科</div>
+        <div><strong>整理日期：</strong>2026/09/30</div>
       </div>
 
       <!-- 核心結論提要 -->
       <div class="summary-box">
         <div class="summary-box-title">💡 核心重點摘要</div>
-        <p><strong>「好好吃飯、認真咀嚼」</strong>是被多數人忽視的最強大腦與肌肉鍛鍊！每天進餐時多咬幾下，能大幅促進大腦血液與氧氣供應、活化記憶迴路，研究證實可使<strong>失智風險降低將近 50%</strong>。</p>
+        <p>大台北各大醫學中心均設有高水準的<strong>「記憶門診」</strong>與高階<strong>「類澱粉蛋白正子電腦斷層（Amyloid PET）」</strong>檢測設備。若發現長輩出現疑似退化警訊，切勿自行掛號核醫科，應<strong>先掛號「神經內科／記憶門診」</strong>由專科醫師初診評估，確認有臨床必要時再安排轉檢。</p>
       </div>
 
-      <!-- 第一章節 -->
-      <h2 class="section-title">📌 一、餐桌上的肌肉鍛鍊：咀嚼肌與吞嚥肌</h2>
-      <ol>
-        <li>
-          <strong>鍛鍊的重要部位：</strong>
-          <ul>
-            <li><strong>咀嚼肌：</strong>負責咬合用力的咬肌、顳肌，以及雙頰與嘴唇周圍的肌群。</li>
-            <li><strong>吞嚥肌：</strong>協同運作的舌頭與喉頭深層肌群。</li>
-          </ul>
-        </li>
-        <li>
-          <strong>帶來的健康效益：</strong>
-          <ul>
-            <li><strong>防範致命嗆咳：</strong>鍛鍊吞嚥力量，大幅降低高齡長輩最擔憂的<strong>「吸入性肺炎」</strong>致命風險。</li>
-            <li><strong>天然臉部拉提：</strong>咀嚼如同臉部的阻力重訓，能有效預防臉部肌少症與下垂鬆弛，維持俐落面容。</li>
-            <li><strong>減輕腸胃負擔：</strong>充分細嚼能讓食物徹底磨碎，大幅提升腸胃營養吸收率並避免消化不良。</li>
-          </ul>
-        </li>
-      </ol>
+      <!-- 第一章節：醫院卡片清單 -->
+      <h2 class="section-title">🏥 一、 台北地區主要醫療院所、門診與推薦醫師</h2>
+      <p>各大醫學中心均設有專責失智照護與高階影像判讀的專業團隊：</p>
 
-      <!-- 第二章節 -->
-      <h2 class="section-title">🧠 二、降低近 50% 失智風險的科學機轉</h2>
-      <ul>
-        <li>
-          <strong>誘發海馬迴 θ 波（Theta 波）：</strong><br>
-          醫學研究指出，咀嚼時下顎的規律運動能直接刺激大腦海馬迴釋放 θ 波，這是啟動學習與鞏固長期記憶的關鍵訊號。
-        </li>
-        <li>
-          <strong>如同大腦泵浦，腦血流與供氧激增：</strong><br>
-          口腔與大腦距離極近，咀嚼肌規律收縮能帶動大腦認知區域的血流循環，輸送豐富的氧氣與葡萄糖養分。
-        </li>
-        <li>
-          <strong>能咬能嚼者，失智風險降一半：</strong><br>
-          長期調查顯示，保持良好咀嚼功能的老年人，相較咀嚼退化者，<strong>失智發生率降低了近 50%</strong>。
-        </li>
-      </ul>
+      <div class="hospitals-grid">
 
-      <div class="caution-note">
-        <strong>⚠️ 警訊：切忌「吃軟不吃硬」</strong><br>
-        若因牙口微恙就長期依賴稀飯、麵糊等軟爛食物，大腦會因缺乏咬合神經刺激而加速萎縮與認知退化。維持咀嚼習慣才是保腦良方。
+        <!-- 台大醫院 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 台大醫院（總院）</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經部「記憶障礙門診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>邱銘章 醫師、陳達夫 醫師、謝松蒼 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>具備先進 PET/CT 及磁振暨正子同步造影（PET/MR），為國內失智臨床研究與診斷權威樞紐。</div>
+        </div>
+
+        <!-- 台北榮總 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 台北榮民總醫院</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經醫學中心「認知功能障礙／失智症門診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>王培寧 醫師、傅中玲 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>台灣失智症領域頂尖專家團隊，核醫部提供成熟之類澱粉蛋白正子造影與新藥精準評估。</div>
+        </div>
+
+        <!-- 台北長庚 / 林口長庚 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 台北長庚 / 林口長庚醫院</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經內科「失智症特診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>徐榮隆 醫師、陳瓊珠 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>與基隆長庚同屬長庚醫療體系，核醫科配備多台高階正子造影儀器，具備完善轉介與共照體系。</div>
+        </div>
+
+        <!-- 新光醫院 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 新光醫院</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經科「記憶門診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>劉子洋 醫師、連立明 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>正子造影中心具備成熟臨床經驗，長期投入腦部類澱粉蛋白正子造影與早期神經退化追蹤。</div>
+        </div>
+
+        <!-- 雙和 / 萬芳醫院 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 雙和醫院 / 萬芳醫院（北醫體系）</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經內科「認知障礙／記憶門診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>胡朝榮 醫師（失智權威）、邱浩彰 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>設有失智症整合中心與核醫正子掃描，積極推動早期篩檢、精準用藥與社區延緩介入。</div>
+        </div>
+
+        <!-- 三軍總醫院 -->
+        <div class="hospital-card">
+          <div class="hospital-name">🏛️ 三軍總醫院（內湖總院）</div>
+          <div class="hospital-detail"><span class="highlight-label">建議門診：</span>神經內科「記憶障礙整合門診」</div>
+          <div class="hospital-detail"><span class="highlight-label">專科名醫：</span>楊富吉 醫師、周中興 醫師</div>
+          <div class="hospital-detail"><span class="highlight-label">醫療特色：</span>具備完整正子斷層掃描中心與整合型高齡認知門診服務。</div>
+        </div>
+
       </div>
 
-      <!-- 第三章節 -->
-      <h2 class="section-title">⚡ 三、提升專注力與舒緩壓力</h2>
-      <ul>
-        <li>
-          <strong>驅散腦霧、提振精神：</strong><br>
-          咀嚼動作會刺激腦幹的「網狀激活系統（RAS）」，迅速提振精神、消除午後昏沉與疲勞。
-        </li>
-        <li>
-          <strong>反應力與專注度倍增：</strong><br>
-          英國諾桑比亞大學實驗發現，有咀嚼習慣的測試者在反應敏捷度與目標專注度測驗中，均明顯超越未咀嚼組。
-        </li>
-        <li>
-          <strong>天然的解壓抗焦慮劑：</strong><br>
-          規律咀嚼能促進快樂荷爾蒙<strong>多巴胺</strong>的分泌，同時顯著降低壓力荷爾蒙<strong>皮質醇</strong>，讓身心平穩安祥。
-        </li>
-      </ul>
+      <!-- 第二章節：就醫流程 -->
+      <h2 class="section-title">📋 二、 正確就醫流程（切勿直接掛核子醫學科）</h2>
 
-      <!-- 第四章節 -->
-      <h2 class="section-title">🥗 四、推薦耐嚼的天然原型食材</h2>
-      <p>挑選原則為<strong>「需要稍微出力咬、但不會損害牙齒」</strong>的天然食材：</p>
-      <ul>
-        <li><strong>優質堅果類：</strong>核桃、腰果、南瓜子、杏仁（適量食用補充好油脂）。</li>
-        <li><strong>高纖脆口水果：</strong>芭樂、蘋果、水梨（洗淨帶皮細嚼更佳）。</li>
-        <li><strong>未精緻全穀雜糧：</strong>糙米、燕麥、黑米粗糧（取代過於精緻的純白米麵）。</li>
-      </ul>
+      <div class="step-box">
+        <div class="step-title">🩺 第一步：先掛「神經內科」或「記憶門診」</div>
+        <p>高階正子斷層造影（PET/CT）屬於精密影像檢查，<strong>不開放民眾自行直接預約</strong>。</p>
+        <p style="margin-bottom: 0;">神經專科醫師需先進行臨床問診、神經學檢查、抽血（優先排除甲狀腺低下、缺乏維生素 B12/葉酸等「可逆假失智」），並施測標準認知量表（MMSE / MoCA）。</p>
+      </div>
 
-      <!-- 第五章節 -->
-      <h2 class="section-title">💡 五、洛桑加參名醫的 2 招日常養生法</h2>
+      <div class="step-box">
+        <div class="step-title">🔬 第二步：專科醫師評估後開單轉檢</div>
+        <p style="margin-bottom: 0;">若臨床症狀高度疑似阿茲海默症，或常規檢查無法確定病因時，醫師才會開立轉檢單，排程至院內<strong>「核子醫學科」</strong>進行類澱粉蛋白正子造影。</p>
+      </div>
+
+      <!-- 第三章節：費用與注意事項 -->
+      <h2 class="section-title">💰 三、 費用與就醫注意事項</h2>
       <ol>
         <li>
-          <strong>左右兩側輪流咀嚼：</strong><br>
-          習慣單邊咬東西會導致臉型不對稱，且只刺激單側大腦。進食時應有意識地左右均勻咀嚼，讓左右大腦海馬迴都能獲得均衡活化。
+          <strong>健保給付與自費說明：</strong><br>
+          目前「類澱粉蛋白正子造影（Amyloid PET）」在台灣<strong>健保尚未納入給付</strong>，受檢者需全額自費。單次檢查費用約在 <strong>新台幣 40,000 ～ 65,000 元</strong> 之間（包含專用放射示蹤劑與掃描費用）。
         </li>
         <li>
-          <strong>實踐「正念進食」心法：</strong><br>
-          用餐時暫時放下手機與電視遙控器，專注看著眼前的餐點，帶著感謝的心情細嚼慢嚥每一口，讓每頓飯都成為滋養身心的大腦保養療程。
+          <strong>新型阿茲海默藥物之評估要件：</strong><br>
+          衛福部核准或評估中之單株抗體新藥（例如 Lecanemab），治療前必須嚴格「確認大腦中有類澱粉蛋白斑塊堆積」，此項檢查是評估是否符合新藥施打資格的關鍵客觀門檻。
+        </li>
+        <li>
+          <strong>看診前準備資料：</strong><br>
+          長輩若曾在其他醫療院所做過腦部電腦斷層（CT）、磁振造影（MRI）或抽血報告，請務必先申請病歷摘要與影像光碟，於看診當天攜帶至診間，避免重複耗時檢查。建議由最熟悉長輩日常生活作息的家屬陪同看診。
         </li>
       </ol>
     </article>
@@ -615,7 +654,7 @@
   <!-- 頁尾宣告 -->
   <footer class="site-footer">
     <p>健康資訊專欄 · 銀髮友善閱讀版</p>
-    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">建議每口食物咀嚼 20～30 次，守護大腦與吞嚥健康</p>
+    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">及早發現、及早釐清病因，為長輩與家人爭取更好的生活品質</p>
   </footer>
 
   <!-- 互動腳本：字體三級調整、漢堡抽屜選單、置頂滾動 -->
@@ -678,7 +717,7 @@
       }
 
       openDrawerBtn.addEventListener('click', openDrawer);
-      closeDrawerBtn.addEventListener('click', closeDrawer);
+      closeDrawerBtn.addEventListener('close', closeDrawer);
       drawerOverlay.addEventListener('click', closeDrawer);
 
       // 按 Esc 鍵可關閉選單

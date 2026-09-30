@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <title>不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作 - 健康資訊</title>
+  <title>基隆長庚引進「高階影像」精準檢測是否失智 - 健康資訊</title>
   <style>
     /* CSS 變數定義：字級三級控制與銀髮友善色系 */
     :root {
@@ -12,10 +12,11 @@
       --text-main: #222222;       /* 高對比主文字，極易辨識 */
       --text-muted: #555555;      /* 次要資訊文字 */
       --border-color: #e2ded7;    /* 樸素溫和分隔線 */
-      --primary-color: #2b5c46;   /* 穩重森林綠（健康感、不花俏） */
+      --primary-color: #2b5c46;   /* 穩重草木綠（健康感、不花俏） */
       --primary-hover: #1f4232;
       --highlight-bg: #f2f7f4;    /* 重點提示底色 */
       --highlight-border: #8ab89f;
+      --badge-bg: #eaf1ed;
       --drawer-bg: #ffffff;
       --overlay-bg: rgba(0, 0, 0, 0.45);
       
@@ -261,16 +262,6 @@
       border-left: 4px solid var(--primary-color);
     }
 
-    .drawer-item.disabled {
-      padding: 12px 12px;
-      font-size: 16px;
-      color: #888888;
-      background-color: #fbf9f6;
-      border-radius: 8px;
-      margin-top: 8px;
-      line-height: 1.5;
-    }
-
     /* 主要文章容器 */
     main.article-container {
       max-width: 800px;
@@ -376,23 +367,37 @@
       color: #111111;
     }
 
-    /* 重點突顯樣式 */
-    .badge {
-      display: inline-block;
-      padding: 2px 8px;
-      background-color: #eaf1ed;
-      color: var(--primary-color);
+    /* 重點卡片提示區 */
+    .info-card {
+      background-color: #f7f9f8;
+      border: 1px solid #d2e3d9;
+      border-radius: 8px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .doctor-box {
+      background-color: #fdfcf9;
+      border: 1px solid #e5e0d6;
+      border-left: 4px solid var(--primary-color);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-bottom: 14px;
+    }
+
+    .doctor-name {
+      font-size: calc(var(--base-font-size) * 1.05);
       font-weight: bold;
-      border-radius: 4px;
-      margin-right: 4px;
+      color: var(--primary-color);
+      margin-bottom: 6px;
     }
 
     .caution-note {
       background-color: #fff9ee;
       border-left: 4px solid #f0b429;
-      padding: 12px 16px;
+      padding: 14px 16px;
       border-radius: 4px;
-      margin: 16px 0;
+      margin: 18px 0;
     }
 
     /* 頁尾 */
@@ -433,7 +438,7 @@
         padding: 8px 12px;
       }
       .brand-title {
-        display: none; /* 手機寬度窄時讓位給字體控制器 */
+        display: none;
       }
       article.content-card {
         padding: 18px 14px;
@@ -490,12 +495,12 @@
             <span>🏙️ 台北地區：失智檢測與門診指南</span>
           </a>
         </li>
-        <li class="drawer-item">
+        <li class="drawer-item current">
           <a href="基隆長庚-失智檢測.html">
             <span>🔬 基隆長庚：高階影像檢測失智</span>
           </a>
         </li>
-        <li class="drawer-item current">
+        <li class="drawer-item">
           <a href="預防失智-認真咀嚼.html">
             <span>🧠 預防失智：認真咀嚼</span>
           </a>
@@ -511,101 +516,79 @@
   <!-- 主要文章內容 -->
   <main class="article-container">
     <article class="content-card">
-      <h1 class="article-title">不是跑步也不是重訓！名醫揭失智風險降50%「最強大腦訓練」竟是這動作</h1>
+      <h1 class="article-title">基隆長庚引進「高階影像」精準檢測是否失智</h1>
 
       <!-- 文章基本資訊 -->
       <div class="article-meta">
-        <div><strong>出處來源：</strong><a href="https://health.tvbs.com.tw/regimen/360291" target="_blank" rel="noopener noreferrer">TVBS 健康2.0</a></div>
-        <div><strong>受訪名醫：</strong>洛桑加參 醫師（身心靈預防醫學醫師）</div>
-        <div><strong>更新時間：</strong>2026/07/17（初版：2026/01/12）</div>
+        <div><strong>出處來源：</strong><a href="https://health.tvbs.com.tw/medical/366171" target="_blank" rel="noopener noreferrer">TVBS 健康2.0</a></div>
+        <div><strong>受訪專科名醫：</strong>黃雯怡 醫師（基隆長庚失智共照中心）、鄭乃銘 醫師（基隆長庚核子醫學科）</div>
+        <div><strong>發布時間：</strong>2026/09/22</div>
       </div>
 
       <!-- 核心結論提要 -->
       <div class="summary-box">
         <div class="summary-box-title">💡 核心重點摘要</div>
-        <p><strong>「好好吃飯、認真咀嚼」</strong>是被多數人忽視的最強大腦與肌肉鍛鍊！每天進餐時多咬幾下，能大幅促進大腦血液與氧氣供應、活化記憶迴路，研究證實可使<strong>失智風險降低將近 50%</strong>。</p>
+        <p><strong>失智症絕非自然老化，更不是「老番顛」！</strong> 長輩常忘東忘西、反覆問話、疑神疑鬼或迷路，是大腦病變引發的神經精神症狀。基隆長庚於 2026 年引進基隆首台「新型正子電腦斷層（PET/CT）」，可精準偵測腦內類澱粉蛋白沉積。長輩若有疑似症狀，應先掛號<strong>神經內科（記憶門診）</strong>由專業醫師完整評估。</p>
       </div>
 
       <!-- 第一章節 -->
-      <h2 class="section-title">📌 一、餐桌上的肌肉鍛鍊：咀嚼肌與吞嚥肌</h2>
+      <h2 class="section-title">📌 一、打破迷思：失智不是自然老化，更不是「故意找碴」</h2>
       <ol>
         <li>
-          <strong>鍛鍊的重要部位：</strong>
+          <strong>不可忽視的日常生活警訊：</strong>
           <ul>
-            <li><strong>咀嚼肌：</strong>負責咬合用力的咬肌、顳肌，以及雙頰與嘴唇周圍的肌群。</li>
-            <li><strong>吞嚥肌：</strong>協同運作的舌頭與喉頭深層肌群。</li>
+            <li><strong>危險遺忘：</strong>老是忘記關瓦斯爐、忘記鎖門、忘記關水龍頭。</li>
+            <li><strong>性格與情緒劇變：</strong>原本溫和卻變得暴躁易怒、日夜顛倒。</li>
+            <li><strong>被竊妄想與猜忌：</strong>東西找不到就反覆懷疑是家人或看護偷拿。</li>
+            <li><strong>迷失方向：</strong>在熟悉的生活圈或住了幾十年的社區走失。</li>
           </ul>
         </li>
         <li>
-          <strong>帶來的健康效益：</strong>
+          <strong>病程進展階段：</strong>
           <ul>
-            <li><strong>防範致命嗆咳：</strong>鍛鍊吞嚥力量，大幅降低高齡長輩最擔憂的<strong>「吸入性肺炎」</strong>致命風險。</li>
-            <li><strong>天然臉部拉提：</strong>咀嚼如同臉部的阻力重訓，能有效預防臉部肌少症與下垂鬆弛，維持俐落面容。</li>
-            <li><strong>減輕腸胃負擔：</strong>充分細嚼能讓食物徹底磨碎，大幅提升腸胃營養吸收率並避免消化不良。</li>
+            <li><strong>初期：</strong>以近期記憶力衰退為主（剛講過的事情轉頭就忘）。</li>
+            <li><strong>中後期：</strong>伴隨妄想、情緒失控、日夜顛倒，甚至喪失生活自理能力。</li>
+            <li><strong>家屬觀念建立：</strong>這些反常舉動是「大腦生病了」的臨床症狀，並非長輩故意唱反調。</li>
           </ul>
         </li>
       </ol>
 
       <!-- 第二章節 -->
-      <h2 class="section-title">🧠 二、降低近 50% 失智風險的科學機轉</h2>
-      <ul>
-        <li>
-          <strong>誘發海馬迴 θ 波（Theta 波）：</strong><br>
-          醫學研究指出，咀嚼時下顎的規律運動能直接刺激大腦海馬迴釋放 θ 波，這是啟動學習與鞏固長期記憶的關鍵訊號。
-        </li>
-        <li>
-          <strong>如同大腦泵浦，腦血流與供氧激增：</strong><br>
-          口腔與大腦距離極近，咀嚼肌規律收縮能帶動大腦認知區域的血流循環，輸送豐富的氧氣與葡萄糖養分。
-        </li>
-        <li>
-          <strong>能咬能嚼者，失智風險降一半：</strong><br>
-          長期調查顯示，保持良好咀嚼功能的老年人，相較咀嚼退化者，<strong>失智發生率降低了近 50%</strong>。
-        </li>
-      </ul>
-
-      <div class="caution-note">
-        <strong>⚠️ 警訊：切忌「吃軟不吃硬」</strong><br>
-        若因牙口微恙就長期依賴稀飯、麵糊等軟爛食物，大腦會因缺乏咬合神經刺激而加速萎縮與認知退化。維持咀嚼習慣才是保腦良方。
+      <h2 class="section-title">🔬 二、高階影像引進時間與檢測優勢</h2>
+      <p>基隆長庚積極引進最新科技，輔助早期精準診斷：</p>
+      <div class="info-card">
+        <p><strong>1. 設備引進時間：</strong><br>
+        於 <strong>2026 年（今年）</strong> 正式引進<strong>基隆首台「新型正子電腦斷層（PET/CT）」</strong>。</p>
+        <p style="margin-bottom: 0;"><strong>2. 檢測核心優勢：</strong><br>
+        可依個別臨床需求搭配特定正子藥劑，其中的「<strong>類澱粉蛋白正子造影（Amyloid PET）</strong>」，能直接微觀觀察腦內異常類澱粉蛋白沉積，為阿茲海默症確診提供最關鍵的客觀依據。</p>
       </div>
 
       <!-- 第三章節 -->
-      <h2 class="section-title">⚡ 三、提升專注力與舒緩壓力</h2>
-      <ul>
-        <li>
-          <strong>驅散腦霧、提振精神：</strong><br>
-          咀嚼動作會刺激腦幹的「網狀激活系統（RAS）」，迅速提振精神、消除午後昏沉與疲勞。
-        </li>
-        <li>
-          <strong>反應力與專注度倍增：</strong><br>
-          英國諾桑比亞大學實驗發現，有咀嚼習慣的測試者在反應敏捷度與目標專注度測驗中，均明顯超越未咀嚼組。
-        </li>
-        <li>
-          <strong>天然的解壓抗焦慮劑：</strong><br>
-          規律咀嚼能促進快樂荷爾蒙<strong>多巴胺</strong>的分泌，同時顯著降低壓力荷爾蒙<strong>皮質醇</strong>，讓身心平穩安祥。
-        </li>
-      </ul>
+      <h2 class="section-title">🏥 三、就診指引：要掛哪一科？找什麼醫師？</h2>
+      <p>若家人或長輩出現疑似失智警訊，請循以下科別與醫療流程就診：</p>
 
-      <!-- 第四章節 -->
-      <h2 class="section-title">🥗 四、推薦耐嚼的天然原型食材</h2>
-      <p>挑選原則為<strong>「需要稍微出力咬、但不會損害牙齒」</strong>的天然食材：</p>
-      <ul>
-        <li><strong>優質堅果類：</strong>核桃、腰果、南瓜子、杏仁（適量食用補充好油脂）。</li>
-        <li><strong>高纖脆口水果：</strong>芭樂、蘋果、水梨（洗淨帶皮細嚼更佳）。</li>
-        <li><strong>未精緻全穀雜糧：</strong>糙米、燕麥、黑米粗糧（取代過於精緻的純白米麵）。</li>
-      </ul>
+      <div class="doctor-box">
+        <div class="doctor-name">🩺 步驟一：首選掛號科別與初診醫師</div>
+        <p><strong>建議掛號：</strong><strong>「神經內科」</strong>（或醫院之<strong>「記憶門診 / 認知障礙特診」</strong>）</p>
+        <p><strong>專科推薦醫師：</strong><strong>黃雯怡 醫師</strong>（基隆長庚失智共同照護中心主責醫師／神經專科）</p>
+        <p style="margin-bottom: 0; font-size: 0.95em; color: var(--text-muted);">
+          <strong>醫師角色：</strong>負責問診病史、神經學檢查、認知功能量表評估，判斷長輩是正常老化、假失智或是腦部退化，並評估是否需要進一步影像轉檢。
+        </p>
+      </div>
 
-      <!-- 第五章節 -->
-      <h2 class="section-title">💡 五、洛桑加參名醫的 2 招日常養生法</h2>
-      <ol>
-        <li>
-          <strong>左右兩側輪流咀嚼：</strong><br>
-          習慣單邊咬東西會導致臉型不對稱，且只刺激單側大腦。進食時應有意識地左右均勻咀嚼，讓左右大腦海馬迴都能獲得均衡活化。
-        </li>
-        <li>
-          <strong>實踐「正念進食」心法：</strong><br>
-          用餐時暫時放下手機與電視遙控器，專注看著眼前的餐點，帶著感謝的心情細嚼慢嚥每一口，讓每頓飯都成為滋養身心的大腦保養療程。
-        </li>
-      </ol>
+      <div class="doctor-box">
+        <div class="doctor-name">🔬 步驟二：高階精密影像檢查判讀</div>
+        <p><strong>執行科別：</strong><strong>「核子醫學科」</strong></p>
+        <p><strong>專科推薦醫師：</strong><strong>鄭乃銘 醫師</strong>（基隆長庚醫院核子醫學科）</p>
+        <p style="margin-bottom: 0; font-size: 0.95em; color: var(--text-muted);">
+          <strong>醫師角色：</strong>由神經內科醫師開立轉檢單後，由鄭醫師團隊執行新型正子電腦斷層（PET/CT）與類澱粉蛋白造影，精準微觀判讀大腦病理變化。
+        </p>
+      </div>
+
+      <div class="caution-note">
+        <strong>⚠️ 重要就醫叮嚀：</strong><br>
+        高階正子斷層造影（PET/CT）屬於精密影像檢查，<strong>無法由民眾自行直接向核醫科掛號預約</strong>；請務必先掛號<strong>神經內科（記憶門診）</strong>，由神經專科醫師評估病況後依臨床需求排檢。
+      </div>
     </article>
   </main>
 
@@ -615,7 +598,7 @@
   <!-- 頁尾宣告 -->
   <footer class="site-footer">
     <p>健康資訊專欄 · 銀髮友善閱讀版</p>
-    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">建議每口食物咀嚼 20～30 次，守護大腦與吞嚥健康</p>
+    <p style="margin-top: 6px; font-size: 0.9em; color: #888;">及早發現、及早釐清病因，為長輩與家人爭取更好的生活品質</p>
   </footer>
 
   <!-- 互動腳本：字體三級調整、漢堡抽屜選單、置頂滾動 -->
