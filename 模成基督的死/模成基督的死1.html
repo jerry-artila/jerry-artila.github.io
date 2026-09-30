@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#faf8f3">
+<title>模成基督的死：領會與實行</title>
+<style>
+:root {
+  --font-size: 20px;
+  --bg:#faf8f3; --card:#fff; --text:#26231f; --muted:#6b655d;
+  --accent:#6b4f32; --line:#e7dfd4;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:86px}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;font-size:var(--font-size);line-height:1.9}
+header{position:sticky;top:0;z-index:20;background:rgba(250,248,243,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:8px 14px;display:flex;align-items:center;gap:12px}
+button{font:inherit}
+.menu-btn{border:1px solid var(--line);background:#fff;color:var(--accent);border-radius:10px;width:40px;height:40px;min-width:40px;padding:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .15s, border-color .15s, transform .1s;box-shadow:0 1px 3px rgba(0,0,0,.03)}
+.menu-btn:hover{background:#f5eee4;border-color:#d8cbb8}
+.menu-btn:active{background:#ebe0d1;transform:scale(0.96)}
+.site-title{font-weight:700;font-size:.98em;line-height:1.25;flex:1;color:#382b20}
+.site-title small{display:block;font-size:.8em;font-weight:500;color:var(--muted);margin-top:1px}
+.font-controls{display:flex;background:#eee7dc;border-radius:9px;padding:3px;gap:2px}
+.font-controls button{border:0;background:transparent;border-radius:7px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;font-size:.82em;font-weight:500;color:#6a6157;cursor:pointer;transition:background-color .15s, color .15s, box-shadow .15s}
+.font-controls button.active{background:#fff;color:var(--accent);font-weight:700;box-shadow:0 1px 3px rgba(60,45,30,.1)}
+main{max-width:760px;margin:auto;padding:18px 14px 70px}
+.hero{padding:14px 5px 22px}
+h1{font-size:1.65em;line-height:1.35;margin:.2em 0 .4em;color:#382b20}
+.subtitle{color:var(--muted);margin:0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 18px;margin:0 0 18px;box-shadow:0 2px 10px rgba(50,40,30,.035)}
+h2{font-size:1.25em;line-height:1.45;margin:0 0 14px;color:#513a25}
+p{margin:0 0 1em}
+p:last-of-type{margin-bottom:.4em}
+.backtop{display:inline-block;margin-top:10px;color:var(--accent);font-size:.82em;text-decoration:none}
+.drawer{position:fixed;z-index:40;inset:0;pointer-events:none}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.35);opacity:0;transition:.2s}
+nav{position:absolute;left:0;top:0;bottom:0;width:min(86vw,390px);background:#fff;transform:translateX(-102%);transition:.22s;padding:calc(env(safe-area-inset-top) + 18px) 14px 30px;overflow:auto}
+.drawer.open{pointer-events:auto}
+.drawer.open .scrim{opacity:1}
+.drawer.open nav{transform:none}
+.nav-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.nav-head strong{font-size:1.15em}
+.close{border:0;background:#f1ede7;border-radius:10px;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:18px;color:var(--text);transition:background-color .15s}
+.close:hover{background:#e5ded3}
+.nav-link{display:flex;gap:12px;align-items:flex-start;text-decoration:none;color:var(--text);padding:12px 7px;border-bottom:1px solid #eee8df;line-height:1.45}
+.nav-link span{flex:0 0 30px;height:30px;border-radius:50%;background:#f0e7dc;color:var(--accent);display:grid;place-items:center;font-size:.78em;font-weight:700}
+.note{border-left:4px solid #b79a79;padding:8px 14px;background:#f8f3ec;border-radius:0 10px 10px 0}
+/* 螢光筆與色彩效果 */
+mark, .hl {
+  background: linear-gradient(104deg, rgba(255, 230, 115, 0.5) 0%, rgba(255, 215, 80, 0.6) 100%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: inherit;
+}
+.hl-green {
+  background: linear-gradient(104deg, rgba(186, 230, 198, 0.52) 0%, rgba(155, 220, 172, 0.62) 100%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: inherit;
+}
+.hl-orange {
+  background: linear-gradient(104deg, rgba(254, 210, 170, 0.52) 0%, rgba(248, 185, 140, 0.62) 100%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  color: inherit;
+}
+.text-accent { color: #8e3f17; font-weight: 650; }
+.text-green { color: #286b3e; font-weight: 650; }
+.text-strong { color: #3d2a1b; font-weight: 650; }
+
+.callout {
+  border-left: 4px solid var(--accent);
+  padding: 10px 16px;
+  background: #f8f3ec;
+  border-radius: 0 10px 10px 0;
+  margin: 14px 0;
+}
+.prayer-box {
+  background: #f7efe4;
+  border: 1.5px solid #dec3a4;
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin: 16px 0;
+  text-align: center;
+  font-size: 1.05em;
+  color: #4a2f17;
+  box-shadow: 0 3px 12px rgba(107, 79, 50, 0.05);
+}
+.prayer-box strong {
+  display: block;
+  font-size: 1.12em;
+  color: #7b4317;
+  margin-top: 4px;
+}
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 14px 0;
+}
+.step-item {
+  background: #faf5ee;
+  border: 1px solid #ebdccb;
+  border-radius: 10px;
+  padding: 11px 14px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.step-tag {
+  flex-shrink: 0;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.8em;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  line-height: 1.4;
+}
+.map-flow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin: 16px 0;
+}
+.map-node {
+  width: 100%;
+  max-width: 520px;
+  background: #fdfaf6;
+  border: 1px solid #e7ded3;
+  border-radius: 10px;
+  padding: 9px 14px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(60, 45, 30, 0.03);
+  font-size: 0.95em;
+}
+.map-node.start-end {
+  background: #f3eae0;
+  border-color: #d6beaa;
+  color: #442f1d;
+  font-weight: 700;
+}
+.map-arrow {
+  color: #a08c78;
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 1;
+}
+@media(min-width:800px){main{padding-top:28px} .card{padding:30px}}
+</style>
+</head>
+<body id="top">
+<header>
+<button class="menu-btn" id="menuBtn" aria-label="開啟目錄" aria-expanded="false">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</button>
+<div class="site-title">模成基督的死<small>領會與實行</small></div>
+<div class="font-controls" aria-label="字體大小">
+<button data-size="18" aria-label="小字">小</button>
+<button data-size="20" class="active" aria-label="中字">中</button>
+<button data-size="24" aria-label="大字">大</button>
+</div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+<div class="scrim" id="scrim"></div>
+<nav aria-label="文章目錄">
+<div class="nav-head"><strong>文章目錄</strong><button class="close" id="closeBtn" aria-label="關閉目錄">✕</button></div>
+<a href="#s1" class="nav-link"><span>1</span>什麼叫「模成基督的死」？</a>
+<a href="#s2" class="nav-link"><span>2</span>不是把自己弄死，也不是否定人格</a>
+<a href="#s3" class="nav-link"><span>3</span>復活的大能為何在「模成祂的死」之前？</a>
+<a href="#s4" class="nav-link"><span>4</span>背十字架與模成基督的死</a>
+<a href="#s5" class="nav-link"><span>5</span>十字架不只對付「壞東西」</a>
+<a href="#s6" class="nav-link"><span>6</span>已經同死，為何還要天天背十字架？</a>
+<a href="#s7" class="nav-link"><span>7</span>舊人、肉體、己、天然生命如何分辨？</a>
+<a href="#s8" class="nav-link"><span>8</span>怎樣分辨聖靈的限制與自我壓抑？</a>
+<a href="#s9" class="nav-link"><span>9</span>良心、平安與那靈的果子</a>
+<a href="#s10" class="nav-link"><span>10</span>否認己，不是永遠選自己不喜歡的</a>
+<a href="#s11" class="nav-link"><span>11</span>生活中如何實行？</a>
+<a href="#s12" class="nav-link"><span>12</span>整條屬靈經歷的地圖</a>
+<a href="#s13" class="nav-link"><span>13</span>三句總結</a>
+</nav>
+</div>
+
+<main>
+<div class="hero">
+<h1>模成基督的死：如何領會？如何實行？</h1>
+<p class="subtitle">將前面幾段交通重新整理為適合手機閱讀的長文版本。可由左上角 ☰ 快速跳到各段，右上角可切換三段字體大小。</p>
+</div>
+<section id="s1" class="card">
+  <h2>一、什麼叫「模成基督的死」？</h2>
+  <p>「模成基督的死」出自腓立比書 3:10：「使我認識基督、並祂復活的大能、以及同祂受苦的交通，<mark>模成祂的死</mark>。」</p>
+  <p>「模成」可以理解為被塑造成某一個形狀。基督在地上的生活有一個基本原則：祂有自己的意志，卻不獨立於父而活；祂有人的能力，卻讓父的旨意通行。客西馬尼園的禱告最清楚：「<span class="text-accent">不要照我的意思，只要照你的意思。</span>」</p>
+  <p>因此，「模成基督的死」<mark class="hl-orange">不是模仿受苦，也不是刻意找苦吃</mark>，而是在每天生活中，<mark>不讓天然的己直接作主，接受十字架的限制，轉向內住的基督，讓祂從我們裡面活出來</mark>。</p>
+  <p>這與加拉太書 2:20 的「<mark class="hl-green">不再是我，乃是基督在我裡面活著</mark>」非常接近。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s2" class="card">
+  <h2>二、不是把自己弄死，也不是否定人格</h2>
+  <p>十字架不是摧毀人格，也不是要求人沒有意見、沒有感覺、沒有個性。<mark class="hl-orange">否認己，不等於否定自己</mark>。</p>
+  <p><mark>真正被對付的是「離開神而獨立的己」</mark>：我作源頭、我作中心、我一定要照自己的意思。</p>
+  <p>彼得、保羅、約翰經過十字架後仍各有不同性格。神不是消滅人的心思、情感和意志，而是<mark class="hl-green">使這些不再獨立於祂，成為基督生命可以使用的器皿</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s3" class="card">
+  <h2>三、復活的大能為何在「模成祂的死」之前？</h2>
+  <p>腓立比書 3:10 的次序很重要：<span class="text-strong">認識基督 → 復活的大能 → 同祂受苦的交通 → 模成祂的死</span>。</p>
+  <p>在歷史上，基督是受死、埋葬、復活；但在我們今天的經歷裡，我們所接受的是已經死而復活的基督。因此<mark class="hl-orange">不是靠自己的意志力把自己釘十字架</mark>，而是<mark class="hl-green">復活的生命使我們有能力接受十字架</mark>。</p>
+  <div class="note">可以記成：「<mark>復活 → 十字架 → 更多復活</mark>。」</div>
+  <p><span class="text-accent">十字架不是生命的來源，基督才是生命的來源。</span>十字架除去攔阻，使復活生命更多彰顯。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s4" class="card">
+  <h2>四、背十字架與模成基督的死</h2>
+  <p>路加福音 9:23 說：「若有人要跟從我，就當<mark>否認己，天天背起他的十字架，並跟從我</mark>。」</p>
+  <p>「背十字架」比較著重<mark class="hl-orange">每天的選擇</mark>；「模成基督的死」則著重<mark class="hl-green">長期形成的生命形狀</mark>。</p>
+  <p>可以這樣理解：<span class="text-strong">否認己 → 背十字架 → 跟從主 → 長期被模成基督之死的形狀</span>。</p>
+  <p><mark class="hl-orange">難處本身不等於十字架</mark>。真正的關鍵是：<mark>神是否藉著環境，使我的己受到對付，而讓基督更多活出來</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s5" class="card">
+  <h2>五、十字架不只對付「壞東西」</h2>
+  <p>十字架不只是對付脾氣、嫉妒、貪心等明顯的問題。它也可能摸到<mark class="hl-orange">本身是好的東西</mark>：能力、聰明、熱心、經驗、判斷、愛心，甚至事奉。</p>
+  <div class="note"><mark>問題不是這些東西好不好，而是它們的源頭是誰。</mark></div>
+  <p>我可以很熱心服事主，卻完全憑自己；也可以有很好的方法，卻不能接受別人不用我的方法。十字架最深的工作，不只是除掉「壞的我」，而是<mark class="hl-green">使一切獨立於基督的「我」失去作主的地位</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s6" class="card">
+  <h2>六、已經同死，為何還要天天背十字架？</h2>
+  <p>羅馬書 6:6 說：「我們的舊人已經與祂同釘十字架。」這是已經完成的<span class="text-accent">客觀事實</span>。</p>
+  <p>路加福音 9:23 說要「天天背起他的十字架」，這是每天的<span class="text-green">主觀經歷</span>。</p>
+  <p>因此不是「<mark class="hl-orange">舊人還沒死，所以我要每天努力殺死它</mark>」，而是「<mark class="hl-green">既然舊人已經與基督同釘，我今天可以靠著那靈，不再讓舊人作王</mark>」。</p>
+  <p>羅馬書 8:13 說：「若靠著那靈治死身體的行為，必要活著。」<mark>真正執行十字架的不是人的意志力，而是那靈</mark>把基督十字架已完成的功效應用在我們日常生活中。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s7" class="card">
+  <h2>七、舊人、肉體、己、天然生命如何分辨？</h2>
+  <p>「<span class="text-accent">舊人</span>」較著重我們在亞當裡舊有的人位與身分；聖經說舊人已經與基督同釘。</p>
+  <p>「<span class="text-accent">肉體</span>」涉及墮落人性及其邪情私慾和行為；我們要靠著那靈治死身體的行為。</p>
+  <p>「<span class="text-accent">己</span>」特別顯在<mark class="hl-orange">「我要作主、我要作中心」</mark>。己不一定犯罪，甚至可能很有道理。</p>
+  <p>「<span class="text-accent">天然生命</span>」也可能包括人的優點、能力與熱心。<mark>問題不在能力本身，而在是否獨立於基督</mark>。</p>
+  <p>因此十字架不是消滅人格，而是<mark class="hl-green">使人的全人服在基督生命的管理之下</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s8" class="card">
+  <h2>八、怎樣分辨聖靈的限制與自我壓抑？</h2>
+  <p>一個重要原則是：<mark>十字架與那靈不能分開</mark>。</p>
+  <p>自我壓抑常是：「<mark class="hl-orange">我是基督徒，我不可以生氣，我一定要忍</mark>。」外面沒有反應，裡面卻越來越翻騰。</p>
+  <p>聖靈的工作則可能是：我承認「主，我真的很生氣」，同時接受裡面「現在不要反擊」的限制，轉向主，讓怒氣逐漸失去控制我的力量。</p>
+  <div class="note"><strong>核心分野：</strong><mark class="hl-orange">壓抑把東西壓在裡面</mark>；<mark class="hl-green">十字架把人帶到基督裡</mark>。</div>
+  <p>聖靈的光照通常也較具體，例如「你剛才那句話傷害了他」，並帶出認罪、道歉、接受赦免、重新往前；不健康的自責則常變成籠統的「我很糟、我永遠改不了」。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s9" class="card">
+  <h2>九、良心、平安與那靈的果子</h2>
+  <p>羅馬書 9:1 說：「我的良心在聖靈裡同我作見證。」良心不等於聖靈，人的良心也會受到家庭、文化、教育與過去經驗影響。因此「<mark class="hl-orange">我有罪惡感</mark>」不一定等於「<mark class="hl-orange">聖靈正在定罪我</mark>」。</p>
+  <p>分辨裡面的感覺，可以從幾方面互相核對：是否符合聖經清楚的教導；是否帶來基督生命和平安的仲裁；長期結出的果子如何；是否更多顯出基督的性情。</p>
+  <p>加拉太書 5:22-23 所說那靈的果子，包括愛、喜樂、和平、恆忍、恩慈、良善、信實、溫柔、節制。<mark class="hl-green">真正的十字架最後應當產生生命</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s10" class="card">
+  <h2>十、否認己，不是永遠選自己不喜歡的</h2>
+  <p>「我喜歡 A，所以否認己就一定要選 B」並不是新約的原則。</p>
+  <p>神可能叫我們放下 A，也可能讓我們在祂裡面享受 A。真正的問題不是「我喜不喜歡」，而是<mark>「我是不是在主裡自由」</mark>。</p>
+  <p>一個很實際的問題是：<mark class="hl-orange">「如果主不給我，我能不能放手？」</mark></p>
+  <p>我們仍可以努力、表達意見、作判斷，但不再被自己的要求霸佔。十字架有時不是叫我們放棄事情，而是叫我們<mark class="hl-green">放下對事情的霸佔</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s11" class="card">
+  <h2>十一、生活中如何實行？</h2>
+  <p>當事情刺激我們時，可以操練：</p>
+  <div class="step-list">
+    <div class="step-item">
+      <span class="step-tag">第一步</span>
+      <div><strong class="text-accent">察覺己</strong>：承認「我現在很生氣、很想證明自己、很在乎面子」。</div>
+    </div>
+    <div class="step-item">
+      <span class="step-tag">第二步</span>
+      <div><strong class="text-accent">不急著行動</strong>：不要讓第一個天然反應立刻變成話語或行動。</div>
+    </div>
+    <div class="step-item">
+      <span class="step-tag">第三步</span>
+      <div><strong class="text-accent">轉向主</strong>：「主耶穌，我不要離開你憑自己反應；如果這裡有我的己，求你光照我。」</div>
+    </div>
+    <div class="step-item">
+      <span class="step-tag">第四步</span>
+      <div><strong class="text-accent">接受限制</strong>：「如果需要放下，我願意接受。」</div>
+    </div>
+    <div class="step-item">
+      <span class="step-tag">第五步</span>
+      <div><strong class="text-accent">讓基督活</strong>：「主，我不能，但你能。你作我的忍耐、我的愛、我的反應。」</div>
+    </div>
+  </div>
+  <p>久而久之，生活會從「刺激 → 天然反應」，逐漸成為：<br><mark class="hl-green">「刺激 → 轉向主 → 接受十字架 → 從靈裡反應」</mark>。</p>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s12" class="card">
+  <h2>十二、整條屬靈經歷的地圖</h2>
+  <p>可以把這幾段交通濃縮成一條線：</p>
+  <div class="map-flow">
+    <div class="map-node start-end">基督已經完成十字架</div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">我的舊人已經與祂同釘<small style="color:var(--muted)">（羅 6:6）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">每天否認己、背十字架<small style="color:var(--muted)">（路 9:23）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">靠著那靈治死身體的行為<small style="color:var(--muted)">（羅 8:13）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">身上帶著耶穌的治死<small style="color:var(--muted)">（林後 4:10）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">逐漸模成基督的死<small style="color:var(--muted)">（腓 3:10）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node">耶穌的生命更多顯明<small style="color:var(--muted)">（林後 4:10）</small></div>
+    <div class="map-arrow">↓</div>
+    <div class="map-node start-end">「不再是我，乃是基督」<small style="color:var(--muted)">（加 2:20）</small></div>
+  </div>
+  <div class="note" style="text-align:center;">
+    <strong><mark>起點是基督，過程也是基督，結果仍是基督。</mark></strong>
+  </div>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+
+<section id="s13" class="card">
+  <h2>十三、三句總結</h2>
+  <p><strong class="text-accent">第一句：</strong><mark>十字架不是叫我恨自己，而是叫我不再以自己為生命的源頭。</mark></p>
+  <p><strong class="text-accent">第二句：</strong><mark>否認己不是沒有自己的思想、感覺和意志，而是不讓它們獨立於基督而作主。</mark></p>
+  <p><strong class="text-accent">第三句：</strong><mark class="hl-green">模成基督的死，不是我努力把自己弄死，而是天天在那靈裡接受十字架的工作，使「不再是我，乃是基督」逐漸成為生活的實際。</mark></p>
+  <p>所以最簡單的一句禱告可以是：</p>
+  <div class="prayer-box">
+    <span>💡 每日的心願與禱告</span>
+    <strong>「主，我不要離開你憑自己反應；我轉向你，你在我裡面活。」</strong>
+  </div>
+  <a class="backtop" href="#top">回到頂端 ↑</a>
+</section>
+</main>
+
+<script>
+const drawer=document.getElementById('drawer'), menu=document.getElementById('menuBtn');
+function openMenu(){drawer.classList.add('open');drawer.setAttribute('aria-hidden','false');menu.setAttribute('aria-expanded','true');}
+function closeMenu(){drawer.classList.remove('open');drawer.setAttribute('aria-hidden','true');menu.setAttribute('aria-expanded','false');}
+menu.onclick=openMenu;
+document.getElementById('closeBtn').onclick=closeMenu;
+document.getElementById('scrim').onclick=closeMenu;
+document.querySelectorAll('.nav-link').forEach(a=>a.addEventListener('click',closeMenu));
+document.querySelectorAll('[data-size]').forEach(btn=>btn.onclick=()=>{
+  const size=btn.dataset.size;
+  document.documentElement.style.setProperty('--font-size',size+'px');
+  localStorage.setItem('readerFontSize',size);
+  document.querySelectorAll('[data-size]').forEach(b=>b.classList.toggle('active',b===btn));
+});
+const saved=localStorage.getItem('readerFontSize');
+if(saved){
+ document.documentElement.style.setProperty('--font-size',saved+'px');
+ document.querySelectorAll('[data-size]').forEach(b=>b.classList.toggle('active',b.dataset.size===saved));
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
+</script>
+</body>
+</html>
