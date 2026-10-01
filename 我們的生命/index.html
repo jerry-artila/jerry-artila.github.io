@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="warm" data-size="medium">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#faf6ee">
+  <title>第二十六篇 我們的生命 — 初信造就 | 倪柝聲</title>
+  <meta name="description" content="倪柝聲《初信造就》（中冊）第二十六篇：我們的生命。專為手機大字閱讀最佳化，支援大、中、小字體級距，清晰流暢。">
+  <style>
+    :root {
+      --font-size: 23px;
+      --line-height: 1.85;
+      --bg: #faf6ee;
+      --card-bg: #ffffff;
+      --text: #26211c;
+      --text-muted: #695e54;
+      --accent: #8e371d;
+      --accent-soft: rgba(142, 55, 29, 0.08);
+      --border: #e8decf;
+      --header-bg: rgba(250, 246, 238, 0.94);
+      --hl-bg: #fff0a6;
+      --hl-green: #d1f2d9;
+      --verse-bg: #f5ede1;
+      --verse-border: #d8c4ae;
+      --shadow: 0 4px 16px rgba(60, 45, 30, 0.05);
+    }
+
+    [data-theme="green"] {
+      --bg: #edf4eb;
+      --card-bg: #ffffff;
+      --text: #1d2c1e;
+      --text-muted: #536b55;
+      --accent: #266b37;
+      --accent-soft: rgba(38, 107, 55, 0.08);
+      --border: #d4e2d1;
+      --header-bg: rgba(237, 244, 235, 0.94);
+      --hl-bg: #fef08a;
+      --hl-green: #bbf7d0;
+      --verse-bg: #e2ede0;
+      --verse-border: #b8d4b4;
+      --shadow: 0 4px 16px rgba(25, 50, 30, 0.05);
+    }
+
+    [data-theme="light"] {
+      --bg: #f4f6f8;
+      --card-bg: #ffffff;
+      --text: #1f2328;
+      --text-muted: #57606a;
+      --accent: #9a3412;
+      --accent-soft: rgba(154, 52, 18, 0.08);
+      --border: #d0d7de;
+      --header-bg: rgba(244, 246, 248, 0.94);
+      --hl-bg: #fef08a;
+      --hl-green: #bbf7d0;
+      --verse-bg: #eaeff5;
+      --verse-border: #c6d2e1;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+    }
+
+    [data-theme="dark"] {
+      --bg: #151618;
+      --card-bg: #22242a;
+      --text: #ececec;
+      --text-muted: #a2a8b3;
+      --accent: #f87171;
+      --accent-soft: rgba(248, 113, 113, 0.15);
+      --border: #33363f;
+      --header-bg: rgba(21, 22, 24, 0.94);
+      --hl-bg: #854d0e;
+      --hl-green: #166534;
+      --verse-bg: #2b2e36;
+      --verse-border: #444a56;
+      --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    /* 字體大小級距：支援大中小，預設中 */
+    [data-size="small"] {
+      --font-size: 19px;
+      --line-height: 1.8;
+    }
+    [data-size="medium"] {
+      --font-size: 23px;
+      --line-height: 1.85;
+    }
+    [data-size="large"] {
+      --font-size: 28px;
+      --line-height: 1.9;
+    }
+
+    * { box-sizing: border-box; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 75px;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", "Heiti TC", sans-serif;
+      font-size: var(--font-size);
+      line-height: var(--line-height);
+      letter-spacing: 0.02em;
+      transition: background-color 0.25s, color 0.25s;
+      -webkit-font-smoothing: antialiased;
+      padding-bottom: 90px;
+    }
+
+    /* 頂端吸頂導覽列 */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: var(--header-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 7px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    /* 閱讀進度條 */
+    #progress-container {
+      position: fixed;
+      top: 59px;
+      left: 0;
+      width: 100%;
+      height: 3.5px;
+      background: transparent;
+      z-index: 51;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--accent);
+      transition: width 0.1s ease-out;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .icon-btn {
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 12px;
+      min-width: 44px;
+      height: 44px;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: transform 0.1s, background-color 0.15s, border-color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .icon-btn:active {
+      transform: scale(0.94);
+      background: var(--accent-soft);
+    }
+
+    .site-title {
+      font-weight: 700;
+      font-size: 0.95em;
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      color: var(--text);
+    }
+    .site-title small {
+      display: block;
+      font-size: 0.72em;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    /* 控制組：字體大小與佈景切換 */
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    /* 字體大小按鈕組（專為長輩設計，大中小清楚明瞭） */
+    .font-size-group {
+      display: inline-flex;
+      background: var(--border);
+      border-radius: 10px;
+      padding: 2px;
+      gap: 2px;
+    }
+    .font-size-btn {
+      border: 0;
+      background: transparent;
+      color: var(--text-muted);
+      border-radius: 8px;
+      min-width: 38px;
+      height: 38px;
+      padding: 0 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .font-size-btn.active {
+      background: var(--card-bg);
+      color: var(--accent);
+      font-weight: 800;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+    }
+
+    /* 主題切換按鈕 */
+    .theme-btn {
+      border: 1px solid var(--border);
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 10px;
+      min-width: 40px;
+      height: 40px;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* 目錄抽屜 (Drawer) */
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      visibility: hidden;
+      transition: visibility 0.25s;
+    }
+    .drawer.open {
+      pointer-events: auto;
+      visibility: visible;
+    }
+    .drawer-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .drawer.open .drawer-overlay {
+      opacity: 1;
+    }
+    .drawer-nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: min(88vw, 360px);
+      background: var(--card-bg);
+      color: var(--text);
+      transform: translateX(-100%);
+      transition: transform 0.25s cubic-bezier(0.1, 0.9, 0.2, 1);
+      padding: calc(env(safe-area-inset-top) + 16px) 18px 30px;
+      overflow-y: auto;
+      box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+    }
+    .drawer.open .drawer-nav {
+      transform: translateX(0);
+    }
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--border);
+      margin-bottom: 14px;
+    }
+    .drawer-title {
+      font-size: 1.15em;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .drawer-close {
+      border: 0;
+      background: var(--accent-soft);
+      color: var(--text);
+      border-radius: 10px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .nav-item a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+      padding: 12px 10px;
+      border-radius: 10px;
+      font-size: 0.95em;
+      line-height: 1.4;
+      font-weight: 600;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .nav-item a:active, .nav-item a:hover {
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .nav-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.85em;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    /* 主內容區 */
+    main {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 16px 14px 40px;
+    }
+
+    /* 篇頭區塊 */
+    .hero {
+      text-align: center;
+      padding: 18px 8px 10px;
+      margin-bottom: 14px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: var(--accent);
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.78em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      letter-spacing: 0.04em;
+    }
+    h1 {
+      font-size: 1.55em;
+      line-height: 1.35;
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-weight: 800;
+    }
+    .author-info {
+      font-size: 0.85em;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* 內容卡片 */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px 18px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+      transition: background-color 0.25s, border-color 0.25s;
+    }
+
+    h2 {
+      font-size: 1.25em;
+      line-height: 1.4;
+      color: var(--accent);
+      margin: 0 0 16px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--accent-soft);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+
+    p {
+      margin: 0 0 1.15em;
+      text-align: justify;
+      word-break: break-word;
+    }
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 讀經經文特別框 */
+    .verse-box {
+      background: var(--verse-bg);
+      border: 1.5px solid var(--verse-border);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 16px 0;
+    }
+    .verse-item {
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 1px dashed var(--verse-border);
+    }
+    .verse-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    .verse-ref {
+      display: block;
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 0.92em;
+      margin-bottom: 6px;
+    }
+    .verse-text {
+      margin: 0;
+      font-size: 1em;
+      line-height: 1.8;
+      font-weight: 500;
+    }
+
+    /* 強調與螢光筆標記 */
+    mark.hl {
+      background: var(--hl-bg);
+      color: inherit;
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      font-weight: 600;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+    mark.hl-green {
+      background: var(--hl-green);
+      color: inherit;
+      padding: 0.12em 0.35em;
+      border-radius: 4px;
+      font-weight: 600;
+      box-decoration-break: clone;
+      -webkit-box-decoration-break: clone;
+    }
+
+    /* 醒目引言金句框 */
+    .quote-box {
+      border-left: 5px solid var(--accent);
+      background: var(--accent-soft);
+      border-radius: 0 12px 12px 0;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-weight: 600;
+    }
+    .quote-box p {
+      margin: 0;
+    }
+
+    /* 核心對比清單 */
+    .contrast-box {
+      background: var(--verse-bg);
+      border: 1px solid var(--verse-border);
+      border-radius: 12px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 0.95em;
+    }
+    .contrast-item {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .contrast-item:last-child {
+      margin-bottom: 0;
+    }
+    .contrast-tag-bad {
+      flex-shrink: 0;
+      background: #e76f51;
+      color: #fff;
+      font-size: 0.78em;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+    .contrast-tag-good {
+      flex-shrink: 0;
+      background: #2a9d8f;
+      color: #fff;
+      font-size: 0.78em;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 6px;
+    }
+
+    /* 每日信心禱告卡 */
+    .prayer-card {
+      background: var(--verse-bg);
+      border: 2px solid var(--accent);
+      border-radius: 16px;
+      padding: 24px 18px;
+      margin-top: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .prayer-card-badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #ffffff;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.8em;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .prayer-card-text {
+      font-size: 1.1em;
+      line-height: 1.8;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 8px 0;
+    }
+
+    /* 回到頂部按鈕 */
+    .back-to-top {
+      position: fixed;
+      bottom: 24px;
+      right: 18px;
+      z-index: 45;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      border: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.25s, transform 0.25s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-to-top:active {
+      transform: scale(0.92);
+    }
+
+    /* 頁尾版權 */
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      color: var(--text-muted);
+      padding: 24px 14px 40px;
+      border-top: 1px solid var(--border);
+      margin-top: 20px;
+    }
+
+    /* 主題切換彈窗/選單 */
+    .theme-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,0.45);
+      padding: 20px;
+    }
+    .theme-modal.open {
+      display: flex;
+    }
+    .theme-modal-content {
+      background: var(--card-bg);
+      color: var(--text);
+      border-radius: 16px;
+      width: 100%;
+      max-width: 320px;
+      padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+    }
+    .theme-modal-title {
+      font-size: 1.1em;
+      font-weight: 700;
+      margin-bottom: 16px;
+      text-align: center;
+      color: var(--accent);
+    }
+    .theme-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .theme-option-btn {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 12px;
+      font-size: 0.95em;
+      font-weight: 600;
+      cursor: pointer;
+      transition: border-color 0.15s;
+    }
+    .theme-option-btn.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+    .theme-dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid #bbb;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 頂部吸頂導航 -->
+  <header>
+    <div class="nav-left">
+      <button class="icon-btn" id="drawerOpenBtn" aria-label="開啟文章目錄">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="site-title">
+        第二十六篇 我們的生命
+        <small>初信造就（中冊）• 倪柝聲</small>
+      </div>
+    </div>
+
+    <div class="nav-controls">
+      <!-- 字體大小按鈕（大中小，預設中） -->
+      <div class="font-size-group" role="group" aria-label="文字大小調節">
+        <button class="font-size-btn" data-size-btn="small" aria-label="切換小字體">小</button>
+        <button class="font-size-btn active" data-size-btn="medium" aria-label="切換中字體（預設）">中</button>
+        <button class="font-size-btn" data-size-btn="large" aria-label="切換大字體">大</button>
+      </div>
+
+      <!-- 配色切換 -->
+      <button class="theme-btn" id="themeOpenBtn" aria-label="選擇護眼配色">
+        🎨
+      </button>
+    </div>
+  </header>
+
+  <!-- 閱讀進度條 -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- 目錄抽屜 (Drawer) -->
+  <div class="drawer" id="drawer">
+    <div class="drawer-overlay" id="drawerOverlay"></div>
+    <nav class="drawer-nav">
+      <div class="drawer-header">
+        <span class="drawer-title">📜 文章目錄大綱</span>
+        <button class="drawer-close" id="drawerCloseBtn" aria-label="關閉目錄">✕</button>
+      </div>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#scripture"><span class="nav-num">經</span>讀經經文</a></li>
+        <li class="nav-item"><a href="#section-1"><span class="nav-num">壹</span>基督是我們的生命</a></li>
+        <li class="nav-item"><a href="#section-2"><span class="nav-num">貳</span>我活著就是基督</a></li>
+        <li class="nav-item"><a href="#section-3"><span class="nav-num">參</span>我已經與基督同釘十字架</a></li>
+        <li class="nav-item"><a href="#section-4"><span class="nav-num">肆</span>因信神的兒子而活</a></li>
+        <li class="nav-item"><a href="#prayer-section"><span class="nav-num">禱</span>核心總結與宣告禱告</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- 主題配色切換彈窗 -->
+  <div class="theme-modal" id="themeModal">
+    <div class="theme-modal-content">
+      <div class="theme-modal-title">選擇閱讀背景</div>
+      <div class="theme-options">
+        <button class="theme-option-btn active" data-theme-btn="warm">
+          <span class="theme-dot" style="background:#faf6ee;"></span>
+          柔和米黃（預設護眼）
+        </button>
+        <button class="theme-option-btn" data-theme-btn="green">
+          <span class="theme-dot" style="background:#edf4eb;"></span>
+          豆沙柔綠（舒緩防疲）
+        </button>
+        <button class="theme-option-btn" data-theme-btn="light">
+          <span class="theme-dot" style="background:#ffffff;"></span>
+          清新白底（清爽簡約）
+        </button>
+        <button class="theme-option-btn" data-theme-btn="dark">
+          <span class="theme-dot" style="background:#1e2024;"></span>
+          暗色夜間（暗光舒適）
+        </button>
+      </div>
+      <button class="icon-btn" id="themeModalCloseBtn" style="width:100%;margin-top:16px;">完成</button>
+    </div>
+  </div>
+
+  <!-- 主閱讀內容 -->
+  <main id="main-content">
+    <div class="hero">
+      <div class="tag">初信造就 • 中冊</div>
+      <h1>第二十六篇　我們的生命</h1>
+      <p class="author-info">倪柝聲 弟兄 著</p>
+    </div>
+
+    <!-- 讀經經文卡片 -->
+    <section class="card" id="scripture">
+      <h2>📖 讀經</h2>
+      <div class="verse-box">
+        <div class="verse-item">
+          <span class="verse-ref">歌羅西書三章四節</span>
+          <p class="verse-text">『<mark class="hl">基督是我們的生命</mark>，祂顯現的時候，你們也要與祂一同顯現在榮耀裡。』</p>
+        </div>
+        <div class="verse-item">
+          <span class="verse-ref">腓立比書一章二十一節</span>
+          <p class="verse-text">『因<mark class="hl">我活著就是基督</mark>，我死了就有益處。』</p>
+        </div>
+        <div class="verse-item">
+          <span class="verse-ref">加拉太書二章二十節</span>
+          <p class="verse-text">『<mark class="hl">我已經與基督同釘十字架；現在活著的，不再是我，乃是基督在我裡面活著</mark>；並且我如今在肉身活著，是因信神的兒子而活，他是愛我，為我捨己。』</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 壹、基督是我們的生命 -->
+    <section class="card" id="section-1">
+      <h2>壹、基督是我們的生命</h2>
+      <p>許多基督徒對於主有一個錯誤的思想，就是以為主在世上曾為我們留下好的榜樣，要我們去<mark class="hl">傚法</mark>。不錯，聖經是有命令，叫我們傚法主，（羅十五5，林前十一1等，）但是，聖經不叫我們憑己去傚法主。</p>
+      <p>我們還必須先看見一個東西，才能傚法主。許多人一直想要傚法主，結果一直失敗。他們以為主好像是一本好的字帖，我們要一筆一筆的去傚法；他們不知道人是如何不行，人血氣的能力是絕對沒有辦法去傚法主的。</p>
+      
+      <p>有的基督徒說，聖經曾告訴我們，『<mark class="hl">我靠著那加給我力量的，凡事都能作</mark>，』（腓四13）所以他們就求主加給他們力量。他們覺得有許多事應該去作，有許多聖經的命令應該遵守，有許多主的榜樣應該傚法；但是自己沒有能力，怎麼辦呢？就求主給他們能力。他們想：主如果給我能力，我就凡事都能作了。因此，許多人就在那裡天天仰望主給他們能力，叫他們能作。</p>
+      
+      <p>靠著主加給我們力量是對的，但是，在主加給我們力量之外，還需要看見一個東西。如果沒有看見那一個東西，我們雖然仰望主加給我們能力，我們還是不能一直有能力。我們可以天天求主加給我們能力，但是，有時候這一個禱告會得著答應，有時候好像這一個禱告會得不著答應；那麼，主賜給能力的時候，凡事都能作，主不賜給能力的時候，就一件事情都不能作了。所以，許多基督徒常常會失敗。我們是應該求主給我們能力，不過，如果我們把這一個當作單獨的命令，或是獨一的方法，那是不行的。</p>
+      
+      <div class="quote-box">
+        <p>『<mark class="hl">基督是我們的生命</mark>這一個秘訣，要先明白，要先看見，要先得著，然後才能傚法基督，然後才能求主加給我們能力。』</p>
+      </div>
+
+      <p>聖經裡給我們看見，主與我們基本的關係到底是什麼，那就是『<mark class="hl">基督是我們的生命</mark>』。乃是當基督是我們的生命之後，我們才能傚法主；乃是當基督是我們的生命之後，我們才能求祂加給我們力量。我們如果不明白什麼叫作『基督是我們的生命，』我們就沒有辦法傚法主，人也沒有辦法求主加我們力量。所以，『基督是我們的生命』這一個秘訣，要先明白，要先看見，要先得著，然後才能傚法基督，然後才能求主加給我們能力。</p>
+      
+      <p>歌羅西三章四節說，『基督是我們的生命。』腓立比一章二十一節說，『因我活著就是基督。』由此可見，<mark class="hl">得勝的路乃是在『基督是我們的生命，』</mark>得勝的路乃是在『我活著就是基督。』一個基督徒如果不知道什麼叫作『基督是我們的生命，』如果不知道什麼叫作『我活著就是基督，』那一個基督徒就不能經歷主在地上的生活，就沒有辦法跟從主，就沒有辦法靠著主得勝，就沒有辦法走前面的路。</p>
+    </section>
+
+    <!-- 貳、我活著就是基督 -->
+    <section class="card" id="section-2">
+      <h2>貳、我活著就是基督</h2>
+      <p>有許多基督徒對於腓立比一章二十一節的話，有極大的誤會。保羅所說『<mark class="hl">我活著就是基督</mark>，』乃是一個事實；他們卻以為『我活著就是基督』是一個目標，或是一個盼望。其實，保羅不是告訴我們說，他有這樣一個『我活著就是基督』的目標；保羅乃是說，我自己所以能活，就是因為有基督；如果沒有祂，我就不能活。<mark class="hl">這是他的事實，而不是他的目標</mark>；這是他生活的秘訣，而不是他的盼望。他的生活，乃是基督。他活著，就是基督在那裡活著。</p>
+      
+      <p>加拉太二章二十節，是許多基督徒很熟悉的一節聖經，但是許多人誤會這一節聖經，比誤會腓立比一章二十一節更加厲害。他們真是把加拉太二章二十節當作他們的目標，在神面前多次的祈求，多少次的羨慕，就是盼望能達到一個地步：『<mark class="hl">現在活著的，不再是我，乃是基督在我裡面活著</mark>。』他們每一次讀這一節聖經的時候，就是充滿了盼望。許多人在那裡禱告，在那裡禁食，就是盼望有一天能夠與基督同釘十字架，盼望有一天能夠不是我活著，乃是基督在我裡面活著。所以，加拉太二章二十節就變成了許多人的目標，許多人的盼望。</p>
+      
+      <p>但是按我們過去的經歷，我們只能說，我們從來沒有看見，有這樣盼望的人能夠達到這一個目標。你若把它當作一個目標，你若盼望達到那一個地步，你若盼望釘十字架，你若盼望活著的不是你自己，而是基督在你裡面活著，那你不知道要等到何年何月，因為<mark class="hl">這是你絕對作不到的事</mark>。</p>
+      
+      <div class="quote-box">
+        <p>『這方法就是<mark class="hl-green">代替的生命</mark>。在主的恩典裡，如何有替死，也如何有替活。<mark class="hl">祂在十字架上如何替我們死了，今天祂在我們裡面也如何替我們活著。</mark>』</p>
+      </div>
+
+      <p>我們要知道，這乃是神給我們的一個奇妙的恩典。在這裡面有一條路，叫所有失敗的人能夠得勝，叫所有污穢的人能夠潔淨，叫所有凡俗的人能夠聖潔，叫所有屬地的人能夠屬天，叫所有屬肉體的人能夠屬靈。這是方法，不是目標。這方法就是<mark class="hl-green">代替的生命</mark>。</p>
+      
+      <p>在主的恩典裡，如何有替死，也如何有替活。主在十字架上，替我們擔當罪，藉著死叫我們免去死，使我們的罪能夠得著赦免，使我們能夠免去審判；照樣，保羅在這裡也是告訴我們，主在我們裡面活了，我們就能夠<mark class="hl">免活</mark>。這意思很簡單，就是祂在我們裡面活，就不必我們活了。祂在十字架上如何替我們死了，今天祂在我們裡面也如何替我們活著。保羅不說，我盼望我能夠不活著，我盼望我能夠讓祂活。他乃是告訴我們說，我不活了，讓祂活著。『現在活著的不再是我，乃是基督在我裡面活著。』這一個，是得勝的秘訣；這一個，是得勝的方法。</p>
+      
+      <p>有一天當我們聽見我們免死的時候，我們覺得這是<mark class="hl">大福音</mark>；照樣，有一天當我們聽見我們可以<mark class="hl">免活了</mark>，這也是<mark class="hl">大福音</mark>。我們盼望初信的弟兄姊妹多多的禱告，求神給你光照，使你看見，基督能活在人裡面，人能用不著自己活。</p>
+      
+      <p>如果不是這樣，那你要維持一個見證，要維持一個基督徒的生活，要拒絕試探，要背十字架，要順服神的旨意，…你會覺得這一種生活實在是十分吃力的生活。有許多信主的人，覺得維持基督徒的生活是一件吃力的事，而且是非常吃力的事。天天在那裡作，天天在那裡歎氣；天天在那裡努力，天天在那裡失敗；天天在那裡維持見證，天天在那裡羞辱主。有許多人要拒絕罪，沒有能力；不拒絕罪，心裡不平安；要忍耐，不能忍耐；生氣，心裡不平安；要愛，心裡沒有能力；恨人，心裡難過。許多人作基督徒都作得累了，作得疲倦了。他們覺得作基督徒好像挑了重擔爬山，總爬不上去。當他沒有信主的時候，是勞苦背罪孽的重擔；自從他信主之後，是勞苦背聖潔的重擔。把那一個擔子，換這一個擔子，也是很累，也是很苦。</p>
+      
+      <div class="contrast-box">
+        <div class="contrast-item">
+          <span class="contrast-tag-bad">你在你裡面作</span>
+          <span>忍耐是苦的，愛是苦的，謙卑是苦的，背十字架也是苦的。</span>
+        </div>
+        <div class="contrast-item">
+          <span class="contrast-tag-good">基督在你裡面活</span>
+          <span>忍耐是快樂的，愛是快樂的，謙卑是快樂的，背十字架也是快樂的！</span>
+        </div>
+      </div>
+
+      <p>他們這樣的情形，顯明他們是作錯了基督徒。保羅是說，『<mark class="hl">現在活著的不再是我，乃是基督在我裡面活著</mark>。』這是基督徒生活的秘訣。<mark class="hl">是主在你裡面作基督徒</mark>，不是你在你裡面作基督徒。如果是你在你裡面作基督徒，那就忍耐是苦的，愛也是苦的，謙卑也是苦的，背十字架也是苦的；如果是基督在你裡面活著，那就忍耐是快樂的，愛也是快樂的，謙卑也是快樂的，背十字架也是快樂的。</p>
+      
+      <p>弟兄姊妹，當你作基督徒作得很累的時候，作得不可開交的時候，作得整個人不能脫身的時候，你如果看見，從今以後，<mark class="hl">你可以不必活，你會覺得這是一個大福音</mark>。每一個基督徒都可以免活這一種累的生活，這是一個大福音！你用不著花那麼多的力氣作基督徒，用不著那麼背重擔的作基督徒！你可以說，『有一次我聽見福音說我可以免死，我不必死了，我感謝神；今天我這一個人，活到疲乏了，活到累了，神說我可以免活，不必花力氣活了，我也感謝神！』</p>
+      
+      <p>死，自然是苦的事；但是，叫我們活在神面前，也是一樣苦的事。像我們這樣的人，根本不知道什麼叫作神的聖潔，根本不知道什麼叫作愛，根本不知道什麼叫作十字架；把我們這樣的人，擺在神面前去活，這一種重擔，實在是我們所背不起的。越活著，越歎氣；越活著，越感覺難。像我們這樣的人，要我們掙扎奮鬥的來作基督徒，的確是花力氣的事，並且是絕對作不好的。像我們這樣的人，根本答應不了神那樣的要求。有的人，一輩子在那裡發脾氣；有的人，一輩子不能忍耐；有的人，一輩子在那裡驕傲。要一個驕傲的人活在神面前，天天勉強的在那裡謙卑，必定會謙卑得累，他必定會謙卑得疲倦。</p>
+      
+      <p>羅馬書第七章裡的保羅就是作累了的基督徒。他說，『<mark class="hl">立志為善由得我，只是行出來由不得我</mark>。』（羅七18）天天立志為善，天天行不出來。所以他只能歎氣說，『<mark class="hl">我真是苦阿！</mark>』（24。）其實，作基督徒並不是把一個屬血氣的人擺到天堂裡去作奴隸。虧得沒有一個屬血氣的人能進天堂，如果進去，就得趕快逃出來，連一天都受不了，因為他的脾氣和神的脾氣不一樣，他的意見和神的意見不一樣，他的作法和神的作法不一樣，他的看法和神的看法不一樣，他怎麼受得了神的要求呢！他在神面前一點辦法都沒有，只好逃跑。</p>
+
+      <div class="quote-box">
+        <p>『神不要你行善，神也不要你立志為善；<mark class="hl">神是要基督在你裡面活</mark>。神所注意的，不是行善不行善的問題，而是<mark class="hl-green">誰行善</mark>的問題。』</p>
+      </div>
+
+      <p>但是這裡有福音傳給你：神不要你行善，神也不要你立志為善；<mark class="hl">神是要基督在你裡面活</mark>。神所注意的，不是行善不行善的問題，而是誰行善的問題。神不是說，有善就行；神乃是問是誰行善？</p>
+      
+      <p>所以，神的方法不是要我們傚法基督，行得像基督一樣；也不是要我們跪在那裡求主加給我們力量，使我們能作出來像基督一樣。神的方法乃是要我們『現在活著的，不再是我，乃是基督在我裡面活著。』你看見這裡面的不同麼？不是傚法基督的生活，也不是給你能力來活出這一個生活，而是<mark class="hl">根本不是你這一個人活</mark>。神不讓你這一個人在祂面前活著。不是這一個人來到神面前，乃是基督活在你裡面來到神面前。不是我們傚法基督，不是我們得著基督的能力，<mark class="hl">乃是基督在我們裡面活著</mark>。</p>
+      
+      <p>這一個，就是信徒的生活。信徒的生活就是：<mark class="hl">不是我活，乃是基督活</mark>。本來是我活，不是基督活，但今天不是我活，乃是基督活。<mark class="hl">今天掉換一個來活</mark>。所以，如果有一個人，他不能說『不是我活，乃是基督活，』這一個人就還不知道什麼叫作基督教，不知道什麼叫作基督的生命，不知道什麼叫作基督徒的生活。他還不過是在那裡盼望能作到『不是我活，乃是基督活』的地步。但是，保羅並不是說他要作到這一個地步，保羅乃是告訴我們，這是他生活的方法。他的方法，是自己不活，讓基督來活。</p>
+    </section>
+
+    <!-- 參、我已經與基督同釘十字架 -->
+    <section class="card" id="section-3">
+      <h2>參、我已經與基督同釘十字架</h2>
+      <p>也許有人要問：怎樣才能現在活著的不再是我呢？這個『我』怎樣出去呢？這個問題的解答，就是加拉太二章二十節的第一句話－『<mark class="hl">我已經與基督同釘十字架</mark>。』如果我沒有與基督同釘十字架，我就不能出去；如果我沒有與基督同釘十字架，我就仍舊是我。怎麼能說『不再是我』呢？只有『已經與基督同釘十字架』的人，才能說『不再是我。』</p>
+      
+      <p>關於我們與基督同釘十字架的這一件事，<mark class="hl">必須有兩方面的合作</mark>，才能成為我們的經歷。單有一方面是不行的，總得兩方面全有才行。</p>
+      
+      <p>我們裡面的眼睛必須被開起來，看見當主耶穌在十字架上被釘死的時候，神把我們擺在基督裡，與祂一同釘死了，這是神那一方面的工作。</p>
+      
+      <p>你相信主耶穌替你死，擔當你的罪，這是一千九百多年前的事。照樣，當主耶穌釘十字架的時候，神也把你這一個人歸在主耶穌身上。你的罪如何是在一千九百多年前解決的，你這一個人也如何是在一千九百多年前解決的。神什麼時候把你的罪歸在主耶穌身上，神也是什麼時候把你這個人歸在主耶穌身上。在十字架上，你的罪了了；在十字架上，你的人也了了。</p>
+      
+      <p>我們必須記得羅馬書六章六節所說的，『因為知道<mark class="hl">我們的舊人，和祂同釘十字架</mark>。』我們不是盼望與基督同釘十字架，乃是已經與祂同釘十字架了，是永遠不更改的與祂同釘十字架了。當基督死在十字架上的時候，神把我們擺在基督裡，我們也死在十字架上了。</p>
+      
+      <p>比方你拿一張紙，寫上幾個大字，你把這張紙撕開了，你就也把這幾個字撕開了；你是撕紙，但你把紙撕碎了，自然也把這幾個字一同撕碎了。聖經告訴我們，聖殿裡的幔子，是有基路伯繡在上面的；（出二六1）在主耶穌離世的時候，幔子裂開了，（太二七51，）當然基路伯也裂開了。這一個幔子是指著主耶穌的身體說的。（來十20。）基路伯有人的臉，獅子的臉，牛的臉，和鷹的臉，（結一10，十20，）這是代表受造之物。當主耶穌的身體被裂開的時候，神把受造之物擺在祂裡面，也都一同裂開了。祂死是『為每一件東西嘗了死味，』（來二9，達秘譯本，）所以<mark class="hl">整個舊造也都過去了</mark>。</p>
+      
+      <p>多少年來你是一個沒有辦法作好的人，多少年來你想把你自己作成功個基督徒而作不成功，可是現在你看見，神已把你與基督同釘在十字架上了。當基督釘在十字架上的時候，整個舊造都裂開了，你也在那裡裂開了。</p>
+      
+      <p>對於這一個真理，你必須信。你的眼睛要開起來，看見你的罪已經在基督身上，你人也已經在基督身上。<mark class="hl">罪在十字架上，人也在十字架上</mark>。你的罪已經被擔當，你的人已經被釘死，這是基督作成的事。有許多人失敗，就是因為一直往自己裡面看。有信心的人應當往十字架上看，看見在基督裡所成功的；<mark class="hl">神把我擺在基督裡，基督死了，我也死了！</mark></p>
+      
+      <p>但是，為什麼你這個『人』到今天還是活的呢？你是釘死了，為什麼你還是活著呢？要解決這一個問題，你需要信，你也需用你的意志，把你擺在神的一邊。你如果天天在那裡看你這個『人，』天天盼望他作好，那麼他不活也要活過來，他連死都不安心。<mark class="hl">什麼叫作死？一個人軟弱，軟弱再軟弱，軟弱到極點，不能再軟弱了，軟弱到底了，那是死</mark>。許多人不承認自己的軟弱，對於自己還有那麼多的要求，這就是說，他還沒有死。</p>
+      
+      <p>羅馬六章是說神把我們與基督一同釘死了，但是第七章裡有一個人還在那裡立志。神把他釘死了，而他還要在那裡行善。他這個人死也死不掉，作也作不好。他如果說，『主，我不行，我也不相信我行；主，我不能行善，我也不立志行善，』那就行了。但是羅馬書第七章是說人對於死還不甘心。神把你的舊人釘死在十字架上了，你自己還不甘心，還是在那裡立志為善。今天有許多基督徒，自己不行，還要去行，這就沒有辦法。</p>
+      
+      <p>比方有一個人，他不能忍耐，他怎麼作呢？他如果在那裡要自己忍耐，要盡他的力量去忍耐，禱告也是求忍耐，作工也是想忍耐，那麼他越要忍耐，反而越不能忍耐。他應當說，『<mark class="hl">主，你已經把我這一個不能忍耐的人釘死了。我是不能忍耐的人，我不要忍耐，我也不想忍耐了。</mark>』這才是得勝的路。</p>
+      
+      <div class="quote-box">
+        <p>『<mark class="hl">十字架是神對於我們的斷案。</mark>據神看，你不行。神認為你不行，你也承認你不行，這就好了；神看你該死，你說「阿們，應當讓我死，」這就行了。』</p>
+      </div>
+
+      <p>主把你釘十字架，你應當說，『阿們！』主把你釘十字架，如果你還想靠自己忍耐，那就不行。神認為你不行，要把你釘死，而你自己卻還想試試看，忍耐忍耐看；神看你不行，要把你釘死，而你卻看自己還可以，想要盡力量來作基督徒；你若是這樣，你就大錯特錯了。神已經認為你不能作，所以只好把你釘死在十字架上，而你自己卻以為能作；神看你不行，要你死，而你還是想要立志，想要掙扎；這是何等愚昧的事！</p>
+      
+      <p>神認為你不行，你也承認你不行，這就好了；神看你該死，你說『阿們，應當讓我死，』這就行了。十字架是神對於我們的斷案。據神看，你不行。你如果行，神就不把你釘死了；但是神認為你非死不可，所以祂把你釘了。神這樣看，你也這樣看，就對了。弟兄姊妹，你必須被神帶到一個地步能<mark class="hl">接受神的斷案</mark>。</p>
+      
+      <p>所以，這是兩方面：<br>
+      一、<mark class="hl">基督死了，把我也釘死了</mark>，這是神作的事；<br>
+      二、<mark class="hl">我要承認這件事，我要說『阿們。』</mark><br>
+      必須這兩方面合起來，才能使神作的事在我們身上發生果效。</p>
+      
+      <p>如果你一直在那裡打擾祂，一直要立志為善，要忍耐，要謙卑，那麼基督在你身上所作的，就不能發生果效。你的那一個立志謙卑壞了事，那一個立志忍耐也壞了事。如果你低下頭來說，『主，你說我該釘十字架，我也說我該釘十字架；你說我沒有用處，我也說我沒有用處；你說我不能忍耐，我從今以後也不打算忍耐了；你說我不能謙卑，我從今以後也不想謙卑了；我就是這樣的人，我立志也沒有用，我只配死在十字架上。』<mark class="hl">這樣，基督就能從你身上活出來！</mark></p>
+      
+      <p>不要以為這是很艱難的事。要知道，這是每一個弟兄姊妹得救以後就應當學習的功課。應該從起頭就學習<mark class="hl">我不活，讓主活</mark>。基本的難處就在於許多基督徒對於他自己還沒有死心，所以還要試著去立志。主耶穌對他早已死心了，可是他還在那裡努力，還在那裡想辦法；多次跌倒，多次爬起；一再犯罪，一再立志；對自己一直沒有死心。總要到有一天，神憐憫他，叫他看見：神看我不行，我也不行；神看我除了死之外沒有別的用處，我也看我除了死之外沒有別的用處。這樣，他才會到神面前去承認說，『不只你釘我，我也不想活了。我已經與基督同釘十字架，從今以後，不再是我活，乃是基督在我裡面活了！』</p>
+      
+      <p>我們錯了這麼多年，犯了這麼多年的罪，有這麼多年的軟弱，有這麼多年的驕傲，有這麼多年的脾氣，我們對自己應該死心了。我們到主面前來，對主說，『我已經作得夠了，真不行；我今天不管了，你來罷！<mark class="hl">我已經釘死在十字架上了，從今以後，讓你來活罷！</mark>』這就叫作『現在活著的不再是我，乃是基督在我裡面活著。』</p>
+    </section>
+
+    <!-- 肆、因信神的兒子而活 -->
+    <section class="card" id="section-4">
+      <h2>肆、因信神的兒子而活</h2>
+      <p>加拉太二章二十節還有兩句話很重要：『<mark class="hl">並且我如今在肉身活著，是因信神的兒子而活</mark>。』基督活在我們裡面，從今以後，我們是因信神的兒子而活，我們天天相信是神的兒子在我們裡面活。我們對主說，『主，我相信你替我活。主，我相信你作我的生命，我相信是你在我裡面活著。』我們這樣相信，我們就這樣活。任何事情來的時候，是<mark class="hl">自己不動</mark>。羅馬七章基本的功課，就是要我們不立志。羅馬七章的基本教訓，就是一再立志而沒有用，所以從今以後就不立志了。既然自己動沒有用，所以從今以後我們就不動了。</p>
+      
+      <div class="quote-box">
+        <p>『撒但試探我們的目的，不只是叫我們去犯罪，乃是要我們的舊人去動。所以每一個試探來的時候，我們必須學習拒絕動，對主說：<mark class="hl">「主，這不是我的事，這是你的事。主，我仰望你替我活。」</mark>』</p>
+      </div>
+
+      <p>撒但試探我們的目的，不只是叫我們去犯罪，乃是要我們的舊人去動。所以，每一個試探來的時候，我們必須學習拒絕動，對主說，『主，這不是我的事，這是你的事。主，我仰望你替我活。』總要學習仰望，不要自己動。我們的得救，是在乎信，不是在乎行為；我們的生命，也是在乎信，不是在乎行為。我們得救的時候，完全是因著仰望；今天，我們也因仰望而活著。在得救的事情上，如何不是我們作的，而是主作的，今天我們活在地上，也照樣不是我們活，乃是主活。我們要仰望拯救我們的主說，『<mark class="hl">是你，不是我！</mark>』</p>
+      
+      <p>你說了這話，如果自己仍舊動，這話就等於白說。必須你自己不動，你說這話才有用處。</p>
+      
+      <p>弟兄姊妹，請你記得，<mark class="hl">失敗不是因著人的行為少，失敗乃是因著人的行為多</mark>。人有自己的行為的時候，神的恩典就不能臨到他身上，他的罪也就不能得著赦免。照樣，我們的行為多的時候，我們自己在那裡動的時候，主的生命也就不能彰顯。這是一個原則。十字架的功效，總不能彰顯在那些倚靠自己行為的人身上。如果我們一直要作好，那就不會得救；反而是我們不倚靠自己而仰望主的時候，就得救了。今天的問題也是在這裡。如果不是十字架在你裡面作工，如果不是基督的生命在你裡面動，而是你自己在那裡動，你自己在那裡作，那這些話是白說的。</p>
+      
+      <p>我們要學習自己定自己為罪。我們要承認自己就是這樣沒有辦法得勝的人，所以，我們不去立志，也不去想辦法，只仰起頭來說，『<mark class="hl">主，我仰望你在我裡面活！我所有的生活，你都替我活。我仰望你替我得勝！我仰望你顯出你的生命！</mark>』你這樣說，主就這樣作。若你自己的行為與你的信心相反，主就不能作。這一個我們必須徹底的解決。</p>
+      
+      <p>我們需要天天相信，天天在那裡專一的對主說，『主，我沒有用！你的十字架，我接受。主，你保守我，叫我不要動。主，你作主，你來活！』你如果能夠相信，能夠仰望，能夠倚靠，你就天天都能夠作見證說，『<mark class="hl">不是我活，乃是祂活！</mark>』</p>
+    </section>
+
+    <!-- 總結與禱告卡 -->
+    <section class="prayer-card" id="prayer-section">
+      <div class="prayer-card-badge">💡 每日屬靈宣告與禱告</div>
+      <p class="prayer-card-text">
+        「主阿，我相信你作我的生命！<br>
+        我已經與你同釘十字架，我對自己徹底死心；<br>
+        我不靠自己的力量掙扎立志，<br>
+        今天不再是我活，乃是你在我裡面活！<br>
+        不是我，是你；我仰望你替我活，替我得勝！」
+      </p>
+      <p style="font-size:0.9em;color:var(--text-muted);margin-top:12px;">阿們！</p>
+    </section>
+
+  </main>
+
+  <!-- 浮動按鈕：回到頂部 -->
+  <button class="back-to-top" id="backToTopBtn" aria-label="回到頂部">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  </button>
+
+  <footer>
+    <p>第二十六篇　我們的生命 — 初信造就（中冊）</p>
+    <p>Copyright © Living Stream Ministry, Anaheim, California.</p>
+  </footer>
+
+  <script>
+    // 1. 字體大小控制（大、中、小，預設中）
+    const htmlElem = document.documentElement;
+    const fontBtns = document.querySelectorAll('[data-size-btn]');
+
+    function setFontSize(size) {
+      htmlElem.setAttribute('data-size', size);
+      localStorage.setItem('ourLife_fontSize', size);
+      fontBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-size-btn') === size);
+      });
+    }
+
+    fontBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setFontSize(btn.getAttribute('data-size-btn'));
+      });
+    });
+
+    // 讀取先前儲存之字體設定（預設為 medium 中字）
+    const savedSize = localStorage.getItem('ourLife_fontSize') || 'medium';
+    setFontSize(savedSize);
+
+    // 2. 佈景配色切換
+    const themeModal = document.getElementById('themeModal');
+    const themeOpenBtn = document.getElementById('themeOpenBtn');
+    const themeModalCloseBtn = document.getElementById('themeModalCloseBtn');
+    const themeOptionBtns = document.querySelectorAll('[data-theme-btn]');
+
+    function setTheme(theme) {
+      htmlElem.setAttribute('data-theme', theme);
+      localStorage.setItem('ourLife_theme', theme);
+      themeOptionBtns.forEach(btn => {
+        btn.classList.toggle('active', btn.getAttribute('data-theme-btn') === theme);
+      });
+    }
+
+    themeOpenBtn.addEventListener('click', () => {
+      themeModal.classList.add('open');
+    });
+    themeModalCloseBtn.addEventListener('click', () => {
+      themeModal.classList.remove('open');
+    });
+    themeModal.addEventListener('click', (e) => {
+      if (e.target === themeModal) {
+        themeModal.classList.remove('open');
+      }
+    });
+
+    themeOptionBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        setTheme(btn.getAttribute('data-theme-btn'));
+        themeModal.classList.remove('open');
+      });
+    });
+
+    const savedTheme = localStorage.getItem('ourLife_theme') || 'warm';
+    setTheme(savedTheme);
+
+    // 3. 目錄抽屜開啟/關閉
+    const drawer = document.getElementById('drawer');
+    const drawerOpenBtn = document.getElementById('drawerOpenBtn');
+    const drawerCloseBtn = document.getElementById('drawerCloseBtn');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+    }
+    function closeDrawer() {
+      drawer.classList.remove('open');
+    }
+
+    drawerOpenBtn.addEventListener('click', openDrawer);
+    drawerCloseBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    document.querySelectorAll('.nav-item a').forEach(a => {
+      a.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    // 鍵盤 Esc 關閉抽屜與選單
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeDrawer();
+        themeModal.classList.remove('open');
+      }
+    });
+
+    // 4. 滾動進度條與回到頂端按鈕
+    const progressBar = document.getElementById('progress-bar');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      progressBar.style.width = progress + '%';
+
+      if (scrollTop > 300) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
