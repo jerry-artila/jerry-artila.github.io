@@ -80,8 +80,8 @@ def extract_visible_lines(html_content: str) -> list:
 def clean_paragraph_text(text: str) -> str:
     """自動清除段落尾端出處引文與參讀指引 (遵循 SRS 第四條第 3 點)"""
     text = re.sub(r"[\u200b\u200c\u200d\uFEFF]", "", text)
-    # 清洗書籍出處括號，如（新約總論第十二冊，三五頁）、（李常受文集...）、（...生命讀經...）等
-    pattern = r"（\s*(?:(?:李常受|倪柝聲)?文集|生命讀經|新約總論|真理課程|經歷基督|附聚會資料)[^）]*?）"
+    # 清洗書籍出處括號，如（新約總論第十二冊，三五頁）、（...生命讀經...）、（李常受文集...）等
+    pattern = r"（\s*[^）]*?(?:文集|生命讀經|新約總論|總論|真理課程|經歷基督|附聚會資料|頁)[^）]*?）"
     text = re.sub(pattern, "", text)
     # 截除 --參讀... 與 📚 參讀：... 書目推薦區塊
     text = re.sub(r"(?:--|📚\s*)參讀[^\n<]*", "", text)
@@ -103,7 +103,7 @@ def parse_morning_revival_data(lines: list) -> dict:
     for l in lines[:50]:
         if "半年度訓練" in l or "訓練" in l:
             training_info = l
-        m_week = re.search(r"(第[一二三四五六七八九十0-9]+週)[、\s]*(.*)", l)
+        m_week = re.search(r"(第[一二三四五六七八九十0-9]+週)[、：:\s]*(.*)", l)
         if m_week and not training_info.startswith(l):
             week_str = m_week.group(1).strip()
             if m_week.group(2).strip():
@@ -118,7 +118,7 @@ def parse_morning_revival_data(lines: list) -> dict:
     for i, l in enumerate(lines):
         if "【週" in l and "一】" in l and outline_start == -1:
             outline_start = i
-        if f"{week_str} • 週一" in l or (re.search(r"第[一二三四五六七八九十0-9]+週 • 週一", l) and outline_start != -1):
+        if re.search(r"第[一二三四五六七八九十0-9]+週\s*•\s*週一", l) and outline_start != -1:
             outline_end = i
             break
 
@@ -180,20 +180,10 @@ def parse_morning_revival_data(lines: list) -> dict:
     # 3. 每日信息定位
     day_indices = []
     for d in DAYS:
-        target = f"{week_str} • {d}"
         for i, l in enumerate(lines):
-            if target in l:
+            if re.search(rf"{re.escape(week_str)}\s*•\s*{d}", l):
                 day_indices.append((d, i))
                 break
-
-    default_subheadings = {
-        "週一": "認識基督並祂復活的大能，以及同祂受苦的交通",
-        "週二": "模成基督之死的模子與背十字架",
-        "週三": "經歷成就一切的死，對付消極的事",
-        "週四": "達到那從死人中傑出的復活",
-        "週五": "全人的每一部分都要復活",
-        "週六": "忘記背後，努力面前的，向着標竿竭力追求",
-    }
 
     daily_data = {}
     for idx, (d, start_idx) in enumerate(day_indices):
@@ -228,7 +218,7 @@ def parse_morning_revival_data(lines: list) -> dict:
 
         reading_paras = []
         for l in reading_lines:
-            if any(k in l for k in ["新北市召會淡水會所", "電話：", "E-Mail:", "瀏覽本網站若發生異常", "聯絡我們", "bottom of page"]):
+            if any(k in l for k in ["新北市召會淡水會所", "電話：", "傳真：", "E-Mail", "tschurch", "@", "瀏覽本網站若發生異常", "聯絡我們", "bottom of page"]):
                 continue
             cl = clean_paragraph_text(l)
             if cl:
@@ -237,8 +227,7 @@ def parse_morning_revival_data(lines: list) -> dict:
         daily_data[d] = {
             "verses": verses,
             "nourish_paragraphs": nourish_paras,
-            "reading_paragraphs": reading_paras,
-            "sub_heading": default_subheadings.get(d, "")
+            "reading_paragraphs": reading_paras
         }
 
     return {
@@ -515,7 +504,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
     week_str = data["week_str"]
     main_title = data["main_title"]
     scripture = data["scripture"]
-    d_info = data["daily"].get(day_name, {"verses": [], "nourish_paragraphs": [], "reading_paragraphs": [], "sub_heading": ""})
+    d_info = data["daily"].get(day_name, {"verses": [], "nourish_paragraphs": [], "reading_paragraphs": []})
 
     # 1. 經文卡片
     verse_cards = []
@@ -541,8 +530,6 @@ def render_daily_html(data: dict, day_name: str) -> str:
               {p}
             </p>""")
     reading_joined = "\n".join(reading_paras)
-
-    sub_heading_html = f'<h4 class="reading-sub-heading">{d_info["sub_heading"]}</h4>\n' if d_info["sub_heading"] else ""
 
     return f"""<!DOCTYPE html>
 <html lang="zh-TW">
@@ -604,7 +591,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
 
           <div class="reading-body">
             <div id="read-1">
-              {sub_heading_html}{reading_joined}
+              {reading_joined}
             </div>
           </div>
         </section>
@@ -655,8 +642,8 @@ def validate_output_directory(output_dir: Path) -> bool:
 
         # 3. 檢驗徽章與標題
         if fname == "綱目.html":
-            if '<span class="badge">第十週 總綱</span>' in content:
-                print("❌ 綱目.html 徽章錯誤，應為「第十週 綱目」")
+            if "總綱</span>" in content:
+                print("❌ 綱目.html 徽章錯誤，應為「綱目」")
                 passed = False
 
     if passed:
@@ -672,10 +659,15 @@ def validate_output_directory(output_dir: Path) -> bool:
 # ==============================================================================
 def run_pipeline(source_url: str = DEFAULT_SOURCE_URL,
                  input_file: str = None,
-                 output_dir_path: str = "output",
+                 output_dir_path: str = None,
                  dry_run: bool = False,
                  verify_only: bool = False):
-    output_dir = Path(output_dir_path).resolve()
+    if output_dir_path:
+        output_dir = Path(output_dir_path).resolve()
+    else:
+        # 預設為 morning-revival 專案下的 output 目錄
+        output_dir = (Path(__file__).resolve().parent.parent / "output").resolve()
+
     if not output_dir.exists():
         output_dir.mkdir(parents=True, exist_ok=True)
 
@@ -733,7 +725,7 @@ def main():
     parser = argparse.ArgumentParser(description="晨興聖言自動化更新管線 (Pipeline)")
     parser.add_argument("--url", default=DEFAULT_SOURCE_URL, help="來源網址 (預設淡水會所晨興網址)")
     parser.add_argument("--input-file", help="使用本地 HTML/文字快取檔更新 (離線測試用)")
-    parser.add_argument("--output-dir", default="output", help="輸出目錄路徑 (預設 output/)")
+    parser.add_argument("--output-dir", default=None, help="輸出目錄路徑 (預設 morning-revival/output/)")
     parser.add_argument("--dry-run", action="store_true", help="僅解析不寫入檔案")
     parser.add_argument("--verify-only", action="store_true", help="僅驗證現有 output 檔案品質")
 
