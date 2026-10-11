@@ -46,32 +46,53 @@ def fetch_source_html(url: str) -> str:
     return content
 
 
-class VisibleTextExtractor(HTMLParser):
+class BlockTextExtractor(HTMLParser):
     def __init__(self):
         super().__init__()
-        self.texts = []
+        self.blocks = []
+        self.current = []
         self.ignore = False
+        self.block_tags = {
+            "p", "div", "h1", "h2", "h3", "h4", "h5", "h6",
+            "li", "br", "tr", "td", "section", "article", "header", "footer"
+        }
 
     def handle_starttag(self, tag, attrs):
         if tag in ["script", "style", "meta", "link", "noscript"]:
             self.ignore = True
+        elif tag in self.block_tags and not self.ignore:
+            self._flush()
 
     def handle_endtag(self, tag):
         if tag in ["script", "style", "meta", "link", "noscript"]:
             self.ignore = False
+        elif tag in self.block_tags and not self.ignore:
+            self._flush()
 
     def handle_data(self, data):
         if not self.ignore:
-            cleaned = data.strip()
-            if cleaned:
-                self.texts.append(cleaned)
+            self.current.append(data)
+
+    def _flush(self):
+        if self.current:
+            text = "".join(self.current).strip()
+            if text:
+                self.blocks.append(text)
+            self.current = []
 
 
 def extract_visible_lines(html_content: str) -> list:
-    extractor = VisibleTextExtractor()
+    extractor = BlockTextExtractor()
     extractor.feed(html_content)
-    lines = [re.sub(r"[\u200b\u200c\u200d\uFEFF]", "", t).strip() for t in extractor.texts]
-    return [l for l in lines if l]
+    extractor._flush()
+    raw_lines = [re.sub(r"[\u200b\u200c\u200d\uFEFF\xa0]", " ", t).strip() for t in extractor.blocks]
+    result = []
+    for l in raw_lines:
+        for sub in l.splitlines():
+            s = sub.strip()
+            if s:
+                result.append(s)
+    return result
 
 
 # ==============================================================================
@@ -79,12 +100,12 @@ def extract_visible_lines(html_content: str) -> list:
 # ==============================================================================
 def clean_paragraph_text(text: str) -> str:
     """自動清除段落尾端出處引文與參讀指引 (遵循 SRS 第四條第 3 點)"""
-    text = re.sub(r"[\u200b\u200c\u200d\uFEFF]", "", text)
+    text = re.sub(r"[\u200b\u200c\u200d\uFEFF\xa0]", " ", text)
     # 清洗書籍出處括號，如（新約總論第十二冊，三五頁）、（...生命讀經...）、（李常受文集...）等
-    pattern = r"（\s*[^）]*?(?:文集|生命讀經|新約總論|總論|真理課程|經歷基督|附聚會資料|頁)[^）]*?）"
+    pattern = r"[（\(]\s*[^）\)]*?(?:文集|生命讀經|新約總論|總論|真理課程|經歷基督|附聚會資料|頁)[^）\)]*?[）\)]"
     text = re.sub(pattern, "", text)
     # 截除 --參讀... 與 📚 參讀：... 書目推薦區塊
-    text = re.sub(r"(?:--|📚\s*)參讀[^\n<]*", "", text)
+    text = re.sub(r"(?:[-—]{1,2}|📚\s*)參讀[^\n<]*", "", text)
     # 整理標點符號與多餘空白
     text = re.sub(r"。\s*。", "。", text)
     text = re.sub(r"\s+。", "。", text)
@@ -127,15 +148,69 @@ def parse_morning_revival_data(lines: list) -> dict:
         raw_outline_lines = lines[outline_start:outline_end]
         chinese_nums = {'壹': 1, '貳': 2, '叁': 3, '肆': 4, '伍': 5, '陸': 6, '柒': 7, '捌': 8, '玖': 9, '拾': 10}
 
-        current_sec = None
-        current_item = None
-
-        for raw_l in raw_outline_lines:
+        # 預先合規化：合併可能因標籤切斷的序號與標題
+        normalized_outline = []
+        skip_next = 0
+        for idx, raw_l in enumerate(raw_outline_lines):
+            if skip_next > 0:
+                skip_next -= 1
+                continue
             l = clean_paragraph_text(raw_l)
             if not l or "【週" in l:
                 continue
 
-            # 第 1 層 (大點)：第壹大點、第貳大點...
+            # 檢查單獨大點序號 (如 '壹', '貳', '第壹大點' 等) 無標題者
+            m_sec_alone = re.match(r"^(第?[壹貳叁肆伍陸柒捌玖拾]大?點?)[、\s]*$", l)
+            if m_sec_alone and any(l.startswith(cn) or l.startswith(f"第{cn}") for cn in chinese_nums):
+                merged_title = ""
+                lookahead = idx + 1
+                while lookahead < len(raw_outline_lines):
+                    next_l = clean_paragraph_text(raw_outline_lines[lookahead])
+                    if not next_l or "【週" in next_l:
+                        lookahead += 1
+                        continue
+                    if next_l == "、":
+                        lookahead += 1
+                        continue
+                    if next_l.startswith("、"):
+                        next_l = next_l[1:].strip()
+                    merged_title = next_l
+                    break
+                if merged_title:
+                    normalized_outline.append(f"{m_sec_alone.group(1)}、{merged_title}")
+                    skip_next = lookahead - idx
+                    continue
+
+            # 檢查單獨中點序號 (如 '一', '二' 等) 無內容者
+            m_item_alone = re.match(r"^([一二三四五六七八九十]+)[、\s]*$", l)
+            if m_item_alone and not l.startswith("第"):
+                num_prefix = m_item_alone.group(1)
+                merged_text = ""
+                lookahead = idx + 1
+                while lookahead < len(raw_outline_lines):
+                    next_l = clean_paragraph_text(raw_outline_lines[lookahead])
+                    if not next_l or "【週" in next_l:
+                        lookahead += 1
+                        continue
+                    if next_l == "、":
+                        lookahead += 1
+                        continue
+                    if next_l.startswith("、"):
+                        next_l = next_l[1:].strip()
+                    merged_text = next_l
+                    break
+                if merged_text:
+                    normalized_outline.append(f"{num_prefix}、{merged_text}")
+                    skip_next = lookahead - idx
+                    continue
+
+            normalized_outline.append(l)
+
+        current_sec = None
+        current_item = None
+
+        for l in normalized_outline:
+            # 第 1 層 (大點)：第壹大點、第貳大點... 或 壹、貳...
             m1 = re.match(r"^(第?[壹貳叁肆伍陸柒捌玖拾]大?點?)[、\s]*(.*)", l)
             if m1 and any(l.startswith(cn) or l.startswith(f"第{cn}") for cn in chinese_nums):
                 num_str = m1.group(1)
@@ -164,8 +239,8 @@ def parse_morning_revival_data(lines: list) -> dict:
                     current_sec["items"].append(current_item)
                 continue
 
-            # 第 4 層 (a. b.) 與第 5 層 ((一) (二)) 嚴格過濾截斷
-            if re.match(r"^[a-z]\.|\([一二三四五六七八九十0-9]+\)", l):
+            # 第 4 層 (a. b. (a) (b)) 與第 5 層 ((一) (二) ㈠ ㈡) 嚴格過濾截斷
+            if re.match(r"^(?:[a-z][\.\)]|[\(（][a-z一二三四五六七八九十0-9]+[\)）]|[㈠㈡㈢㈣㈤㈥㈦㈧㈨㈩⑴⑵⑶⑷⑸⑹⑺⑻⑼⑽])", l):
                 continue
 
             # 第 3 層 (小點)：1. 2. 3. 或中點內之細點
@@ -176,6 +251,7 @@ def parse_morning_revival_data(lines: list) -> dict:
                     m3 = re.match(r"^\d+[\.、]\s*(.*)", l)
                     sub_text = m3.group(1).strip() if m3 else l
                     current_item["sub_items"].append(sub_text)
+
 
     # 3. 每日信息定位
     day_indices = []
@@ -644,6 +720,20 @@ def validate_output_directory(output_dir: Path) -> bool:
         if fname == "綱目.html":
             if "總綱</span>" in content:
                 print("❌ 綱目.html 徽章錯誤，應為「綱目」")
+                passed = False
+
+            # 4. 檢驗綱目大點與中點是否有內容
+            if "outline-section" not in content:
+                print("❌ 綱目.html 缺少綱目大點區塊 (outline-section)")
+                passed = False
+            if "level-2-item" not in content:
+                print("❌ 綱目.html 缺少綱目中點區塊 (level-2-item)")
+                passed = False
+            if re.search(r'<h3 class="level-1-title">\s*</h3>', content):
+                print("❌ 綱目.html 存在空白的大點標題")
+                passed = False
+            if re.search(r'<div class="item-title">\s*<span class="item-num">[^<]*</span>\s*<p>\s*</p>', content):
+                print("❌ 綱目.html 存在空白的中點內容")
                 passed = False
 
     if passed:
