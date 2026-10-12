@@ -10,6 +10,10 @@
 
 ```bash
 # 一鍵更新 (直接從來源網站抓取最新週次、清洗、生成 output/ 並進行品質驗證)
+# Windows 推薦指令:
+py scripts/pipeline.py
+
+# macOS / Linux 推薦指令:
 python3 scripts/pipeline.py
 ```
 
@@ -26,17 +30,17 @@ python3 scripts/pipeline.py
 | `--input-file <PATH>` | `None` | 使用本地 HTML 或文字快取檔更新 (離線測試或除錯用) |
 | `--output-dir <DIR>` | `output` | 指定輸出的部署目錄 |
 
-### 範例：
+### 範例 (Windows 請使用 `py`，macOS/Linux 請使用 `python3`)：
 
 ```bash
 # 1. 僅檢查目前的 output 是否完全合規 (無未清出處、無殘留參讀)
-python3 scripts/pipeline.py --verify-only
+py scripts/pipeline.py --verify-only
 
 # 2. 測試抓取與解析，不覆寫檔案
-python3 scripts/pipeline.py --dry-run
+py scripts/pipeline.py --dry-run
 
 # 3. 使用本地 HTML 快取檔案進行離線測試
-python3 scripts/pipeline.py --input-file /path/to/cache.html
+py scripts/pipeline.py --input-file /path/to/cache.html
 ```
 
 ---

@@ -19,6 +19,12 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 
+# 解決 Windows 主控台預設編碼 (如 cp950) 無法輸出 Emoji 與特有符號導致 UnicodeEncodeError 的問題
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stderr, "reconfigure"):
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 DEFAULT_SOURCE_URL = "https://churchintamsui.wixsite.com/index/morning-revival"
 DAYS = ["週一", "週二", "週三", "週四", "週五", "週六"]
 
