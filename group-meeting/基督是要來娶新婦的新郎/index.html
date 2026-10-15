@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>基督是要來娶新婦的新郎</title>
+  <meta name="description" content="基督是要來娶新婦的新郎 - 職事文摘。手機閱讀體驗最佳化，支援 20px / 22px / 24px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #1a5276;
+      --accent-light: rgba(26, 82, 118, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 20px;
+      --line-height-base: 1.88;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #1f618d;
+      --accent-light: rgba(31, 97, 141, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #5dade2;
+      --accent-light: rgba(93, 173, 226, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left, 16px));
+      padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    .icon-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      height: 38px;
+      min-width: 38px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .font-toggle-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.6);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.28);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.6rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Text Paragraphs */
+    p {
+      margin-bottom: 1.45rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    /* Lead Quote Box */
+    .lead-box {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.85;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lead-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 380px;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .drawer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover, .toc-link:active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="基督是要來娶新婦的新郎">基督是要來娶新婦的新郎</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (20px -> 22px -> 24px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 20px / 22px / 24px">
+        20px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="文章目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📖 章節目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：20px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#sec-intro" class="toc-link">引言：福音主要的目的乃是基督要作新郎</a></li>
+      <li class="toc-item"><a href="#sec-lamb-bridegroom" class="toc-link">一、羔羊與新郎</a></li>
+      <li class="toc-item"><a href="#sec-rich-being" class="toc-link">二、新郎基督豐富的所是</a></li>
+      <li class="toc-item"><a href="#sec-first-principle" class="toc-link">三、聖經中關於新婦的第一個原則</a></li>
+      <li class="toc-item"><a href="#sec-building-bride" class="toc-link">四、新婦的建造</a></li>
+      <li class="toc-item"><a href="#sec-christ-life-body" class="toc-link">五、基督作生命，產生祂的身體，神的建造</a></li>
+      <li class="toc-item"><a href="#sec-increase-part" class="toc-link">六、成為基督新婦—基督擴增—的一部分</a></li>
+      <li class="toc-item"><a href="#sec-two-aspects" class="toc-link">七、新郎來娶新婦的兩方面</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag">真理篇 · 職事文摘 第十一卷·第二期</span>
+        <h1 class="article-title">基督是要來娶新婦的新郎</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》真理</span>
+          <span>適合手機閱讀體驗</span>
+        </div>
+      </header>
+
+      <!-- Section: 引言 -->
+      <section id="sec-intro">
+        <div class="lead-box">
+          <p>馬太福音告訴我們，耶穌基督是大衛的子孫，是亞伯拉罕的子孫。約翰福音則從太初開始，告訴我們基督是誰，祂是怎樣的一位。但不論約翰福音如何開始，也不論馬太福音從誰開始，這兩卷福音書都告訴我們同樣的事—基督是要來娶新婦的新郎。施浸者約翰說，『娶新婦的，就是新郎；…祂必擴增。』（約三29～30。）主耶穌也告訴我們，祂要回來作新郎。（太二五1，6。）約翰福音和馬太福音從不同的角度，給我們看見基督是何等的一位新郎，以及祂要如何將我們作成祂的新婦。願我們得着異象，看見福音主要的目的乃是基督要作新郎，產生祂的身體，成為基督的新婦，作祂的擴增。</p>
+        </div>
+      </section>
+
+      <!-- Section: 羔羊與新郎 -->
+      <section id="sec-lamb-bridegroom">
+        <h2 class="section-title">羔羊與新郎</h2>
+        <p>約翰福音從太初開始，說到基督是何等奇妙的一位。在創立世界以先，就已經有了話，而這話就是神。（一1。）然後有一天，基督這位是神的話有所改變。一章十四節說，『話成了肉體，支搭帳幕在我們中間，豐豐富富滿滿的有恩典，有實際。』然後約翰繼續告訴我們，基督是『神的羔羊，除去世人之罪的』。（29。）到了三章，約翰又告訴我們，基督是『娶新婦的，就是新郎』。（29。）</p>
+        <p>基督是話，是神，是肉體，是羔羊，又是新郎。祂必須是肉體，流出祂的血，作救贖的羔羊；但祂不單是羔羊，祂也是新郎。主是那麼美妙！因為人類已經墮落，滿了罪惡。所以，祂必須是為着救贖的羔羊，來除去世人的罪。但祂又是新郎，為着婚娶。這啟示我們，救贖不是目的，救贖只是手續；婚娶纔是目的。</p>
+      </section>
+
+      <!-- Section: 新郎基督豐富的所是 -->
+      <section id="sec-rich-being">
+        <h2 class="section-title">新郎基督豐富的所是</h2>
+        <p>六章說，祂是生命的糧。（35，48。）十章又說，祂是門；（9；）不是上天堂的門，而是出宗教的門！當我們從宗教裏出來，祂就是我們的牧者，並且在祂的牧養之下，祂是我們的青草地；祂還是道路、實際、生命；（十四6；）祂是光，（八12，九5，）是活水。（七38。）祂是許許多多的項目。</p>
+        <p>基督要對我們成為許多項目，就必須成為那靈。主說，祂要求父賜給我們另一位保惠師。（十四16～20。）我們不該以為，這另一位保惠師是祂自身之外的一位。不，這位保惠師就是成為實際之靈的主。這就是為甚麼祂對門徒說，祂不是要離開他們，乃是正往他們這裏來。祂釘死埋葬的去，就是為着祂在復活裏的來。等到復活之後，主回到門徒那裏，就向他們吹入一口氣，說，『你們受聖靈。』（二十22。）藉着釘十字架、埋葬並復活，祂完全經過了過程。現今祂不僅是神，也不僅是在肉體裏。現今祂是神在肉體裏，被釘死、埋葬並復活，成了賜生命的靈。（林前十五45。）</p>
+        <p>作為那靈，祂是那麼便利，我們能將祂吸入，也能很容易的接受祂。羅馬十章十二節說，主對一切呼求祂的人是豐富的。所以，吸入祂的路就是呼喊祂：『哦，主耶穌！哦，主耶穌！』當我們呼喊祂的名將祂吸入，祂這活的人位就臨到並進入我們裏面。這是我們奇妙的新郎！兩千年以前，祂在十字架上完成了救贖；但那並非祂的最終目的。祂的最終目的乃是要得着新婦。不錯，祂的確來拯救罪人；但那不是祂的目標，祂的目標乃是要得着新婦。</p>
+      </section>
+
+      <!-- Section: 聖經中關於新婦的第一個原則 -->
+      <section id="sec-first-principle">
+        <h2 class="section-title">聖經中關於新婦的第一個原則</h2>
+        <p>按照聖經，每件事第一次題起，總是立下一個原則。聖經頭一次題起婚姻，是在創世記二章。那裏講到亞當與夏娃之間的婚姻，以及關於新婦的第一個原則。耶和華神說，『那人獨居不好，我要為他造一個幫助者作他的配偶。』（18。）於是神將各樣活物都帶到他面前。亞當看過牠們，並且為牠們起了名，卻沒有找到他的配偶；沒有一個活物能與他相配，因為都不像他。所以，『耶和華神使那人沉睡，他就睡了，於是取了他的一條肋骨，又把肉在原處合起來。耶和華神就用那人身上所取的肋骨，建造造成一個女人，領她到那人跟前。那人說，這一次這是我骨中的骨，肉中的肉，可以稱這為女人，因為這是從男人身上取出來的。』（21～23。）</p>
+        <p>這很清楚給我們看見，新婦必須是出自新郎。夏娃是用亞當身上的一條肋骨建造的，那就是她的源頭。神用那一條肋骨建造造成一個女人，然後領她到亞當跟前，二者成為一個。亞當看見了這女人，他的反應似乎在說，『這是我的另一半，她是出於我的。她有我的性情，有我的生命，也有我的樣式。』現在亞當完整了。若無夏娃，他只是一半；當這兩半擺在一起，就是完整的。作為一個男人，如果沒有妻子，就不完全，只是一半。男人需要一個妻子來與他相配。一匹馬不能與人相配，一隻鳥不能與人相配，必須有一個與人出自同一源頭，與人有同一生命和性情的纔可以。這是新婦的第一個原則。</p>
+        <p>那麼，基督這位末後的亞當，如何得着祂的新婦？想想看，憑我們天然的生命，我們能成為基督的另一半麼？我不能與基督相配，你也不能。那麼基督怎樣纔能得着祂的新婦？必須是出於祂的纔可以。我們知道，當祂到十字架上的時候，祂的肋旁裂開，有血和水流出來。血是為救贖，水是為分賜生命；藉此有一些東西從基督出來，進到我們裏面。藉着在我們裏面的這個成分，神要將我們建造成基督的新婦。有一些出於基督的東西已經進到我們裏面，使我們能成為祂的新婦。藉着基督進入我們裏面，我們裏面都有一樣東西是出於基督的，藉此叫我們能被建造，而歸於基督，作祂的新婦。</p>
+      </section>
+
+      <!-- Section: 新婦的建造 -->
+      <section id="sec-building-bride">
+        <h2 class="section-title">新婦的建造</h2>
+        <p>在太初，基督是神的話，而這話成了肉體，作神的羔羊。然後在十字架上，祂除去了我們的罪，並且藉着復活，也在復活裏，成了賜生命的靈。當我們相信祂，呼求祂的名，我們的罪就得着赦免，並且祂自己也進到我們裏面。神的經綸乃是要讓基督將祂自己作生命分授到我們裏面，藉着祂的生命在我們裏面作工運行，使我們成為祂的擴增，就是祂的身體和祂的新婦。</p>
+      </section>
+
+      <!-- Section: 基督作生命，產生祂的身體，神的建造 -->
+      <section id="sec-christ-life-body">
+        <h2 class="section-title">基督作生命，產生祂的身體，神的建造</h2>
+        <p>施浸者約翰在盡他引薦的職事時，一看見基督就宣告說，『看哪，神的羔羊，除去世人之罪的！』（約一29。）他也宣揚基督要將信徒浸在聖靈裏。（太三11。）藉着神的主宰，施浸者約翰完成了他為基督作的見證，啟示基督不僅是神的羔羊和施浸者，也是新郎。（約三29。）作為神的羔羊，基督完成了法理的救贖；作為施浸者，祂將永遠的生命分授到信徒裏面；作為新郎，祂產生召會作祂的新婦。基督不僅是神的羔羊、救贖主和施浸者，就是聖靈的賜給者，祂也是要來娶新婦的新郎。法理的救贖和生命的分授，目的乃是要產生召會作新婦。基督是神的羔羊和施浸者，至終是為了要作新郎，娶召會作祂的新婦。</p>
+        <p>在約翰三章，當尼哥底母來找主耶穌，主並沒有給他宗教的教訓，反而向尼哥底母啟示，他需要接受祂作生命以得重生，就是從水和靈生，使他藉着這個新的出生，可以進入神的國。（3～6。）主渴望將祂自己作生命分賜到我們裏面，把我們作成祂擴增的一部分，這擴增就是召會作祂的身體。</p>
+      </section>
+
+      <!-- Section: 成為基督新婦—基督擴增—的一部分 -->
+      <section id="sec-increase-part">
+        <h2 class="section-title">成為基督新婦—基督擴增—的一部分</h2>
+        <p>三章的另一部分給我們看見，當施浸者約翰的門徒告訴他，他的跟隨者都往基督那裏去了，約翰告訴他們：『我不是基督，不過是奉差遣在祂前面來的。…娶新婦的，就是新郎；新郎的朋友站着聽祂，因着新郎的聲音就歡喜快樂；所以我這喜樂滿足了。祂必擴增，我必衰減。』（28～30。）三十節的擴增就是二十九節的新婦。基督的新婦—召會—就是祂的擴增。（林後十一2，弗五25。）</p>
+        <p>約翰三章啟示，重生就是我們新的出生，把神聖的生命帶到我們裏面，並把我們作成召會，團體的新婦，作基督的擴增。召會生活就是婚筵。在這婚筵中，我們沒有人該只是新郎的朋友；相反的，我們都應該是新婦的一部分。基督不僅是我們的教師；祂是我們的新郎。我們不要注意道理的教訓和宗教團體，乃要享受基督作我們的新郎，並關心召會，就是祂的新婦。</p>
+        <p>那靈基督已經進到我們裏面，不是作為一種能力或影響力，乃是一位活的人位。如今我們不單已經得救，並且也已經重生。這在我們裏面活的一位，要使我們成為新婦。今天，基督正在召會中，在我們裏面作工，為要建造祂的新婦；這是祂的最終目的。聖經的終極完成乃是一個新婦。在啟示錄二十一至二十二章裏，新耶路撒冷稱為羔羊的妻。聖經乃是結束於羔羊的新婦。</p>
+      </section>
+
+      <!-- Section: 新郎來娶新婦的兩方面 -->
+      <section id="sec-two-aspects">
+        <h2 class="section-title">新郎來娶新婦的兩方面</h2>
+        <p>馬太福音也告訴我們，耶穌是新郎。在九章耶穌對約翰的門徒說，『新郎和伴友同在的時候，伴友豈能哀慟？』（15。）然後在二十五章，主告訴我們，祂要回來作新郎。『那時，諸天的國好比十個童女，拿着她們的燈，出去迎接新郎。…半夜有人喊叫：看哪，新郎來了，你們出來迎接他。』（1，6。）不過，馬太福音與約翰福音有點不同。約翰福音告訴我們，新郎要進到我們裏面，使我們成為祂的新婦。馬太福音卻說，新婦必須被擺到祂裏面。二十八章十九節說，『所以你們要去，使萬民作我的門徒，將他們浸入父、子、聖靈的名裏。』這就像我們浸入水中一樣。當我們浸入水中的時候，我們是被擺到水裏去。因此真正的施浸乃是將人擺到三一神裏，水不過是象徵而已。人既已相信主耶穌，又呼求祂的名，我們就將他們浸入祂這靈裏。</p>
+        <p>你看見這兩方面麼？一面是基督進到我們裏面，另一面是我們被浸到祂裏面。奇妙的是，有一節聖經包括了這兩面：『因為我們不拘是猶太人或希利尼人，是為奴的或自主的，都已經在一位靈裏受浸，成了一個身體，且都得以喝一位靈。』（林前十二13。）一面我們被擺在那靈裏，另一面我們必須將那靈喝到裏面。最後，很難說到底誰在誰裏面；我們在那靈裏面，那靈也在我們裏面。這就是為甚麼主耶穌在約翰十四章二十節說，『到那日，你們就知道我在我父裏面，你們在我裏面，我也在你們裏面。』</p>
+        <p>約翰福音結束於耶穌在復活裏作為賜生命的靈，進到祂的新婦裏面；馬太福音結束於耶穌在復活以後來告訴祂的門徒，要將人浸入祂自己裏面。阿利路亞！我們都已浸入祂裏面，現今我們也都喝這一位靈。在這兩卷福音書中，我們非常清楚的看見，福音主要的目的乃是基督要作新郎，好得着祂的新婦。</p>
+        <p>今天許多基督教傳道人都講基督是神羔羊的道，也有人進一步教導基督是施浸者。然而，卻少有信息說到基督是新郎。在主的恢復裏，我們需要認識，基督不僅是神的羔羊和施浸者，也是新郎。我們應該天天享受祂作我們的新郎，不僅把自己看作是祂的信徒、門徒、聖徒，也是祂團體的新婦。基督只有一個新婦。所以，我們不該作單獨的信徒，乃該作獨一、團體的新婦，享受基督作我們的新郎。祂是那奇妙的新郎，並且祂之於我們是一切，叫我們能成為祂的新婦，作祂的配偶，直到永遠。</p>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 參讀：新約聖經中奇妙的基督，第三章；李常受文集一九七一年第四冊，洛杉磯數次聚會記錄，第一章。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="../脫離理由並認識權柄以事奉神/index.html" class="nav-card-btn">
+          <span class="nav-card-sub">上一篇</span>
+          <span class="nav-card-title">← 脫離理由並認識權柄以事奉神</span>
+        </a>
+        <a href="../index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">聚會文章列表 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (20px -> 22px -> 24px) ---
+    const FONT_SIZES = [20, 22, 24];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 20;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 20;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
