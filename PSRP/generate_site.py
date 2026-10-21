@@ -1,4 +1,6 @@
-import os, json, re, html
+import sys, os, json, re, html
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 from parse_pdf import LESSONS_CONFIG, parse_lesson, THEME_DIR, BASE_DIR, THEME_NAME
 
 os.makedirs(THEME_DIR, exist_ok=True)

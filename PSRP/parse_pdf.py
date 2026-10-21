@@ -1,45 +1,77 @@
-import ctypes, re, os, json, html
-from ctypes import c_void_p, c_char_p, c_ulong, cast, CFUNCTYPE
+import sys, re, os, json, html
 
-# 1. Setup PDFKit on macOS
-pdfkit = ctypes.cdll.LoadLibrary("/System/Library/Frameworks/PDFKit.framework/PDFKit")
-objc = ctypes.cdll.LoadLibrary("/usr/lib/libobjc.A.dylib")
-objc.objc_getClass.restype = c_void_p
-objc.objc_getClass.argtypes = [c_char_p]
-objc.sel_registerName.restype = c_void_p
-objc.sel_registerName.argtypes = [c_char_p]
-msgSend = objc.objc_msgSend
-
-def send(target, sel_name, restype, argtypes=None, *args):
-    sel = objc.sel_registerName(sel_name.encode("utf-8"))
-    types = [restype, c_void_p, c_void_p]
-    if argtypes:
-        types.extend(argtypes)
-    func = cast(msgSend, CFUNCTYPE(*types))
-    return func(target, sel, *args)
-
-NSString = objc.objc_getClass(b"NSString")
-NSURL = objc.objc_getClass(b"NSURL")
-PDFDocument = objc.objc_getClass(b"PDFDocument")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8")
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 THEME_NAME = "亞伯拉罕以撒雅各的神"
 PDF_PATH = os.path.join(BASE_DIR, THEME_NAME, f"{THEME_NAME}.pdf")
 THEME_DIR = os.path.join(BASE_DIR, THEME_NAME)
 
-ns_path = send(NSString, "stringWithUTF8String:", c_void_p, [c_char_p], PDF_PATH.encode("utf-8"))
-url = send(NSURL, "fileURLWithPath:", c_void_p, [c_void_p], ns_path)
-doc_alloc = send(PDFDocument, "alloc", c_void_p)
-doc = send(doc_alloc, "initWithURL:", c_void_p, [c_void_p], url)
-count = send(doc, "pageCount", c_ulong)
+if sys.platform == "darwin":
+    # 1a. Setup native PDFKit on macOS (zero third-party dependencies)
+    import ctypes
+    from ctypes import c_void_p, c_char_p, c_ulong, cast, CFUNCTYPE
 
-def get_page_text(i):
-    page = send(doc, "pageAtIndex:", c_void_p, [c_ulong], i)
-    ns_str = send(page, "string", c_void_p)
-    if ns_str:
-        utf8 = send(ns_str, "UTF8String", c_char_p)
-        return utf8.decode("utf-8", "ignore") if utf8 else ""
-    return ""
+    pdfkit = ctypes.cdll.LoadLibrary("/System/Library/Frameworks/PDFKit.framework/PDFKit")
+    objc = ctypes.cdll.LoadLibrary("/usr/lib/libobjc.A.dylib")
+    objc.objc_getClass.restype = c_void_p
+    objc.objc_getClass.argtypes = [c_char_p]
+    objc.sel_registerName.restype = c_void_p
+    objc.sel_registerName.argtypes = [c_char_p]
+    msgSend = objc.objc_msgSend
+
+    def send(target, sel_name, restype, argtypes=None, *args):
+        sel = objc.sel_registerName(sel_name.encode("utf-8"))
+        types = [restype, c_void_p, c_void_p]
+        if argtypes:
+            types.extend(argtypes)
+        func = cast(msgSend, CFUNCTYPE(*types))
+        return func(target, sel, *args)
+
+    NSString = objc.objc_getClass(b"NSString")
+    NSURL = objc.objc_getClass(b"NSURL")
+    PDFDocument = objc.objc_getClass(b"PDFDocument")
+
+    ns_path = send(NSString, "stringWithUTF8String:", c_void_p, [c_char_p], PDF_PATH.encode("utf-8"))
+    url = send(NSURL, "fileURLWithPath:", c_void_p, [c_void_p], ns_path)
+    doc_alloc = send(PDFDocument, "alloc", c_void_p)
+    doc = send(doc_alloc, "initWithURL:", c_void_p, [c_void_p], url)
+    count = send(doc, "pageCount", c_ulong)
+
+    def get_page_text(i):
+        page = send(doc, "pageAtIndex:", c_void_p, [c_ulong], i)
+        ns_str = send(page, "string", c_void_p)
+        if ns_str:
+            utf8 = send(ns_str, "UTF8String", c_char_p)
+            return utf8.decode("utf-8", "ignore") if utf8 else ""
+        return ""
+else:
+    # 1b. Setup PyMuPDF on Windows / Linux
+    import pymupdf
+
+    doc = pymupdf.open(PDF_PATH)
+    count = len(doc)
+
+    def get_page_text(i):
+        """擷取單頁文字，並將同一水平列（如左側懸掛編號與右側內文）合併為同一行，確保與 macOS PDFKit 輸出一致。"""
+        d = doc[i].get_text("dict")
+        raw_lines = []
+        for b in d.get("blocks", []):
+            for l in b.get("lines", []):
+                txt = "".join(s["text"] for s in l.get("spans", []))
+                bbox = l["bbox"]
+                y_mid = (bbox[1] + bbox[3]) / 2.0
+                x0 = bbox[0]
+                raw_lines.append((y_mid, x0, txt))
+
+        merged = []
+        for y_mid, x0, txt in raw_lines:
+            if merged and abs(merged[-1][0] - y_mid) < 3.0 and x0 > merged[-1][1]:
+                merged[-1] = (merged[-1][0], x0, merged[-1][2] + txt)
+            else:
+                merged.append((y_mid, x0, txt))
+        return "\n".join(m[2] for m in merged)
 
 REPLACEMENTS = {
     "尌": "就",
