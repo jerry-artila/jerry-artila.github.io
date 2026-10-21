@@ -1,11 +1,9 @@
 import sys, os, json, re, html
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8")
-from parse_pdf import LESSONS_CONFIG, parse_lesson, THEME_DIR, BASE_DIR, THEME_NAME
+from parse_pdf import THEMES_CONFIG, make_page_reader, parse_lesson, BASE_DIR
 
-os.makedirs(THEME_DIR, exist_ok=True)
-
-# 1. Generate style.css
+# 1. CSS template
 css_content = """/* PSRP 適合年長者手機閱讀樣式 */
 :root {
   --bg-color: #FBF9F5;
@@ -442,11 +440,7 @@ body {
 }
 """
 
-with open(os.path.join(THEME_DIR, "style.css"), "w", encoding="utf-8") as f:
-    f.write(css_content.strip())
-print("style.css generated.")
-
-# 2. Generate script.js
+# 2. JS template
 js_content = """// PSRP 字體切換與個別項目引經展開/收合控制
 (function() {
   const FONT_LEVELS = ['md', 'lg', 'xl']; // 中、大、特大
@@ -523,19 +517,6 @@ js_content = """// PSRP 字體切換與個別項目引經展開/收合控制
 })();
 """
 
-with open(os.path.join(THEME_DIR, "script.js"), "w", encoding="utf-8") as f:
-    f.write(js_content.strip())
-print("script.js generated.")
-
-# 3. Parse all lessons and generate HTML pages
-all_parsed_lessons = []
-for cfg in LESSONS_CONFIG:
-    items = parse_lesson(cfg)
-    all_parsed_lessons.append({
-        "cfg": cfg,
-        "items": items
-    })
-
 # Helper to format items to HTML with individual scripture toggle button
 def render_outline_html(items):
     out = ['<div class="outline-list">']
@@ -575,35 +556,55 @@ def render_outline_html(items):
     out.append('</div>')
     return "\n".join(out)
 
-# Generate 01.html to 09.html
-for idx, ldata in enumerate(all_parsed_lessons):
-    cfg = ldata["cfg"]
-    items = ldata["items"]
-    outline_html = render_outline_html(items)
-    
-    prev_cfg = LESSONS_CONFIG[idx - 1] if idx > 0 else None
-    next_cfg = LESSONS_CONFIG[idx + 1] if idx < len(LESSONS_CONFIG) - 1 else None
-    
-    # Bottom nav HTML
-    bottom_nav = ['<div class="bottom-nav">']
-    if prev_cfg:
-        bottom_nav.append(f'  <a href="{prev_cfg["code"]}.html" class="nav-page-btn">')
-        bottom_nav.append(f'    <span class="label">‹ 上一篇</span>')
-        bottom_nav.append(f'    <span class="page-title">{html.escape(prev_cfg["title"])}</span>')
-        bottom_nav.append('  </a>')
+
+def generate_theme(theme_cfg):
+    theme_name = theme_cfg["theme_name"]
+    pdf_file = theme_cfg["pdf_file"]
+    lessons_config = theme_cfg["lessons"]
+    theme_dir = os.path.join(BASE_DIR, theme_name)
+    os.makedirs(theme_dir, exist_ok=True)
+
+    with open(os.path.join(theme_dir, "style.css"), "w", encoding="utf-8") as f:
+        f.write(css_content.strip())
+    with open(os.path.join(theme_dir, "script.js"), "w", encoding="utf-8") as f:
+        f.write(js_content.strip())
+    print(f"[{theme_name}] style.css and script.js generated.")
+
+    page_reader = make_page_reader(theme_dir, pdf_file)
+    all_parsed_lessons = []
+    for cfg in lessons_config:
+        items = parse_lesson(cfg, page_reader=page_reader, legacy_mode=(theme_name == "亞伯拉罕以撒雅各的神"))
+        all_parsed_lessons.append({
+            "cfg": cfg,
+            "items": items
+        })
+
+    for idx, ldata in enumerate(all_parsed_lessons):
+        cfg = ldata["cfg"]
+        items = ldata["items"]
+        outline_html = render_outline_html(items)
         
-    bottom_nav.append('  <a href="index.html" class="nav-page-btn nav-home-btn">返回篇題目錄</a>')
-    
-    if next_cfg:
-        bottom_nav.append(f'  <a href="{next_cfg["code"]}.html" class="nav-page-btn">')
-        bottom_nav.append(f'    <span class="label">下一篇 ›</span>')
-        bottom_nav.append(f'    <span class="page-title">{html.escape(next_cfg["title"])}</span>')
-        bottom_nav.append('  </a>')
-    bottom_nav.append('</div>')
-    bottom_nav_html = "\n".join(bottom_nav)
-    
-    # Top nav without global scripture toggle
-    page_html = f"""<!DOCTYPE html>
+        prev_cfg = lessons_config[idx - 1] if idx > 0 else None
+        next_cfg = lessons_config[idx + 1] if idx < len(lessons_config) - 1 else None
+        
+        bottom_nav = ['<div class="bottom-nav">']
+        if prev_cfg:
+            bottom_nav.append(f'  <a href="{prev_cfg["code"]}.html" class="nav-page-btn">')
+            bottom_nav.append(f'    <span class="label">‹ 上一篇</span>')
+            bottom_nav.append(f'    <span class="page-title">{html.escape(prev_cfg["title"])}</span>')
+            bottom_nav.append('  </a>')
+            
+        bottom_nav.append('  <a href="index.html" class="nav-page-btn nav-home-btn">返回篇題目錄</a>')
+        
+        if next_cfg:
+            bottom_nav.append(f'  <a href="{next_cfg["code"]}.html" class="nav-page-btn">')
+            bottom_nav.append(f'    <span class="label">下一篇 ›</span>')
+            bottom_nav.append(f'    <span class="page-title">{html.escape(next_cfg["title"])}</span>')
+            bottom_nav.append('  </a>')
+        bottom_nav.append('</div>')
+        bottom_nav_html = "\n".join(bottom_nav)
+        
+        page_html = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -640,26 +641,25 @@ for idx, ldata in enumerate(all_parsed_lessons):
 </body>
 </html>
 """
-    out_file = os.path.join(THEME_DIR, f"{cfg['code']}.html")
-    with open(out_file, "w", encoding="utf-8") as f:
-        f.write(page_html.strip())
-    print(f"Generated {out_file}")
+        out_file = os.path.join(theme_dir, f"{cfg['code']}.html")
+        with open(out_file, "w", encoding="utf-8") as f:
+            f.write(page_html.strip())
+        print(f"Generated {out_file}")
 
-# 4. Generate 主題目錄頁 (亞伯拉罕以撒雅各的神/index.html)
-theme_cards = []
-for cfg in LESSONS_CONFIG:
-    theme_cards.append(f"""    <a href="{cfg["code"]}.html" class="lesson-card">
+    theme_cards = []
+    for cfg in lessons_config:
+        theme_cards.append(f"""    <a href="{cfg["code"]}.html" class="lesson-card">
       <div class="lesson-badge">第 {cfg["num"]} 篇</div>
       <div class="lesson-card-title">{html.escape(cfg["short_title"])}</div>
     </a>""")
-theme_cards_html = "\n".join(theme_cards)
+    theme_cards_html = "\n".join(theme_cards)
 
-theme_index_html = f"""<!DOCTYPE html>
+    theme_index_html = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
-  <title>{THEME_NAME} - 篇題目錄</title>
+  <title>{theme_name} - 篇題目錄</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -668,7 +668,7 @@ theme_index_html = f"""<!DOCTYPE html>
     <div class="nav-left">
       <a href="../index.html" class="nav-btn" aria-label="返回主首頁">‹ 首頁</a>
     </div>
-    <div class="nav-center">{THEME_NAME}</div>
+    <div class="nav-center">{theme_name}</div>
     <div class="nav-right">
       <button id="btn-font-toggle" class="nav-btn" aria-label="切換字體大小">字體: 中</button>
     </div>
@@ -677,7 +677,7 @@ theme_index_html = f"""<!DOCTYPE html>
   <main class="container">
     <div class="theme-header">
       <div class="theme-sub">總題</div>
-      <h1 class="theme-title">{THEME_NAME}</h1>
+      <h1 class="theme-title">{theme_name}</h1>
     </div>
 
     <div class="lesson-card-list">
@@ -694,18 +694,34 @@ theme_index_html = f"""<!DOCTYPE html>
 </html>
 """
 
-with open(os.path.join(THEME_DIR, "index.html"), "w", encoding="utf-8") as f:
-    f.write(theme_index_html.strip())
-print("Theme index.html generated.")
+    with open(os.path.join(theme_dir, "index.html"), "w", encoding="utf-8") as f:
+        f.write(theme_index_html.strip())
+    print(f"[{theme_name}] index.html generated.")
 
-# 5. Root index.html remains clean
+
+# Generate all themes
+for t_cfg in THEMES_CONFIG:
+    generate_theme(t_cfg)
+
+# Generate root index.html with all themes
+first_theme = THEMES_CONFIG[0]["theme_name"]
+root_cards = []
+for t_cfg in THEMES_CONFIG:
+    t_name = t_cfg["theme_name"]
+    t_count = len(t_cfg["lessons"])
+    root_cards.append(f"""      <a href="{t_name}/index.html" class="lesson-card">
+        <div class="lesson-badge">主題</div>
+        <div class="lesson-card-title">{t_name}（共 {t_count} 篇）</div>
+      </a>""")
+root_cards_html = "\n".join(root_cards)
+
 root_index_html = f"""<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
   <title>禱研背講 PSRP - 手機版</title>
-  <link rel="stylesheet" href="{THEME_NAME}/style.css">
+  <link rel="stylesheet" href="{first_theme}/style.css">
   <style>
     .home-banner {{
       text-align: center;
@@ -744,14 +760,11 @@ root_index_html = f"""<!DOCTYPE html>
     </div>
 
     <div class="lesson-card-list">
-      <a href="{THEME_NAME}/index.html" class="lesson-card">
-        <div class="lesson-badge">主題</div>
-        <div class="lesson-card-title">{THEME_NAME}（共 9 篇）</div>
-      </a>
+{root_cards_html}
     </div>
   </main>
 
-  <script src="{THEME_NAME}/script.js"></script>
+  <script src="{first_theme}/script.js"></script>
 </body>
 </html>
 """
