@@ -1,3 +1,5 @@
-# 忽略 JPEG 圖片，不納入 git 追蹤
+# 忽略圖片檔，不納入 git 追蹤
 *.jpg
 *.jpeg
+*.png
+*.PNG
