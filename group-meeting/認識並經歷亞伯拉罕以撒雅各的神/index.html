@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>認識並經歷亞伯拉罕以撒雅各的神</title>
-  <meta name="description" content="認識並經歷亞伯拉罕以撒雅各的神 - 職事文摘。手機閱讀體驗最佳化，支援 20px / 22px / 24px 字級切換、漢堡選單目錄導航。">
+  <meta name="description" content="認識並經歷亞伯拉罕以撒雅各的神 - 職事文摘。手機閱讀體驗最佳化，支援 22px / 24px / 26px 字級切換、漢堡選單目錄導航。">
   <style>
     :root {
       --bg-color: #f7f4ee;
@@ -19,8 +19,8 @@
       --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
       --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
       
-      --font-size-base: 20px;
-      --line-height-base: 1.88;
+      --font-size-base: 22px;
+      --line-height-base: 1.68;
       --container-max-width: 760px;
       --header-height: 58px;
     }
@@ -229,7 +229,7 @@
 
     /* Text Paragraphs */
     p {
-      margin-bottom: 1.45rem;
+      margin-bottom: 1.25rem;
       text-align: justify;
       text-justify: inter-ideograph;
       text-wrap: pretty;
@@ -246,7 +246,7 @@
       box-shadow: var(--shadow-sm);
       font-size: calc(var(--font-size-base) * 1.02);
       color: var(--text-color);
-      line-height: 1.85;
+      line-height: 1.65;
       border-top: 1px solid var(--border-color);
       border-right: 1px solid var(--border-color);
       border-bottom: 1px solid var(--border-color);
@@ -482,9 +482,9 @@
     <div class="header-title" title="認識並經歷亞伯拉罕以撒雅各的神">認識並經歷亞伯拉罕以撒雅各的神</div>
 
     <div class="header-right">
-      <!-- 循環字級按鈕 (20px -> 22px -> 24px) -->
-      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 20px / 22px / 24px">
-        20px
+      <!-- 循環字級按鈕 (22px -> 24px -> 26px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 22px / 24px / 26px">
+        22px
       </button>
 
       <!-- 主題切換按鈕 -->
@@ -504,7 +504,7 @@
     <div class="drawer-controls">
       <span class="drawer-controls-label">字級切換：</span>
       <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
-        目前：20px (點擊切換)
+        目前：22px (點擊切換)
       </button>
     </div>
     <ul class="drawer-toc-list">
@@ -626,14 +626,14 @@
   </button>
 
   <script>
-    // --- 1. 字級大小循環切換 (20px -> 22px -> 24px) ---
-    const FONT_SIZES = [20, 22, 24];
+    // --- 1. 字級大小循環切換 (22px -> 24px -> 26px) ---
+    const FONT_SIZES = [22, 24, 26];
     const STORAGE_KEY_FONT = 'meeting_reader_font_size';
     const STORAGE_KEY_THEME = 'meeting_reader_theme';
 
-    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 20;
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 22;
     if (!FONT_SIZES.includes(currentFontSize)) {
-      currentFontSize = 20;
+      currentFontSize = 22;
     }
 
     const fontSizeBtn = document.getElementById('fontSizeBtn');
