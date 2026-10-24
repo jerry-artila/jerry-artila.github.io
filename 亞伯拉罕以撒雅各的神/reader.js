@@ -47,5 +47,4 @@
       chapterMenu.querySelector('summary').focus();
     }
   });
-  document.querySelector('[data-top]')?.addEventListener('click', () => { window.scrollTo({ top: 0, behavior: 'instant' }); document.querySelector('h1')?.focus({ preventScroll: true }); });
 })();
