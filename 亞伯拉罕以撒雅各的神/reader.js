@@ -1,9 +1,9 @@
 (() => {
-  const sizes = [22, 24, 26];
+  const sizes = [22, 26, 30];
   const read = key => { try { return localStorage.getItem(key); } catch { return null; } };
   const save = (key, value) => { try { localStorage.setItem(key, value); } catch {} };
   let size = Number(read('reading-font-size'));
-  if (!sizes.includes(size)) size = 24;
+  if (!sizes.includes(size)) size = 26;
   const button = document.querySelector('[data-font]');
   const status = document.createElement('span');
   status.className = 'font-status'; status.setAttribute('aria-live', 'polite');

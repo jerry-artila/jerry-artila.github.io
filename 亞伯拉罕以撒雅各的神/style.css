@@ -1,4 +1,4 @@
-:root{--reading-size:24px;--paper:#faf8f2;--ink:#253e35;--muted:#5d695f;--green:#234b40;--line:#d9dfd5;--gold:#8b6b35;color-scheme:light;font-size:var(--reading-size)}
+:root{--reading-size:26px;--paper:#faf8f2;--ink:#253e35;--muted:#5d695f;--green:#234b40;--line:#d9dfd5;--gold:#8b6b35;color-scheme:light;font-size:var(--reading-size)}
 .article h3{font-size:1.1rem;line-height:1.7;margin:32px 0 18px}
 .home .hero h1{margin-bottom:0}.home .section-heading{margin-bottom:26px}.home .chapter-card{align-items:center}.home .chapter-card h3{margin:0}.home .chapter-card .arrow{margin-top:0}
 .scripture-quote{background:#dfeffb;color:inherit;border-radius:3px;-webkit-box-decoration-break:clone;box-decoration-break:clone;padding:0 .06em}
