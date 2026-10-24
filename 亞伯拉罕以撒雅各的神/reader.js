@@ -26,7 +26,7 @@
   const chapterNames = { '1': '一', '2': '二', '3': '三' };
   if (resume && Object.hasOwn(chapterNames, last)) {
     resume.href = `chapter-${last}.html`;
-    resume.textContent = `繼續上次篇章：第${chapterNames[last]}章 →`;
+    resume.textContent = `繼續上次篇章：第${chapterNames[last]}篇 →`;
     resume.hidden = false;
   }
   const chapterMenu = document.querySelector('.chapter-menu');
