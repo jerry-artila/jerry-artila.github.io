@@ -1,0 +1,42 @@
+<!doctype html>
+<!-- 新增篇章時替換所有 {{...}}，產出根目錄 chapter-N.html；不要直接將此模板加入首頁。 -->
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#234b40">
+<title>第{{章次中文}}章 · {{章名}}｜亞伯拉罕以撒雅各的神</title>
+<link rel="stylesheet" href="style.css">
+<script src="reader.js" defer></script>
+</head>
+<body data-chapter="{{章次數字}}">
+<a class="skip" href="#main">跳到主要內容</a>
+<header class="toolbar">
+<a class="brand" href="index.html">‹ 回目錄</a>
+<details class="chapter-menu">
+<summary aria-label="本章目錄" title="本章目錄"><span aria-hidden="true">☰</span></summary>
+<nav class="section-links" aria-label="本章段落">
+<a href="#scripture">讀經</a>
+<!-- 依正文實際標題加入目錄連結；每個 href 須有對應的唯一 id。 -->
+{{段落目錄}}
+</nav>
+</details>
+<button class="font-button" type="button" data-font>A+</button>
+</header>
+<main id="main" class="reader">
+<nav class="breadcrumb" aria-label="目前位置">亞伯拉罕以撒雅各的神 / 第{{章次中文}}章</nav>
+<header class="chapter-header"><h1 tabindex="-1">{{章名}}</h1></header>
+<article class="article" aria-label="第{{章次中文}}章全文">
+<h2 id="scripture">讀經</h2>
+<!-- 每處引用獨立使用 scripture-card；參照 AGENTS.md。 -->
+{{讀經卡片}}
+<!-- 完整繁體正文；各級標題對應目錄。引經使用 scripture-quote，勿標示一般對話。 -->
+{{完整正文}}
+</article>
+<aside class="source"><h2>本章來源</h2><p>依你提供的第{{章次中文}}章文字轉為繁體中文。</p>{{來源連結}}</aside>
+<nav class="chapter-nav" aria-label="篇章導覽">{{前後章連結}}</nav>
+<button class="top-button" data-top type="button">回到本章開頭 ↑</button>
+</main>
+<footer>第{{章次中文}}章 / 共 12 章</footer>
+</body>
+</html>
