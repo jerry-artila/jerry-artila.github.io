@@ -14,6 +14,7 @@ import os
 import sys
 import re
 import ssl
+import hashlib
 import argparse
 import urllib.request
 from html.parser import HTMLParser
@@ -435,8 +436,18 @@ def chinese_week_to_int(week_str: str) -> int:
     return cn_map.get(s, 999)
 
 
+def get_asset_version(filename: str) -> str:
+    """根據檔案內容計算短雜湊值作為 Cache-Busting 版本參數"""
+    asset_path = Path(__file__).resolve().parent.parent / "output" / filename
+    if asset_path.exists():
+        return hashlib.md5(asset_path.read_bytes()).hexdigest()[:8]
+    return "2"
+
+
 def render_portal_index_html(output_dir: Path) -> str:
     """掃描 output/ 下所有週次子目錄，生成精簡版根目錄 output/index.html 各週總覽入口頁"""
+    css_ver = get_asset_version("styles.css")
+    js_ver = get_asset_version("app.js")
     week_dirs = []
     for d in output_dir.iterdir():
         if d.is_dir() and re.match(r"^第[一二三四五六七八九十0-9]+週$", d.name):
@@ -476,7 +487,7 @@ def render_portal_index_html(output_dir: Path) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v={css_ver}">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言", show_menu_btn=False)}
@@ -487,13 +498,15 @@ def render_portal_index_html(output_dir: Path) -> str:
     </div>
   </main>
 
-  <script src="app.js"></script>
+  <script src="app.js?v={js_ver}"></script>
 </body>
 </html>
 """
 
 
 def render_index_html(data: dict) -> str:
+    css_ver = get_asset_version("styles.css")
+    js_ver = get_asset_version("app.js")
     week_str = data["week_str"]
     main_title = data["main_title"]
     scripture = data["scripture"]
@@ -536,7 +549,7 @@ def render_index_html(data: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v={css_ver}">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -569,13 +582,15 @@ def render_index_html(data: dict) -> str:
     </main>
   </div>
 
-  <script src="../app.js"></script>
+  <script src="../app.js?v={js_ver}"></script>
 </body>
 </html>
 """
 
 
 def render_outline_html(data: dict) -> str:
+    css_ver = get_asset_version("styles.css")
+    js_ver = get_asset_version("app.js")
     week_str = data["week_str"]
     main_title = data["main_title"]
     scripture = data["scripture"]
@@ -633,7 +648,7 @@ def render_outline_html(data: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v={css_ver}">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -666,13 +681,15 @@ def render_outline_html(data: dict) -> str:
     </main>
   </div>
 
-  <script src="../app.js"></script>
+  <script src="../app.js?v={js_ver}"></script>
 </body>
 </html>
 """
 
 
 def render_daily_html(data: dict, day_name: str) -> str:
+    css_ver = get_asset_version("styles.css")
+    js_ver = get_asset_version("app.js")
     week_str = data["week_str"]
     main_title = data["main_title"]
     scripture = data["scripture"]
@@ -712,7 +729,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../styles.css?v={css_ver}">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -775,7 +792,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
     </main>
   </div>
 
-  <script src="../app.js"></script>
+  <script src="../app.js?v={js_ver}"></script>
 </body>
 </html>
 """
@@ -801,7 +818,7 @@ def validate_week_directory(week_dir: Path) -> bool:
             content = f.read()
 
         # 0. 檢驗共用樣式與腳本相對路徑引用
-        if 'href="../styles.css"' not in content or 'src="../app.js"' not in content:
+        if 'href="../styles.css' not in content or 'src="../app.js' not in content:
             print(f"❌ [{w_name}/{fname}] 未正確引用上層 ../styles.css 或 ../app.js")
             passed = False
 
