@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 首頁 (經文) | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1 active">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="reading-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="badge">第一週 經文匯總</span>
+          </div>
+          <h2 class="main-title">
+            認識並經歷亞伯拉罕的神、以撒的神和雅各的神，而成爲神的以色列
+          </h2>
+          <p class="reading-scripture" style="margin-top: 0.5rem; font-size: 0.9em; color: var(--text-muted);">讀經：創二八13，三三20，出三6、14～15，徒三13，加六16，帖前一1</p>
+        </div>
+
+        <!-- 週一經文卡片 -->
+        <section id="sec-mon" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週一 經文</h3>
+            <a href="週一.html" class="daily-tag" style="margin-left: auto;" title="進入週一信息">進入 週一</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">出三15</span>
+              『神又對摩西說，你要對以色列人這樣說，耶和華你們祖宗的神，就是亞伯拉罕的神，以撒的神，雅各的神，差我到你們這裏來。這是我的名，直到永遠…。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">太二二32</span>
+              『「我是亞伯拉罕的神，以撒的神，雅各的神。」神並不是死人的神，乃是活人的神。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週二經文卡片 -->
+        <section id="sec-tue" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週二 經文</h3>
+            <a href="週二.html" class="daily-tag" style="margin-left: auto;" title="進入週二信息">進入 週二</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創十二1</span>
+              『耶和華對亞伯蘭說，你要離開本地、親族、父家，往我所要指示你的地去。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">羅八28</span>
+              『還有，我們曉得萬有都互相効力，叫愛神的人得益處，就是按祂旨意被召的人。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週三經文卡片 -->
+        <section id="sec-wed" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週三 經文</h3>
+            <a href="週三.html" class="daily-tag" style="margin-left: auto;" title="進入週三信息">進入 週三</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅四17</span>
+              『亞伯拉罕在他所信那叫死人復活，又稱無爲有的神面前，是我們眾人的父，如經上所記：「我已經立你作多國的父。」』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">加四23</span>
+              『然而那出於使女的，是按着肉體生的；那出於自主婦人的，是藉着應許生的。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週四經文卡片 -->
+        <section id="sec-thu" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週四 經文</h3>
+            <a href="週四.html" class="daily-tag" style="margin-left: auto;" title="進入週四信息">進入 週四</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創三一40～41</span>
+              『我白日受乾熱銷磨，黑夜受寒霜侵蝕，不得合眼睡着，我常是這樣。我這二十年在你家裏…服事你…，你十次改了我的工價。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">來十二11</span>
+              『一切的管教，當時固然不覺得喜樂，反覺得愁苦；後來卻給那藉此受過操練的人，結出平安的義果。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週五經文卡片 -->
+        <section id="sec-fri" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週五 經文</h3>
+            <a href="週五.html" class="daily-tag" style="margin-left: auto;" title="進入週五信息">進入 週五</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">出三14～15</span>
+              『神對摩西說，我是那我是；又說，你要對以色列人這樣說，那我是差我到你們這裏來。…你要對以色列人這樣說，耶和華你們祖宗的神，就是亞伯拉罕的神，以撒的神，雅各的神，差我到你們這裏來。這是我的名，直到永遠；這也是我的記念，直到萬代。』
+            </div>
+          </div>
+        </section>
+
+        <!-- 週六經文卡片 -->
+        <section id="sec-sat" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📅</span>
+            <h3>週六 經文</h3>
+            <a href="週六.html" class="daily-tag" style="margin-left: auto;" title="進入週六信息">進入 週六</a>
+          </div>
+          <div class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加六16</span>
+              『凡照這準則而行的，願平安憐憫臨到他們，就是臨到神的以色列。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">帖前一1</span>
+              『保羅、西拉和提摩太，寫信給在父神和主耶穌基督裏，帖撒羅尼迦人的召會：願恩典與平安歸與你們。』
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

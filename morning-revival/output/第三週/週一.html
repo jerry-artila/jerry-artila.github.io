@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週一 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1 active">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週一</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加四22～24</span>
+              『因爲律法上記着，亞伯拉罕有兩個兒子，一個是出於使女，一個是出於自主的婦人。然而那出於使女的，是按着肉體生的；那出於自主婦人的，是藉着應許生的。這些都是寓意：兩個婦人就是兩約…。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              自主的婦人撒拉，表徵應許的約。（加四23。）神與亞伯拉罕所立應許的約乃是恩典的約。在那約中神應許要給亞伯拉罕後裔，沒有一點意思要亞伯拉罕作任何事來得到。神要把一些東西作到他裏面，使他能生出一個後裔來完成神的定旨。這是神所作的，不是亞伯拉罕所作的。這就是恩典。撒拉是自主的婦人，是亞伯拉罕正式的妻子，是這恩典之約的象徵。她生以撒不是憑人的力量，而是憑神的恩典。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              恩典之應許的產品是以撒，他是完成神定旨的後裔。（創十七19，二一12下。）完成神定旨的後裔，一點不差就是基督自己，爲神作到我們裏面，經過我們，又從我們出來。神所作到我們裏面的，帶進那作後裔的基督。（加三16。）這後裔至終變成了我們的地。…在裏面，我們有基督作生命，我們憑這生命活着；在外面，我們有基督作地，我們在其中活着。這就是召會生活連同基督作我們的生命。這是我們完成神定旨惟一的路。
+            </p>
+              <p class="content-paragraph">
+              如果我們要得着基督來承受產業，來爲神站在地上，那我們就不能把自己帶進來，我們自己不能動，我們自己不能作，我們自己不能發起，我們自己必須放在一邊。這是最大的試驗，也是最難受的試驗。這是神的僕人們最容易失敗的一點。我們必須記得，在神的工作上，不只不可以犯罪，並且憑着自己去作好也是不可以的。神的問題不只是作得怎麼樣，神的問題更是誰在那裏作。…但願我們被神帶到一個地步，能對主說，『主，我要遵行你的旨意！是你自己在我裏面使我遵行你的旨意，不是我自己在這裏遵行你的旨意！是你，不是我！』
+            </p>
+              <p class="content-paragraph">
+              我們必須記得：『耶和華說，我的意念並非你們的意念，你們的道路並非我的道路。天怎樣高過地，照樣我的道路高過你們的道路，我的意念高過你們的意念。』（賽五五8～9。）因此，憑着我們自己所作的，卽使從我們看來是不錯的，也不能滿足祂的心。…只有祂自己作的，纔能滿足祂的心。雖然祂降卑祂自己，竟然肯使用我們，但是我們要記得，我們不過是被使用的僕人，我們不過是祂手裏的器皿，我們不能代替祂去作甚麼。我們只能讓神藉着我們去作，我們不能憑着我們自己去作。不錯。後來以撒還是亞伯拉罕生的，但是以撒是神應許的兒子，是神使亞伯拉罕生的兒子，是神藉着他生的兒子。應許的原則和以實瑪利的原則是完全不同的。但願神憐憫我們，拯救我們脫離以實瑪利的原則。
+            </p>
+              <p class="content-paragraph">
+              亞伯拉罕是一個信徒，他打算尋求神的喜歡，他打算達到神的目的。神要他生兒子，他就想方法生兒子，這豈不是遵行神的旨意、討神的喜歡麼？這一個難道還錯麼？但是，保羅說，『那出於使女的，是按着肉體生的。』〔加四23。〕我們是應當遵行神的旨意，但是，問題是誰來遵行神的旨意。如果是憑我們自己遵行神的旨意，結果就生出以實瑪利來。亞伯拉罕所以錯，不是他的目的錯，乃是他的源頭錯了。他的目的是要神的應許得着成功，但是，錯在他用自己的力量去作這件事。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

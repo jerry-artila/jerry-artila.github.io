@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>第二週 • 首頁 (經文) | 晨興聖言</title>
+  <title>晨興聖言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -13,14 +13,6 @@
   <!-- Header / Navigation Bar -->
   <header class="app-header">
     <div class="header-container">
-      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
-
       <div class="header-title">
         <h1>晨興聖言</h1>
       </div>
@@ -51,149 +43,25 @@
     </div>
   </header>
 
-  <!-- Main Container -->
-  <div class="layout-container">
-    <!-- TOC Sidebar / Mobile Drawer -->
-    <aside id="toc-sidebar" class="toc-sidebar">
-      <div class="toc-header">
-        <h2>頁面導覽</h2>
-        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
-      </div>
-      <nav id="toc-nav" class="toc-nav">
-        <ul>
-          <li><a href="index.html" class="toc-link level-1 active">🏠 首頁 (經文)</a></li>
-          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
-          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
-          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
-          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
-          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
-          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
-          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
-        </ul>
-      </nav>
-    </aside>
-
-    <div id="toc-overlay" class="toc-overlay"></div>
-
-    <!-- Main Content Area -->
-    <main class="main-content">
-      <article class="reading-article">
-        <!-- Title Card -->
-        <div class="title-card">
-          <div class="title-meta">
-            <span class="badge">第二週 經文匯總</span>
-          </div>
-          <h2 class="main-title">
-            亞伯拉罕的神見於祂對待亞伯拉罕的事
-          </h2>
-          <p class="reading-scripture" style="margin-top: 0.5rem; font-size: 0.9em; color: var(--text-muted);">讀經：徒七2，創十二7～8，十三14～17，十四17～20，十五1，十七1，十八1，二四14</p>
-        </div>
-
-        <!-- 週一經文卡片 -->
-        <section id="sec-mon" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週一 經文</h3>
-            <a href="週一.html" class="daily-tag" style="margin-left: auto;" title="進入週一信息">進入 週一</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">徒七2～4</span>
-              『…我們的祖宗亞伯拉罕…，榮耀的神向他顯現，對他說，「你要從你本地和你親族中出來，往我所要指示你的地去。」他就從迦勒底人之地出來，住在哈蘭。他父親死了以後，神使他從那裏遷到你們現在所住之地。』
-            </div>
-          </div>
-        </section>
-
-        <!-- 週二經文卡片 -->
-        <section id="sec-tue" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週二 經文</h3>
-            <a href="週二.html" class="daily-tag" style="margin-left: auto;" title="進入週二信息">進入 週二</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">創十二2～3</span>
-              『我必使你成爲大國；我必賜福給你，使你的名爲大；你也要使別人得福。…地上的萬族都必因你得福。』
-            </div>
-            <div class="verse-card">
-              <span class="verse-ref">加三14</span>
-              『爲叫亞伯拉罕的福，在基督耶穌裏可以臨到外邦人，使我們藉着信，可以接受所應許的那靈。』
-            </div>
-          </div>
-        </section>
-
-        <!-- 週三經文卡片 -->
-        <section id="sec-wed" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週三 經文</h3>
-            <a href="週三.html" class="daily-tag" style="margin-left: auto;" title="進入週三信息">進入 週三</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">創十二7</span>
-              『…我要把這地賜給你的後裔。亞伯蘭就在那裏爲向他顯現的耶和華築了一座壇。』
-            </div>
-            <div class="verse-card">
-              <span class="verse-ref">加三16</span>
-              『應許原是向亞伯拉罕和他後裔說的。並不是說，和眾後裔，像是指着許多人，乃是說，「和你那後裔，」指着一個人，就是基督。』
-            </div>
-          </div>
-        </section>
-
-        <!-- 週四經文卡片 -->
-        <section id="sec-thu" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週四 經文</h3>
-            <a href="週四.html" class="daily-tag" style="margin-left: auto;" title="進入週四信息">進入 週四</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">創十五5～6</span>
-              『於是領他走到外邊，說，你向天觀看，數算眾星，能數得過來麼？又對他說，你的後裔將要如此。亞伯蘭信耶和華，耶和華就以此算爲他的義。』
-            </div>
-          </div>
-        </section>
-
-        <!-- 週五經文卡片 -->
-        <section id="sec-fri" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週五 經文</h3>
-            <a href="週五.html" class="daily-tag" style="margin-left: auto;" title="進入週五信息">進入 週五</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">創十七9～10</span>
-              『神又對亞伯拉罕說，至於你，你和你的後裔當世世代代遵守我的約。你們所有的男子都要受割禮；這就是我與你並你的後裔所立的約，是你們所當遵守的。』
-            </div>
-          </div>
-        </section>
-
-        <!-- 週六經文卡片 -->
-        <section id="sec-sat" class="reading-section">
-          <div class="section-heading reading-heading">
-            <span class="reading-icon">📅</span>
-            <h3>週六 經文</h3>
-            <a href="週六.html" class="daily-tag" style="margin-left: auto;" title="進入週六信息">進入 週六</a>
-          </div>
-          <div class="verse-card-group">
-            <div class="verse-card">
-              <span class="verse-ref">創二二13～14</span>
-              『亞伯拉罕舉目觀看，不料，在他後面有一隻公羊，兩角扣在樹叢中，亞伯拉罕就去取了那隻公羊來，獻爲燔祭，代替他的兒子。亞伯拉罕給那地方起名叫耶和華以勒，直到今日人還說，在耶和華的山上必有豫備。』
-            </div>
-          </div>
-        </section>
-
-      </article>
-
-      <footer class="app-footer">
-        <p>晨興聖言 — 淡水會所網頁版</p>
-      </footer>
-    </main>
-  </div>
+  <main class="portal-main">
+    <div class="week-list">
+      <a href="第一週/index.html" class="week-card">
+        <span class="badge week-badge">第一週</span>
+        <span class="week-title">認識並經歷亞伯拉罕的神、以撒的神和雅各的神，而成爲神的以色列</span>
+        <span class="week-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="第二週/index.html" class="week-card">
+        <span class="badge week-badge">第二週</span>
+        <span class="week-title">亞伯拉罕的神見於祂對待亞伯拉罕的事</span>
+        <span class="week-arrow" aria-hidden="true">→</span>
+      </a>
+      <a href="第三週/index.html" class="week-card">
+        <span class="badge week-badge">第三週</span>
+        <span class="week-title">兩個婦人的寓意</span>
+        <span class="week-arrow" aria-hidden="true">→</span>
+      </a>
+    </div>
+  </main>
 
   <script src="app.js"></script>
 </body>

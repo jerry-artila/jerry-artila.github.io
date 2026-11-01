@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 週六 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 active">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第一週</span>
+            <span class="badge">週六</span>
+          </div>
+          <h2 class="main-title">
+            認識並經歷亞伯拉罕的神、以撒的神和雅各的神，而成爲神的以色列
+          </h2>
+          <p class="reading-scripture">讀經：創二八13，三三20，出三6、14～15，徒三13，加六16，帖前一1</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加六16</span>
+              『凡照這準則而行的，願平安憐憫臨到他們，就是臨到神的以色列。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">帖前一1</span>
+              『保羅、西拉和提摩太，寫信給在父神和主耶穌基督裏，帖撒羅尼迦人的召會：願恩典與平安歸與你們。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              保羅在加拉太六章十六節的末了說，『就是臨到神的以色列。』『就是』在原文不是用作連接詞，而是作爲解釋，指明使徒認爲在基督裏許多單個的信徒，在團體一面乃是神的以色列。神的以色列卽真以色列人，（羅九6下，二28～29，腓三3，）包括在基督裏所有外邦和猶太的信徒，他們是亞伯拉罕的真子孫，（加三7，29，）是信仰之家的人，（六10，）也是新造的人，他們照『這準則』而行，彰顯神的形像，並施行神的權柄。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              我們這些相信基督耶穌的人…有雙重的身分。一面，我們是神的兒子，神聖家庭的一員。另一面，我們是未來的君王，命定要作君王的人。君王職分與神的以色列有關。…要成爲神合式的兒子，有那靈的果子，如加拉太五章二十二、二十三節所列舉的那些美德，就彀了。但我們要作君王—神的以色列，就需要另一種生活，一種特別的憑着靈而行。…這不僅僅是神聖家庭中兒子的生活，也是那要在神國裏作君王之人的生活。願我們的眼睛得開啓，看見我們是皇家的君王！
+            </p>
+              <p class="content-paragraph">
+              就一面說，卽使許多以色列人悖逆且非常罪惡，以色列國還是神的以色列和神的見證。然而，真以色列，屬靈的以色列，乃是召會。但因爲以色列國與召會都在低落的光景裏，主就需要恢復神的真以色列。爲着這樣的恢復，我們需要兩種生活，兩種的行。在第一種行，我們會有愛、喜樂、和平、溫柔、和恆忍這樣的美德，這都是那活在我們裏面之基督的彰顯。我們也需要第二種行，好叫我們成爲神的以色列，背負神的君王職分，有祂的權柄代表祂，並執行祂的行政管理。…就屬靈一面說，我們是神的兒子，也是神的以色列。我們是神的兒子，需要有愛、喜樂、和平、信實、溫柔；我們是神的以色列，必須照神新約經綸的基本準則而行。
+            </p>
+              <p class="content-paragraph">
+              我們可以確定，帖前一章一節所說的神乃是三一神。我們如何知道？因爲保羅首先題到父—三一神的第一者。…保羅說到父的這個事實，有力的指明他所想的是三一神。不僅如此，『主耶穌基督』這話也含示那靈。『父神』與『主耶穌基督』都含示那靈。因此，一章一節含示那靈，是不言而喻的。…這位三一神是經過過程的神。祂經過了成爲肉體、人性生活、釘十字架和復活的過程。祂釘十字架成功了救贖，了結了舊造，毀壞了撒但和死亡。祂復活使新造有了新生的起頭。現今祂是賜生命的靈，就是三一神的終極完成。召會是在這樣一位三一神裏面。召會是在經過過程的三一神裏，就是在那帶着父和子成了賜生命之靈的一位裏。
+            </p>
+              <p class="content-paragraph">
+              我們若看見召會是在父神和主耶穌基督裏的這個異象，自然就會明白，我們不該固守某些觀念或作某些事，因爲這些事是屬世的、凡俗的、不聖的、也不是分別歸神的。我們會明白，這類事物不是爲着召會的，因爲召會乃是在父神和主耶穌基督裏的。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

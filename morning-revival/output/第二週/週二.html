@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第二週 • 週二 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 active">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第二週</span>
+            <span class="badge">週二</span>
+          </div>
+          <h2 class="main-title">
+            亞伯拉罕的神見於祂對待亞伯拉罕的事
+          </h2>
+          <p class="reading-scripture">讀經：徒七2，創十二7～8，十三14～17，十四17～20，十五1，十七1，十八1，二四14</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創十二2～3</span>
+              『我必使你成爲大國；我必賜福給你，使你的名爲大；你也要使別人得福。…地上的萬族都必因你得福。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">加三14</span>
+              『爲叫亞伯拉罕的福，在基督耶穌裏可以臨到外邦人，使我們藉着信，可以接受所應許的那靈。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              在神向亞伯拉罕第二次呼召並第二次說話時，我們看見神也是賜福的神。（創十二1～4。）神不僅呼召他，神也應許他，必叫他成爲大國，必叫他的名爲大。…神不僅賜福給他，也使他叫別人得福。這福乃是新約福音的福。（加三9，14。）…神作爲賜福的神，向亞伯拉罕第二次的呼召並第二次的說話，吸引了亞伯拉罕進入神所應許的美地。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              我們的福就是神自己，祂具體化在基督裏，實化爲那靈，爲着分賜到我們裏面，給我們享受。在宇宙中，惟有神自己是福，其他一切都是虛空的虛空。（傳一2。）…我們若有神，就有福。然而，神要成爲我們的福分，這牽涉到一個過程。…這位神的總和，就是經過過程、終極完成、包羅萬有、賜生命、內住的靈。祂這奇妙之靈，乃是從神給我們的福。福音的福乃是那靈，就是經過過程之三一神的總和與集大成。
+            </p>
+              <p class="content-paragraph">
+              我們永世屬靈的福，乃是要承受那靈，就是經過過程之三一神的終極完成，作我們的基業。在新天新地的新耶路撒冷裏，我們要享受經過過程的三一神，就是那包羅萬有、終極完成、賜生命的靈。（啓二二1，約七37～39。）甚至今天，最令我們享受的就是內住的靈。
+            </p>
+              <p class="content-paragraph">
+              在神完全的福音裏，我們在基督裏不僅接受赦罪、洗淨和潔淨的福，更接受那最大的福，就是三一神—父、子、靈—作爲經過過程、包羅萬有賜生命的靈，極其主觀的住在我們裏面，給我們享受。我們能享受這包羅萬有者作我們每日的分，這是何等的福！
+            </p>
+              <p class="content-paragraph">
+              應許給亞伯拉罕之福音的福，乃是包羅萬有的靈，這靈複合着基督的神性、人性、人性生活、包羅萬有的死同其功效、大能的復活同其生命能力、以及升天。這複合的靈就是約翰七章三十九節所說，在耶穌得榮耀之前還沒有的那靈。…聖靈已經有了，但包羅萬有、複合的靈還沒有，因爲在耶穌說這話時，祂尚未得着榮耀，就是尚未釘十字架並復活。（路二四26。）基督藉着釘十字架與復活，成了賜生命的靈，複合的靈，就是經過過程之三一神的終極完成。
+            </p>
+              <p class="content-paragraph">
+              這包羅萬有、複合的靈，由出埃及三十章的聖膏油所豫表；這複合的膏油包含了橄欖油和四種香料。一欣橄欖油與四種香料複合，產生了聖膏油。四種香料—沒藥、肉桂、菖蒲、桂皮—與橄欖油複合，製成複合的膏油。在豫表裏，油表徵神的靈；複合的膏，就是油與四種香料調和，表徵複合的靈。…在出埃及三十章之前，『還沒有』這膏，但在三十章之後，這樣的膏就確實存在了。照樣，在基督釘十字架、復活、並得榮之前，還沒有作爲包羅萬有賜生命之靈的那靈；（約七39；）但藉着基督釘十字架並復活的過程，油所豫表之神的靈，成了膏所豫表之複合的靈。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

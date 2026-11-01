@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週六 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 active">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週六</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加四26</span>
+              『但那在上的耶路撒冷是自主的，她是我們的母。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">來十二22～23</span>
+              『但你們乃是來到錫安山，來到活神的城，屬天的耶路撒冷，…來到…眾長子的召會…。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              加拉太四章二十六至二十八節和三十一節，啓示新耶路撒冷是信徒的母。這位母親就是在上的耶路撒冷，屬天的耶路撒冷。…新耶路撒冷，屬天的耶路撒冷，在上的耶路撒冷，是我們的母親，這位母親乃是恩典的新約。新約是我們的母，因爲她生出我們作自由的兒女。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              撒拉表徵在上的耶路撒冷，也表徵新約。這指明新耶路撒冷就是新約。…一面，新耶路撒冷是新約；另一面，新約產生新耶路撒冷。這是主對亞伯拉罕所應許的，也是亞伯拉罕所仰望並等候的。
+            </p>
+              <p class="content-paragraph">
+              在加拉太四章那是我們之母的婦人，就是新約。我們已經生在新約之下，而那在上的耶路撒冷乃是我們的母。這婦人是新約並我們的母，我們的母乃是神的恩典。在希伯來十二章，我們乃是來到由我們信徒所組成的召會。…我們與召會是一。在加拉太四章，新耶路撒冷作我們的母，原則是一樣的。這婦人是眾子，眾子也就是母。此外，這母是恩典，恩典也就是母，因爲我們都已經從恩典並藉着恩典而生。這母也是新約，並且新約就是母。最終，新約還是聖城，那在上的耶路撒冷。
+            </p>
+              <p class="content-paragraph">
+              至終，這母，就是在上的耶路撒冷，乃與父是一。父是賜恩者；恩典就是約；約又是城，就是那在上的耶路撒冷，她是我們的母；母所產生的眾子，乃是母的組成成分；母歸回於父，與父成爲一，乃是由父而出，然後歸回於父這目的地。
+            </p>
+              <p class="content-paragraph">
+              接受並遵守新約，就是來到屬天的耶路撒冷和召會這裏。（來八7～13，十二22～23。）新約、屬天的耶路撒冷、和召會乃是一。要領會這點，我們必須看見加拉太書和希伯來書之間的連結。加拉太書對付猶太教，警告信徒不要退回到猶太教，乃要留在恩典裏。希伯來書囑咐我們不要漂回到舊約，乃要留在新約裏。希伯來七至十章論到更美之約，就是新約。八章指明舊約過去了，新約已經進來取而代之。然後在十二章保羅告訴我們，我們已經來到錫安山，來到活神的城，來到召會。（22～23。）
+            </p>
+              <p class="content-paragraph">
+              信徒的母，乃是亞伯拉罕所仰望的城。『他等候那座有根基的城，其設計者並建築者乃是神。』（十一10。）希伯來十二章二十二節指明這座城是甚麼，這節告訴我們，我們乃是來到屬天的耶路撒冷，就是基督的妻並新約信徒的母這裏，這母是由神的眾子所組成，而眾子乃是由她而生。因此，亞伯拉罕所等候並我們所來到的城，乃是基督的妻。
+            </p>
+              <p class="content-paragraph">
+              神揀選亞伯拉罕作新族類的父，與新耶路撒冷並我們對她的領會相關聯。神揀選亞伯拉罕，目的不僅是要將墮落的人類恢復到起初神創造人的情形裏；反之，神揀選亞伯拉罕，目的乃是要完成祂的經綸。…神揀選亞伯拉罕，目的不是要將人恢復到在神創造裏人起初的情形，乃是要產生許多的兒子。神在亞伯拉罕身上所作的一切，從頭一步到末了一步，都是按照這原則。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

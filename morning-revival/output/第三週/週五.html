@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週五 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1 active">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週五</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加三8</span>
+              『並且聖經旣豫先看明，神要本於信稱外邦人爲義，就豫先傳福音給亞伯拉罕，說，「萬國都必因你得福。」』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">加26</span>
+              『因爲你們眾人藉着相信基督耶穌，都是神的兒子。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              神產生許多兒子的目標，不是藉着人的工作而成就的，乃是憑着神的恩典纔得以完成。…按照新約裏神聖的啓示，恩典實際上就是神將祂自己給了祂的選民，作他們的享受，這享受要使他們成爲神的眾子。
+            </p>
+            <p class="content-paragraph">
+              在約翰一章，我們看見話，就是神，成了肉體，（1，14，）並且恩典隨着祂而來。（17。）這意思就是祂作恩典而來。…凡信入祂並接受祂的，要從祂所生，成爲神的兒女。〔12～13。〕因此，神藉着把自己作爲恩典，賜給祂所揀選的人，就產生了許多兒子。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              在創世記十五章，神應許亞伯拉罕必會有後嗣，亞伯拉罕也相信神。然而，就在下一章，因着亞伯拉罕沒有從撒拉得孩子，他就聽從撒拉的建議，從她的使女夏甲得孩子。夏甲生了一個兒子，起名叫以實瑪利。亞伯拉罕從夏甲得的孩子，神並不喜悅，祂就十三年之久不再向亞伯拉罕顯現。當耶和華再次向亞伯拉罕顯現時，…〔祂〕向亞伯拉罕指明，祂的恩典要使亞伯拉罕產生一個兒子；〔參十七1～2；〕但亞伯拉罕憑着自己所作的，卻是出於肉體，他這樣作就被神定罪。…耶和華對亞伯拉罕說，『你妻子撒拉必給你生一個兒子，你要給他起名叫以撒。我要與他堅定所立的約，作他後裔永遠的約。』（19。）
+            </p>
+              <p class="content-paragraph">
+              在十八章，耶和華再次向亞伯拉罕顯現，對他說，『在生命的時候，（原文，）我必回到你這裏；你的妻子撒拉必生一個兒子。』（10上。）這指明以撒的出生是出於耶和華的來臨。這好比馬利亞的生出耶穌，乃是三一神的來臨。至終，撒拉真的生出了以撒。（二一1～3。）
+            </p>
+              <p class="content-paragraph">
+              產生以撒完全是件神恩典的事，就是將神自己賜給祂的選民，以產生祂許多的兒子。反之，以實瑪利不過是憑着亞伯拉罕天然的能力與力量產生的。…保羅在〔加拉太四章〕告訴我們，夏甲表徵律法，由屬地的耶路撒冷所象徵；撒拉表徵恩典，由屬天的耶路撒冷所象徵。…律法是人的勞苦加上人的能力以產生一些東西；而恩典是將神賜給祂所揀選的人，好產生許多兒子。
+            </p>
+              <p class="content-paragraph">
+              神與亞伯拉罕所立起初的約，乃是恩典的約，在這約裏，不需要人的能力或努力，只需要神的恩典以產生許多兒子。這約等於新約。…所有亞伯拉罕的真後裔，就如以撒、雅各、摩西和大衞，都在這約之下，今天我們也在這約之下。…律法的約雖然是藉着摩西賜的，摩西自己卻不在那約之下。反之，在神眼中，摩西乃是在恩典的約之下。律法的約不能爲神產生任何東西，這約只能產生『以實瑪利』。…新約就是神與亞伯拉罕所立那恩典之約完全的延續，這約乃是要產生眾子。藉這約所產生眾子中的頭一位，乃是亞伯拉罕自己。亞伯拉罕是一切相信之人的父，（羅四11，）…其他在舊約裏的兒子，包括雅各、大衞和耶利米等，但不包括以掃。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

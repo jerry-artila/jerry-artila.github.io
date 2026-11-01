@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週三 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1 active">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週三</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加五4</span>
+              『你們這要靠律法得稱義的，是與基督隔絕，從恩典中墜落了。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">加四30</span>
+              『…「把使女和她兒子趕出去，因爲使女的兒子，絕不可與自主婦人的兒子一同承受產業。」』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              神給亞伯拉罕應許是在創世記十二章二節、七節，十三章十五至十七節，十五章四至五節；並且神與亞伯拉罕立約是在十五章七至二十一節。按照神的心意，應許的約在先。神並沒有意思要帶進律法，要人努力遵守來完成祂的定旨。神原初的心意乃是要將祂自己作到人裏面，藉着人來完成祂的定旨。
+            </p>
+            <p class="content-paragraph">
+              新約告訴我們，人得救之後需要傳福音並結果子。…是的，你可以用夏甲得人，但所得來的是甚麼樣的人？他們不是以撒，乃是以實瑪利。按照新約，正確的結果子並傳福音乃是憑着裏面生命的湧流，憑着神把基督作到我們裏面，經過我們，再從我們出去。這意思就是，正確的傳福音乃是憑着基督作我們的恩典。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              只要我們還有力量產生以實瑪利，神就不能作甚麼。以實瑪利產生以後，神要離開一段時間。當亞伯拉罕九十九歲的時候，照他的想法，自己如同已死。〔羅四19。〕…羅馬四章也指出，撒拉的生育已經斷絕。亞伯拉罕和撒拉都深信他們已經完了，自己不能再作甚麼了。就在那時，神來了。
+            </p>
+              <p class="content-paragraph">
+              所有復興佈道家都鼓動人，叫人爲基督活着，爲基督工作。但我們的職事卻告訴人停止憑自己過基督徒生活，停止用屬世的方法作基督徒工作。…若有人停下來，不憑自己過基督徒的生活，或者不靠屬世的方法爲主作工，他就有福了。要停下你基督徒生活中自己的努力，並基督徒工作上天然的熱心，是不容易的。…願意停下來的人有福了，因爲你一停下，神就來了。…我們人天然的生命一結束，神的生命就開始。
+            </p>
+              <p class="content-paragraph">
+              亞伯拉罕八十六歲的時候，他自己的力量仍舊太大，使神又等了十三年。…你禱告求神來作些甚麼，神卻盼望你停下自己。…當亞伯拉罕在地上忙碌的時候，神也許看着他說，『可憐的亞伯拉罕，你不必這麼忙碌。你可不可以停下，讓我來？…』神等候直到亞伯拉罕如同死人，失去了功能。然後祂來到，並且能說，『現在是我的開始，現在是我開始作一點事的時候了。』
+            </p>
+              <p class="content-paragraph">
+              肉體努力的產品是以實瑪利，以實瑪利是神所棄絕的。（創十七18～19，二一10～12上，加四30。）以實瑪利不但是神棄絕的，也是阻撓神顯現的。我們今天的經歷告訴我們同樣的事。我們的以實瑪利打斷了我們與神的交通，並使我們無法經歷神的顯現。由此可見，問題不在於我們的所作或所是，完全在於我們有沒有神的同在。…我們必須忘記我們的行爲和工作，而顧到神的顯出。當我們有神的顯出，我們就是在恩典中，在恩典的約中。但今天大多數的基督徒只顧到他們的行爲和工作，而不顧到神的顯出和同在。他們也許生出許多以實瑪利，卻沒有神的同在。我們所需要的是神的同在。我們所需要的不是我們外面的工作所得外面的果子，而是我們的神在裏面的顯現。你裏面有神的同在麼？這是最重要的試驗。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

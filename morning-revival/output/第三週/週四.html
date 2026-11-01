@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週四 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1 active">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週四</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">西二11</span>
+              『你們在祂裏面也受了非人手所行的割禮，乃是在基督的割禮裏，脫去了肉體的身體。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">腓三3</span>
+              『眞受割禮的，乃是我們這憑神的靈事奉，在基督耶穌裏誇口，不信靠肉體的。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              神向亞伯拉罕啓示祂的名是伊勒沙代，就是全豐全足的大能者，要作恩典豐富供應的源頭，以信守祂的約，完成祂的旨意，並再次與〔亞伯拉罕〕立約。（創十七1～2，4。）在這次的約中，神用割禮來作立約的證據，以堅定祂給亞伯拉罕應許的約。這給我們看見，神賜給祂選民美地的應許，雖然已經立爲祂賜給祂選民的約，但還需要割禮的約來堅定神應許的約。割禮是神的選民承受神的應許所必須經過的手續，豫表神新約中的選民必須經過十字架的對付，纔能承受並得享神所應許在基督裏的一切豐富。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              在新約裏，我們可以看到割禮的意義。割禮的屬靈意義就是脫去肉體，脫去己和舊人。〔參西二11～12。〕…嚴格說來，割禮與對付罪無關；割禮乃是與基督一同釘十字架，並一同埋葬。割禮的意思就是了結你的己，了結你的肉體。在創世記十六章亞伯拉罕用他的肉體，但在十七章這裏，神要他割去肉體。在十六章他用天然的力量，但在十七章他的力量必須被了結。這就是受割禮。
+            </p>
+              <p class="content-paragraph">
+              只要我們天然的力量還在，神就很難進來作我們的一切，來完成祂的定旨。神要進到我們裏面作我們的一切，但我們的肉體、我們天然的人和力量、我們的舊人、我們老舊的己，阻撓神來作我們的一切。這個己，這個舊人，必須被了結，必須受割禮，也就是必須釘十字架。我要告訴你們好消息，我們的舊人已經釘了十字架。（羅六6。）…我們都必須看見這事實，算定這事實，並且憑信接受這事實。我們能憑信宣告，我們的肉體，我們天然的人及其力量，已經釘了十字架。『我已經與基督同釘十字架；現在活着的，不再是我，乃是基督在我裏面活着。』（加二20。）舊人，己，已經釘了十字架；我們都需要憑這認識活着。我們若宣告這事實，並照着這事實生活，復活的神就立刻有路進到我們裏面，作我們的一切，以完成祂的經綸。
+            </p>
+              <p class="content-paragraph">
+              藉割禮堅立約，與完成神定旨的後裔和地有關。（創十七2～8。）…爲了得着基督作我們的後裔和地，以完成神的定旨，我們需要受割禮，並過釘十字架的生活。…當肉體、己和舊人被了結，門就開了，讓神進來而生出以撒。
+            </p>
+              <p class="content-paragraph">
+              所有不受割禮的人都與這約隔絕。在創世記十七章十四節神對亞伯拉罕說，『但不受割禮的男子必從民中剪除，因他背了我的約。』今天這也是真實的。我們若不過釘十字架的生活，我們便與基督，與召會生活，並與神聖乳房的供應隔絕。甚麼時候我們不願受割禮，在完成神永遠的定旨上，我們就了了。今天我們享受神，憑基督活着，實行召會生活，全在於一件事，就是受割禮，過釘十字架的生活。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第一週 • 週一 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1 active">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第一週</span>
+            <span class="badge">週一</span>
+          </div>
+          <h2 class="main-title">
+            認識並經歷亞伯拉罕的神、以撒的神和雅各的神，而成爲神的以色列
+          </h2>
+          <p class="reading-scripture">讀經：創二八13，三三20，出三6、14～15，徒三13，加六16，帖前一1</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">出三15</span>
+              『神又對摩西說，你要對以色列人這樣說，耶和華你們祖宗的神，就是亞伯拉罕的神，以撒的神，雅各的神，差我到你們這裏來。這是我的名，直到永遠…。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">太二二32</span>
+              『「我是亞伯拉罕的神，以撒的神，雅各的神。」神並不是死人的神，乃是活人的神。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              聖經給我們看見，神的子民有兩個起點：一個起點是亞伯拉罕，因爲神的揀選、神的恩召是從亞伯拉罕起頭的；還有一個起點是以色列國，神告訴以色列人，他們要在萬民中作屬祂的子民，他們要歸祂作祭司的國度，爲聖別的國民。（出十九5～6。）所以，神的子民的的確確是從亞伯拉罕起頭的，神的子民也的的確確是從以色列國起頭的。在這兩個起點中間，神得着了三個人，就是亞伯拉罕、以撒、雅各。…然後…以色列國…作〔了〕神的子民。從此以後，就有了神的子民。所以，我們可以這樣說，以色列國的根基，是建造在亞伯拉罕、以撒、雅各的身上。…如果沒有亞伯拉罕、以撒、雅各，就沒有神的子民。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              亞伯拉罕、以撒、雅各有他們在神面前特別的地位，他們三個人屬靈的經歷，就是代表三個不同的屬靈的原則。…凡是真實的以色列人，真實的神的子民，都得說，我們的祖宗是亞伯拉罕、以撒和雅各。光說，我們的祖宗亞伯拉罕，是不彀的，因爲以實瑪利和他的子孫也能說，我們的祖宗亞伯拉罕；光說，我們的祖宗亞伯拉罕、以撒，也是不彀的，因爲以掃也能這樣說，以掃的後裔也能這樣說。…連雅各也〔要包括〕在裏面，纔能站得住；要三方面都有，纔能站得住。
+            </p>
+              <p class="content-paragraph">
+              按照神聖記載的含示，亞伯拉罕、以撒、雅各不是三個分開的個人。同樣，他們的神—亞伯拉罕的神，以撒的神，雅各的神，也不是三位神，而是一位三一神。在亞伯拉罕身上我們看見父神，在以撒身上我們看見子神，在雅各身上我們看見靈神。父、子、靈，三而一，乃是獨一的三一神。同樣的原則，亞伯拉罕、以撒、雅各是三一的人，他們是三而一，在生命的經歷上是一個完整的人。
+            </p>
+              <p class="content-paragraph">
+              在亞伯拉罕的記載裏，我們看到呼召的事。然而按照神的啓示，呼召不是第一項。神的揀選在神的呼召之前。…在已過的永遠裏，亞伯拉罕已蒙揀選；在迦勒底他纔蒙召。但亞伯拉罕蒙揀選的記載在那裏？乃是在創世記二十五章雅各蒙揀選的記載裏。…亞伯拉罕的生命沒有完全的起頭，也沒有完整的結束，因爲他旣沒有蒙揀選，也沒有在生命上成熟，這兩者都在雅各身上。…亞伯拉罕本身在神眼中不是一個完整的人，他需要雅各和以撒。亞伯拉罕、以撒、雅各，這三個人代表一個完整人的屬靈經歷。…在亞伯拉罕身上我們清楚看見神的呼召，但沒有看見揀選，也沒有看見生命的成熟。
+            </p>
+              <p class="content-paragraph">
+              亞伯拉罕、以撒、雅各在生命的經歷上形成一個完整的人。亞伯拉罕因爲生命不成熟，他沒有祝福人。以撒有一點成熟，但缺少生命成熟的豐富，所以盲目的祝福。雅各生命成熟，就完滿且清楚的祝福。凡他所說的都是神的話，凡他所祝福的都是豫言，說到神對祂所有兒女的經綸。至終，雅各變成以色列，神的彰顯。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

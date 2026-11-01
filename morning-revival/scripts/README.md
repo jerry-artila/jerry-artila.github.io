@@ -1,6 +1,6 @@
 # 《晨興聖言》自動化更新管線說明 (Update Pipeline)
 
-本工具遵循 [`專案規格.md`](../專案規格.md) (SRS 2.0) 規範設計，提供一鍵式從淡水會所來源網站擷取、清洗、渲染與品管驗證之全自動工作流程。
+本工具遵循 [`專案規格.md`](../專案規格.md) (SRS 2.1) 規範設計，提供一鍵式從淡水會所來源網站擷取、清洗、渲染至每週獨立子目錄（`output/<第X週>/`）、更新各週總覽首頁（`output/index.html`）與品管驗證之全自動工作流程。
 
 ---
 
@@ -9,7 +9,7 @@
 在專案根目錄下直接執行：
 
 ```bash
-# 一鍵更新 (直接從來源網站抓取最新週次、清洗、生成 output/ 並進行品質驗證)
+# 一鍵更新 (直接從來源網站抓取最新週次、清洗、生成 output/<第X週>/、更新 output/index.html 並進行品質驗證)
 # Windows 推薦指令:
 py scripts/pipeline.py
 
@@ -23,17 +23,17 @@ python3 scripts/pipeline.py
 
 | 參數 | 預設值 | 說明 |
 | :--- | :--- | :--- |
-| *(無參數)* | 淡水會所晨興網址 | 連線來源網站、清洗資料、更新 `output/` 檔案並自動驗證 |
+| *(無參數)* | 淡水會所晨興網址 | 連線來源網站、清洗資料、產出 `output/<第X週>/` 並更新總覽頁與自動驗證 |
 | `--dry-run` | `False` | 僅連線與解析測試，不寫入任何檔案 |
-| `--verify-only` | `False` | 僅針對現有 `output/` 進行 SRS 品質規範驗證 (檢查引文與標籤) |
+| `--verify-only` | `False` | 僅針對現有 `output/` 下所有週次子目錄進行 SRS 品質規範驗證 |
 | `--url <URL>` | 官方預設網址 | 自訂抓取的來源網頁 URL |
 | `--input-file <PATH>` | `None` | 使用本地 HTML 或文字快取檔更新 (離線測試或除錯用) |
-| `--output-dir <DIR>` | `output` | 指定輸出的部署目錄 |
+| `--output-dir <DIR>` | `output` | 指定輸出的部署根目錄 |
 
 ### 範例 (Windows 請使用 `py`，macOS/Linux 請使用 `python3`)：
 
 ```bash
-# 1. 僅檢查目前的 output 是否完全合規 (無未清出處、無殘留參讀)
+# 1. 僅檢查目前的 output 下所有週次子目錄是否完全合規 (無未清出處、無殘留參讀)
 py scripts/pipeline.py --verify-only
 
 # 2. 測試抓取與解析，不覆寫檔案
@@ -50,7 +50,7 @@ py scripts/pipeline.py --input-file /path/to/cache.html
 ```
 [淡水會所來源網站] ➔ fetch_source_html() (SSL & User-Agent 適配)
         ↓
-  HTML 文字流提取 ➔ VisibleTextExtractor
+  HTML 文字流提取 ➔ BlockTextExtractor (區分有序與無序清單層級)
         ↓
    結構化資料解析 ➔ parse_morning_revival_data()
         ↓ 
@@ -59,13 +59,14 @@ py scripts/pipeline.py --input-file /path/to/cache.html
      • 截除信息選讀末尾之「--參讀...」與「📚 參讀：...」推薦區塊
      • 結構化三層綱目提取（大點、中點、小點，過濾 4~5 層）
         ↓
-   模組化模板渲染 ➔ render_index_html() / render_outline_html() / render_daily_html()
-     • index.html (首頁兼全週經文匯總)
-     • 綱目.html (結構化綱目檢視)
-     • 週一.html ～ 週六.html (每日晨興餧養 + 信息選讀)
+   模組化模板渲染 (每週獨立子目錄 output/<第X週>/)
+     • output/<第X週>/index.html (該週首頁兼全週經文匯總)
+     • output/<第X週>/綱目.html (結構化綱目檢視)
+     • output/<第X週>/週一.html ～ 週六.html (每日晨興餧養 + 信息選讀)
+     • output/index.html (自動掃描所有週次子目錄，生成各週總覽入口頁)
         ↓
    產出品管自動驗證 ➔ validate_output_directory()
      • 零引文洩漏驗證
      • 零參讀殘留驗證
-     • 徽章與導覽列完整性檢查
+     • 徽章、導覽列與相對資源路徑完整性檢查
 ```

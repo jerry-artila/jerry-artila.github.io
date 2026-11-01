@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第三週 • 週二 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 active">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第三週</span>
+            <span class="badge">週二</span>
+          </div>
+          <h2 class="main-title">
+            兩個婦人的寓意
+          </h2>
+          <p class="reading-scripture">讀經：創十六1～十七14，加四21～31</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">加四25</span>
+              『這夏甲就是在亞拉伯的西乃山，相當於現在的耶路撒冷，因耶路撒冷同她的兒女都是作奴僕的。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">加五1</span>
+              『基督釋放了我們，叫我們得以自由；所以要站立得住，不要再受奴役的軛挾制。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              律法的地位像妾的地位，在神的經綸中沒有合法的地位。恩典像撒拉，生子得兒子的名分；而律法像夏甲，生子爲奴。加拉太四章二十四節說，『出於西乃山，生子爲奴，乃是夏甲。』西乃山卽頒佈律法之地；（出十九20，二四12；）夏甲所象徵的律法之約，將神的選民帶到律法的轄制之下，作了律法之下的奴僕，與神的恩典隔絕了。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              當人忽畧了神的恩典，他就想努力作點甚麼來討神的喜悅，這就帶進了律法；亞伯拉罕非正式的妻子，使女夏甲，乃是律法之約的象徵。…凡她所生的不能留在神的經綸中。這表徵律法不應該進來，而且律法的產品，在完成神定旨的事上沒有地位。夏甲生出以實瑪利，是靠人的努力，不是靠神的恩典；以實瑪利乃是神所棄絕的。人藉着律法而勞苦的產品，在完成神定旨的事上無分無關。
+            </p>
+              <p class="content-paragraph">
+              按照神的經綸，一個男人只該有一個妻子。因此，撒拉建議亞伯拉罕從夏甲得後裔，絕對違反神的經綸。夏甲不是正式的妻子，只是妾。…恩典是正式的妻子，是正確的後嗣之母；（加四26，28，31；）律法是妾，她的後代不被接納爲後嗣。按照古代習俗，男人娶妾主要是因妻子不能生孩子。這很有意思。當恩典還未工作，你卻急促，你就會與妾聯合，就是與律法聯合。…恩典是正式的妻子，律法是妾。
+            </p>
+              <p class="content-paragraph">
+              我們得救之後，就開始知道神要我們過一種像基督的生活，屬天的生活，得勝的生活，常常討神喜悅並榮耀神的生活。是的，神的確要我們過這樣的生活，但神要把基督作到我們裏面，替我們過這種屬天的生活，來討神的喜悅，並榮耀神。然而我們都是注意神的心願，卻忽畧了恩典。神的心意是要我們爲着神的榮耀，過屬天的生活，而恩典是神要把基督作到我們裏面，來完成祂的定旨。所以首先我們依賴羅得，就是我們從天然背景中所帶出來的，想要用他來完成神的定旨，爲神的榮耀過屬天的生活。當神不允許我們依賴羅得時，我們就轉向以利以謝，指望他能使我們爲神的榮耀過屬天的生活。但至終神告訴我們：『我不要那個，我不要任何客觀的東西，我是要從你這個人裏面出來主觀的東西。』我們一旦知道神要這個，就開始運用自己的力量，天然的能力，來完成神的定旨。…我們也許沒有摩西所賜的律法，但我們卻有很多自己制定的律法。我們都是頒賜律法者，爲自己制定律法。
+            </p>
+              <p class="content-paragraph">
+              也許你說，你絕不再向丈夫發脾氣，或者對他態度不好。這是你的第一條誡命。你的第二條誡命是：你旣是個基督徒女士，基督徒妻子，你就需要親切、甘甜且謙卑。你的第三條誡命是絕不批評別人。第四條是常常愛人，絕不恨人。這些自定的律法就是我們的夏甲。我們能否遵守我們的律法，在神看都沒有兩樣，因爲在祂看來，我們就是能守住，也不算數。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js"></script>
+</body>
+</html>

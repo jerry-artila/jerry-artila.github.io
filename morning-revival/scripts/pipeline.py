@@ -6,7 +6,7 @@
 遵循《專案規格.md》(SRS 2.0) 規範，執行以下自動化任務：
   1. Fetch: 自淡水會所來源網站 (或指定來源) 擷取最新網頁內容
   2. Parse & Clean: 結構化提取經文、綱目與每日信息，落實引文清洗與參讀截除
-  3. Render: 產生首頁經文彙總 (index.html)、結構化綱目 (綱目.html) 及週一至週六每日閱讀頁面
+  3. Render: 於獨立週次子目錄 (output/<週次>/) 產生首頁經文彙總 (index.html)、結構化綱目 (綱目.html) 及週一至週六每日閱讀頁面，並同步更新根目錄各週總覽頁 (output/index.html)
   4. Validate: 執行品管驗證，確保出處清洗與標籤符合規範
 """
 
@@ -58,6 +58,7 @@ class BlockTextExtractor(HTMLParser):
         self.blocks = []
         self.current = []
         self.ignore = False
+        self.ul_depth = 0
         self.block_tags = {
             "p", "div", "h1", "h2", "h3", "h4", "h5", "h6",
             "li", "br", "tr", "td", "section", "article", "header", "footer"
@@ -66,12 +67,18 @@ class BlockTextExtractor(HTMLParser):
     def handle_starttag(self, tag, attrs):
         if tag in ["script", "style", "meta", "link", "noscript"]:
             self.ignore = True
+        elif tag == "ul" and not self.ignore:
+            self._flush()
+            self.ul_depth += 1
         elif tag in self.block_tags and not self.ignore:
             self._flush()
 
     def handle_endtag(self, tag):
         if tag in ["script", "style", "meta", "link", "noscript"]:
             self.ignore = False
+        elif tag == "ul" and not self.ignore:
+            self._flush()
+            self.ul_depth = max(0, self.ul_depth - 1)
         elif tag in self.block_tags and not self.ignore:
             self._flush()
 
@@ -83,6 +90,8 @@ class BlockTextExtractor(HTMLParser):
         if self.current:
             text = "".join(self.current).strip()
             if text:
+                if self.ul_depth > 0:
+                    text = f"a. {text}"
                 self.blocks.append(text)
             self.current = []
 
@@ -325,11 +334,8 @@ def parse_morning_revival_data(lines: list) -> dict:
 # ==============================================================================
 # 3. HTML 頁面生成器 (Page Renderer)
 # ==============================================================================
-def render_header(title: str = "晨興聖言") -> str:
-    return f"""  <!-- Header / Navigation Bar -->
-  <header class="app-header">
-    <div class="header-container">
-      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+def render_header(title: str = "晨興聖言", show_menu_btn: bool = True) -> str:
+    menu_btn_html = """      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
@@ -337,7 +343,11 @@ def render_header(title: str = "晨興聖言") -> str:
         </svg>
       </button>
 
-      <div class="header-title">
+""" if show_menu_btn else ""
+    return f"""  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+{menu_btn_html}      <div class="header-title">
         <h1>{title}</h1>
       </div>
 
@@ -370,6 +380,7 @@ def render_header(title: str = "晨興聖言") -> str:
 
 def render_drawer(active_page: str) -> str:
     nav_items = [
+        ("../index.html", "📚 各週總覽"),
         ("index.html", "🏠 首頁 (經文)"),
         ("綱目.html", "📋 綱目"),
         ("週一.html", "📅 週一進度"),
@@ -401,6 +412,85 @@ def render_drawer(active_page: str) -> str:
     </aside>
 
     <div id="toc-overlay" class="toc-overlay"></div>"""
+
+
+def chinese_week_to_int(week_str: str) -> int:
+    """將『第一週』、『第十二週』等週次字串轉為整數以便排序"""
+    m = re.search(r"第([一二三四五六七八九十0-9]+)週", week_str)
+    if not m:
+        return 999
+    s = m.group(1)
+    if s.isdigit():
+        return int(s)
+    cn_map = {"一": 1, "二": 2, "三": 3, "四": 4, "五": 5, "六": 6, "七": 7, "八": 8, "九": 9, "十": 10}
+    if s == "十":
+        return 10
+    if s.startswith("十"):
+        return 10 + cn_map.get(s[1:], 0)
+    if s.endswith("十"):
+        return cn_map.get(s[:-1], 1) * 10
+    if "十" in s:
+        parts = s.split("十")
+        return cn_map.get(parts[0], 1) * 10 + cn_map.get(parts[1], 0)
+    return cn_map.get(s, 999)
+
+
+def render_portal_index_html(output_dir: Path) -> str:
+    """掃描 output/ 下所有週次子目錄，生成精簡版根目錄 output/index.html 各週總覽入口頁"""
+    week_dirs = []
+    for d in output_dir.iterdir():
+        if d.is_dir() and re.match(r"^第[一二三四五六七八九十0-9]+週$", d.name):
+            idx_file = d / "index.html"
+            main_title = d.name
+            if idx_file.exists():
+                content = idx_file.read_text(encoding="utf-8")
+                m_title = re.search(r'<h2 class="main-title">\s*(.*?)\s*</h2>', content, re.S)
+                if m_title:
+                    main_title = m_title.group(1).strip()
+            week_dirs.append({
+                "week_str": d.name,
+                "order": chinese_week_to_int(d.name),
+                "main_title": main_title,
+            })
+
+    week_dirs.sort(key=lambda x: x["order"])
+
+    week_cards = []
+    for w in week_dirs:
+        w_str = w["week_str"]
+        m_title = w["main_title"]
+        week_cards.append(f"""      <a href="{w_str}/index.html" class="week-card">
+        <span class="badge week-badge">{w_str}</span>
+        <span class="week-title">{m_title}</span>
+        <span class="week-arrow" aria-hidden="true">→</span>
+      </a>""")
+
+    cards_joined = "\n".join(week_cards)
+
+    return f"""<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="font-22px theme-light">
+{render_header("晨興聖言", show_menu_btn=False)}
+
+  <main class="portal-main">
+    <div class="week-list">
+{cards_joined}
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
+"""
 
 
 def render_index_html(data: dict) -> str:
@@ -446,7 +536,7 @@ def render_index_html(data: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -479,7 +569,7 @@ def render_index_html(data: dict) -> str:
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <script src="../app.js"></script>
 </body>
 </html>
 """
@@ -543,7 +633,7 @@ def render_outline_html(data: dict) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -576,7 +666,7 @@ def render_outline_html(data: dict) -> str:
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <script src="../app.js"></script>
 </body>
 </html>
 """
@@ -622,7 +712,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="../styles.css">
 </head>
 <body class="font-22px theme-light">
 {render_header("晨興聖言")}
@@ -685,7 +775,7 @@ def render_daily_html(data: dict, day_name: str) -> str:
     </main>
   </div>
 
-  <script src="app.js"></script>
+  <script src="../app.js"></script>
 </body>
 </html>
 """
@@ -694,56 +784,89 @@ def render_daily_html(data: dict, day_name: str) -> str:
 # ==============================================================================
 # 4. 品管驗證器 (Quality Validator)
 # ==============================================================================
-def validate_output_directory(output_dir: Path) -> bool:
-    """自動檢驗輸出目錄下的 HTML 檔案是否百分之百符合 SRS 規格"""
-    print("\n🔍 正在執行產出品質規範驗證 (SRS Validation)...")
+def validate_week_directory(week_dir: Path) -> bool:
+    """檢驗單一週次子目錄下的 HTML 檔案是否符合 SRS 規格"""
     expected_files = ["index.html", "綱目.html"] + [f"{d}.html" for d in DAYS]
     passed = True
+    w_name = week_dir.name
 
     for fname in expected_files:
-        fpath = output_dir / fname
+        fpath = week_dir / fname
         if not fpath.exists():
-            print(f"❌ 缺少必備部署檔案: {fname}")
+            print(f"❌ [{w_name}] 缺少必備部署檔案: {fname}")
             passed = False
             continue
 
         with open(fpath, "r", encoding="utf-8") as f:
             content = f.read()
 
+        # 0. 檢驗共用樣式與腳本相對路徑引用
+        if 'href="../styles.css"' not in content or 'src="../app.js"' not in content:
+            print(f"❌ [{w_name}/{fname}] 未正確引用上層 ../styles.css 或 ../app.js")
+            passed = False
+
         # 1. 檢驗書目出處引文清洗狀況
         cites = re.findall(r"（[^）]*?(?:文集|生命讀經|總論|真理課程|經歷基督|頁)[^）]*?）", content)
         if cites:
-            print(f"❌ {fname} 發現未清洗出處引文: {cites[:3]}")
+            print(f"❌ [{w_name}/{fname}] 發現未清洗出處引文: {cites[:3]}")
             passed = False
 
         # 2. 檢驗參讀標籤截除狀況
         refs = re.findall(r"(?:--|📚\s*)參讀[^\n<]*", content)
         if refs:
-            print(f"❌ {fname} 發現未截除之參讀標籤: {refs[:3]}")
+            print(f"❌ [{w_name}/{fname}] 發現未截除之參讀標籤: {refs[:3]}")
             passed = False
 
         # 3. 檢驗徽章與標題
         if fname == "綱目.html":
             if "總綱</span>" in content:
-                print("❌ 綱目.html 徽章錯誤，應為「綱目」")
+                print(f"❌ [{w_name}/綱目.html] 徽章錯誤，應為「綱目」")
                 passed = False
 
             # 4. 檢驗綱目大點與中點是否有內容
             if "outline-section" not in content:
-                print("❌ 綱目.html 缺少綱目大點區塊 (outline-section)")
+                print(f"❌ [{w_name}/綱目.html] 缺少綱目大點區塊 (outline-section)")
                 passed = False
             if "level-2-item" not in content:
-                print("❌ 綱目.html 缺少綱目中點區塊 (level-2-item)")
+                print(f"❌ [{w_name}/綱目.html] 缺少綱目中點區塊 (level-2-item)")
                 passed = False
             if re.search(r'<h3 class="level-1-title">\s*</h3>', content):
-                print("❌ 綱目.html 存在空白的大點標題")
+                print(f"❌ [{w_name}/綱目.html] 存在空白的大點標題")
                 passed = False
             if re.search(r'<div class="item-title">\s*<span class="item-num">[^<]*</span>\s*<p>\s*</p>', content):
-                print("❌ 綱目.html 存在空白的中點內容")
+                print(f"❌ [{w_name}/綱目.html] 存在空白的中點內容")
                 passed = False
 
+    return passed
+
+
+def validate_output_directory(output_dir: Path) -> bool:
+    """自動檢驗輸出目錄下的總覽頁與所有週次子目錄是否百分之百符合 SRS 規格"""
+    print("\n🔍 正在執行產出品質規範驗證 (SRS Validation)...")
+    passed = True
+
+    if not (output_dir / "index.html").exists():
+        print("❌ 缺少根目錄各週總覽頁: output/index.html")
+        passed = False
+
+    week_dirs = [
+        d for d in output_dir.iterdir()
+        if d.is_dir() and re.match(r"^第[一二三四五六七八九十0-9]+週$", d.name)
+    ]
+    week_dirs.sort(key=lambda d: chinese_week_to_int(d.name))
+
+    if not week_dirs:
+        print("❌ output/ 目錄下未發現任何週次子目錄")
+        passed = False
+
+    for w_dir in week_dirs:
+        if validate_week_directory(w_dir):
+            print(f"  ✔️ [{w_dir.name}] 8 個頁面全數通過驗證")
+        else:
+            passed = False
+
     if passed:
-        print("✅ 所有檔案皆通過品管驗證！完全符合 SRS 2.0 規範！\n")
+        print(f"✅ 共 {len(week_dirs)} 個週次子目錄與總覽首頁皆通過品管驗證！完全符合 SRS 規範！\n")
     else:
         print("⚠️ 品管驗證未全數通過，請檢視上方錯誤訊息。\n")
 
@@ -785,7 +908,8 @@ def run_pipeline(source_url: str = DEFAULT_SOURCE_URL,
 
     # 結構化解析與清洗
     parsed_data = parse_morning_revival_data(lines)
-    print(f"📌 解析主題: {parsed_data['week_str']} • {parsed_data['main_title']}")
+    week_str = parsed_data["week_str"]
+    print(f"📌 解析主題: {week_str} • {parsed_data['main_title']}")
     print(f"📖 讀經進度: {parsed_data['scripture']}")
     print(f"📋 綱目大點數: {len(parsed_data.get('outline_sections', []))} 個大點")
 
@@ -793,25 +917,35 @@ def run_pipeline(source_url: str = DEFAULT_SOURCE_URL,
         print("💡 Dry-run 模式：略過檔案寫入。")
         return
 
-    # 寫入 index.html
-    index_html = render_index_html(parsed_data)
-    with open(output_dir / "index.html", "w", encoding="utf-8") as f:
-        f.write(index_html)
-    print("✨ 已生成首頁經文彙總: output/index.html")
+    # 建立該週獨立子目錄
+    week_dir = output_dir / week_str
+    week_dir.mkdir(parents=True, exist_ok=True)
 
-    # 寫入 綱目.html
+    # 寫入該週 index.html
+    index_html = render_index_html(parsed_data)
+    with open(week_dir / "index.html", "w", encoding="utf-8") as f:
+        f.write(index_html)
+    print(f"✨ 已生成本週首頁經文彙總: output/{week_str}/index.html")
+
+    # 寫入該週 綱目.html
     if parsed_data.get("outline_sections"):
         outline_html = render_outline_html(parsed_data)
-        with open(output_dir / "綱目.html", "w", encoding="utf-8") as f:
+        with open(week_dir / "綱目.html", "w", encoding="utf-8") as f:
             f.write(outline_html)
-        print("✨ 已生成結構化綱目: output/綱目.html")
+        print(f"✨ 已生成本週結構化綱目: output/{week_str}/綱目.html")
 
-    # 寫入各每日頁面
+    # 寫入該週各每日頁面
     for d in DAYS:
         daily_html = render_daily_html(parsed_data, d)
-        with open(output_dir / f"{d}.html", "w", encoding="utf-8") as f:
+        with open(week_dir / f"{d}.html", "w", encoding="utf-8") as f:
             f.write(daily_html)
-        print(f"✨ 已生成每日閱讀模組: output/{d}.html")
+        print(f"✨ 已生成本週每日閱讀模組: output/{week_str}/{d}.html")
+
+    # 更新根目錄各週總覽頁 output/index.html
+    portal_html = render_portal_index_html(output_dir)
+    with open(output_dir / "index.html", "w", encoding="utf-8") as f:
+        f.write(portal_html)
+    print("✨ 已更新根目錄各週總覽頁: output/index.html")
 
     # 執行品管驗證
     validate_output_directory(output_dir)
