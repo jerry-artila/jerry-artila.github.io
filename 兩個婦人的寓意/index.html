@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#faf6ee">
   <title>第四十六篇 兩個婦人的寓意 — 創世記生命讀經 | 李常受</title>
   <meta name="description" content="李常受《創世記生命讀經》第四十六篇：兩個婦人的寓意。專為長輩手機大字閱讀最佳化，支援大、中、小字體級距與護眼配色，清晰流暢。">
   <style>
     :root {
-      --font-size: 23px;
+      color-scheme: light;
+      --font-size: 1.4375rem; /* 23px */
       --line-height: 1.85;
       --bg: #faf6ee;
       --card-bg: #ffffff;
@@ -26,6 +28,7 @@
     }
 
     [data-theme="green"] {
+      color-scheme: light;
       --bg: #edf4eb;
       --card-bg: #ffffff;
       --text: #1d2c1e;
@@ -42,6 +45,7 @@
     }
 
     [data-theme="light"] {
+      color-scheme: light;
       --bg: #f4f6f8;
       --card-bg: #ffffff;
       --text: #1f2328;
@@ -58,6 +62,7 @@
     }
 
     [data-theme="dark"] {
+      color-scheme: dark;
       --bg: #151618;
       --card-bg: #22242a;
       --text: #ececec;
@@ -73,17 +78,17 @@
       --shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
     }
 
-    /* 字體大小級距：支援大中小，預設中 */
+    /* 字體大小級距：使用 rem 尊重瀏覽器字體縮放偏好，支援大中小，預設中 */
     [data-size="small"] {
-      --font-size: 19px;
+      --font-size: 1.1875rem; /* 19px */
       --line-height: 1.8;
     }
     [data-size="medium"] {
-      --font-size: 23px;
+      --font-size: 1.4375rem; /* 23px */
       --line-height: 1.85;
     }
     [data-size="large"] {
-      --font-size: 28px;
+      --font-size: 1.75rem; /* 28px */
       --line-height: 1.9;
     }
 
@@ -91,6 +96,9 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: 75px;
+      @media (prefers-reduced-motion: reduce) {
+        scroll-behavior: auto;
+      }
     }
     body {
       margin: 0;
@@ -100,9 +108,46 @@
       font-size: var(--font-size);
       line-height: var(--line-height);
       letter-spacing: 0.02em;
+      text-align: start;
       transition: background-color 0.25s, color 0.25s;
       -webkit-font-smoothing: antialiased;
       padding-bottom: 90px;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
+    /* 無障礙跳至主要內容連結與螢幕閱讀器專用輔助類別 */
+    .visually-hidden:where(:not(:focus-within, :active)) {
+      position: absolute !important;
+      clip-path: inset(50%) !important;
+      overflow: hidden !important;
+      width: 1px !important;
+      height: 1px !important;
+      margin: -1px !important;
+      padding: 0 !important;
+      border: 0 !important;
+      white-space: nowrap !important;
+    }
+    .skip-link {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 200;
+      background: var(--card-bg);
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      border-radius: 10px;
+      padding: 10px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+    }
+
+    /* 高對比鍵盤焦點指示 */
+    :where(a:any-link, button):focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 3px;
     }
 
     /* 頂端吸頂導覽列 */
@@ -120,6 +165,9 @@
       justify-content: space-between;
       gap: 8px;
       transition: background 0.25s, border-color 0.25s;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     /* 閱讀進度條 */
@@ -137,6 +185,9 @@
       width: 0%;
       background: var(--accent);
       transition: width 0.1s ease-out;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
 
     .nav-left {
@@ -151,14 +202,14 @@
       background: var(--card-bg);
       color: var(--text);
       border-radius: 12px;
-      min-width: 44px;
-      height: 44px;
+      min-inline-size: 44px;
+      min-block-size: 44px;
       padding: 0;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 1.125rem;
       box-shadow: 0 1px 3px rgba(0,0,0,0.04);
       transition: transform 0.1s, background-color 0.15s, border-color 0.15s;
       -webkit-tap-highlight-color: transparent;
@@ -206,13 +257,13 @@
       background: transparent;
       color: var(--text-muted);
       border-radius: 8px;
-      min-width: 38px;
-      height: 38px;
+      min-inline-size: 38px;
+      min-block-size: 38px;
       padding: 0 4px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 17px;
+      font-size: 1.0625rem;
       font-weight: 600;
       cursor: pointer;
       transition: background-color 0.15s, color 0.15s, box-shadow 0.15s;
@@ -231,14 +282,14 @@
       background: var(--card-bg);
       color: var(--text);
       border-radius: 10px;
-      min-width: 40px;
-      height: 40px;
+      min-inline-size: 40px;
+      min-block-size: 40px;
       padding: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 18px;
+      font-size: 1.125rem;
       transition: background-color 0.15s;
       -webkit-tap-highlight-color: transparent;
     }
@@ -262,6 +313,9 @@
       background: rgba(0, 0, 0, 0.45);
       opacity: 0;
       transition: opacity 0.25s ease;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
     .drawer.open .drawer-overlay {
       opacity: 1;
@@ -281,6 +335,9 @@
       box-shadow: 4px 0 20px rgba(0,0,0,0.15);
       display: flex;
       flex-direction: column;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
     .drawer.open .drawer-nav {
       transform: translateX(0);
@@ -303,12 +360,12 @@
       background: var(--accent-soft);
       color: var(--text);
       border-radius: 10px;
-      width: 40px;
-      height: 40px;
+      min-inline-size: 40px;
+      min-block-size: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 1.25rem;
       cursor: pointer;
     }
     .nav-list {
@@ -352,7 +409,7 @@
 
     /* 主內容區 */
     main {
-      max-width: 780px;
+      max-width: min(780px, 80ch);
       margin: 0 auto;
       padding: 16px 14px 40px;
     }
@@ -380,11 +437,45 @@
       margin: 0 0 10px;
       color: var(--accent);
       font-weight: 800;
+      text-wrap: balance;
     }
     .author-info {
       font-size: 0.85em;
       color: var(--text-muted);
       margin: 0;
+    }
+
+    /* 版本切換列（全文版 ↔ 摘要與經節版） */
+    .mode-switch {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 6px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+    .mode-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      min-block-size: 48px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.92em;
+      font-weight: 700;
+      color: var(--text-muted);
+      text-align: center;
+      transition: background-color 0.15s, color 0.15s;
+    }
+    .mode-btn.active {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(142, 55, 29, 0.2);
     }
 
     /* 內容卡片 */
@@ -396,6 +487,15 @@
       margin-bottom: 22px;
       box-shadow: var(--shadow);
       transition: background-color 0.25s, border-color 0.25s;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
+    }
+
+    /* 僅針對首屏以下（Below-the-fold）區塊延遲渲染，提升長文流暢度並預留估算高度防跳動 */
+    .deferred-section {
+      content-visibility: auto;
+      contain-intrinsic-size: auto none auto 360px;
     }
 
     h2 {
@@ -413,8 +513,9 @@
 
     p {
       margin: 0 0 1.15em;
-      text-align: justify;
-      word-break: break-word;
+      text-align: start;
+      text-wrap: pretty;
+      overflow-wrap: break-word;
     }
     p:last-child {
       margin-bottom: 0;
@@ -548,6 +649,7 @@
       font-weight: 700;
       color: var(--accent);
       margin: 8px 0;
+      text-align: center;
     }
 
     /* 回到頂部按鈕 */
@@ -556,8 +658,8 @@
       bottom: 24px;
       right: 18px;
       z-index: 45;
-      width: 50px;
-      height: 50px;
+      min-inline-size: 50px;
+      min-block-size: 50px;
       border-radius: 50%;
       background: var(--accent);
       color: #ffffff;
@@ -568,12 +670,17 @@
       justify-content: center;
       cursor: pointer;
       opacity: 0;
+      pointer-events: none;
       transform: translateY(20px);
       transition: opacity 0.25s, transform 0.25s;
       -webkit-tap-highlight-color: transparent;
+      @media (prefers-reduced-motion: reduce) {
+        transition: none;
+      }
     }
     .back-to-top.visible {
       opacity: 1;
+      pointer-events: auto;
       transform: translateY(0);
     }
     .back-to-top:active {
@@ -589,34 +696,32 @@
       border-top: 1px solid var(--border);
       margin-top: 20px;
     }
+    footer p {
+      text-align: center;
+    }
 
-    /* 主題切換彈窗/選單 */
-    .theme-modal {
-      position: fixed;
-      inset: 0;
-      z-index: 120;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      background: rgba(0,0,0,0.45);
-      padding: 20px;
-    }
-    .theme-modal.open {
-      display: flex;
-    }
-    .theme-modal-content {
+    /* 主題切換原生 <dialog> 彈窗 */
+    dialog.theme-modal {
+      border: 1px solid var(--border);
       background: var(--card-bg);
       color: var(--text);
       border-radius: 16px;
-      width: 100%;
+      width: calc(100% - 40px);
       max-width: 320px;
       padding: 20px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.25);
     }
+    dialog.theme-modal::backdrop {
+      background-color: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+    }
     .theme-modal-title {
       font-size: 1.1em;
       font-weight: 700;
-      margin-bottom: 16px;
+      margin: 0 0 16px;
+      padding: 0;
+      border: 0;
+      display: block;
       text-align: center;
       color: var(--accent);
     }
@@ -654,12 +759,13 @@
   </style>
 </head>
 <body>
+  <a href="#main-title" class="skip-link visually-hidden">跳至主要內容</a>
 
   <!-- 頂部吸頂導航 -->
-  <header>
+  <header id="site-header">
     <div class="nav-left">
-      <button class="icon-btn" id="drawerOpenBtn" aria-label="開啟文章目錄">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      <button class="icon-btn" id="drawerOpenBtn" type="button" aria-label="開啟文章目錄" aria-expanded="false" aria-controls="drawer">
+        <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
       </button>
       <div class="site-title">
         第四十六篇 兩個婦人的寓意
@@ -670,82 +776,91 @@
     <div class="nav-controls">
       <!-- 字體大小按鈕（大中小，預設中） -->
       <div class="font-size-group" role="group" aria-label="文字大小調節">
-        <button class="font-size-btn" data-size-btn="small" aria-label="切換小字體">小</button>
-        <button class="font-size-btn active" data-size-btn="medium" aria-label="切換中字體（預設）">中</button>
-        <button class="font-size-btn" data-size-btn="large" aria-label="切換大字體">大</button>
+        <button class="font-size-btn" type="button" data-size-btn="small" aria-pressed="false" aria-label="小字體">小</button>
+        <button class="font-size-btn active" type="button" data-size-btn="medium" aria-pressed="true" aria-label="中字體">中</button>
+        <button class="font-size-btn" type="button" data-size-btn="large" aria-pressed="false" aria-label="大字體">大</button>
       </div>
 
       <!-- 配色切換 -->
-      <button class="theme-btn" id="themeOpenBtn" aria-label="選擇護眼配色">
-        🎨
+      <button class="theme-btn" id="themeOpenBtn" type="button" aria-label="選擇護眼配色">
+        <span aria-hidden="true">🎨</span>
       </button>
     </div>
   </header>
 
   <!-- 閱讀進度條 -->
-  <div id="progress-container">
+  <div id="progress-container" aria-hidden="true">
     <div id="progress-bar"></div>
   </div>
 
   <!-- 目錄抽屜 (Drawer) -->
-  <div class="drawer" id="drawer">
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-labelledby="drawerTitle" inert>
     <div class="drawer-overlay" id="drawerOverlay"></div>
-    <nav class="drawer-nav" aria-label="文章目錄大綱">
+    <nav class="drawer-nav" aria-labelledby="drawerTitle">
       <div class="drawer-header">
-        <span class="drawer-title">📜 文章目錄大綱</span>
-        <button class="drawer-close" id="drawerCloseBtn" aria-label="關閉目錄">✕</button>
+        <span class="drawer-title" id="drawerTitle"><span aria-hidden="true">📜 </span>文章目錄大綱</span>
+        <button class="drawer-close" id="drawerCloseBtn" type="button" aria-label="關閉目錄">✕</button>
       </div>
-      <ul class="nav-list">
-        <li class="nav-item"><a href="#scripture"><span class="nav-num">經</span>本篇關鍵經文</a></li>
-        <li class="nav-item"><a href="#section-main"><span class="nav-num">3</span>（3）兩個婦人的寓意</a></li>
-        <li class="nav-item"><a href="#section-a"><span class="nav-num">a</span>自主婦人撒拉表徵應許（恩典）的約</a></li>
-        <li class="nav-item"><a href="#section-b"><span class="nav-num">b</span>使女夏甲表徵律法的約</a></li>
-        <li class="nav-item"><a href="#section-c"><span class="nav-num">c</span>應許（恩典）的約立在先</a></li>
-        <li class="nav-item"><a href="#section-d"><span class="nav-num">d</span>律法的約後來被帶進</a></li>
-        <li class="nav-item"><a href="#section-e"><span class="nav-num">e</span>憑律法靠肉體努力的產品（以實瑪利）</a></li>
-        <li class="nav-item"><a href="#section-f"><span class="nav-num">f</span>憑恩典之應許的產品（以撒）</a></li>
-        <li class="nav-item"><a href="#prayer-section"><span class="nav-num">禱</span>核心總結與回應禱告</a></li>
+      <ul class="nav-list" role="list">
+        <li class="nav-item"><a href="#scripture"><span class="nav-num" aria-hidden="true">經</span>本篇關鍵經文</a></li>
+        <li class="nav-item"><a href="#section-main"><span class="nav-num" aria-hidden="true">3</span>（3）兩個婦人的寓意</a></li>
+        <li class="nav-item"><a href="#section-a"><span class="nav-num" aria-hidden="true">a</span>自主婦人撒拉表徵應許（恩典）的約</a></li>
+        <li class="nav-item"><a href="#section-b"><span class="nav-num" aria-hidden="true">b</span>使女夏甲表徵律法的約</a></li>
+        <li class="nav-item"><a href="#section-c"><span class="nav-num" aria-hidden="true">c</span>應許（恩典）的約立在先</a></li>
+        <li class="nav-item"><a href="#section-d"><span class="nav-num" aria-hidden="true">d</span>律法的約後來被帶進</a></li>
+        <li class="nav-item"><a href="#section-e"><span class="nav-num" aria-hidden="true">e</span>憑律法靠肉體努力的產品（以實瑪利）</a></li>
+        <li class="nav-item"><a href="#section-f"><span class="nav-num" aria-hidden="true">f</span>憑恩典之應許的產品（以撒）</a></li>
+        <li class="nav-item"><a href="#prayer-section"><span class="nav-num" aria-hidden="true">禱</span>核心總結與回應禱告</a></li>
+        <li class="nav-item"><a href="兩個婦人的寓意.html"><span class="nav-num" aria-hidden="true">摘</span>前往：重點摘要與經節版</a></li>
       </ul>
     </nav>
   </div>
 
-  <!-- 主題配色切換彈窗 -->
-  <div class="theme-modal" id="themeModal">
-    <div class="theme-modal-content">
-      <div class="theme-modal-title">選擇閱讀背景</div>
-      <div class="theme-options">
-        <button class="theme-option-btn active" data-theme-btn="warm">
-          <span class="theme-dot" style="background:#faf6ee;"></span>
-          柔和米黃（預設護眼）
-        </button>
-        <button class="theme-option-btn" data-theme-btn="green">
-          <span class="theme-dot" style="background:#edf4eb;"></span>
-          豆沙柔綠（舒緩防疲）
-        </button>
-        <button class="theme-option-btn" data-theme-btn="light">
-          <span class="theme-dot" style="background:#ffffff;"></span>
-          清新白底（清爽簡約）
-        </button>
-        <button class="theme-option-btn" data-theme-btn="dark">
-          <span class="theme-dot" style="background:#1e2024;"></span>
-          暗色夜間（暗光舒適）
-        </button>
-      </div>
-      <button class="icon-btn" id="themeModalCloseBtn" style="width:100%;margin-top:16px;">完成</button>
+  <!-- 主題配色切換原生 <dialog> 彈窗 -->
+  <dialog class="theme-modal" id="themeModal" closedby="any" aria-labelledby="themeModalTitle">
+    <h2 class="theme-modal-title" id="themeModalTitle">選擇閱讀背景</h2>
+    <div class="theme-options" role="group" aria-labelledby="themeModalTitle">
+      <button class="theme-option-btn active" type="button" data-theme-btn="warm" aria-pressed="true">
+        <span class="theme-dot" style="background:#faf6ee;" aria-hidden="true"></span>
+        柔和米黃（預設護眼）
+      </button>
+      <button class="theme-option-btn" type="button" data-theme-btn="green" aria-pressed="false">
+        <span class="theme-dot" style="background:#edf4eb;" aria-hidden="true"></span>
+        豆沙柔綠（舒緩防疲）
+      </button>
+      <button class="theme-option-btn" type="button" data-theme-btn="light" aria-pressed="false">
+        <span class="theme-dot" style="background:#ffffff;" aria-hidden="true"></span>
+        清新白底（清爽簡約）
+      </button>
+      <button class="theme-option-btn" type="button" data-theme-btn="dark" aria-pressed="false">
+        <span class="theme-dot" style="background:#1e2024;" aria-hidden="true"></span>
+        暗色夜間（暗光舒適）
+      </button>
     </div>
-  </div>
+    <button class="icon-btn" id="themeModalCloseBtn" type="button" style="width:100%;margin-top:16px;">完成</button>
+  </dialog>
 
   <!-- 主閱讀內容 -->
   <main id="main-content">
     <div class="hero">
       <div class="tag">創世記生命讀經</div>
-      <h1>第四十六篇　兩個婦人的寓意</h1>
+      <h1 id="main-title" tabindex="-1">第四十六篇　兩個婦人的寓意</h1>
       <p class="author-info">李常受 弟兄 講</p>
     </div>
 
-    <!-- 本篇關鍵經文卡片 -->
+    <!-- 版本切換列 -->
+    <nav class="mode-switch" aria-label="閱讀版本切換">
+      <a class="mode-btn" href="兩個婦人的寓意.html">
+        <span aria-hidden="true">📋</span> 重點摘要與經節
+      </a>
+      <a class="mode-btn active" href="index.html" aria-current="page">
+        <span aria-hidden="true">📖</span> 生命讀經全文
+      </a>
+    </nav>
+
+    <!-- 本篇關鍵經文卡片（首屏區塊，不套用 content-visibility: auto） -->
     <section class="card" id="scripture">
-      <h2>📖 本篇關鍵經文</h2>
+      <h2><span aria-hidden="true">📖 </span>本篇關鍵經文</h2>
       <div class="verse-box">
         <div class="verse-item">
           <span class="verse-ref">加拉太書四章二十二至二十四節、三十一節</span>
@@ -762,7 +877,7 @@
       </div>
     </section>
 
-    <!-- （3） 兩個婦人的寓意 -->
+    <!-- （3） 兩個婦人的寓意（首屏區塊） -->
     <section class="card" id="section-main">
       <h2>（3） 兩個婦人的寓意</h2>
       <p>創世記是一卷滿了神神聖啟示的書，我越留其中，越享受牠甜美的豐富。我們讀創世記需要<mark class="hl">神聖的光照</mark>，因為憑著我們人的頭腦，除了歷史的記載和一些有趣的故事，我們無法從這卷書得著甚麼。我年輕的時候，很喜歡聽這卷書的故事，但我們若只把創世記當作故事書來領會，我們會遺漏許多東西。</p>
@@ -791,13 +906,13 @@
     </section>
 
     <!-- （a） 自主婦人撒拉表徵應許（恩典）的約 -->
-    <section class="card" id="section-a">
+    <section class="card deferred-section" id="section-a">
       <h2>（a） 自主婦人撒拉表徵應許（恩典）的約</h2>
       <p><mark class="hl-green">自主的婦人撒拉，表徵應許的約。</mark>（加四23。）神與亞伯拉罕所立應許的約乃是恩典的約。在那約中神應許要給亞伯拉罕後裔，沒有一點意思要亞伯拉罕作任何事來得到。<mark class="hl">神要把一些東西作到他裏面，使他能生出一個後裔來達成神的目的。這是神所作的，不是亞伯拉罕所作的。這就是恩典。</mark>撒拉是自主的婦人，是亞伯拉罕正式的妻子，是這恩典之約的象徵。她生以撒不是憑人的力量，而是憑神的恩典。</p>
     </section>
 
     <!-- （b） 使女夏甲表徵律法的約 -->
-    <section class="card" id="section-b">
+    <section class="card deferred-section" id="section-b">
       <h2>（b） 使女夏甲表徵律法的約</h2>
       <p><mark class="hl">使女夏甲，表徵律法的約。</mark>（加四25。）當以色列人忽略了神在他們身上恩典的工作，想要憑自己來討神喜悅的時候，律法就帶進來了。當人忽略了神的恩典，他就想努力作點甚麼來討神的喜悅，這就帶進了律法；亞伯拉罕非正式的妻子，使女夏甲，乃是律法之約的象徵。因她是非正式的妻子，她不該進來，凡她所生的不能留在神的經綸中。這表徵律法不應該進來，而且律法的產品，在達成神目的的事上沒有地位。<mark class="hl">夏甲生出以實瑪利，是靠人的努力，不是靠神的恩典；以實瑪利乃是神所棄絕的。</mark>人藉著律法而勞苦的產品，在達成神目的的事上無分無關。</p>
 
@@ -805,30 +920,30 @@
 
       <div class="contrast-box">
         <div class="contrast-item">
-          <span class="contrast-tag-good">撒拉（恩典之約）</span>
+          <span class="contrast-tag-good">✓ 撒拉（恩典之約）</span>
           <span>自主的婦人、正式的妻子；憑神的恩典把基督作到裏面，生出後嗣以撒。</span>
         </div>
         <div class="contrast-item">
-          <span class="contrast-tag-bad">夏甲（律法之約）</span>
+          <span class="contrast-tag-bad">✕ 夏甲（律法之約）</span>
           <span>使女、妾的地位；因人急促、靠肉體努力而帶進，生出被神棄絕的以實瑪利。</span>
         </div>
       </div>
     </section>
 
     <!-- （c） 應許（恩典）的約立在先 -->
-    <section class="card" id="section-c">
+    <section class="card deferred-section" id="section-c">
       <h2>（c） 應許（恩典）的約立在先</h2>
       <p>神給亞伯拉罕應許是在創世記十二章二節、七節，十三章十五至十七節，十五章四至五節；並且神與亞伯拉罕立約是在十五章七至二十一節。<mark class="hl-green">按照神的心意，應許的約在先。</mark>神並沒有意思要帶進律法，要人努力遵守來達成祂的目的。<mark class="hl">神原初的心意乃是要將祂自己作到人裏面，然後藉著人來達成祂的目的。</mark></p>
     </section>
 
     <!-- （d） 律法的約後來被帶進 -->
-    <section class="card" id="section-d">
+    <section class="card deferred-section" id="section-d">
       <h2>（d） 律法的約後來被帶進</h2>
       <p><mark class="hl">律法的約是後來在創世記十六章，因肉體的努力被帶進的。</mark>在創世記十六章我們就是看到肉體的努力，因而帶進夏甲－律法的象徵。應許的賜給是在創世記十二章，約在主前一九二一年，亞伯拉罕蒙召的時候；律法的頒賜是在四百三十年以後，在出埃及二十章，約在主前一四九一年，以色列人出埃及之後。（加三17。）<mark class="hl">恩典總是先來，但律法隨後就來破壞。</mark>很少基督徒看到，律法的地位是妾的地位，是違反神的經綸的，並且牠的產品總是為神所棄絕。他們賞識律法，盡所能的遵守律法，使自己成為以實瑪利，使女的兒女。</p>
     </section>
 
     <!-- （e） 憑律法靠肉體努力的產品（以實瑪利） -->
-    <section class="card" id="section-e">
+    <section class="card deferred-section" id="section-e">
       <h2>（e） 憑律法靠肉體努力的產品（以實瑪利）</h2>
       <p>每一個基督徒都和亞伯拉罕一樣，沒有一個例外。我們得救之後，就開始知道神要我們活一種像基督的生活，屬天的生活，得勝的生活，常常討神喜悅並榮耀神的生活。是的，神的確要我們活這樣的生活，但<mark class="hl-green">神要把基督作到我們裏面，替我們活這種屬天的生活，來討神的喜悅，並榮耀神</mark>。然而我們都是注意神的心願，卻忽略了恩典。神的心意是要我們為著神的榮耀，活屬天的生活，而恩典是神要把基督作到我們裏面，來達成祂的目的。所以首先我們依賴羅得，就是我們從天然背景中所帶出來的，想要用他來達成神的目的，為神的榮耀活屬天的生活。當神不允許我們依賴羅得時，我們就轉向以利以謝，指望他能使我們為神的榮耀過屬天的生活。但至終神告訴我們，『我不要那個，我不要任何客觀的東西，我是要從你這個人裏面出來主觀的東西。』我們一旦知道神要這個，就開始運用自己的力量，天然的能力，來達成神的目的。<mark class="hl">我們都有一個使女夏甲，經常願意與我們合作。我們也許沒有摩西所賜的律法，但我們卻有很多自己制定的律法。</mark></p>
 
@@ -852,7 +967,7 @@
     </section>
 
     <!-- （f） 憑恩典之應許的產品（以撒） -->
-    <section class="card" id="section-f">
+    <section class="card deferred-section" id="section-f">
       <h2>（f） 憑恩典之應許的產品（以撒）</h2>
       <p><mark class="hl-green">恩典之應許的產品是以撒，他是達成神目的的後裔。</mark>（創十七19，二一12下。）達成神目的的後裔，一點不差就是<mark class="hl">基督自己，為神作到我們裏面，經過我們，又從我們出來</mark>。神所作到我們裏面的，帶進那作後裔的基督。（加三16。）這後裔至終變成了我們的地。現在我們有這後裔作我們的生命，又有地作我們的生活。<mark class="hl-green">在裏面，我們有基督作生命，我們憑這生命活著；在外面，我們有基督作地，我們在其中活著。這就是召會生活連同基督作我們的生命。</mark>這是我們達成神目的惟一的路。</p>
 
@@ -864,8 +979,8 @@
     </section>
 
     <!-- 總結與禱告卡 -->
-    <section class="prayer-card" id="prayer-section">
-      <div class="prayer-card-badge">💡 每日屬靈宣告與禱告</div>
+    <section class="prayer-card deferred-section" id="prayer-section">
+      <div class="prayer-card-badge"><span aria-hidden="true">💡 </span>每日屬靈宣告與禱告</div>
       <p class="prayer-card-text">
         「主阿，保守我在你的恩典中，保守我在你的應許裏！<br>
         我願意停下自己天然的努力、熱心與自定的律法，<br>
@@ -880,11 +995,11 @@
   </main>
 
   <!-- 浮動按鈕：回到頂部 -->
-  <button class="back-to-top" id="backToTopBtn" aria-label="回到頂部">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+  <button class="back-to-top" id="backToTopBtn" type="button" aria-label="回到頂部">
+    <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
   </button>
 
-  <footer>
+  <footer id="site-footer">
     <p>第四十六篇　兩個婦人的寓意 — 創世記生命讀經</p>
     <p>Copyright © Living Stream Ministry, Anaheim, California.</p>
   </footer>
@@ -896,9 +1011,11 @@
 
     function setFontSize(size) {
       htmlElem.setAttribute('data-size', size);
-      localStorage.setItem('twoWomen_fontSize', size);
+      try { localStorage.setItem('twoWomen_fontSize', size); } catch (e) {}
       fontBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-size-btn') === size);
+        const isActive = btn.getAttribute('data-size-btn') === size;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
       });
     }
 
@@ -908,11 +1025,11 @@
       });
     });
 
-    // 讀取先前儲存之字體設定（預設為 medium 中字）
-    const savedSize = localStorage.getItem('twoWomen_fontSize') || 'medium';
+    let savedSize = 'medium';
+    try { savedSize = localStorage.getItem('twoWomen_fontSize') || 'medium'; } catch (e) {}
     setFontSize(savedSize);
 
-    // 2. 佈景配色切換
+    // 2. 佈景配色切換（使用原生 <dialog closedby="any"> 搭配 Safari / 舊瀏覽器座標降級支援）
     const themeModal = document.getElementById('themeModal');
     const themeOpenBtn = document.getElementById('themeOpenBtn');
     const themeModalCloseBtn = document.getElementById('themeModalCloseBtn');
@@ -920,62 +1037,90 @@
 
     function setTheme(theme) {
       htmlElem.setAttribute('data-theme', theme);
-      localStorage.setItem('twoWomen_theme', theme);
+      try { localStorage.setItem('twoWomen_theme', theme); } catch (e) {}
       themeOptionBtns.forEach(btn => {
-        btn.classList.toggle('active', btn.getAttribute('data-theme-btn') === theme);
+        const isActive = btn.getAttribute('data-theme-btn') === theme;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', String(isActive));
       });
     }
 
     themeOpenBtn.addEventListener('click', () => {
-      themeModal.classList.add('open');
+      themeModal.showModal();
     });
     themeModalCloseBtn.addEventListener('click', () => {
-      themeModal.classList.remove('open');
+      themeModal.close();
     });
-    themeModal.addEventListener('click', (e) => {
-      if (e.target === themeModal) {
-        themeModal.classList.remove('open');
-      }
-    });
+
+    // Fallback for browsers without <dialog closedby> support
+    if (!('closedBy' in HTMLDialogElement.prototype)) {
+      themeModal.addEventListener('click', (event) => {
+        if (event.target !== themeModal) return;
+        const rect = themeModal.getBoundingClientRect();
+        const isDialogContent = (
+          rect.top <= event.clientY &&
+          event.clientY <= rect.top + rect.height &&
+          rect.left <= event.clientX &&
+          event.clientX <= rect.left + rect.width
+        );
+        if (isDialogContent) return;
+        themeModal.close();
+      });
+    }
 
     themeOptionBtns.forEach(btn => {
       btn.addEventListener('click', () => {
         setTheme(btn.getAttribute('data-theme-btn'));
-        themeModal.classList.remove('open');
+        themeModal.close();
       });
     });
 
-    const savedTheme = localStorage.getItem('twoWomen_theme') || 'warm';
+    let savedTheme = 'warm';
+    try { savedTheme = localStorage.getItem('twoWomen_theme') || 'warm'; } catch (e) {}
     setTheme(savedTheme);
 
-    // 3. 目錄抽屜開啟/關閉
+    // 3. 目錄抽屜開啟/關閉（搭配 inert 屬性與焦點管理）
     const drawer = document.getElementById('drawer');
     const drawerOpenBtn = document.getElementById('drawerOpenBtn');
     const drawerCloseBtn = document.getElementById('drawerCloseBtn');
     const drawerOverlay = document.getElementById('drawerOverlay');
+    const outsideElements = [
+      document.getElementById('site-header'),
+      document.getElementById('main-content'),
+      document.getElementById('backToTopBtn'),
+      document.getElementById('site-footer')
+    ];
 
     function openDrawer() {
+      drawer.inert = false;
       drawer.classList.add('open');
+      drawerOpenBtn.setAttribute('aria-expanded', 'true');
+      outsideElements.forEach(el => { if (el) el.inert = true; });
+      drawerCloseBtn.focus();
     }
-    function closeDrawer() {
+    function closeDrawer(returnFocus = true) {
+      if (!drawer.classList.contains('open')) return;
       drawer.classList.remove('open');
+      drawer.inert = true;
+      drawerOpenBtn.setAttribute('aria-expanded', 'false');
+      outsideElements.forEach(el => { if (el) el.inert = false; });
+      if (returnFocus) drawerOpenBtn.focus();
     }
 
     drawerOpenBtn.addEventListener('click', openDrawer);
-    drawerCloseBtn.addEventListener('click', closeDrawer);
-    drawerOverlay.addEventListener('click', closeDrawer);
+    drawerCloseBtn.addEventListener('click', () => closeDrawer(true));
+    drawerOverlay.addEventListener('click', () => closeDrawer(true));
 
     document.querySelectorAll('.nav-item a').forEach(a => {
       a.addEventListener('click', () => {
-        closeDrawer();
+        closeDrawer(false);
       });
     });
 
-    // 鍵盤 Esc 關閉抽屜與選單
+    // 鍵盤 Esc 關閉抽屜
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeDrawer();
-        themeModal.classList.remove('open');
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer(true);
       }
     });
 
@@ -994,7 +1139,7 @@
       } else {
         backToTopBtn.classList.remove('visible');
       }
-    });
+    }, { passive: true });
 
     backToTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
