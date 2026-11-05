@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>脫離律法享受恩典，飲於包羅萬有靈</title>
+  <meta name="description" content="脫離律法享受恩典，飲於包羅萬有靈 - 職事文摘。手機閱讀體驗最佳化，支援 22px / 24px / 26px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #215a36;
+      --accent-light: rgba(33, 90, 54, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 22px;
+      --line-height-base: 1.68;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #27673e;
+      --accent-light: rgba(39, 103, 62, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #68b984;
+      --accent-light: rgba(104, 185, 132, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left, 16px));
+      padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    .icon-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      height: 38px;
+      min-width: 38px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .font-toggle-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.6);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.28);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.6rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Text Paragraphs */
+    p {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    /* Lead Quote Box */
+    .lead-box {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lead-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 380px;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .drawer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover, .toc-link:active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="脫離律法享受恩典，飲於包羅萬有靈">脫離律法享受恩典，飲於包羅萬有靈</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (22px -> 24px -> 26px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 22px / 24px / 26px">
+        22px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="文章目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📖 章節目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：22px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#sec-intro" class="toc-link">引言：兩約與按着靈生的兒女</a></li>
+      <li class="toc-item"><a href="#sec-christ-vs-law" class="toc-link">一、基督與律法之間的對比</a></li>
+      <li class="toc-item"><a href="#sec-flesh-vs-spirit" class="toc-link">二、肉體與靈之間的對比</a></li>
+      <li class="toc-item"><a href="#sec-galatians-4-points" class="toc-link">三、加拉太四章的要點</a></li>
+      <li class="toc-item"><a href="#sec-indwelling-spirit" class="toc-link">四、注意內住的靈</a></li>
+      <li class="toc-item"><a href="#sec-drink-spirit" class="toc-link">五、飲於基督這包羅萬有的靈</a></li>
+      <li class="toc-item"><a href="#sec-experience-grace" class="toc-link">六、經歷基督作恩典</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag">生命篇 · 職事文摘 第十一卷·第三期</span>
+        <h1 class="article-title">脫離律法享受恩典，飲於包羅萬有靈</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》生命</span>
+          <span>適合手機閱讀體驗</span>
+        </div>
+      </header>
+
+      <!-- Section: 引言 -->
+      <section id="sec-intro">
+        <div class="lead-box">
+          <p>我們需要在創世記亞伯拉罕之經歷的光中，來看加拉太四章二十一至三十一節。保羅在這些經文裏告訴我們，夏甲表徵律法，由屬地的耶路撒冷所象徵；撒拉表徵恩典，由屬天的耶路撒冷所象徵。夏甲和撒拉代表兩約—律法的約與恩典的約。律法是人的勞苦加上人的能力以產生一些東西，而恩典是將神賜給祂所揀選的人，好產生許多兒子。</p>
+          <p>這兩約所生的兩種兒女，性質是不同的：由律法之約生的，是按着肉體生的；由應許之約生的，是按着靈生的。按着肉體生的兒女，沒有權利有分於神所應許的福；按着靈生的兒女，卻有完全的權利。因着我們有恩典、基督與賜生命的靈，所以我們是按着靈所生的兒女；這靈現今在我們的靈裏，使我們成為按着靈所生的兒女。這就是加拉太三章與四章裏奇妙的啟示。因此，我們這些按着靈所生的兒女，應當停留在神心願的實現裏，享受恩典、基督、以及那包羅萬有的靈作為福音的福。</p>
+        </div>
+      </section>
+
+      <!-- Section: 基督與律法之間的對比 -->
+      <section id="sec-christ-vs-law">
+        <h2 class="section-title">基督與律法之間的對比</h2>
+        <p>加拉太書的背景乃是猶太教徒教導加拉太人遵守律法。他們竭力要將加拉太的基督徒帶進猶太教，使他們受打岔偏離基督，轉向律法。神的意願是要將基督自己作到我們裏面，使基督成為我們的生命，使我們憑祂而活。然而，猶太教徒卻使人受打岔偏離基督，並叫人注意遵守律法。神的定旨與目標是基督，而猶太教徒的定旨與目標卻是律法。所以，在這卷書裏，基督與律法相對，律法是抵擋基督的。</p>
+        <p>律法原是由神所頒賜，作為管家與看守者，為基督看管神的子民，至終帶他們歸於基督。（三22～25。）然而，仇敵撒但利用律法，使人受打岔偏離基督，並以律法頂替基督作為他們的目標。這是仇敵的詭詐。</p>
+        <p>因着在加拉太的信徒被仇敵誘騙，注意律法而不注意基督，有神定旨完滿啟示的使徒保羅，在心與靈裏的深處有負擔寫這封書信，讓加拉太人知道：他們需要認識律法的目的，並認識神的定旨就是將基督作到他們裏面，而從律法被帶回歸於基督。</p>
+      </section>
+
+      <!-- Section: 肉體與靈之間的對比 -->
+      <section id="sec-flesh-vs-spirit">
+        <h2 class="section-title">肉體與靈之間的對比</h2>
+        <p>我們若守律法，就是與基督隔絕；此外，我們若守律法，就是操練我們的肉體。然而，我們若要接受基督作我們的生命並憑祂活着，必須倚靠那靈。所以，在加拉太書裏也有肉體與靈之間的對比。這對比乃在於：守律法要求我們操練肉體；接受基督並憑祂活着，要求我們倚靠那靈。加拉太三至四章主要的思想乃是，我們不在律法以下，並且神無意要我們守律法。所以，我們不需要操練我們的肉體。反之，我們必須忘掉律法，並棄絕肉體。神的心意是要基督作我們的一切、我們的生活、與我們的目標，因此我們現今必須倚靠那靈。</p>
+      </section>
+
+      <!-- Section: 加拉太四章的要點 -->
+      <section id="sec-galatians-4-points">
+        <h2 class="section-title">加拉太四章的要點</h2>
+        <p>加拉太四章頭一個要點是兒子的名分。（1～7。）一節說，『後嗣幾時還是孩童，他雖是全業的主人，卻與奴僕毫無分別。』這指明，後嗣在得着兒子名分以前還是孩童。二節繼續說，孩童乃是在監護人和管家（兩者都指律法）的手下，直到父親所豫定的時候。這描繪出神的選民在舊約時代的光景；那時他們在律法之下，被視為孩童，沒有承受全業的權利。</p>
+        <p>父親所豫定的時候，就是新約時期，開始於基督的第一次來。三至五節說，我們為孩童的時候，受奴役於世上的蒙學之下；及至時候滿足，神就差出祂的兒子，由女子所生，且生在律法以下，要把律法以下的人贖出來，好叫我們得着兒子的名分。按照三章二十六節，我們乃是藉着相信基督，成為神的兒子。這信將我們帶到基督裏，使我們與基督成為一，在祂裏面得着兒子的名分。然後四章六節告訴我們，因着我們是兒子，神就差出祂兒子的靈，進入我們的心，呼叫：『阿爸，父！』</p>
+        <p>再者，我們除了有兒子名分的法定身分，還有兒子名分的生命，就是神聖的生命，神的生命，而這生命乃是在神兒子的靈裏。（5～6，羅八2，約壹五11～12。）因此，我們外面有兒子名分的地位，裏面有兒子名分的生命。兒子的靈在我們的心裏，我們裏面有個活的東西，這種感覺常使我們帶着深切的情感呼叫：『阿爸，父！』（參羅八15。）這是因為我們有兒子的靈裏那兒子名分的生命。</p>
+        <p>加拉太四章第二個要點乃是，在基督裏的信徒不需要謹守日子、月分、節期、年分，（9～10，）我們所需要的乃是基督成形在我們裏面。（19。）基督作生命乃是在我們裏面，而我們既是神的兒子，也是神的後嗣。今天我們需要的，不是遵守律法的儀文與規條，乃是讓基督成形在我們裏面。</p>
+        <p>加拉太四章第三個主要的點乃是，兩個婦人表徵兩約。（21～31。）夏甲，就是亞伯拉罕的妾，表徵律法的約；撒拉，就是亞伯拉罕的妻子，表徵應許的約。（23～24。）妾沒有合法的地位。基督徒不是妾的兒女，乃是妻子的兒女；也就是說，我們不是按着肉體的兒女，乃是按着應許的兒女。（28，31。）這應許乃是，亞伯拉罕的後裔要承受祝福。（創十七7～8，加三14，16，29。）</p>
+        <p>加拉太四章二十五節說，在西乃山頒賜並由夏甲所表徵的律法，相當於現在的耶路撒冷，也就是屬地的耶路撒冷。屬地的耶路撒冷是猶太教的中心，猶太人是屬地耶路撒冷的兒女。因此他們是妾的兒女，不是自主婦人（妻子）的兒女。</p>
+        <p>二十六節說到那在上的耶路撒冷。正如屬地的耶路撒冷不是指物質的城，乃是指構成那城的人；在上的耶路撒冷也不是指天堂，乃是指構成屬天耶路撒冷的屬天子民。（來十二22。）所有接受基督作生命，並在靈裏憑祂活着的人，都是生於屬天的耶路撒冷，由神屬天的子民所構成。那在上的耶路撒冷是『我們的母』。（加四26。）我們屬靈的母親，乃是由神屬天子民構成之屬天的耶路撒冷。</p>
+        <p>一面，加拉太四章的兩個婦人表徵兩種約，就是應許的約與律法的約；另一面，兩個婦人乃是兩種母親，就是屬地的耶路撒冷與屬天的耶路撒冷。我們不是猶太教徒（就是那些組成屬地耶路撒冷的猶太人）的兒女，我們乃是那些組成屬天耶路撒冷之屬靈人的兒女。這證明我們這些由屬天耶路撒冷所生的信徒，當與律法無分無關。我們是屬天撒拉的兒女，該與屬地的夏甲無分無關。</p>
+      </section>
+
+      <!-- Section: 注意內住的靈 -->
+      <section id="sec-indwelling-spirit">
+        <h2 class="section-title">注意內住的靈</h2>
+        <p>律法既然沒有合法的立場，我們就不該與它有任何關聯。今天基督作為神的兒子，已經進到我們裏面，使我們成為神的兒子，而祂的靈在我們裏面乃是兒子的靈。因此，我們需要讓基督成形在我們裏面，並認識我們是屬天耶路撒冷的兒女，就是自主婦人的兒女，而不是使女的兒女。</p>
+        <p>我們若將這個應用到自己身上，就會看見，想要行善就相當於守律法。雖然我們也許沒有守摩西的律法，卻持守自己制定的律法。結果，我們再次奴役自己，使自己成為律法下的奴僕。所以，我們需要棄絕守律法，並認識今天我們的需要乃是讓基督成形在我們裏面，經歷我們裏面兒子的靈，與這靈來往，被那靈引導，（五18，）並憑那靈生活行動。（16，25。）</p>
+        <p>許多事都能成為我們的律法。譬如，甚至成聖也可能成為一條律法。凡我們為了要幫助自己成聖所作的一切，都會成為一條律法。我們必須認識，我們有聖靈在我們裏面，就是兒子的靈。只要與這靈來往，受這靈引導，並憑這靈生活行動，這就彀了。然後，成聖就會在我們裏面作成；這不是憑我們的努力，藉着操練肉體而成聖，乃是聖靈使我們成為聖別。</p>
+        <p>我們若要看見加拉太三至四章所說的事物，就需要啟示和亮光。因此，我們都需要禱告：『主，開啟我的眼睛，使我有所看見。』當使徒保羅還是大數的掃羅時，他滿了宗教的屬人觀念。（一13～14。）直到有一天，他轉離屬人的觀念，成了保羅，一個滿了屬天啟示的人。</p>
+        <p>今天我們仍然滿了屬人的思想與觀念；我們屬人觀念的鱗片，需要從我們的眼睛上脫落，使我們能看見那從天上來的異象。（徒二六19。）我們會看見，我們需要忘記其他一切事，只注意內住的靈。這內住的靈乃是開啟神經綸的鑰匙。</p>
+      </section>
+
+      <!-- Section: 飲於基督這包羅萬有的靈 -->
+      <section id="sec-drink-spirit">
+        <h2 class="section-title">飲於基督這包羅萬有的靈</h2>
+        <p>不僅如此，如今基督既是那靈，（林後三17，）我們就得以藉着呼求主名來飲於祂。（羅十12～13。）神的心意是要將基督這包羅萬有的靈作到我們裏面。我們可將基督這靈比作一杯包羅萬有的飲料，其中有許多健康的成分，有生命、愛、亮光、智慧和聖別…。當我們藉着呼求『哦，主耶穌』而飲於這靈（林前十二13）時，就將一切正面的項目取用進來。（3下。）譬如聖別，不是像衛斯理約翰（John Wesley）所教導之無罪的完全；反之，聖別乃是基督，祂是我們的生命。（西三4。）今天祂是那包羅萬有的靈。當我們遭遇難處、受試驗、受苦時，我們需要呼求：『哦，主耶穌，』就會經歷真實的安慰和復甦。除了耶穌，沒有人能真正解決我們的難處，回答我們的問題，或成為我們真實的安慰。我們都需要藉着呼求『哦，主耶穌，哦，主耶穌』，來喝包羅萬有的基督，這飲料，藉着喝包羅萬有的基督，包羅萬有的靈就能作到我們裏面。</p>
+      </section>
+
+      <!-- Section: 經歷基督作恩典 -->
+      <section id="sec-experience-grace">
+        <h2 class="section-title">經歷基督作恩典</h2>
+        <p>保羅告訴我們，兩個婦人的寓意描繪兩約，就是恩典之約和律法之約。我們可以這樣說明兩約的原則：以弗所五章二十二節說，『作妻子的，要服從自己的丈夫，如同服從主；』二十五節接着說，『作丈夫的，要愛你們的妻子，正如基督愛召會，為召會捨了自己。』作丈夫的讀過二十五節後，可能下定決心努力愛妻子，也許就某種程度而言，他能作得到。同樣的，姊妹讀過二十二節之後，或許會努力服從丈夫。她可能對丈夫說，『無論你說甚麼，我都作；你若不許，我就不作。』她也可能有一段時間作得相當成功。</p>
+        <p>然而，這位丈夫的愛和他妻子的服從都是『以實瑪利』，不是『以撒』，因為是按着律法的原則產生，而非按着恩典。這種愛和服從可能是真的，正如以實瑪利是真的兒女，但神會說，『把他們趕出去。』我們的眼睛若得着開啟看見這事，就會領悟，神不僅拒絕仇恨和背叛，更拒絕出於己、試圖遵守律法的愛和服從。</p>
+        <p>一位弟兄可以不明白如何解釋以弗所五章二十五節，但他領悟耶穌在他裏面，他知道如何藉着呼求『哦，主耶穌』來飲於活靈。這樣，基督這愛就自然而然的從他流出，流向妻子。我們若試着要遵守律法，就錯用了律法，而產生以實瑪利。律法的用意是要作看守者和兒童導師，保守我們並帶我們歸向基督。一旦這事成就，我們就可以向律法說再見，因為律法再無地位和功用了。我們如今需要學習經歷基督作恩典而向神活着。（加二19。）</p>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 參讀：李常受文集一九六四年第四冊，各種讀經記錄，第四章；李常受文集一九七二年第三冊，為着實際、真正、真實的召會生活享受基督作包羅萬有的靈，第四章。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="../認識並經歷亞伯拉罕以撒雅各的神/index.html" class="nav-card-btn">
+          <span class="nav-card-sub">上一篇</span>
+          <span class="nav-card-title">← 認識並經歷亞伯拉罕以撒雅各的神</span>
+        </a>
+        <a href="../index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">聚會文章列表 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (22px -> 24px -> 26px) ---
+    const FONT_SIZES = [22, 24, 26];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 22;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 22;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
