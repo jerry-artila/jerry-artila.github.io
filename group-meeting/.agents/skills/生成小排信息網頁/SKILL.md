@@ -44,7 +44,7 @@ description: >-
 ```
 
 ### 步驟 3：建立文章網頁 (`<子目錄名稱>/index.html`)
-1. 讀取 HTML 範本：[article-template.html](./references/article-template.html)。
+1. 讀取 HTML 範本：[article-template.html](./references/article-template.html)（內建支援 `22px / 26px / 30px` 三級字體大小循環切換、Sepia / Light / Dark 主題模式切換、以及側邊欄漢堡選單目錄導航）。
 2. 根據文章所屬**專欄類別**套用對應的主題色（Accent Colors）：
 
 | 專欄類別 | `--accent-color` (Sepia) | `--accent-light` (Sepia) | `--accent-color` (Light) | `--accent-light` (Light) | `--accent-color` (Dark) | `--accent-light` (Dark) |
