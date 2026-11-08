@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>人經過死，神就有路</title>
+  <meta name="description" content="人經過死，神就有路 - 職事文摘。手機閱讀體驗最佳化，支援 22px / 24px / 26px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #8c281f;
+      --accent-light: rgba(140, 40, 31, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 22px;
+      --line-height-base: 1.68;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #9c2720;
+      --accent-light: rgba(156, 39, 32, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #e5534b;
+      --accent-light: rgba(229, 83, 75, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left, 16px));
+      padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    .icon-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      height: 38px;
+      min-width: 38px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .font-toggle-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.6);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.28);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.6rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Text Paragraphs */
+    p {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    /* Lead Quote Box */
+    .lead-box {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lead-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 380px;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .drawer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover, .toc-link:active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="人經過死，神就有路">人經過死，神就有路</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (22px -> 24px -> 26px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 22px / 24px / 26px">
+        22px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="文章目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📖 章節目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：22px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#sec-intro" class="toc-link">引言：經歷燔祭與死而復活</a></li>
+      <li class="toc-item"><a href="#sec-satisfy-god" class="toc-link">一、滿足神心意的路</a></li>
+      <li class="toc-item"><a href="#sec-self-to-death" class="toc-link">二、己的生命必須置於死地</a></li>
+      <li class="toc-item"><a href="#sec-burnt-offering" class="toc-link">三、必須先經過燔祭的奉獻</a></li>
+      <li class="toc-item"><a href="#sec-release-life" class="toc-link">四、經過死的事奉，纔能釋放神聖的生命</a></li>
+      <li class="toc-item"><a href="#sec-altar-service" class="toc-link">五、燔祭壇的事奉</a></li>
+      <li class="toc-item"><a href="#sec-cross-fire" class="toc-link">六、經過十字架，被火焚燒</a></li>
+      <li class="toc-item"><a href="#sec-consuming-fire" class="toc-link">七、神乃是烈火，燒出金、銀、寶石</a></li>
+      <li class="toc-item"><a href="#sec-grain-of-wheat" class="toc-link">八、麥子死了以產生繁增</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <header class="article-header">
+        <span class="article-tag">事奉篇 · 職事文摘 第十一卷·第三期</span>
+        <h1 class="article-title">人經過死，神就有路</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》事奉</span>
+          <span>適合手機閱讀體驗</span>
+        </div>
+      </header>
+
+      <!-- Section: 引言 -->
+      <section id="sec-intro">
+        <div class="lead-box">
+          <p>神指示亞伯拉罕帶着他獨生的兒子以撒，把他獻為燔祭。燔祭豫表基督。經歷基督作燔祭，乃是在於過一種完全且絕對為着神並滿足神的生活，並在於經歷基督是使神子民能過這樣一種生活的生命。</p>
+          <p>以撒如燔祭被獻上之後，又在復活裏被歸還。亞伯拉罕得回以撒，就相信並經歷神是叫死人復活的神。照樣，我們從神所接受的每項恩賜、屬靈祝福、工作和成就，必須經過死。我們向神獻上從祂所接受的之後，祂會在復活裏將其歸還我們。我們生命中的每一件事，都必須經過死的最終試驗，使復活的神有路。我們若經過死，神就有路了。</p>
+        </div>
+      </section>
+
+      <!-- Section: 滿足神心意的路 -->
+      <section id="sec-satisfy-god">
+        <h2 class="section-title">滿足神心意的路</h2>
+        <p>基督徒在地上若要滿足神的心意，就必須解決兩項問題：第一，生命問題—我們必須在神聖的生命裏長大，纔得以像神並彰顯神。第二，工作問題—我們必須恢復神在地上的主權，並為神掌權。今天我們所作的工，包括傳福音，帶領人信主、追求主等，都是要在地上恢復神的主權，並在人身上將仇敵對付出去。我們越帶領信徒愛主，就越多恢復神在人身上的主權。為此，我們己的生命必須被置於死地，讓神的生命活出來。</p>
+        <p>神對人的心意是要人『像神』並『為神掌權』，但這不是憑人自己能作出來的，神也無意要人憑自己作出來。基督徒的生命乃是要讓神的生命從人裏面活出來，基督徒的工作乃是要恢復神的主權，並對付撒但；但前提是人必須把自己擺在死地，纔能達到這兩面的目的。</p>
+      </section>
+
+      <!-- Section: 己的生命必須置於死地 -->
+      <section id="sec-self-to-death">
+        <h2 class="section-title">己的生命必須置於死地</h2>
+        <p>在生命一面，基督徒裏面有神的生命，也有己的生命。神的生命要在人身上長出來，人自己的生命卻成了攔阻。如果要讓神的生命從我們身上長出來，我們己的生命就必須死。我們的己被治死有多少，神的生命長出來的機會就有多少。</p>
+        <p>林後四章七節說，『但我們有這寶貝在瓦器裏，要顯明這超越的能力，是屬於神，不是出於我們。』這節說明我們乃是盛裝寶貝的瓦器，而這寶貝就是神的生命在我們裏面。要讓神的生命顯出來，外面的瓦器就必須被破碎。這就是說，我們身上己的生命必須被殺死，神的生命纔能顯出來。我們若看見這點，就會憑着聖靈定罪自己，聖靈也會帶領我們將己的生命置於死地，好使我們裏面神的生命得以顯出來。</p>
+      </section>
+
+      <!-- Section: 必須先經過燔祭的奉獻 -->
+      <section id="sec-burnt-offering">
+        <h2 class="section-title">必須先經過燔祭的奉獻</h2>
+        <p>當神的生命在我們裏面長大，我們就能像神並彰顯神。然而，在另一面，我們還需要恢復神在地上的主權，為神掌權，行符合神心意的事奉。我們可以從舊約窺見這條滿足神心的事奉之路。</p>
+        <p>從創世記到出埃及記末了，我們看見神呼召亞伯拉罕，並拯救他的後裔以色列人出埃及，乃是要使他們作祭司的國度，專一的事奉神。（出八1，十九6。）但在出埃及記中，以色列人被神拯救出來之後，還沒有明確並正式的事奉。直到利未記開始，纔給我們看見蒙救贖的人該如何與神交通並事奉神。接着，民數記記載以色列人的行程與爭戰。但不論是敬拜神、事奉神、跟隨神、或為神爭戰，都必須先經過利未記一章燔祭的奉獻。</p>
+        <p>利未記裏其他的祭都是為解決人在神面前的問題，惟獨燔祭是完全獻給神，使神滿足的祭物。獻上燔祭這幅圖畫說出，人要事奉神，絕不能憑自己的力量，想要為神作甚麼。反之，他必須把自己和自己的一切都擺在一邊，像被殺的祭牲擺在祭壇上，讓神的火來燒，這樣纔是滿足神心的事奉。</p>
+      </section>
+
+      <!-- Section: 經過死的事奉，纔能釋放神聖的生命 -->
+      <section id="sec-release-life">
+        <h2 class="section-title">經過死的事奉，纔能釋放神聖的生命</h2>
+        <p>在約翰十二章，當主耶穌進耶路撒冷城時，受到大批羣眾的歡迎，那可說是主在地上最光榮的一天。許多人因着主所行的神蹟要來看祂，甚至法利賽人也嫉妒祂。（12～13，17～21。）但在這時，主卻告訴祂的門徒說，『人子得榮耀的時候到了。我實實在在的告訴你們，一粒麥子不落在地裏死了，仍舊是一粒；若是死了，就結出許多子粒來。』（23～24。）然後又說，『若有人服事我，就當跟從我；我在那裏，服事我的人也要在那裏。』（26。）主在這裏說到一粒麥子落在地裏死了，乃是指祂要上十字架受死。然而，主在這裏所說的死，不是為着罪的問題，乃是為着釋放祂裏面神聖的生命。</p>
+        <p>主的死雖然有贖罪的一面，但最主要的乃是要把祂神聖的生命從祂人性的體殼中釋放出來。祂本是完全聖別無罪的，卻仍然需要經過死，纔能把祂裏面神聖的生命釋放出來。照樣，我們要事奉神，要把生命供應給人，也需要經過死。若不經過死，我們裏面神聖的生命就不能釋放出來。主說，若有人要服事祂，就當跟從祂。主在地上服事的終結乃是上十字架，也就是走到死地。照樣，服事主的人也需要跟隨主走十字架的路，一直走到死地。</p>
+      </section>
+
+      <!-- Section: 燔祭壇的事奉 -->
+      <section id="sec-altar-service">
+        <h2 class="section-title">燔祭壇的事奉</h2>
+        <p>神把以色列人拯救出來，乃是要他們作祭司事奉神。祭司事奉神的中心工作，就是到神面前去燒香，燒香豫表禱告，以成就神的定旨。（出三十7～8。）當香氣上升達到神面前，表示從我們這裏有東西出去能摸着神。這是代表人在神面前一切的事奉。</p>
+        <p>燒香的火是取自祭壇上的火，而祭壇上的火是神從天上降下來的。（利九24。）當初神拯救以色列人出埃及，把他們帶到曠野，就指示他們建造會幕並設立燔祭壇。他們雖然照神的吩咐建立了這一切，但還不能事奉神，因為火還沒有從神那裏降下來。以色列人必須將祭牲宰殺、剝皮、切塊、洗淨擺在祭壇上，然後火纔從天上降下來。</p>
+        <p>除此以外，神叫摩西吩咐亞倫和他兒子們：祭壇上的火要在其上一直燒着，不可熄滅。（六9，12～13。）一切事奉都得從這火燒出來，凡不根據這火的，就會像拿答、亞比戶獻凡火一樣，遭遇神的審判而死亡。（十1～2。）</p>
+        <p>在舊約裏，凡要進會幕事奉神的，都必須經過燔祭壇。無論人是否有罪，都必須經過燔祭壇的殺死。沒有一個憑自己天然的人能來事奉神。在召會中最攔阻、最破壞主工作的，就是人的肉體。人的肉體若是還存在，神的聖靈就只好退去，不會與其相爭。（創六3。）</p>
+        <p>因此，我們如果要事奉神，就必須經過祭壇，就是經過祭牲被宰殺、剝皮、切塊並洗淨的地方。之後，就有火把祭物焚燒成灰，產生馨香之氣升到神面前，讓神得着滿足。我們惟有如此經過燔祭壇的火來焚燒，纔能產生讓神滿足的事奉。</p>
+      </section>
+
+      <!-- Section: 經過十字架，被火焚燒 -->
+      <section id="sec-cross-fire">
+        <h2 class="section-title">經過十字架，被火焚燒</h2>
+        <p>到了新約，主耶穌就是神的帳幕和聖殿。（約一14，二19～21。）在新約時代，人要事奉神，就必須到主這裏來。在主這裏有祭壇，就是祂在各各他被釘的十字架。主在十字架上，已經把自己當作燔祭獻在祭壇上了；之後，祂的一百二十位門徒在耶路撒冷的樓房上，也將自己完全擺在祭壇上。（徒一12～15。）到了五旬節，聖靈就如同火焰降在那些門徒身上，（二3，）新約的事奉就從此開始了。</p>
+        <p>雖然新約的事奉是經過門徒，但源頭卻是出自那天上降下來的火。這火乃是祭壇上的火，是神悅納的火，要燒出對神的事奉。在路加十二章四十九至五十節，主耶穌說，『我來要把火丟在地上，若是已經着起來，那是我所願意的。我有當受的浸，還沒有成就，我是何等的困迫！』主來乃是要把火丟在地上，而祂有當受的浸，就是十字架的死。如果祂不經過死，火就不能丟下來。</p>
+        <p>基督徒的事奉和召會的工作，絕對不是出於人的推動。今天在宇宙中，基督已經作為燔祭獻在祭壇上，神的火也從天上降下來了；這火就是生命能力的聖靈，要在祭壇上一直不滅的焚燒。無論何人只要肯出代價，捨棄一切，來到祭壇上，接受十字架的死，壇上的火就要在他身上燒。在此，神就得着了人，人也得着了神，天和地就相通了，神與人也完全的調和，這就是基督徒的事奉。</p>
+      </section>
+
+      <!-- Section: 神乃是烈火，燒出金、銀、寶石 -->
+      <section id="sec-consuming-fire">
+        <h2 class="section-title">神乃是烈火，燒出金、銀、寶石</h2>
+        <p>希伯來書說，『我們的神乃是烈火。』（十二29。）神是烈火，要到地上來燒。首先，是燔祭壇上的燒。這是悅納的燒，拯救的燒，以及燒出金、銀、寶石的燒。（林前三12～14。）金表徵神的生命和性情，銀表徵基督的救贖，寶石表徵那靈變化的工作。凡是甘心樂意到祭壇上被燒的人，都要經歷十字架的燒，好在神面前成為馨香之氣，蒙神悅納，並且成為金、銀、寶石。</p>
+        <p>其次，是香壇前的燒。當拿答、亞比戶沒有經過燔祭壇的燒，就獻上凡火，結果就在香壇那裏被火燒滅。這說出凡不肯捨棄自己，不肯受對付，憑着自己熱心事奉的基督徒，雖然是得救了，卻因為沒有在祭壇上燒過，就沒有金、銀、寶石，只有木、草、禾稭。木表徵人天然的性情，草表徵人的肉體血氣，禾稭表徵屬地的事物。這些都不是出於神的，不會蒙神悅納，並且至終都要被燒燬。（15。）</p>
+        <p>以上這兩種的燒，乃是基督徒可能經歷的；然而還有一種燒乃是沒有得救之人所要經歷的燒，那就是火湖裏的燒。（啟二十15。）凡不是屬於神、出於神的，至終都要和撒但一起被丟到火湖裏焚燒，那就是永遠痛苦的焚燒。</p>
+        <p>既然一切都要經過焚燒，但願我們今天就作那些願意經過祭壇之火焚燒的人，讓我們的生活與事奉都被焚燒，經過十字架那榮耀、甜美的死，成為蒙神悅納、滿足神心意的人。</p>
+      </section>
+
+      <!-- Section: 麥子死了以產生繁增 -->
+      <section id="sec-grain-of-wheat">
+        <h2 class="section-title">麥子死了以產生繁增</h2>
+        <p>所有事奉主的人，都必須認識聖經所啟示事奉主的生命。在約翰十二章二十四至二十六節，主把事奉主的生命比作一粒麥子。你若把一粒麥子擺在臺子上，天天恭維它，甚麼事也不會發生，不會長出生命。你必須把麥子從受恭維的地位移開，撒到土裏去，叫麥子埋在土裏，死在土裏。麥子一死就產生繁增；一粒麥子繁增出許多子粒。主的工作就像麥子的繁增。</p>
+        <p>所有事奉的人都需要像麥子一樣撒在土裏，纔可能長出好的事奉。你若要事奉主，就要準備好，遲早有一天你會被撒在土裏，你必須在那裏死了，再從那裏長出來。長出來的不再是天然的生命，而是復活的生命。因此，在召會的事奉中，無論發生甚麼事，千萬不要和人爭，一爭就了了。一爭就證明，你從來沒有為着主的緣故落到地裏去。</p>
+        <p>事奉主一定要有果效，這件事無庸置疑。主耶穌作工也要求果效。主耶穌作工的果效乃在於祂落在地裏死了，就結出許多子粒來。這是為主作工的路。我們應該盼望我們的工作有果效。但要切記，首先我們必須被種在地裏。主藉着這分職事把主的恢復帶到世界各處去，職事的擴展看似轟轟烈烈，然而，在某個時候總有環境興起來，自然而然把我們埋到土裏去，叫我們無論是否願意，都得到土裏去。這時主就要得着出路。（參『李常受文集一九八八年第四冊』，事奉主的生命，第一章。）</p>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 參讀：李常受文集一九五四年第一冊，燔祭的生活與事奉，第五至八章。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="../以撒預表父神的愛子基督/index.html" class="nav-card-btn">
+          <span class="nav-card-sub">上一篇</span>
+          <span class="nav-card-title">← 以撒豫表父神的愛子基督</span>
+        </a>
+        <a href="../index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">聚會文章列表 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (22px -> 24px -> 26px) ---
+    const FONT_SIZES = [22, 24, 26];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 22;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 22;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
