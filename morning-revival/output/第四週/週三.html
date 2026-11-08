@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週三 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1 active">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週三</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">來十一17～19</span>
+              『亞伯拉罕因着信，被試驗的時候，就把以撒獻上；這正是那歡喜領受應許的，將自己獨生的兒子獻上。論到這兒子，曾有話說，「從以撒生的，纔要稱爲你的後裔。」他算定神甚至能叫人從死人中復活；就表樣說，他也實在從死人中得回了他的兒子。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              在創世記二十二章，我們看見亞伯拉罕因信順從。…他迅速勇敢的回應神的命令，清早起來就往神所指示的地方去。…在舊約裏，我們看不到亞伯拉罕爲甚麼這樣迅速勇敢的順從神。但在新約裏，我們看見亞伯拉罕相信叫人復活的神。（來十一17～19，參雅二21～22。）他有信心，算定神能叫他所要殺死的以撒復活。他已經領受了穩定甚至堅立的應許，就是神要與以撒堅定祂的約，使他成爲大國。（創十七19～21。）若是亞伯拉罕將以撒獻在祭壇上，把他殺了，並且把他當作祭物燒給神，而神不叫他從死人中復活，那麼神的話就落空了。亞伯拉罕的信心乃是基於神堅定的應許。亞伯拉罕也許說，『倘若神要以撒，我就把他殺了。神會叫他復活，以應驗祂的應許。』
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              在〔羅馬四章十七節〕我們看見亞伯拉罕…相信神：叫死人復活，並且稱無爲有。以撒的出生與神稱無爲有有關，他的歸還與神賜生命給死人有關。因爲亞伯拉罕有這樣的信心，所以他立刻順從神的命令。〔參來十一17～19。〕
+            </p>
+              <p class="content-paragraph">
+              亞伯拉罕因信順從神，照着神的啓示而行。（創二二3～4，9～10。）在創世記二十二章裏，亞伯拉罕所作的每件事，完全是出於神。亞伯拉罕沒有照着他的觀念發起任何事，或作任何事。…神告訴亞伯拉罕要作甚麼，怎樣作，並在那裏作。亞伯拉罕獻以撒的行動，每一面都是照着神的啓示和指示。
+            </p>
+              <p class="content-paragraph">
+              四節指明亞伯拉罕走了三天，因爲這裏告訴我們，到了第三日，他遠遠的看見所指定的地方。…在第三天，亞伯拉罕將以撒放在祭壇上，然後他所獻給神的，在復活裏歸還給他。
+            </p>
+              <p class="content-paragraph">
+              摩利亞這名的意思是『耶和華的異象』，就是主的異象。這有雙重的意義—我們看見主，主也看見我們。在摩利亞山上，毫無疑問，亞伯拉罕看見了神，神也看見了他。照樣，在今天的錫安山上，我們也得着了異象。…召會生活就是異象，在這異象中我們看見神，神也看見我們。…因着我們在祂的豫備中，並得着異象，一切就都是明朗的，沒有一件事是不透明的，並且我們與祂沒有間隔。
+            </p>
+              <p class="content-paragraph">
+              今天神的豫備在那裏？在錫安山上的召會生活裏。…當我們享受這豫備時，我們得着何等的異象！我們看見神。我們看見永世。在召會生活這裏，一切在神和我們的眼中都是透明、透亮的，沒有一件事不透明。…今天在錫安山上的召會生活裏，我們有完全的豫備和完全的異象。
+            </p>
+              <p class="content-paragraph">
+              我們已經看見亞伯拉罕因信順從的記載。他完全爲神用信心所灌注，這信使他順從。這注入的信心把他帶到摩利亞山，在那裏他享受神的豫備，並且從神得着完全透亮的異象。…在摩利亞山那裏，亞伯拉罕經歷了神的豫備，並且領受了清楚的異象。在他眼中一切都是明朗的。我們不可將創世記二十二章僅僅當作故事來讀。我們必須從其中接受神聖的光，並看見今天在我們身上正重複亞伯拉罕的經歷。讚美主，我們有今天的別是巴和摩利亞。我們不是下埃及，乃是上摩利亞山，在那裏我們要享受神的豫備，並得着透亮的異象。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週二 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 active">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週二</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">約十二24</span>
+              『我實實在在的告訴你們，一粒麥子不落在地裏死了，仍舊是一粒；若是死了，就結出許多子粒來。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">羅十一36</span>
+              『…萬有都是本於祂、藉着祂、並歸於祂；願榮耀歸與祂，直到永遠。阿們。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              當神吩咐亞伯拉罕獻以撒時，神吩咐他要往摩利亞地去，在那裏的一座山上將以撒獻上。（創二二2。）…獻以撒的那座山，後來稱爲摩利亞山，最終成爲錫安山，就是建造聖殿的地方。（代下三1。）…最終摩利亞山成爲美地的中心，亞伯拉罕的後裔必須每年三次到那座山將燔祭獻給神。（申十六16，詩一三二13。）因此，我們看見創世記二十二章是一粒種子。…我們不能也不該在我們所揀選的地方，將神所要的燔祭獻給祂。我們必須離開我們的地方，到神所揀選的地方。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              你知道你的定命就是作燔祭麼？作燔祭就是被宰殺、被焚燒。在別是巴的成長、生活、並呼求伊勒俄拉姆的名，都是爲着燔祭的建立，使我們能在摩利亞山的祭壇上被焚燒。…我們越喝別是巴井的水，就越長大；我們越長大，就越豫備好接受摩利亞山上的火。因此，主的恢復絕不會是羣眾運動，乃是一條窄路。在創世記二十二章的時候，以撒是惟一生活並行走在這條窄路上的人。不要盼望許多人走召會的路。…住在別是巴並呼求主的名，從一面說似乎是枯燥的。最終，我們與主享受了一段美好的時光以後，祂會要求我們將以撒獻給祂。祂不容許我們在別是巴獻以撒。我們必須走一段很長的距離，並且登上摩利亞山。正當的召會生活…產生燔祭。我們都必須成爲燔祭。這雖然是一條窄路，卻是得勝的路。
+            </p>
+              <p class="content-paragraph">
+              在別是巴的生活，不過產生燔祭。…你在成長麼？要爲此感謝神。但你的成長乃是叫你豫備好被焚燒。我們都必須經過作燔祭被焚燒的過程。…在希伯來文裏，燔祭的意思是上升的祭。當燔祭被焚燒以後，就有馨香之氣升到神那裏，使祂滿足。是上升，不是擴散。
+            </p>
+              <p class="content-paragraph">
+              神似乎對亞伯拉罕說，『你愛以撒，我也愛他。現在你必須把他給我。』最終，以撒成了整個蒙揀選族類的先祖。他也成了基督的先祖。神永遠的目的絕不能藉以撒之外的人成就；以撒乃是在亞伯拉罕的照顧下長大並獻給神的人。
+            </p>
+              <p class="content-paragraph">
+              以撒被獻上以後，在復活裏歸回，爲要成就神永遠的目的。（創二二4，12～13，16，18。）以撒在復活裏歸回以後，成了另一個人。他不再是天然的以撒，乃是復活的以撒。…我們從神所得着的每項恩賜、屬靈祝福、工作和成就，都必須經過死的試驗。最終，這些要在復活裏回到我們這裏。…（約十二24。）假定神賜給你一種天然的恩賜；那是一粒麥子。你若保留這天然的恩賜，從不獻給神，它仍舊是一粒。你若把它獻給神，它經過了死，就要在復活裏歸還你，並且成爲祝福。…神的祝福總是在復活裏來的。一粒繁增爲一百粒，這就是神的祝福。你若將你的一粒獻給神，並且讓神把它置之於死，它就要在復活裏歸還給你。然後你要看見繁增和大的祝福。這是神的作法。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

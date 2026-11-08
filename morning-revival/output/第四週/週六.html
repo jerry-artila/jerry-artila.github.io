@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週六 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 active">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週六</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">腓三10</span>
+              『使我認識基督、並祂復活的大能、以及同祂受苦的交通，模成祂的死。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">來十二22～23</span>
+              『但你們乃是來到錫安山，來到活神的城，屬天的耶路撒冷，來到千萬天使整體的聚集，來到名字記錄在諸天之上眾長子的召會…。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              在創世記二十二章二節神吩咐亞伯拉罕往摩利亞地去，在神所要指示他的山上獻以撒。下節告訴我們，亞伯拉罕『就起身往神所指示他的地方去』。…四節告訴我們：『到了第三日，亞伯拉罕舉目遠遠的看見那地方。』亞伯拉罕沒有照着他的觀念或揀選作甚麼，他是照着神的啓示作一切。
+            </p>
+            <p class="content-paragraph">
+              亞伯拉罕在創世記二十二章所作的，乃是聖經中一粒重要的種子。…神吩咐亞伯拉罕的後裔以色列人，要每年三次上摩利亞山去敬拜神，在那裏將他們的燔祭獻給祂。我們已經看見，摩利亞山成了錫安山，那是美地的中心。亞伯拉罕是頭一個帶着燔祭在錫安山上敬拜神的人。最終，我們都要在錫安山上敬拜神。一面，在今天的召會生活中，我們這些亞伯拉罕的真後裔，是在錫安山上；另一面，我們是在往那裏去的路上。亞伯拉罕在創世記二十二章所作的，乃是種子。他的後裔以色列人，是這粒種子的發展，而我們今天是這粒種子進一步的發展。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              我們要在基督身體的實際裏，就需要完全在基督復活的生命裏。在眾地方召會中，我們的確有些美好的配搭，但是我要問：『這種配搭是憑天然的生命，還是在復活裏作出來的？』在復活裏，意思就是我們天然的生命被釘死，然後我們這人裏神所造的部分就在復活裏被拔高，在復活裏與基督成爲一。在腓立比三章十節保羅說，我們都需要憑着基督復活的大能，模成祂的死。我們都需要問自己：我們中間的配搭是憑着基督復活的大能，或僅僅是憑着我們天然的人。
+            </p>
+              <p class="content-paragraph">
+              任何一件照着聖經卻在天然生命裏完成的事，卽使是合乎聖經，也不是基督身體的實際。基督的身體完全是在基督復活生命裏的事。…今天，在眾地方召會中，我們一般所能看見的，多半是在聚會、活動、工作和事奉上的『召會』；我們看不見多少在復活裏，就是在那靈裏，在那是靈的基督裏，並在終極完成的神裏面。…我們需要竭力，在召會生活中達到基督身體之實際的最高峯，就是今日的錫安，直到我們完成於新耶路撒冷，包括錫安。…我們有相調，就是要應付這需要。
+            </p>
+              <p class="content-paragraph">
+              在召會時代，被成全並得成熟的神人乃是錫安，就是得勝者，也就是召會中的活力排。…在新天新地，…整個新耶路撒冷都要成爲錫安。…錫安就是神所在之處，也就是至聖所。…有一個表號，表徵新耶路撒冷將是至聖所。新耶路撒冷的量度是個正方體的量度，長一萬二千斯泰底亞，寬一萬二千斯泰底亞，高一萬二千斯泰底亞。（啓二一16。）那就是至聖所；因爲在舊約裏，不論在帳幕或聖殿中，至聖所都是立方的，其長、寬、高都相等。（出二六2～8，王上六20。）
+            </p>
+              <p class="content-paragraph">
+              在啓示錄這卷書中，主所要得着的，並主所要建造的，乃是錫安，就是得勝者。得勝者就是錫安，就是神所在之處。這是神聖言中屬靈啓示的內在實際。…主的恢復就是要建造錫安。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

@@ -153,7 +153,7 @@ def parse_morning_revival_data(lines: list) -> dict:
     outline_start = -1
     outline_end = -1
     for i, l in enumerate(lines):
-        if "【週" in l and "一】" in l and outline_start == -1:
+        if ("【週" in l and "一" in l or re.match(r"^(第?壹大?點?)[、\s]", l)) and outline_start == -1:
             outline_start = i
         if re.search(r"第[一二三四五六七八九十0-9]+週\s*•\s*週一", l) and outline_start != -1:
             outline_end = i

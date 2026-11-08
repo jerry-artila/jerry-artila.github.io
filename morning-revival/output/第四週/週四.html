@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週四 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1 active">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週四</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">羅四17</span>
+              『亞伯拉罕在他所信那叫死人復活，又稱無爲有的神面前，是我們眾人的父，如經上所記：「我已經立你作多國的父。」』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">林後四16</span>
+              『所以我們不喪膽，反而我們外面的人雖然在毀壞，我們裏面的人卻日日在更新。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              請記得，神允許我們經過各種爲難，就是爲着這個原因，就是要使我們認識祂是復活的神。祂時常引我們進入死地，因爲只有在死裏，我們纔能經歷復活的生命。
+            </p>
+            <p class="content-paragraph">
+              聖經說到兩個創造：舊造與新造。…那裏有神，那裏就有新。在上的耶路撒冷稱爲『新耶路撒冷』，因爲其中滿了神。頭一個創造雖是活神的創造，卻沒有神聖的內容。然而，復活的神從死裏所復起的創造，具有神聖且屬人的內容。…頭一個創造…，神…任其經過死，好使其得以在復活裏顯出，成爲具有兩種性情，就是結合神性與人性的創造。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              同工們彼此相愛，在和諧中一同作工，他們可能以爲彼此的愛，以及他們的配搭是屬靈的事。…但這可能只是屬人的關係，沒有任何神聖的內容。…然而有一天，神的手臨到，這配搭被帶到盡頭。…他們爲此憂傷，禱告並渴望恢復從前的和諧。然而他們越禱告，就越沒有和諧。直到有一天，他們確實向自己的舊經歷死了，他們就發現彼此之間有了一種新的關係，這種關係…乃是屬人且神聖的一。
+            </p>
+              <p class="content-paragraph">
+              舊造雖然是藉活神大能的手造成的，但神自己並沒有住留在舊造裏。舊造是神所創造的；舊造展示神的大能，卻無法展示神的同在。舊造如何能變化成爲新的？乃是藉着神的進入。然而如何能有神的進入？主要的難處就在這裏：舊性情必須破碎，神纔有路進來。弟兄姊妹，你生命中的每一件事，都必須經過死的最終試驗，使復活的神有路。你若僅僅認識活神，你的認識就太客觀。神是神，你是你。你需要認識復活的神；惟有藉着死，神纔能爲自己打通一條路，進到你的生命裏。
+            </p>
+              <p class="content-paragraph">
+              苦難所帶給舊造的毀壞，給復活的神機會，把祂自己分授到祂的造物裏，使其從死的過程裏出來時，在其構成上有了神聖的元素。宇宙中苦難的主要目的，特別對神的兒女來說，乃是要藉此使神的性情得以作到人的性情裏。…（林後四16。）藉着外面毀壞的過程，裏面的過程得以發生，將新的構成成分加到我們的生命裏。
+            </p>
+              <p class="content-paragraph">
+              你〔若〕想要有分於新造，…想要認識永遠的新，…那麼當神要帶你經過毀壞的過程時，你必須向祂表同意。你不需要懼怕，因爲神知道如何分配苦難。…祂準確無誤的量過萬事，揀選特定的試煉，配合特定的需要。祂爲每個人所選定的分，總是爲着這目標，就是使我們生命裏神聖的內容得以加增。祂若懲治我們，總是『爲了我們的益處，使我們有分於祂的聖別』。（來十二10。）『萬有都互相効力，叫…人得益處，就是按祂旨意被召的人。』（羅八28。）得甚麼益處？就是『模成神兒子的形像』。（29。）
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

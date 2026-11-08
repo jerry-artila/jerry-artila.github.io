@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週五 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1 active">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週五</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創二二17～18</span>
+              『論福，我必賜福給你；論繁增，我必使你的後裔繁增，如同天上的星，海邊的沙；你的後裔必得着仇敵的城門；並且地上萬國，都必因你的後裔得福；因爲你聽從了我的話。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              亞伯拉罕蒙神賜福。這裏的福不是物質的事物。…我們都聽過，要一一數算主給我們的祝福，就如我們的學位、升遷、妻子、房子與兒女。…在創世記二十二章，神沒有這樣祝福亞伯拉罕。神乃是以繁增的後裔祝福他。…（17。）我不在意物質的福，我在意繁增。我首先願意在美國看見五十個召會，然後一百個，再後一千個。我也願意看見這種繁增從美國擴展到非洲、澳洲、歐洲，甚至回到耶路撒冷。這是我所要看見的福。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              神以兩類的人祝福亞伯拉罕，一類好比天上的星，（創二二17，十五5，）另一類好比海邊的沙，（二二17，）也好比地上的塵沙。（十三16。）…我們基督徒是星，是亞伯拉罕屬天的子孫；而真正的猶太人，神屬地的子民，是沙、塵沙。最終，猶太人要在地上作神的祭司，並要教導萬國。在撒迦利亞八章二十至二十三節清楚的豫言這事。爲甚麼神把猶太人描述爲沙和塵沙？海表徵撒但所敗壞的世界，而塵沙屬於神所創造的地。猶太人已經被恢復到神的創造，因此他們由沙來表徵，沙就是海邊的塵沙。雖然他們是屬地的子民，但他們不是海底的塵沙，乃是海邊的塵沙。他們從敗壞的海，從撒但所敗壞的世界分別出來。然而，星不僅從敗壞的世界分別出來，並且還是屬天的。
+            </p>
+              <p class="content-paragraph">
+              照着啓示錄二十章八至九節，在千年國末了，歌革和瑪各要與聖徒的營和蒙愛的城爭戰。聖徒的營是一切屬天之星的營，蒙愛的城耶路撒冷是分別之沙的城。亞伯拉罕的這兩類子孫，那時要顧到神在宇宙中的權益，他們要受到歌革和瑪各在撒但煽動下的攻擊。那是宇宙的末了一次戰爭，是屬魔鬼的人與亞伯拉罕子孫之間的戰爭。
+            </p>
+              <p class="content-paragraph">
+              新耶路撒冷是由代表舊約聖徒的以色列十二支派，和代表新約信徒的十二使徒所組成。由使徒所代表的人是屬天的星，由十二支派所代表的人是海邊的沙。這兩班人最終要同被建造，成爲永遠的新耶路撒冷。因此，永遠的新耶路撒冷乃是亞伯拉罕後裔的終極完成。這就是神給亞伯拉罕的福。…我們看見了這點以後，需要說，『讚美主，神的祝福不是好房子、好汽車、學位、升遷、妻子或兒女。神的祝福乃是聖徒在神恢復裏的繁增，和召會的繁增。』我盼望有一天，新耶路撒冷的一部分將是我們的繁增，作爲神所給我們的福。…只有在神祝福裏的繁增要存到永遠。我們要看見在新耶路撒冷裏神繁增的福，直到永遠。
+            </p>
+              <p class="content-paragraph">
+              在創世記二十二章這裏，我們看見一個基本的原則，就是凡神所賜給我們的，都要繁增。神給亞伯拉罕一個以撒，亞伯拉罕將他獻回給神，然後這一個以撒就繁增成無數的星和沙。亞伯拉罕若不願將以撒獻回給神，他可能只有一個以撒。但亞伯拉罕將以撒獻回給神以後，以撒就繁增爲新耶路撒冷。將神所賜給我們的獻回給神，這就是使神的恩賜在我們身上繁增的路。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

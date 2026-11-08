@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第四週 • 週一 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=ee530120">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1 active">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第四週</span>
+            <span class="badge">週一</span>
+          </div>
+          <h2 class="main-title">
+            獻上以撒並經歷神是叫死人復活的神
+          </h2>
+          <p class="reading-scripture">讀經：創二二1～18，來十一17～19，羅四17</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創二二1～2</span>
+              『這些事以後，神試驗亞伯拉罕，對他說，亞伯拉罕。他說，我在這裏。神說，你帶着你的兒子，就是你獨生的兒子，你所愛的以撒，往摩利亞地去，在我所要指示你的山上，把他獻爲燔祭。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              〔聖經在創世記二十一章〕題過亞伯拉罕栽種垂絲柳樹並呼求主的名以後，就題到神進來試驗他。（二二1。）神不像撒但，絕不試誘人。但祂的確試驗我們，就像祂試驗亞伯拉罕一樣。…亞伯拉罕在贖回別是巴的井以後，毫無疑問作了許多事，但…聖經沒有題起別的，反而立刻說到神試驗亞伯拉罕。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              常常在我們對主有了上好的享受以後，祂不要求我們爲祂作甚麼，卻吩咐我們將祂所賜給我們的獻回給祂。…我們總是盼望在與主有了一段美好的時光以後，祂會吩咐我們爲祂作甚麼。我們從來沒有想到，祂會要求我們將祂所賜給我們的還給祂。當亞伯拉罕享受與神親密的交通時，神沒有囑咐他要爲祂作工。他從神領受了最高的要求，就是將神所賜給他的還給神。從起初，神就沒有接受亞伯拉罕所有的。…如今，在以利以謝、羅得、和以實瑪利都被棄絕以後，亞伯拉罕得着了以撒，就是神所應許的後裔，他安心了。凡與以撒有關的都是出於神，且憑着神。…但忽然神進來，似乎說，『我絕不棄絕以撒，他是出於我且從我生的。但是亞伯拉罕，你現在必須把他還給我。』
+            </p>
+              <p class="content-paragraph">
+              亞伯拉罕真了不起。…倘若我是亞伯拉罕，我不會獻上以撒。我會搖頭說，『不，這必定不是出於主。祂要以利以謝是合乎邏輯的，要求以實瑪利也是合理的；但神怎能要我將以撒還給祂？神不是沒有目的的。祂應許要給我一個後裔，祂的應許也已經堅定並且成就了。爲甚麼祂現在要使祂已往對我所作的一切報廢？』不錯，神是有目的的神，祂要求亞伯拉罕將以撒還給祂，的確是有目的的。
+            </p>
+              <p class="content-paragraph">
+              許多基督徒，包括一些基督教工人在內，從來沒有學習一個功課，將神所賜給他們的獻回給神。你得着了一項恩賜麼？不要緊持不放。遲早神要進來說，『將我所賜給你的恩賜獻回給我。』神賜給你成功的工作麼？到一個時候，神也許說，『這工作是我所賜給你的以撒，現在我要你獻回給我。』許多基督教工人，不願在神所賜給他們的工作上放手。然而，神所賜給我們的一切，甚至祂在我們裏面並藉着我們所作的，我們都必須獻回給祂。
+            </p>
+              <p class="content-paragraph">
+              在創世記二十二章二節…神吩咐亞伯拉罕將他所愛的獨生兒子以撒獻上。要亞伯拉罕這樣作真是爲難！倘若我們是他，我們會說，『主，我現在一百二十多歲了，撒拉也快要死了。你怎能要求我將你所賜給我的獻回給你？』…我們能作見證，已過好些時候，神要求我們將祂所賜給我們的還給祂。祂所給我們的恩賜、能力、工作和成就，我們必須獻回給祂。這是真正的試驗。要亞伯拉罕放棄羅得或以利以謝很容易，甚至要他趕出以實瑪利也不是那麼難，但要他獻上他所愛的獨生兒子卻是非常困難的事。有一天，在我們對主有了美好的享受以後，祂會要求我們將祂所賜給我們的恩賜、工作、或成就還給祂。祂也許說，『現在是我向你有所要求的時候了。我不要求你爲我工作或去佈道。我要求你獻回我所賜給你的。』這是我們今天都必須走的路。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>
