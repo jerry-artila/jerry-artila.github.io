@@ -166,6 +166,44 @@
       color: var(--accent-color);
     }
 
+    .card-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .card-btn {
+      flex: 1;
+      text-align: center;
+      padding: 9px 12px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .card-btn-primary {
+      background: var(--accent-color);
+      color: #ffffff;
+    }
+
+    .card-btn-primary:hover {
+      opacity: 0.92;
+    }
+
+    .card-btn-secondary {
+      background: var(--accent-light);
+      color: var(--accent-color);
+      border: 1px solid var(--border-color);
+    }
+
+    .card-btn-secondary:hover {
+      border-color: var(--accent-color);
+    }
+
     footer {
       margin-top: 3rem;
       text-align: center;
@@ -186,7 +224,7 @@
     </p>
 
     <div class="article-list">
-      <a href="召會聚會的路/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">事奉篇 · 職事文摘 第十一卷·第一期</span>
         <h2 class="card-title">召會聚會的路</h2>
         <p class="card-desc">
@@ -195,11 +233,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 8 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="召會聚會的路/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="召會聚會的路/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="神聖三一乃是聖經的結構/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">真理篇 · 職事文摘 第十一卷·第一期</span>
         <h2 class="card-title">神聖三一乃是聖經的結構</h2>
         <p class="card-desc">
@@ -208,11 +249,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 6 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="神聖三一乃是聖經的結構/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="神聖三一乃是聖經的結構/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="脫離理由並認識權柄以事奉神/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">事奉篇 · 職事文摘 第十一卷·第二期</span>
         <h2 class="card-title">脫離理由並認識權柄以事奉神</h2>
         <p class="card-desc">
@@ -221,11 +265,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 8 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="脫離理由並認識權柄以事奉神/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="脫離理由並認識權柄以事奉神/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="基督是要來娶新婦的新郎/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">真理篇 · 職事文摘 第十一卷·第二期</span>
         <h2 class="card-title">基督是要來娶新婦的新郎</h2>
         <p class="card-desc">
@@ -234,11 +281,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 8 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="基督是要來娶新婦的新郎/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="基督是要來娶新婦的新郎/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="認識並經歷亞伯拉罕以撒雅各的神/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">生命篇 · 職事文摘 第十一卷·第三期</span>
         <h2 class="card-title">認識並經歷亞伯拉罕以撒雅各的神</h2>
         <p class="card-desc">
@@ -247,11 +297,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 8 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="認識並經歷亞伯拉罕以撒雅各的神/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="認識並經歷亞伯拉罕以撒雅各的神/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="脫離律法享受恩典-飲於保羅萬有靈/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">生命篇 · 職事文摘 第十一卷·第三期</span>
         <h2 class="card-title">脫離律法享受恩典，飲於包羅萬有靈</h2>
         <p class="card-desc">
@@ -260,11 +313,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 7 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="脫離律法享受恩典-飲於保羅萬有靈/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="脫離律法享受恩典-飲於保羅萬有靈/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="以撒預表父神的愛子基督/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">真理篇 · 職事文摘 第十一卷·第三期</span>
         <h2 class="card-title">以撒豫表父神的愛子基督</h2>
         <p class="card-desc">
@@ -273,11 +329,14 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 8 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="以撒預表父神的愛子基督/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="以撒預表父神的愛子基督/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
 
-      <a href="人經過死-神就有路/index.html" class="article-card">
+      <div class="article-card">
         <span class="card-badge">事奉篇 · 職事文摘 第十一卷·第三期</span>
         <h2 class="card-title">人經過死，神就有路</h2>
         <p class="card-desc">
@@ -286,9 +345,12 @@
         <div class="card-meta">
           <span>8 頁內容完整擷取</span>
           <span>含 9 個段落目錄導航</span>
-          <span class="card-arrow">閱讀全文 →</span>
         </div>
-      </a>
+        <div class="card-actions">
+          <a href="人經過死-神就有路/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+          <a href="人經過死-神就有路/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+        </div>
+      </div>
     </div>
 
     <footer>
