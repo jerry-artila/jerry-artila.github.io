@@ -167,6 +167,41 @@
       padding: 24px 20px 48px;
     }
 
+    /* Mode Switch Tabs (全文 / 摘要) */
+    .mode-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      background: var(--card-bg);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab:not(.active):hover {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
     /* Article Header */
     .article-header {
       margin-bottom: 2rem;
@@ -227,13 +262,30 @@
       border-radius: 2px;
     }
 
-    /* Text Paragraphs */
+    /* Text Paragraphs & Lists */
     p {
       margin-bottom: 1.25rem;
       text-align: justify;
       text-justify: inter-ideograph;
       text-wrap: pretty;
       letter-spacing: 0.02em;
+    }
+
+    ul.summary-list, ol.summary-list {
+      margin: 0.8rem 0 1.5rem 0;
+      padding-left: 1.4em;
+    }
+
+    ul.summary-list li, ol.summary-list li {
+      margin-bottom: 0.95rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      line-height: var(--line-height-base);
+    }
+
+    ul.summary-list li strong, ol.summary-list li strong {
+      color: var(--accent-color);
+      font-weight: 700;
     }
 
     /* Lead Quote Box */
@@ -515,6 +567,12 @@
   <!-- Main Article -->
   <main class="article-container">
     <article>
+      <!-- 全文 / 摘要 切換按鈕 -->
+      <div class="mode-tabs" aria-label="閱讀版本切換">
+        <a href="index.html" class="mode-tab active">📖 閱讀全文</a>
+        <a href="摘要.html" class="mode-tab">📋 綱要摘要</a>
+      </div>
+
       <header class="article-header">
         <span class="article-tag">{{CATEGORY_NAME}}篇 · 職事文摘 {{VOLUME_ISSUE}}</span>
         <h1 class="article-title">{{ARTICLE_TITLE}}</h1>

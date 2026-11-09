@@ -159,12 +159,46 @@
       font-weight: 700;
       color: var(--accent-color);
     }
-
     /* Main Container */
     .article-container {
       max-width: var(--container-max-width);
       margin: 0 auto;
       padding: 24px 20px 48px;
+    }
+
+    /* Mode Switch Tabs (全文 / 摘要) */
+    .mode-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      background: var(--card-bg);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab:not(.active):hover {
+      background: var(--accent-light);
+      color: var(--accent-color);
     }
 
     /* Article Header */
@@ -519,10 +553,15 @@
       <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
     </ul>
   </nav>
-
   <!-- Main Article -->
   <main class="article-container">
     <article>
+      <!-- 全文 / 摘要 切換按鈕 -->
+      <div class="mode-tabs" aria-label="閱讀版本切換">
+        <a href="index.html" class="mode-tab active">📖 閱讀全文</a>
+        <a href="摘要.html" class="mode-tab">📋 綱要摘要</a>
+      </div>
+
       <header class="article-header">
         <span class="article-tag">生命篇 · 職事文摘 第十一卷·第三期</span>
         <h1 class="article-title">認識並經歷亞伯拉罕以撒雅各的神</h1>

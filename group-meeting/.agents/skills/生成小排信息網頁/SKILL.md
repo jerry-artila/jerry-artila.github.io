@@ -1,12 +1,12 @@
 ---
 name: 生成小排信息網頁
 description: >-
-  將排聚會（group-meeting）新增子目錄中的屬靈信息圖片（如《職事文摘》掃描/截圖）完整擷取文字，產生 Markdown 檔與手機友善的響應式 HTML 閱讀網頁，並同步更新總目錄與前後篇導航連結。當使用者提及新增小排信息子目錄、整理屬靈信息圖片成網頁、或執行「生成小排信息網頁」時啟用此技能。
+  將排聚會（group-meeting）新增子目錄中的屬靈信息圖片（如《職事文摘》掃描/截圖）完整擷取文字，產生 Markdown 檔、手機友善的響應式全文網頁（index.html）與綱要摘要網頁（摘要.html），並同步更新總目錄（雙按鈕連結）與前後篇導航連結。當使用者提及新增小排信息子目錄、整理屬靈信息圖片成網頁、或執行「生成小排信息網頁」時啟用此技能。
 ---
 
 # 生成小排信息網頁
 
-此技能定義將 `group-meeting` 子目錄中的屬靈信息圖片（通常為《職事文摘》共 8 頁直排截圖）轉換為標準 Markdown 與響應式 HTML 網頁的完整規範與流程。
+此技能定義將 `group-meeting` 子目錄中的屬靈信息圖片（通常為《職事文摘》共 8 頁直排截圖）轉換為標準 Markdown、響應式全文網頁 (`index.html`) 與綱要摘要網頁 (`摘要.html`) 的完整規範與流程。
 
 ---
 
@@ -43,8 +43,8 @@ description: >-
 > （參讀：<參讀書目內容>。）
 ```
 
-### 步驟 3：建立文章網頁 (`<子目錄名稱>/index.html`)
-1. 讀取 HTML 範本：[article-template.html](./references/article-template.html)（內建支援 `22px / 26px / 30px` 三級字體大小循環切換、Sepia / Light / Dark 主題模式切換、以及側邊欄漢堡選單目錄導航）。
+### 步驟 3：建立全文網頁 (`<子目錄名稱>/index.html`) 與綱要摘要網頁 (`<子目錄名稱>/摘要.html`)
+1. 讀取 HTML 範本：[article-template.html](./references/article-template.html)（內建支援 **`22px / 26px / 30px`** 三級字體大小循環切換、Sepia / Light / Dark 主題模式切換、側邊欄漢堡選單目錄導航、以及頂部 **「📖 閱讀全文 / 📋 綱要摘要」** 雙按鈕切換列 `.mode-tabs`）。
 2. 根據文章所屬**專欄類別**套用對應的主題色（Accent Colors）：
 
 | 專欄類別 | `--accent-color` (Sepia) | `--accent-light` (Sepia) | `--accent-color` (Light) | `--accent-light` (Light) | `--accent-color` (Dark) | `--accent-light` (Dark) |
@@ -53,13 +53,22 @@ description: >-
 | **真理篇** | `#1a5276` | `rgba(26, 82, 118, 0.08)` | `#1f618d` | `rgba(31, 97, 141, 0.08)` | `#5dade2` | `rgba(93, 173, 226, 0.16)` |
 | **事奉篇** | `#8c281f` | `rgba(140, 40, 31, 0.08)` | `#9c2720` | `rgba(156, 39, 32, 0.08)` | `#e5534b` | `rgba(229, 83, 75, 0.16)` |
 
-3. 填入章節目錄 (`drawer-toc-list`) 與內文區塊 (`<section id="sec-...">`)：
+3. **建立全文網頁 (`index.html`)**：
+   - 頂部 `.mode-tabs` 設定 `index.html` 為 `.active`。
    - 第一個區塊為 `#sec-intro`，將引言段落包在 `<div class="lead-box">` 內，並在側邊欄目錄列為 `引言：<簡短引言主題>`。
    - 每個小標題使用 `<section id="sec-xxx"><h2 class="section-title">...</h2><p>...</p></section>`，並在側邊欄目錄依序標示 `一、...`、`二、...`。
    - 最後為 `#sec-reference`（`<div class="reference-box">📖 參讀：...</div>`），並在側邊欄目錄列為 `參讀書目`。
-4. 設定頁尾導航 (`.footer-nav`)：
-   - 左側按鈕連結至目前總目錄中的上一篇文章（`../<上一篇子目錄>/index.html`）。
-   - 右側按鈕連結回總目錄（`../index.html`，顯示「返回目錄：聚會文章列表 →」）。
+   - 設定頁尾導航 (`.footer-nav`)：左側按鈕連結至上一篇文章（`../<上一篇子目錄>/index.html`），右側按鈕連結回總目錄（`../index.html`）。
+
+4. **建立綱要摘要網頁 (`摘要.html`)**：
+   - 採用與 `index.html` 完全一致的響應式版型、主題色與 `22px / 26px / 30px` 字級切換，適合長輩手機閱讀。
+   - 頂部 `.mode-tabs` 設定 `摘要.html` 為 `.active`。
+   - **摘要內容結構與長度規範**（比照《以撒豫表父神的愛子基督/摘要.html》）：
+     - 分為 **壹、貳、參、肆、伍、陸（或柒）** 共 6～7 個大點，涵蓋引言與各段落核心負擔。
+     - 壹、引言使用 `<div class="lead-box">` 濃縮全篇核心啟示（約 3～4 句話）。
+     - 貳～柒大點依內容性質使用 `<ul class="summary-list">` 或 `<ol class="summary-list">`，每點以 `<li><strong>重點小標（含經節出處）：</strong>精煉說明內容...</li>` 呈現，條理分明、重點加粗醒目。
+   - 側邊欄目錄 (`drawer-toc-list`) 對應列出 `壹、...` 至 `柒、...` 及 `參讀出處`。
+   - 頁尾導航 (`.footer-nav`) 左側按鈕指向 `index.html`（`📖 閱讀本篇全文`），右側按鈕指向 `../index.html`（`聚會文章列表 →`）。
 
 ### 步驟 4：更新上一篇文章的頁尾導航與根目錄 `group-meeting/index.html`
 1. **更新上一篇文章的 `index.html`**：
@@ -72,9 +81,9 @@ description: >-
      ```
 2. **更新總目錄 `group-meeting/index.html`**：
    - 在 `<meta name="description">` 中加入新篇題名稱。
-   - 在 `.article-list` 最下方新增一張 `.article-card`：
+   - 在 `.article-list` 最下方新增一張 `.article-card`（包含 **「📖 全文連結」** 與 **「📋 摘要連結」** 並列雙按鈕）：
      ```html
-     <a href="<新子目錄名稱>/index.html" class="article-card">
+     <div class="article-card">
        <span class="card-badge"><類別>篇 · 職事文摘 <卷期></span>
        <h2 class="card-title"><新篇題名稱></h2>
        <p class="card-desc">
@@ -83,12 +92,15 @@ description: >-
        <div class="card-meta">
          <span><頁數> 頁內容完整擷取</span>
          <span>含 <引言+小標題總數> 個段落目錄導航</span>
-         <span class="card-arrow">閱讀全文 →</span>
        </div>
-     </a>
+       <div class="card-actions">
+         <a href="<新子目錄名稱>/index.html" class="card-btn card-btn-primary">📖 全文連結</a>
+         <a href="<新子目錄名稱>/摘要.html" class="card-btn card-btn-secondary">📋 摘要連結</a>
+       </div>
+     </div>
      ```
 
 ### 步驟 5：驗證檢查
 - 確認 `group-meeting/.gitignore` 已忽略圖片檔（`*.jpg`, `*.jpeg`, `*.png`, `*.PNG`），不會將圖片加入 Git 追蹤。
-- 確認所有內部錨點 (`#sec-...`) 與側邊欄目錄連結 (`href="#sec-..."`) 完全對應。
-- 確認總目錄與前後篇的相對路徑連結正確無誤。
+- 確認 `index.html` 與 `摘要.html` 的所有內部錨點 (`#sec-...`) 與側邊欄目錄連結 (`href="#sec-..."`) 完全對應。
+- 確認總目錄雙按鈕連結、內頁頂部「閱讀全文 / 綱要摘要」切換按鈕、以及前後篇導航相對路徑正確無誤。
