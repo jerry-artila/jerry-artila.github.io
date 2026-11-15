@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 週二 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1 active">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第五週</span>
+            <span class="badge">週二</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創十七1</span>
+              『亞伯蘭年九十九歲的時候，耶和華向他顯現，對他說，我是全足的神；你要行在我面前，並且要完全。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">創十八14</span>
+              『耶和華豈有難成的事麼？到了約定的日期，明年這時候，我必回到你這裏，撒拉必生一個兒子。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              我們需要…知道創世記十七章一節之全足的神這稱呼的意義。在希伯來文裏，這稱呼是『伊勒沙代』（El Shaddai）。『伊勒』，El，意思是強者，大能者；『沙代』，Shadda，含示胸部，乳房，意思是全豐全足的。『伊勒沙代』是有乳房的大能者，有全豐全足供應的大能者。乳房分泌乳汁，而乳汁是全豐全足的供應，其中有水、礦物質和多種養分，含有我們日常生活所需要的一切。
+            </p>
+            <p class="content-paragraph">
+              當亞伯拉罕憑他天然的己行事的時候，他忘了他供應的源頭。換句話說，他忘了神是他全豐全足供應的源頭。所以，神臨到亞伯拉罕，似乎這樣說，『我是有乳房的大能者。你缺少甚麼？爲甚麼不到我這裏來？你飢渴麼？到我這裏來。你供應的源頭不是你天然的己，乃是我這有乳房的大能者。我是全豐全足者，能供應你生活所需要的一切，以及你成就我永遠定旨所需要的一切。我是源頭。…你不該靠自己或憑自己而活。你必須憑我作你供應的源頭而活。』
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              亞伯拉罕天然的力量和自我的努力受神對付之後，以撒就出生了。（創十七15～19，十八10～14，二一1～7。）這含示以撒是從撒拉所代表的恩典而生。（加四23～28，31。）創世記的記載說，這事發生在『生命的時候』。（十八10，14，直譯。）當天然生命的努力停止的時候，那就是生命的時候。在生命的時候，有個東西在恩典裏出生了。恩典聯於生命，生命隨着恩典。因此，恩典稱爲生命的恩典。（彼前三7。）
+            </p>
+              <p class="content-paragraph">
+              神要把我們帶進恩典的享受中，但這恩典有一個阻撓，就是己。我們自己就是阻撓。…因此，在我們能有以撒的經歷之前，需要代表生命經歷第一面的亞伯拉罕。亞伯拉罕的生活啓示，我們若要享受神的恩典，對神的豐富有完滿的享受，我們必須受對付，受割禮，被割除。亞伯拉罕若不受割禮，以撒絕不會生出來。亞伯拉罕受割禮之後，以撒來了。在創世記十七章亞伯拉罕受割禮之後，神就告訴他，以撒將要出生。（19。）至終，在二十一章，以撒出生了。以撒隨着神的眷臨而來，他是憑着神的眷臨出生的。神的眷臨等於以撒的出生。神眷臨撒拉，那個眷臨就成了以撒的出生。這就是恩典。
+            </p>
+              <p class="content-paragraph">
+              神已經來給祂所呼召的人享受。然而我們若要有這享受，己必須除去。己一除去，以撒就來了；這就是說，恩典來了。喪失己並不容易；要除去己，我們必須受損失。…我們必須先失去自己，恩典纔能臨到。失去己就是失去面子。…弟兄們，當你在日常生活中對待妻子的時候，你必須準備失去己，你若這樣作，恩典就要來臨。亞伯拉罕受割禮之後，以撒就來了。這是原則。對我們來說，己必須除去，然後恩典纔臨到。
+            </p>
+              <p class="content-paragraph">
+              神要眷臨我們，進到我們裏面，爲我們活着，甚至爲我們愛別人。…你的愛是以實瑪利；但憑神的眷臨而有的愛是以撒。…凡在祂的眷臨之外，出於你的東西，神絕不認可。…我們都必須說，『主阿，沒有你的眷臨，我就不作甚麼。主，你若不臨到我，藉着我作些事，並從我作出來，我就不作甚麼。我旣不恨也不愛，旣不驕傲也不謙卑。我要作一張白紙。主，沒有你的眷臨，我就一無所有。』神的眷臨是實際的恩典。當我憑神的眷臨，而不憑自我的努力愛人並謙卑，那就是享受恩典。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

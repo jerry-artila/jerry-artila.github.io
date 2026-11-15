@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 週五 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1 active">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第五週</span>
+            <span class="badge">週五</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創二六13</span>
+              『他〔以撒〕就昌大，越發昌盛，成了巨富。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">約一16～17</span>
+              『從祂的豐滿裏我們都領受了，而且恩上加恩；因爲律法是藉着摩西賜的，恩典和實際都是藉着耶穌基督來的。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              以撒從他父親承受了一切。（創二四36，二五5。）以撒成爲他父親之豐富的繼承者，不是憑着他的努力，乃是憑着恩典。人沒有要求他作甚麼來承受父親的豐富，他也沒有作甚麼來得着產業。這是絕對而無條件的恩典。
+            </p>
+            <p class="content-paragraph">
+              在新約中，所有蒙召的信徒都是神絕對而無條件之恩典的承受者。神已呼召了我們，在基督裏用各樣屬靈的福分，祝福了我們。（弗一3。）祂在基督裏已把我們放在恩典裏，使我們成爲恩典的承受者，承受神聖豐滿的一切豐富，作我們的享受。…在恩典的承受中，我們必須停下天然生命的努力，使自己敞開，並豫備好享受恩典。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              以撒…在恩典裏成爲承受者。（創二一9～12。）他父親一切所有的都是他的，因爲亞伯拉罕把一切的豐富都給了這獨一的承受者。同樣，我們不該在我們自己裏面有享受。一切對產業的享受必須是在恩典裏。
+            </p>
+              <p class="content-paragraph">
+              以撒也在恩典裏順從。（二二5～10。）已往我讀創世記二十二章，不懂以撒這個青年人怎能這樣順從。至終我看見，他所以順從，是因他被恩典浸透了。…這個順從帶來神的供備。今天我們也是這樣。甚麼時候我們在恩典裏順從，我們就要看見神的供備。
+            </p>
+              <p class="content-paragraph">
+              神的恩典是有能力的，使我們能忍受一切事。保羅告訴提摩太，要在基督的『恩典上得着加力』。（提後二1。）恩典甚至能作主管理一切，（羅五21，）我們不該從恩典中墜落，（加五4，）反要靠恩典得堅固。（來十三9。）我們越在恩典裏忍受，就越看見並有分於恩典的供備。
+            </p>
+              <p class="content-paragraph">
+              以撒耕種有百倍的收成，成了巨富。（創二六12～14。）以撒『昌大，越發昌盛，成了巨富』。他憑着盡責的撒種，並藉着神的賜福，成了巨富。這也是一件享受的事，但這享受不是在正確的立場上。以撒也許會對自己說，『我的立場定規是對的，如果不對，神怎麼會用這些財富祝福我？』但神也許說，『以撒，你定居在這裏，得了許多財富，但我不贊同你的立場。我要興起環境來，逼你離開這裏。』願聖靈在這裏給我們看見這樣一幅生動的圖畫。一面有正當的享受；另一面有不正確的立場。卽使我們沒有正確的立場，我們仍能繼續有享受。但不要認爲這種享受稱義你的立場。只要有享受，我們的需要就得着了滿足。但爲着完成神永遠的定旨，我們需要站在正確的立場上。然而，卽使我們不在正確的立場上，神仍將祂豐富的供備賜給我們。這是奇妙的事。多麼奇妙的神！多麼奇妙的供備！我們是命定要享受的。卽使我們的立場錯了，仍然有豐富的享受。然而神不會讓我們過去，祂會利用環境把我們帶回到正確的立場上，使祂的定旨得以完成。
+            </p>
+              <p class="content-paragraph">
+              以撒在回到別是巴之前，他享受再享受，恩典加恩典。他得着了百倍收成之後，又找到了『活水井』，並且來到『寬闊之地』，『寬闊之路』。（利河伯—15～22。）他雖有這樣豐富的享受，但他的立場不正確，所以他被迫離開寬闊之路，回到別是巴。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

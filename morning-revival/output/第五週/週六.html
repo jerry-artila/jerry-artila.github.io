@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 週六 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1 active">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第五週</span>
+            <span class="badge">週六</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創二六24～25</span>
+              『當夜耶和華向他顯現，說，我是你父親亞伯拉罕的神，不要懼怕，因爲我與你同在，必賜福給你，並要爲我僕人亞伯拉罕的緣故，使你的後裔繁增。以撒就在那裏築了一座壇，呼求耶和華的名，並且支搭帳棚；他的僕人便在那裏挖了一口井。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              卽使面臨和非利士人爭井的難處，〔以撒〕也總是安息的。…有人聽到以撒無論去那裏都有一口井，就以爲這種享受旣是他們的定命，他們要去那裏，就可以去那裏。請不要有這樣的想法。你也許有一口井作你的享受，但你會失去主的顯現，無法完成神永遠的定旨。…神的定旨只能在別是巴完成，我們必須留在那裏。我們若留在那裏，就要經歷主的顯現，並且有立場承受應許，以完成神永遠的定旨。在別的地方，我們雖然也有井，甚至有『一口活水井』，（創二六19，）但這些井不能使我們完成神永遠的定旨。神的定旨只能在靠近別是巴垂絲柳樹的井旁完成。以撒雖然在每一個地方都有一口井，都有一些享受，但神不滿意，神用環境逼使以撒回到別是巴。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              當以撒回到別是巴，（創二六23～33，）神立卽向他顯現，向他說話，堅定祂的應許，說，『我是你父親亞伯拉罕的神，不要懼怕，因爲我與你同在，必賜福給你，並要爲我僕人亞伯拉罕的緣故，使你的後裔繁增。』（24。）於是在別是巴這裏，以撒開始有正確的見證。他築了一座壇，呼求耶和華的名，並且支搭帳棚。（25。）在別是巴這裏，他有了一種爲着完成神永遠定旨的生活。至終，在別是巴這裏，反對者被征服了。（26～31。）別是巴是正確的地方，在這裏我們能有正確的立場。正確的立場，無論對神或對我們，都有重大的意義。
+            </p>
+              <p class="content-paragraph">
+              以撒並沒有在別的地方築壇。神的顯現同祂的應許及見證都在別是巴。…雖然以撒在各地都有享受，但他只在別是巴有耶和華的顯現。（這種顯現與神僅僅來臨一下不同。）只有在別是巴這惟一的地方，他纔能承受應許，有見證的生活，來完成神的定旨。只有在別是巴，那盟誓的井，我們纔能有耶和華的顯現，承受應許，築壇，呼求主名，支搭帳棚作見證。在這裏，也只有在這裏，我們纔能完成神永遠的定旨。
+            </p>
+              <p class="content-paragraph">
+              我們的立場正確與否，只能憑主的顯現來斷定，不能單憑享受。在許多地方我們有過享受，但在那裏我們深覺沒有主的顯現。並且，在那些地方我們沒有祭壇或帳棚，也沒有從靈的深處呼求主名。…只有在別是巴纔能完成神的定旨。
+            </p>
+              <p class="content-paragraph">
+              以撒不但承受他父親一切所有的，也承受神給他父親關於美地和獨一後裔的應許；這後裔就是基督，地上萬國都要因祂得福。（3～5。）這應許實際上是爲着完成神的定旨，使神在地上能得着一個國度，在其中藉着一班團體的人彰顯祂自己。美地和後裔都是爲着神在地上形成一個國度。在這國度裏神能在後裔中得着完全的彰顯。神要把祂自己作到這班後裔裏面，他們要變化成爲祂的形像。這就是亞伯拉罕所得着，以撒所承受的應許。今天在我們身上，這應許要得着成就。今天我們在享受三一神作我們的恩典，藉着我們享受恩典，神的國要得着實現，神在基督裏要得着完全的彰顯，直到永遠。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

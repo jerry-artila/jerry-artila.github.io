@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 週一 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1 active">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第五週</span>
+            <span class="badge">週一</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">創二五5</span>
+              『亞伯拉罕將一切所有的都給了以撒。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">創二六12</span>
+              『以撒…撒種，那一年有百倍的收成。耶和華賜福給他。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">林前十五10</span>
+              『然而因着神的恩，我成了我今天這個人，並且神的恩臨到我，不是徒然的；反而我比眾使徒格外勞苦，但這不是我，乃是神的恩與我同在。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              整本聖經裏幾乎沒有另一個人像以撒那樣享受恩典。他終其一生不作別的，只享受神的恩典。他的一生就是享受恩典的一生。然而在以撒身上，我們看到與亞伯拉罕完全一樣的天然弱點。不僅如此，在以撒身上我們也看到雅各的天然生命。
+            </p>
+            <p class="content-paragraph">
+              以撒是一個享受恩典的人。照我們天然的觀念，一個有天然弱點，且活在天然生命裏的人，絕不能享受神的恩典。這是我們的觀念，這不是神的話。在聖經裏，我們看不到以撒很屬靈。他是一個仍有天然弱點，仍活在天然生命裏的人。那麼爲甚麼他這樣享受神的恩典？只因神已這樣命定。對我們基督徒來說，有神命定的一面。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              享受神的恩典乃是我們的定命，這定命是在創立世界以前所豫先定下的。不要以爲你若屬靈，就有特權享受神的恩典；你若不屬靈，就不能享受祂的恩典。這是宗教觀念，聖經並沒有這樣教訓。有人聽說享受恩典不根據屬靈，也許會說，『我們享受神的恩典若不需要屬靈，那麼就讓我們不屬靈罷！』不要這樣說。屬靈不屬靈都不會幫助我們享受神的恩典，這完全是神的命定，並不在於我們的所是和所能。…我們已經被神命定來享受恩典。…不要浪費時間想要屬靈或不屬靈，只要說，『主阿，因着你的命定我敬拜你。你已經命定我來享受恩典。』至少我們都是以撒的一部分，在我們裏面有一面已經被神命定來享受祂的恩典。
+            </p>
+              <p class="content-paragraph">
+              恩典的事歷年來被隱藏、封閉、遮蔽着。…恩典是神的一些東西作到我們裏面，在我們裏面工作，也爲我們工作。這不是外面的事。恩典是神在基督裏作到我們裏面，爲我們生活、工作並行事。保羅在林前十五章十節…〔的〕話相當深奧。保羅不是說，『因着神的恩，我有了我所有的。因着神的恩，我有了好車子、好職業、好妻子。』他甚至也不是說，『因着神的恩，我作了我所作的。』這不在於作甚麼、得甚麼或行甚麼；這完全在於是甚麼。因此保羅說，『因着神的恩，我成了我今天這個人。』這意思就是，神的恩作到他裏面，使他成了那樣的人。在加拉太二章二十節保羅說，『不再是我，乃是基督在我裏面活着。』我們若把這一節和林前十五章十節放在一起，就看見恩典就是活在我們裏面的基督。『這不是我，乃是神的恩。』『不再是我，乃是基督。』恩典不在我們外面，也不在我們旁邊。恩典乃是一位神聖的人物，就是神自己在基督裏，作到我們裏面，成爲我們的構成成分。因着缺少啓示，基督徒誤會並誤解了恩典，以爲恩典是外面的東西。但恩典乃是那位三一神作到我們裏面，使我們成爲所該是的，並且爲我們生活、工作、行事，使我們能說，『因着神的恩，我成了我今天這個人。這不是我，乃是神的恩典。』
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

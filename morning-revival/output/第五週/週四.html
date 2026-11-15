@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 週四 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1 active">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <main class="main-content">
+      <!-- Article Content -->
+      <article class="reading-article">
+        <!-- Title & Meta Header -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="date-text">第五週</span>
+            <span class="badge">週四</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1: Morning Nourishment (晨興餧養) -->
+        <section id="sec-nourishment" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">🌅</span>
+            <h3>晨興餧養</h3>
+          </div>
+
+          <!-- Scripture Cards -->
+          <div id="nourishment-verses" class="verse-card-group">
+            <div class="verse-card">
+              <span class="verse-ref">來四16</span>
+              『所以我們只管坦然無懼的來到施恩的寶座前，爲要受憐憫，得恩典，作應時的幫助。』
+            </div>
+            <div class="verse-card">
+              <span class="verse-ref">啓二二1</span>
+              『天使又指給我看在城內街道當中一道生命水的河，明亮如水晶，從神和羔羊的寶座流出來。』
+            </div>
+          </div>
+
+          <!-- Nourishment Body Text -->
+          <div id="nourishment-text" class="reading-body">
+            <p class="content-paragraph">
+              我們若要接受並享受恩典，就需要領悟我們的靈是我們能經歷恩典惟一的地方。正如我們使用電只需要打開開關，我們要接觸運行並塗抹的那靈，也惟有在我們的靈裏。你若想接受恩典並享受恩典，不要運用你的心思、情感或意志。反之，要轉向你的靈並運用你的靈。
+            </p>
+            <p class="content-paragraph">
+              〔希伯來四章十六節的〕施恩的寶座不只在天上，也在我們靈裏。…我們可以來到施恩的寶座前這個事實，指明在經歷中這寶座乃是在我們的靈裏。我從經歷裏得知，我一轉向我的靈，呼喊『主耶穌』，我就立刻感覺到施恩的寶座乃是在我的靈裏。
+            </p>
+          </div>
+        </section>
+
+        <!-- Section 2: Selected Reading (信息選讀) -->
+        <section id="sec-reading" class="reading-section">
+          <div class="section-heading reading-heading">
+            <span class="reading-icon">📖</span>
+            <h3>信息選讀</h3>
+          </div>
+
+          <div class="reading-body">
+            <div id="read-1">
+                            <p class="content-paragraph">
+              每當我們轉到靈裏，呼求主名，來到施恩的寶座前，我們就應當讓主登寶座。我們必須讓祂在我們裏面有元首的權柄、君王的權柄和主權。這會有很大的不同！有時我們在禱告中，覺得主在我們裏面，但我們不願意將寶座讓給祂。我們不承認祂的君王權柄，我們高舉自己在祂以上，自己登了寶座。實際說來，我們是叫主下了寶座。我們只要不讓主登寶座，恩典的流就立刻停止。就在我們禱告的時候，我們需要讓主在我們裏面登寶座，尊崇祂爲元首、爲主、爲王。這樣，恩典在我們裏面纔會湧流如同江河。…生命水的河從神和羔羊的寶座流出來。因此，神的寶座是湧流恩典的源頭。叫主下寶座，把寶座從祂挪去，就是忽視恩典的源頭。這就使恩典的流停止。這不僅是個教訓，更是在經歷上非常真實的事。
+            </p>
+              <p class="content-paragraph">
+              我們若要接受恩典並享受恩典，我們所必須作的第一件事，就是轉到我們的靈裏，忘掉我們的心思、情感與意志。然而，撒但興起一樣又一樣的事端，要叫我們離開靈。他可能在夫妻之間挑起爭執。他們吵嘴的時候，就不容易轉到靈裏，因爲他們的爭論與情緒都被挑動起來了。我們的爭論與情緒一激烈，就不容易轉回靈裏了。…操練轉到靈裏並留在靈裏最好的路，乃是有定時的禱告。…在這段時間，你惟一當作的事，就是操練轉向靈，並且留在靈裏。不要擔心你那一天必須作甚麼。要拒絕你天然的心思、情感與意志，並且要運用你的靈來接觸主。
+            </p>
+              <p class="content-paragraph">
+              當我們轉回靈裏並且留在靈裏時，我們需要承認主是元首、是王，並要讓祂登寶座。我們需要尊崇祂的地位，尊重祂的權柄，並且承認我們沒有權利憑自己說甚麼或作甚麼。我們裏面所有的地位都必須交給這位王。我們若讓主在我們裏面登寶座，生命水的河就會從寶座上流出來供應我們。這樣，我們就會接受…並享受恩典。…我們今天的需要乃是轉回到這靈裏，並且留在靈裏，讓主登寶座。這樣，我們的靈就實際的連於三層天。我們就會在經歷裏明白，至聖所一面是在天上，另一面也在我們靈裏。這指明當我們留在靈裏，我們實際上就摸着了天。我們若讓主耶穌在我們裏面登寶座，作爲生命水的那靈就會從寶座上流出來供應我們。這就是恩典，也是接受恩典並享受恩典的路。
+            </p>
+            </div>
+          </div>
+        </section>
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>第五週 • 綱目 | 晨興聖言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css?v=45299ac8">
+</head>
+<body class="font-22px theme-light">
+  <!-- Header / Navigation Bar -->
+  <header class="app-header">
+    <div class="header-container">
+      <button id="mobile-toc-toggle" class="btn-icon" aria-label="切換導覽選單">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="header-title">
+        <h1>晨興聖言</h1>
+      </div>
+
+      <div class="header-controls">
+        <button id="font-size-btn" class="btn-control" title="調整字體大小 (22px -> 24px -> 26px 循環)">
+          <span class="btn-icon-text">A+</span>
+          <span id="font-size-label">22px</span>
+        </button>
+
+        <button id="theme-btn" class="btn-control" title="切換深淺模式">
+          <svg id="sun-icon" class="theme-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg id="moon-icon" class="theme-icon hidden" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <div class="layout-container">
+    <!-- TOC Sidebar / Mobile Drawer -->
+    <aside id="toc-sidebar" class="toc-sidebar">
+      <div class="toc-header">
+        <h2>頁面導覽</h2>
+        <button id="toc-close-btn" class="btn-icon mobile-only" aria-label="關閉導覽">✕</button>
+      </div>
+      <nav id="toc-nav" class="toc-nav">
+        <ul>
+          <li><a href="../index.html" class="toc-link level-1">📚 各週總覽</a></li>
+          <li><a href="index.html" class="toc-link level-1">🏠 首頁 (經文)</a></li>
+          <li><a href="綱目.html" class="toc-link level-1 active">📋 綱目</a></li>
+          <li><a href="週一.html" class="toc-link level-1">📅 週一進度</a></li>
+          <li><a href="週二.html" class="toc-link level-1">📅 週二進度</a></li>
+          <li><a href="週三.html" class="toc-link level-1">📅 週三進度</a></li>
+          <li><a href="週四.html" class="toc-link level-1">📅 週四進度</a></li>
+          <li><a href="週五.html" class="toc-link level-1">📅 週五進度</a></li>
+          <li><a href="週六.html" class="toc-link level-1">📅 週六進度</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <div id="toc-overlay" class="toc-overlay"></div>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <article class="outline-article">
+        <!-- Title Card -->
+        <div class="title-card">
+          <div class="title-meta">
+            <span class="badge">第五週 綱目</span>
+          </div>
+          <h2 class="main-title">
+            過享受恩典的生活，使神喜悅
+          </h2>
+          <p class="reading-scripture" style="margin-top: 0.5rem; font-size: 0.9em; color: var(--text-muted);">讀經：創二六3～4、12～33，加六18，林前十五10，林後十二7～10，啓二二21</p>
+        </div>
+
+        <!-- Section 1 -->
+        <section id="section-1" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第壹大點</span>
+            </div>
+            <h3 class="level-1-title">以撒是享受神恩典，使神喜悅的模型、榜樣—創二四36，二五5，二六3～4、12～33，羅五1～2，徒四33，十一23：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-1-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>恩典是神在基督裏作爲那靈，作到我們這人裏面給我們享受，對我們成爲一切，並在我們裏面、藉着我們且爲我們作一切事，好使祂能成爲我們這人的構成成分，爲着建造基督的身體，終極完成新耶路撒冷—約一16～17，來十29下，林前十五10。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-1-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>享受神的恩典乃是我們的定命，這定命是在創立世界以前所豫先定下的—弗一3～6，二7。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-1-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>『伊勒沙代』，全足的神，乃是全足的恩典，用祂神聖所是的豐富供應祂所呼召的人，好成就祂的定旨—創十七1，二八3。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section id="section-2" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第貳大點</span>
+            </div>
+            <h3 class="level-1-title">亞伯拉罕天然的力量和自我的努力受神對付之後，以撒出生了（創十七15～19，十八10～14，二一1～7）；這含示以撒是從撒拉所代表的恩典而生（加四23～28、31，彼前三7）：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-2-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>『耶和華豈有難成的事麼？到了約定的日期，明年這時候〔直譯，照着生命的時候〕，我必回到你這裏，撒拉必生一個兒子』：</p>
+              </div>
+                  <ol class="level-3-list">
+                    <li class="level-3-item">
+                      <span class="level-3-num">1.</span>
+                      <p class="level-3-text">生命的時候（10），就是約定生以撒的日期（十七21），乃是神眷顧的時候（二一1）。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">2.</span>
+                      <p class="level-3-text">以撒的出生乃是耶和華的來臨，也就是恩典的來臨—參約一17。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">3.</span>
+                      <p class="level-3-text">以撒不是憑人天然生命的力量，乃是憑神恩典的力量生的；這發生在亞伯拉罕受割禮之後，他和他的妻子撒拉，如同完全死了（創十八11，羅四18～19）；這表徵生命的時候，就是基督成爲我們生命的時候，要在我們天然的力量被了結之後纔來到。</p>
+                    </li>
+                  </ol>
+            </div>
+
+            <div id="sec-2-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>亞伯拉罕的生活啓示，我們若要享受神的恩典，對神的豐富有完滿的享受，就必須忍受損失，天然的生命也必須受割禮，被割除；認識並經歷恩典最大的阻撓乃是己—創十七11、19，參腓三3。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-2-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>以撒的生活啓示，我們受苦以了結天然的生命，乃是爲着享受神的恩典—參林後一8～9、12，十二7～10，羅五1～5。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section id="section-3" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第叁大點</span>
+            </div>
+            <h3 class="level-1-title">以撒在恩典中長大；在恩典中長大就是享受基督之於我們的一切，作我們的靈食與活水而長大—創二一8，彼後三18，彼前二2：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-3-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>以撒的長大，表徵基督生在新約信徒裏面之後的長大；基督在我們裏面需要長大，好使基督能成形在我們裏面—林前三6。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-3-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>恩典的靈（來十29）就是生命的恩典（彼前三7），神諸般的恩典（四10），那全般恩典的神（五10），全然彀用的恩典（林後十二9）；這恩典如今與我們的靈同在（加六18）。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-3-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>天天接受並享受恩典的路，乃是藉着血、話、那靈和召會：</p>
+              </div>
+                  <ol class="level-3-list">
+                    <li class="level-3-item">
+                      <span class="level-3-num">1.</span>
+                      <p class="level-3-text">救贖的血，立約的血，神自己的血，將有罪、敗壞的人帶進對神永遠的享受中—徒二十28，太二六28，利十六11～16，來十19。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">2.</span>
+                      <p class="level-3-text">恩典的話能給我們喫，而成爲我們心中的歡喜快樂—徒二十32，耶十五16，約六63。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">3.</span>
+                      <p class="level-3-text">恩典的靈作爲經過過程並終極完成之神全備的供應，乃是歡樂的油；我們被這油所膏，成爲基督的同夥—來一9，十29下。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">4.</span>
+                      <p class="level-3-text">神的召會經歷神新鮮、復甦的恩典作降下的甘露，藉着神的憐恤從諸天臨到我們，以澆灌並變化我們—詩一三三3，哀三22～23。</p>
+                    </li>
+                  </ol>
+            </div>
+
+            <div id="sec-3-4" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">四、</span>
+                <p>天天接受並享受恩典的路，乃是轉向靈，運用靈，並讓主登寶座—來四16，羅五17、21，參啓四2：</p>
+              </div>
+                  <ol class="level-3-list">
+                    <li class="level-3-item">
+                      <span class="level-3-num">1.</span>
+                      <p class="level-3-text">神的寶座是湧流之恩典的源頭；只要我們不讓主登寶座，叫主下了寶座，恩典的流就停止—二二1，西一18下，啓二4，彼前五5。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">2.</span>
+                      <p class="level-3-text">我們若讓主耶穌在我們裏面登寶座，那靈作爲生命水的河就會從施恩的寶座流出來供應我們；這樣，我們就會接受恩典並享受恩典—啓二二1，詩歌五五七首。</p>
+                    </li>
+                  </ol>
+            </div>
+
+            <div id="sec-3-5" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">五、</span>
+                <p>天天接受並享受恩典的路，乃是愛主，將自己獻給主，並藉着各樣的禱告在主的話中接觸主—林後五14，弗六24，利六12～13。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section id="section-4" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第肆大點</span>
+            </div>
+            <h3 class="level-1-title">以撒也在恩典中成爲後嗣；我們也是神的後嗣，享受祂作我們得基業的憑質，使我們承受祂，並讓祂承受我們—創二一9～12，二四36，二五5，羅八17，徒二六18，弗一11、14、18：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-4-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>以撒從他父親承受了一切；在新約中，所有蒙召的信徒都是神絕對而無條件之恩典的承受者，承受神聖豐滿的一切豐富，作我們的享受（弗一3、6，三8、19）。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-4-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>以撒表徵我們不是自己要去作，不是自己要去得；以撒乃是享受亞伯拉罕的一切，表徵父神的一切—創二四36，二五5。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-4-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>認識以撒的神只有一個意思，就是認識神是供給者，一切都是從神來的；這也就是說，我們甚麼都是接受的，得勝的祕訣是在乎接受—弗一3，腓一19，約一16，羅五17，八2。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 5 -->
+        <section id="section-5" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第伍大點</span>
+            </div>
+            <h3 class="level-1-title">以撒在恩典中順從；甚麼時候我們在恩典中順從，我們就要看見神的供備—創二二5～10，約一17：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-5-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>神的恩典是有能力的，使我們能忍受一切事—提後二1。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-5-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>恩典能作王管理一切—羅五21，來四16。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-5-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>回到律法就是拒絕這恩典，廢棄這恩典，從恩典中墜落—加二21，五4，參創十六16，十七1：</p>
+              </div>
+                  <ol class="level-3-list">
+                    <li class="level-3-item">
+                      <span class="level-3-num">1.</span>
+                      <p class="level-3-text">從恩典中墜落乃是與基督隔絕，從基督貶爲無有，與基督分開，喪失了在基督裏的一切益處—參約十五4～5。</p>
+                    </li>
+                    <li class="level-3-item">
+                      <span class="level-3-num">2.</span>
+                      <p class="level-3-text">若是我們轉到諸如律法或品格改良這些基督以外的事，而不聯於基督，不時時享受基督，我們就會喪失對基督的享受—參西二18。</p>
+                    </li>
+                  </ol>
+            </div>
+
+            <div id="sec-5-4" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">四、</span>
+                <p>我們需要靠恩典得堅固，就是留在新約裏，以享受基督作恩典—來十三9，參加五4。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section id="section-6" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第陸大點</span>
+            </div>
+            <h3 class="level-1-title">以撒有百倍的收成，『他就昌大，越發昌盛，成了巨富』 —創二六12～14：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-6-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>我們的心必須是好土，好使神恩典的話在我們裏面自由的長大，並結實百倍—路八8、11、15，徒二十32。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-6-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>我們需要繼續不斷的享受神恩典超越的豐富，就是神自己的豐富，作我們的享受—羅五17，約一16，弗一7，二7。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 7 -->
+        <section id="section-7" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第柒大點</span>
+            </div>
+            <h3 class="level-1-title">雖然以撒享受神無條件的恩典，在他所到之處都得着享受和滿足（由井所表徵）（創二五11，二六15～25、33），別是巴卻是他經歷神的顯現、接受神的應許、築壇、呼求耶和華的名並且支搭帳棚作見證的惟一地方：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-7-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>神所呼召的人，不論他們的立場如何，都被命定要享受神的恩典，然而這享受並不稱義他們的立場。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-7-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>我們若渴望得着神的顯現，承受祂的應許，並過一種完成祂永遠定旨的生活，就必須來到神所選擇獨一的地方，並且留在那裏。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-7-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>這獨一的地方由別是巴所表徵，有井作生命的供應，並有垂絲柳樹作生命豐富之湧流的彰顯—23～24節，二一25、33。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 8 -->
+        <section id="section-8" class="outline-section">
+          <div class="section-heading level-1-heading">
+            <div class="level-1-top-bar">
+              <span class="numeral">第捌大點</span>
+            </div>
+            <h3 class="level-1-title">以撒承受神給他父親關於美地和獨一後裔的應許；這後裔就是基督，地上萬國都要因祂得福—二六3～5，加三14、16：</h3>
+          </div>
+          <div class="section-body">
+            <div id="sec-8-1" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">一、</span>
+                <p>亞伯拉罕獨一的後裔作爲末後的亞當成了賜生命的靈，乃是亞伯拉罕的福（美地的實際），爲要將祂自己分賜到基督的信徒裏面，使他們成爲亞伯拉罕團體的後裔—14、16、29節，林前十五45下，約十二24，賽五三10。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-8-2" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">二、</span>
+                <p>這應許是爲着完成神的定旨，使神在地上能得着一個國，在其中藉着一班團體的人彰顯祂自己—創一26，可四26，但二34～35。</p>
+              </div>
+
+            </div>
+
+            <div id="sec-8-3" class="item-block level-2-item">
+              <div class="item-title">
+                <span class="item-num">三、</span>
+                <p>藉着我們享受恩典，神的國要得着實現，神在基督裏要得着完全的彰顯，直到永遠—啓二二21，弗二10。</p>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+      </article>
+
+      <footer class="app-footer">
+        <p>晨興聖言 — 淡水會所網頁版</p>
+      </footer>
+    </main>
+  </div>
+
+  <script src="../app.js?v=daf9656e"></script>
+</body>
+</html>
