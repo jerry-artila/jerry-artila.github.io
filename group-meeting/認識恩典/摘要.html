@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>認識恩典 - 綱要摘要</title>
+  <meta name="description" content="認識恩典（綱要摘要） - 職事文摘。手機閱讀體驗最佳化，支援 22px / 26px / 30px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #215a36;
+      --accent-light: rgba(33, 90, 54, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 22px;
+      --line-height-base: 1.68;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #27673e;
+      --accent-light: rgba(39, 103, 62, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #68b984;
+      --accent-light: rgba(104, 185, 132, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left, 16px));
+      padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    .icon-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      height: 38px;
+      min-width: 38px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .font-toggle-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    /* Mode Switch Tabs (全文 / 摘要) */
+    .mode-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      background: var(--card-bg);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab:not(.active):hover {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.55);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.25);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.4rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    /* Text Paragraphs & Lists */
+    p {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    ul.summary-list, ol.summary-list {
+      margin: 0.8rem 0 1.5rem 0;
+      padding-left: 1.4em;
+    }
+
+    ul.summary-list li, ol.summary-list li {
+      margin-bottom: 0.95rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      line-height: var(--line-height-base);
+    }
+
+    ul.summary-list li strong, ol.summary-list li strong {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    /* Lead Quote Box */
+    .lead-box {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lead-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 380px;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .drawer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover, .toc-link:active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="認識恩典（綱要摘要）">認識恩典</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (22px -> 26px -> 30px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 22px / 26px / 30px">
+        22px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="摘要目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📋 綱要摘要目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：22px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#sec-intro" class="toc-link">壹、引言：全足的恩典與天然生命的割除</a></li>
+      <li class="toc-item"><a href="#sec-part2" class="toc-link">貳、恩典在聖經中的最高意義與目的</a></li>
+      <li class="toc-item"><a href="#sec-part3" class="toc-link">參、恩典不需要人自己所有的（以利以謝）</a></li>
+      <li class="toc-item"><a href="#sec-part4" class="toc-link">肆、人所有的都擺在死地，讓神從其中經過</a></li>
+      <li class="toc-item"><a href="#sec-part5" class="toc-link">伍、神親自眷臨，以撒就生出來</a></li>
+      <li class="toc-item"><a href="#sec-part6" class="toc-link">陸、恩典不需要人自己所作與所能的（夏甲與割禮）</a></li>
+      <li class="toc-item"><a href="#sec-part7" class="toc-link">柒、要除去人自己所作的（趕出以實瑪利）</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀出處</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <!-- 全文 / 摘要 切換按鈕 -->
+      <div class="mode-tabs" aria-label="閱讀版本切換">
+        <a href="index.html" class="mode-tab">📖 閱讀全文</a>
+        <a href="摘要.html" class="mode-tab active">📋 綱要摘要</a>
+      </div>
+
+      <header class="article-header">
+        <span class="article-tag">生命篇 · 綱要摘要 · 第十一卷·第三期</span>
+        <h1 class="article-title">認識恩典</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》生命篇</span>
+          <span>引自《從亞伯拉罕以撒雅各的經歷看神的選召》第九至十篇</span>
+        </div>
+      </header>
+
+      <!-- Section: 壹、引言：全足的恩典與天然生命的割除 -->
+      <section id="sec-intro">
+        <h2 class="section-title">壹、引言：全足的恩典與天然生命的割除</h2>
+        <div class="lead-box">
+          <p>享受恩典乃是神豫定給我們的定命（弗一 3～6），而經歷恩典最大的阻撓乃是我們的「己」。神的恩典不需要我們的所有、所作和所能；我們天然的生命必須受割禮、被割除（創十七 1～2，10～11），全足的神（全足的恩典）纔能用祂神聖所是的豐富供應我們，成就祂的定旨。</p>
+        </div>
+      </section>
+
+      <!-- Section: 貳、恩典在聖經中的最高意義與目的 -->
+      <section id="sec-part2">
+        <h2 class="section-title">貳、恩典在聖經中的最高意義與目的</h2>
+        <ul class="summary-list">
+          <li><strong>恩典的最高意義：</strong>恩典就是神和神的生命進到人裏面，給我們得着，作了我們生活行事的生命和能力。一切都不需要我們作、我們成全或努力；反之，一切都是神作、神來成全、神來負責。</li>
+          <li><strong>從神看顧到認識恩典（創十五～二一）：</strong>亞伯拉罕蒙召後第一個功課是信心生活（經歷神的看顧）；第二個功課是認識恩典（關乎神的應許）。</li>
+          <li><strong>為着生出後裔以達成神的目的（創十二 2）：</strong>亞伯拉罕必須有後裔纔能成為大國，使神在地上掌權並彰顯榮耀。認識並經歷恩典以生出後裔，乃是為着達成神的目的。</li>
+        </ul>
+      </section>
+
+      <!-- Section: 參、恩典不需要人自己所有的（以利以謝） -->
+      <section id="sec-part3">
+        <h2 class="section-title">參、恩典不需要人自己所有的（以利以謝）</h2>
+        <ul class="summary-list">
+          <li><strong>棄絕大馬色人以利以謝（創十五 1～4）：</strong>亞伯拉罕原想以家僕以利以謝承受家業，但神指明「你本身將要生的，纔是你的後嗣」。神不需要亞伯拉罕自己所有的。</li>
+          <li><strong>召會中變相的以利以謝：</strong>凡我們天然所有的學問、經驗、閱歷、地位、名聲或社會手腕，都是「大馬色的東西」（以利以謝）。倚靠這些不能叫人得救、不能產生屬靈後裔，也不能治理好召會。</li>
+          <li><strong>神自己就是恩典與能力：</strong>傳福音的能力和召會中的治理都該是神自己。神來了，召會就復興、上軌道；神只要人作祂經過的通道，讓祂親自來作（創十八 10）。</li>
+        </ul>
+      </section>
+
+      <!-- Section: 肆、人所有的都擺在死地，讓神從其中經過 -->
+      <section id="sec-part4">
+        <h2 class="section-title">肆、人所有的都擺在死地，讓神從其中經過</h2>
+        <ol class="summary-list">
+          <li><strong>剖開祭物擺在死地（創十五 7～10）：</strong>神給亞伯拉罕承受地業的憑據，是吩咐他將三歲的母牛、母山羊、公綿羊取來從中剖開，與斑鳩、雛鴿一同擺列。這啟示人與人所有的一切（以利以謝）都必須被剖開、擺在死地。</li>
+          <li><strong>鷙鳥與大黑暗的試煉（創十五 11～13）：</strong>鷙鳥表徵撒但（太十三 4，19）來干涉破壞，帶進驚人的大黑暗（試煉時期）。人天然所有的很容易招來撒但與黑暗。</li>
+          <li><strong>冒煙的爐與燒着的火把經過（創十五 17）：</strong>冒煙的爐表徵試煉中的煉淨，燒着的火把表徵神帶來光照以消除黑暗。當我們肯將原有的都剖開擺在死地，讓神從其中經過，亮光就來臨，神的恩典定規進來替我們成全祂的旨意。</li>
+        </ol>
+      </section>
+
+      <!-- Section: 伍、神親自眷臨，以撒就生出來 -->
+      <section id="sec-part5">
+        <h2 class="section-title">伍、神親自眷臨，以撒就生出來</h2>
+        <ul class="summary-list">
+          <li><strong>「我來了，就是以撒」（創十八 10，14）：</strong>神兩次對亞伯拉罕說「明年這時候，我必回到你這裏，你的妻子撒拉必生一個兒子」，指明神來了纔有以撒。以撒豫表拿撒勒人耶穌，是神來成為人，就是神自己。</li>
+          <li><strong>耶和華眷臨撒拉（創二一 1）：</strong>撒拉生出以撒，不是神在環境中物質的供給與看顧，乃是耶和華按着應許親自「眷臨」（臨到）撒拉的結果。達到神的目的不是用人所有的，乃是神自己來作，這就是恩典。</li>
+        </ul>
+      </section>
+
+      <!-- Section: 陸、恩典不需要人自己所作與所能的（夏甲與割禮） -->
+      <section id="sec-part6">
+        <h2 class="section-title">陸、恩典不需要人自己所作與所能的（夏甲與割禮）</h2>
+        <ul class="summary-list">
+          <li><strong>越過神而生出以實瑪利（創十六 2～3）：</strong>撒拉出頭題議亞伯拉罕娶夏甲，憑肉體能力生下以實瑪利。以實瑪利的原則就是人憑自己的力量和方法去完成神的旨意；結果反而頂撞神，使亞伯拉罕十三年之久得不着神的顯現。</li>
+          <li><strong>神注意源頭過於性質：</strong>神在蒙召之人身上不僅問作甚麼，更問「是誰來作？源頭是出於人，還是出於神？」</li>
+          <li><strong>肉體能力死絕與受割禮（羅四 19，創十七 10～19）：</strong>等到亞伯拉罕與撒拉生育能力斷絕，神纔顯現要他行割禮，割去肉體的能力，並明言夏甲生的不算，惟獨從撒拉生的以撒纔能堅定永遠的約。</li>
+          <li><strong>神進到我們裏面生出以撒：</strong>在成功神呼召的旨意上，人所有、所作和所能的，神一概不要；惟有神自己進到我們裏面，經過我們，從我們裏面生出以撒，纔是恩典。</li>
+        </ul>
+      </section>
+
+      <!-- Section: 柒、要除去人自己所作的（趕出以實瑪利） -->
+      <section id="sec-part7">
+        <h2 class="section-title">柒、要除去人自己所作的（趕出以實瑪利）</h2>
+        <ul class="summary-list">
+          <li><strong>人工作的成績是恩典的對頭（創二一 8～10）：</strong>以撒斷奶時受到以實瑪利的戲笑，表徵憑自己所作的輕看憑恩典所作的。人若認識恩典，不只不需要以實瑪利，更必須把以實瑪利（憑自己所作的工作果效與成績）趕出去。</li>
+          <li><strong>經過憂愁，對付肉體的果子（創二一 11）：</strong>亞伯拉罕趕走以實瑪利時甚是愁煩；信徒除掉肉體的果子、摔碎自己的工作時也會經歷憂愁，但惟有徹底對付，神的恩典纔能在我們身上長大成形。</li>
+          <li><strong>恩典是絕對的：</strong>在成全神旨意的事上，不用我們所有的、不憑我們所作的、不靠我們所能的，並且除去我們所作的。只要神來了，以撒就出來，神榮耀的目的就完成了。</li>
+        </ul>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 出處：《職事文摘》生命篇 · 參讀：從亞伯拉罕以撒雅各的經歷看神的選召，第九至十篇。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="index.html" class="nav-card-btn">
+          <span class="nav-card-sub">切換版本</span>
+          <span class="nav-card-title">📖 閱讀本篇全文</span>
+        </a>
+        <a href="../index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">聚會文章列表 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (22px -> 26px -> 30px) ---
+    const FONT_SIZES = [22, 26, 30];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 22;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 22;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>

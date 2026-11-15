@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-theme="sepia">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>認識恩典</title>
+  <meta name="description" content="認識恩典 - 職事文摘。手機閱讀體驗最佳化，支援 22px / 26px / 30px 字級切換、漢堡選單目錄導航。">
+  <style>
+    :root {
+      --bg-color: #f7f4ee;
+      --card-bg: #ffffff;
+      --text-color: #2c2825;
+      --text-muted: #736b63;
+      --accent-color: #215a36;
+      --accent-light: rgba(33, 90, 54, 0.08);
+      --border-color: #e4ddd2;
+      --header-bg: rgba(247, 244, 238, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.08);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.12);
+      
+      --font-size-base: 22px;
+      --line-height-base: 1.68;
+      --container-max-width: 760px;
+      --header-height: 58px;
+    }
+
+    [data-theme="light"] {
+      --bg-color: #fbfbfb;
+      --card-bg: #ffffff;
+      --text-color: #1f2328;
+      --text-muted: #656d76;
+      --accent-color: #27673e;
+      --accent-light: rgba(39, 103, 62, 0.08);
+      --border-color: #e2e4e8;
+      --header-bg: rgba(251, 251, 251, 0.94);
+    }
+
+    [data-theme="dark"] {
+      --bg-color: #16171a;
+      --card-bg: #202226;
+      --text-color: #e3e6eb;
+      --text-muted: #959da8;
+      --accent-color: #68b984;
+      --accent-light: rgba(104, 185, 132, 0.16);
+      --border-color: #31353d;
+      --header-bg: rgba(22, 23, 26, 0.94);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+      --shadow-md: 0 6px 20px rgba(0, 0, 0, 0.45);
+      --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Noto Serif TC", "Microsoft JhengHei", serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      transition: background-color 0.25s ease, color 0.25s ease;
+      min-height: 100vh;
+      padding-top: calc(var(--header-height) + env(safe-area-inset-top, 0px));
+      padding-bottom: calc(40px + env(safe-area-inset-bottom, 0px));
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--accent-color);
+      z-index: 1001;
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Header */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: var(--header-height);
+      padding-top: env(safe-area-inset-top, 0px);
+      background-color: var(--header-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-left: max(16px, env(safe-area-inset-left, 16px));
+      padding-right: max(16px, env(safe-area-inset-right, 16px));
+    }
+
+    .header-left, .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .header-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-color);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 42vw;
+      text-align: center;
+    }
+
+    .icon-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: var(--text-color);
+      padding: 6px 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      height: 38px;
+      min-width: 38px;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.95);
+    }
+
+    .hamburger-btn svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    .font-toggle-btn {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    /* Main Container */
+    .article-container {
+      max-width: var(--container-max-width);
+      margin: 0 auto;
+      padding: 24px 20px 48px;
+    }
+
+    /* Mode Switch Tabs (全文 / 摘要) */
+    .mode-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+      background: var(--card-bg);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab {
+      flex: 1;
+      text-align: center;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--text-muted);
+      transition: all 0.2s ease;
+    }
+
+    .mode-tab.active {
+      background: var(--accent-color);
+      color: #ffffff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .mode-tab:not(.active):hover {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Article Header */
+    .article-header {
+      margin-bottom: 2rem;
+      padding-bottom: 1.2rem;
+      border-bottom: 2px solid var(--border-color);
+    }
+
+    .article-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--accent-color);
+      background-color: var(--accent-light);
+      padding: 4px 12px;
+      border-radius: 14px;
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .article-title {
+      font-size: calc(var(--font-size-base) * 1.6);
+      line-height: 1.35;
+      font-weight: 800;
+      color: var(--text-color);
+      margin-bottom: 12px;
+    }
+
+    .article-meta {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    /* Headings */
+    h2.section-title {
+      font-size: calc(var(--font-size-base) * 1.28);
+      line-height: 1.4;
+      font-weight: 700;
+      color: var(--accent-color);
+      margin-top: 2.6rem;
+      margin-bottom: 1.1rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1.5px solid var(--border-color);
+      scroll-margin-top: calc(var(--header-height) + 16px);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h2.section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.1em;
+      background: var(--accent-color);
+      border-radius: 2px;
+    }
+
+    /* Text Paragraphs & Lists */
+    p {
+      margin-bottom: 1.25rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      text-wrap: pretty;
+      letter-spacing: 0.02em;
+    }
+
+    ul.summary-list, ol.summary-list {
+      margin: 0.8rem 0 1.5rem 0;
+      padding-left: 1.4em;
+    }
+
+    ul.summary-list li, ol.summary-list li {
+      margin-bottom: 0.95rem;
+      text-align: justify;
+      text-justify: inter-ideograph;
+      line-height: var(--line-height-base);
+    }
+
+    ul.summary-list li strong, ol.summary-list li strong {
+      color: var(--accent-color);
+      font-weight: 700;
+    }
+
+    /* Lead Quote Box */
+    .lead-box {
+      margin: 1.6rem 0;
+      padding: 16px 20px;
+      background-color: var(--card-bg);
+      border-left: 4px solid var(--accent-color);
+      border-radius: 0 10px 10px 0;
+      box-shadow: var(--shadow-sm);
+      font-size: calc(var(--font-size-base) * 1.02);
+      color: var(--text-color);
+      line-height: 1.65;
+      border-top: 1px solid var(--border-color);
+      border-right: 1px solid var(--border-color);
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .lead-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .reference-box {
+      margin-top: 3rem;
+      padding: 18px;
+      background: var(--card-bg);
+      border: 1px dashed var(--accent-color);
+      border-radius: 10px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-align: center;
+      line-height: 1.7;
+    }
+
+    /* Drawer / Off-canvas Menu */
+    .drawer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .drawer-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 82%;
+      max-width: 380px;
+      height: 100vh;
+      background: var(--bg-color);
+      z-index: 2001;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      padding-top: max(20px, env(safe-area-inset-top, 20px));
+      padding-bottom: max(20px, env(safe-area-inset-bottom, 20px));
+    }
+
+    .drawer.open {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--accent-color);
+    }
+
+    .close-btn {
+      background: transparent;
+      border: none;
+      font-size: 1.5rem;
+      line-height: 1;
+      color: var(--text-color);
+      cursor: pointer;
+      padding: 4px 8px;
+    }
+
+    .drawer-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-color);
+      margin-bottom: 16px;
+    }
+
+    .drawer-controls-label {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .drawer-toc-list {
+      list-style: none;
+      overflow-y: auto;
+      flex: 1;
+      padding-right: 6px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .drawer-toc-list::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 4px;
+    }
+
+    .toc-item {
+      margin-bottom: 8px;
+    }
+
+    .toc-link {
+      display: block;
+      padding: 10px 12px;
+      color: var(--text-color);
+      text-decoration: none;
+      font-size: 0.95rem;
+      line-height: 1.45;
+      border-radius: 8px;
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .toc-link:hover, .toc-link:active {
+      background: var(--accent-light);
+      color: var(--accent-color);
+    }
+
+    /* Floating Back to Top Button */
+    .fab-top {
+      position: fixed;
+      bottom: max(24px, env(safe-area-inset-bottom, 24px));
+      right: max(20px, env(safe-area-inset-right, 20px));
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      color: var(--text-color);
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.2s ease;
+    }
+
+    .fab-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .fab-top:active {
+      transform: scale(0.92);
+    }
+
+    .fab-top svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
+
+    /* Bottom Nav Bar between chapters / home */
+    .footer-nav {
+      margin-top: 3.5rem;
+      display: flex;
+      gap: 12px;
+    }
+
+    .nav-card-btn {
+      flex: 1;
+      padding: 14px 16px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-color);
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav-card-btn:hover {
+      border-color: var(--accent-color);
+      color: var(--accent-color);
+      box-shadow: var(--shadow-md);
+    }
+
+    .nav-card-sub {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-card-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="header-left">
+      <button id="menuBtn" class="icon-btn hamburger-btn" aria-label="打開目錄" title="章節目錄">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+        </svg>
+      </button>
+      <a href="../index.html" class="icon-btn" title="回總目錄" style="text-decoration:none;">首頁</a>
+    </div>
+
+    <div class="header-title" title="認識恩典">認識恩典</div>
+
+    <div class="header-right">
+      <!-- 循環字級按鈕 (22px -> 26px -> 30px) -->
+      <button id="fontSizeBtn" class="icon-btn font-toggle-btn" aria-label="切換字體大小" title="點擊切換 22px / 26px / 30px">
+        22px
+      </button>
+
+      <!-- 主題切換按鈕 -->
+      <button id="themeBtn" class="icon-btn" aria-label="切換主題模式" title="切換閱讀色彩模式">
+        <span id="themeIcon">🌓</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Side Navigation Drawer (Hamburger Menu) -->
+  <div id="drawerOverlay" class="drawer-overlay" aria-hidden="true"></div>
+  <nav id="drawer" class="drawer" aria-label="文章目錄">
+    <div class="drawer-header">
+      <div class="drawer-title">📖 章節目錄</div>
+      <button id="closeDrawerBtn" class="close-btn" aria-label="關閉目錄">&times;</button>
+    </div>
+    <div class="drawer-controls">
+      <span class="drawer-controls-label">字級切換：</span>
+      <button id="drawerFontCycleBtn" class="icon-btn font-toggle-btn" style="height:32px; padding:0 12px;">
+        目前：22px (點擊切換)
+      </button>
+    </div>
+    <ul class="drawer-toc-list">
+      <li class="toc-item"><a href="#sec-intro" class="toc-link">引言：全足的恩典與天然生命的割除</a></li>
+      <li class="toc-item"><a href="#sec-highest-meaning" class="toc-link">一、恩典在聖經中的最高意義</a></li>
+      <li class="toc-item"><a href="#sec-gods-purpose" class="toc-link">二、恩典乃是為着達成神的目的</a></li>
+      <li class="toc-item"><a href="#sec-no-possessions" class="toc-link">三、恩典不需要人自己所有的</a></li>
+      <li class="toc-item"><a href="#sec-put-to-death" class="toc-link">四、人所有的都擺在死地</a></li>
+      <li class="toc-item"><a href="#sec-isaac-born" class="toc-link">五、神眷臨，以撒生出</a></li>
+      <li class="toc-item"><a href="#sec-no-works" class="toc-link">六、恩典不需要人自己所作的</a></li>
+      <li class="toc-item"><a href="#sec-no-ability" class="toc-link">七、恩典不需要人自己所能的</a></li>
+      <li class="toc-item"><a href="#sec-cast-out-works" class="toc-link">八、要除去人自己所作的</a></li>
+      <li class="toc-item"><a href="#sec-reference" class="toc-link">參讀書目</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Article -->
+  <main class="article-container">
+    <article>
+      <!-- 全文 / 摘要 切換按鈕 -->
+      <div class="mode-tabs" aria-label="閱讀版本切換">
+        <a href="index.html" class="mode-tab active">📖 閱讀全文</a>
+        <a href="摘要.html" class="mode-tab">📋 綱要摘要</a>
+      </div>
+
+      <header class="article-header">
+        <span class="article-tag">生命篇 · 職事文摘 第十一卷·第三期</span>
+        <h1 class="article-title">認識恩典</h1>
+        <div class="article-meta">
+          <span>出處：《職事文摘》生命</span>
+          <span>適合手機閱讀體驗</span>
+        </div>
+      </header>
+
+      <!-- Section: 引言 -->
+      <section id="sec-intro">
+        <div class="lead-box">
+          <p>享受恩典乃是神豫定給我們的定命。（弗一3～6。）然而，我們若要享受神的恩典，對神的豐富有完滿的享受，就必須認識：經歷恩典最大的阻撓乃是我們的『己』，神的恩典不需要我們的所有、所作和所能。正如創世記所記載，神棄絕亞伯拉罕運用天然的力量所生的以實瑪利，直到亞伯拉罕天然的力量被了結，耶和華纔再向他顯現，對他說，『我是全足的神；…我要與你立約，使你的後裔極其增多。…你們所有的男子都要受割禮；…這是我與你們立約的記號。』（十七1～2，10～11。）因此，我們天然的生命必須受割禮，被割除，這樣，全足的神—全足的恩典—就要用祂神聖所是的豐富供應我們，好成就祂的定旨。</p>
+        </div>
+      </section>
+
+      <!-- Section: 一、恩典在聖經中的最高意義 -->
+      <section id="sec-highest-meaning">
+        <h2 class="section-title">恩典在聖經中的最高意義</h2>
+        <p>恩典在聖經中的最高意義，就是神和神的生命進到人裏面，作了人的生命和能力。換句話說，神和神的生命給我們得着，作了我們生活行事的能力，這就是恩典。因此，我們需要認識，恩典就是一切都不需要我們作，不需要我們成全，不需要我們的能力和努力；反之，一切都是神作，神來成全，神來負責。</p>
+      </section>
+
+      <!-- Section: 二、恩典乃是為着達成神的目的 -->
+      <section id="sec-gods-purpose">
+        <h2 class="section-title">恩典乃是為着達成神的目的</h2>
+        <p>亞伯拉罕蒙召以後所學的第一個功課，第一個經歷，就是信心的生活。然而，他在信心生活裏所蒙受的，乃是神的看顧，並不是神的恩典。在創世記十五至二十一章，亞伯拉罕學習另一個功課，就是認識恩典。這功課不是關乎亞伯拉罕的生活，乃是關乎神的應許。神呼召亞伯拉罕時，應許他要成為大國。（十二2。）亞伯拉罕若要成為大國，就必須有後裔，有後裔纔能成為國；有了國，神在地上纔能掌權，並且彰顯祂的榮耀。為此，從十五章開始，聖經的記載乃專特注意亞伯拉罕後裔的問題。這給我們看見，亞伯拉罕認識並經歷恩典以生出後裔，乃是為着達成神的目的。</p>
+      </section>
+
+      <!-- Section: 三、恩典不需要人自己所有的 -->
+      <section id="sec-no-possessions">
+        <h2 class="section-title">恩典不需要人自己所有的</h2>
+        <p>在創世記十五章，神在異象中對亞伯拉罕說，『我是你的盾牌，是你極大的賞賜。』（1。）然而，亞伯拉罕回答說，『主耶和華阿，我快要去世了還沒有兒子，你還賜我甚麼呢？那要承受我家業的，是大馬色人以利以謝。』（2。）但神對亞伯拉罕說，『這人必不成為你的後嗣；你本身將要生的，纔是你的後嗣。』（4。）</p>
+        <p>神不需要亞伯拉罕自己所有的，這是以利以謝所代表的。凡我們自己所有的，都是我們的以利以謝。有人身上的以利以謝，就是他的學問或經驗。在召會中常有些飽經世故的弟兄，深諳世事，很有閱歷，以為他們的老以利以謝很有用，覺得有經驗就能把召會治理好。有些人靠學問、地位或名聲傳福音，以為自己的聲望能叫人信主。這些都是變相的以利以謝。請記得，這些不能叫人得救，不能產生屬靈的後裔，不能讓神的旨意通行在地上，不能完成神呼召人的目的。</p>
+        <p>若是我們要傳福音，產生後代，就必須清楚，傳福音的能力是神自己。神要我們傳福音，但是能叫福音傳出去的，乃是神自己，神自己就是恩典。同樣原則，治理召會不能憑在社會裏學來的手腕。在社會裏辦事可以用手腕，但治理召會不能用手腕。所有的手腕都是以利以謝，都是大馬色的東西，不是天上來的，也不是神自己。我們需要學習不用人的手腕來治理召會，召會中所有的治理都該是神自己。</p>
+        <p>召會治理不好，缺少主的同在，沒有復興的光景，乃是因為缺少神。神來了，召會就復興了。神來了，召會就上軌道了。召會所以治理不好，是因為我們倚靠我們的以利以謝。反之，在十八章十節，神告訴亞伯拉罕：『到明年這時候，我必回到你這裏；你的妻子撒拉必生一個兒子。』這說出神來了，就是成功目的的那一位來了。目的是神，成功目的的也是神。呼召我們的是神，成功呼召目的的仍然是神。神永遠不需要我們所有、所作和所能的。神只要人作祂經過的通道，不需要人為祂作甚麼。神只需要人讓祂作，凡讓祂經過的人就有福了。</p>
+      </section>
+
+      <!-- Section: 四、人所有的都擺在死地 -->
+      <section id="sec-put-to-death">
+        <h2 class="section-title">人所有的都擺在死地</h2>
+        <p>在十五章，神對亞伯拉罕說到後裔的問題之後，接着就應許要將地賜給他，說，『我是耶和華，曾領你出了迦勒底的吾珥，為要將這地賜你為業。』（7。）亞伯拉罕對耶和華說，『我怎能知道必得這地為業呢？』（8。）因着亞伯拉罕存疑，神就給他一個憑據。神吩咐亞伯拉罕將一隻三歲的母牛、一隻三歲的母山羊、一隻三歲的公綿羊、一隻斑鳩和一隻雛鴿取來，每樣從中剖開，分成兩半，一半對着一半的擺列，只有鳥沒有剖開。（9～10。）神似乎是對亞伯拉罕說，『亞伯拉罕，你要與你所獻的聯合為一。你和你所有的都要擺在死地。你不能用你所有的成就我的旨意。你若向我要憑據，憑據就在這裏，你要被擺在死地。』</p>
+        <p>在十一至十七節，我們看見在剖開的祭物中間，有兩件事發生。一件是有鷙鳥下來，落在死畜的肉上。（11。）這裏的鳥表徵撒但，（太十三4，19，）指明撒但要來干涉這事，破壞這事。因着撒但來了，就有一個驚人的大黑暗臨到；（創十五12；）這意思是要經過一段黑暗時期，就是經過一個試煉。（13。）另一件是有冒煙的爐並燒着的火把，從那些肉塊中經過。（17。）火把是為着光照，是神帶來的，為要消除黑暗。爐是為着煉淨，因此冒煙的爐表徵有試煉在其中。當亞伯拉罕肯把他所有的都擺在神面前，獻給神的時候，神就要把那些祭物剖開，擺在死地，然後神要從其中經過。神一經過，神的應許就能成全。</p>
+        <p>這向我們啟示，人的『以利以謝』，就是人所有的一切，不能成全神在人身上的目的；凡人所有的都得剖開，擺在死地，並讓神從其中經過。人所有的很容易招來撒但，帶進黑暗。然而，人甚麼時候讓神從其中經過，亮光就來了。我們都要問問自己：『到底我今天事奉神，是讓神作，還是我作？是靠神的生命和能力，還是靠我所有的，靠我從世界得來的？』</p>
+        <p>我們都需要在神的光中，看見我們原有的都不能代替恩典。如果我們看見恩典，就知道成全神的旨意不需要我們所有的。凡我們所有的，都要剖開，擺在死地，讓神經過。如果我們肯這樣作，就會有一個憑據和把握，知道並相信神定規成全祂的旨意，神的恩典定規進來替我們作。</p>
+      </section>
+
+      <!-- Section: 五、神眷臨，以撒生出 -->
+      <section id="sec-isaac-born">
+        <h2 class="section-title">神眷臨，以撒生出</h2>
+        <p>十八章記載耶和華向亞伯拉罕顯現，在亞伯拉罕的帳棚裏，神對亞伯拉罕說，『到明年這時候，我必回到你這裏；你的妻子撒拉必生一個兒子。』（10。）請想想看，神何必這樣囉嗦呢？神只要簡單扼要的說，『到明年這時候，撒拉必生一個兒子。』然而神不是這樣說。在神與亞伯拉罕簡短的對話裏，神兩次說，『明年這時候，我必回到你這裏。』（10，14。）這清楚指明，神來了纔有以撒。神的意思似乎是對亞伯拉罕說，『我來了，就是以撒；我來了，就是恩典。』我們絕不能將神在生活中物質的供給，譬如找着房子，找到職業，領會作是神來了；那不過是神在環境中的眷顧。然而，以撒的出生，不是神在環境中動手作工，乃是祂自己來了。以撒的出生實在是一件奇妙的事。按照聖經，以撒豫表拿撒勒人耶穌，是神來成為人，並且就是神自己。</p>
+        <p>到底撒拉生以撒那一天，耶和華有沒有來呢？二十一章一節上半說，『耶和華按先前的話眷顧撒拉。』這裏的眷顧，也可以繙作『眷臨』，有『臨到』的意思。該節下半接着說，『便照祂所應許的給撒拉成就。』這明顯給我們看見，撒拉生出以撒，乃是耶和華按着祂先前的應許，臨到撒拉的結果。耶和華臨到撒拉，以撒就生出來了。這是聖經一個很特別的說法，為要給我們看見，亞伯拉罕能成功神的旨意，達到神的目的，不是用他所有的，乃是神自己來作；這就是神的恩典。</p>
+      </section>
+
+      <!-- Section: 六、恩典不需要人自己所作的 -->
+      <section id="sec-no-works">
+        <h2 class="section-title">恩典不需要人自己所作的</h2>
+        <p>在十六章，撒拉抓住神先前所說『你〔亞伯拉罕〕本身將要生的，纔是你的後嗣』（十五4）這話，向亞伯拉罕題議娶夏甲。（十六2～3。）我們要知道，甚麼時候我們越過了神，就會有一個厲害的墮落。撒拉一出頭，亞伯拉罕就娶了夏甲，憑着自己的能力生下以實瑪利。以實瑪利的原則，就是人憑自己的力量作事，來完成神的旨意；意即人用自己的力量作事，為要達到神的目的。今天，神在我們這些蒙召之人身上所注意的，不僅是我們作甚麼，還要問是誰來作？不僅問那件事的性質，還要問那件事的源頭。源頭是出於人，還是出於神？這一次亞伯拉罕因着自己出頭，越過了神，要用自己的方法完成神的應許，結果不只不能討神的喜悅，反而頂撞神，有十三年之久得不着神的顯現。</p>
+        <p>過了十三年之後，亞伯拉罕評估自己，已經年紀老邁，撒拉生育的能力也已經斷絕。他們兩人都沒有生育的能力，象徵肉體的能力已經死絕。（羅四19。）</p>
+      </section>
+
+      <!-- Section: 七、恩典不需要人自己所能的 -->
+      <section id="sec-no-ability">
+        <h2 class="section-title">恩典不需要人自己所能的</h2>
+        <p>乃是在這時候，耶和華纔向亞伯拉罕顯現，要他行割禮。（創十七1，10～13。）現在他肉體能力衰老，死絕了，神進來作一件事—割去他肉體的能力。這時，神對亞伯拉罕說，『我必賜福給她〔撒拉〕，也要使你從她得一個兒子。』（16。）但此時亞伯拉罕卻對神說，『但願以實瑪利活在你面前。』（18。）在創世記十五章裏，亞伯拉罕看重以利以謝，（2～3，）倚靠他所有的。到了十七章，他還倚靠他所作的，就是憑他肉體能力所生的以實瑪利。但神說，『不然，你妻子撒拉必給你生一個兒子，你要給他起名叫以撒。我要與他堅定所立的約，作他後裔永遠的約。』（19。）這一次神特別點出，亞伯拉罕從夏甲生的不算，必須從撒拉生的纔可以。在此，我們清楚看見，成功神旨意，不需要亞伯拉罕所有、所作和所能的。</p>
+        <p>在成功神呼召的旨意和目的上，人所有、所作和所能的，這三者神一概不要。在成功神旨意的事上，這些都不需要，只需要從撒拉生的，就是神自己來了，纔能成功神的旨意。神來了，就是恩典。人自己有的，人自己作的，人自己所能的，都不是恩典。神自己來了，祂到我們這裏來，進到我們裏面，經過我們，從我們裏面生出以撒。神自己來成功祂的旨意，這纔是恩典。</p>
+        <p>我們今天事奉主，作主的工作，要一直學習把一切從世界中得來的東西擺在一邊，把那些憑自己所作的趕走，而自己的能力也要受對付、被割去。要學習倚靠那一位對亞伯拉罕說『到明年這時候，我必回到你這裏；你的妻子撒拉必生一個兒子』的神。（十八10。）感謝讚美神，祂已經在我們裏面，祂已經來了。祂來了，纔是以撒。祂來了，纔是神所要的後裔。祂來了，纔能完成神的旨意。祂來了，神在地上纔有出路。這就是恩典。</p>
+      </section>
+
+      <!-- Section: 八、要除去人自己所作的 -->
+      <section id="sec-cast-out-works">
+        <h2 class="section-title">要除去人自己所作的</h2>
+        <p>當亞伯拉罕知道自己所有、所作和所能的算不得甚麼；接着，最大的難處就是要把自己所作的趕走。許多人在面對這問題時，心裏都會想：『我這工作不是已經作了很久麼？我豈不是設立了召會？我不是作主的工麼？我傳福音豈不是很有果效麼？』然而，恐怕那些不過是以實瑪利。要知道，成全神的計畫，不需要我們所有、所作、以及所能的。至於從前所作的怎麼辦？可以繼續留着麼？要以撒，就不能容讓以實瑪利留着，就得把他趕走。創世記二十一章說到以撒剛斷奶時，就受到以實瑪利的戲笑。（8～9。）這意思是說，憑自己所作的，輕看憑恩典所作的。你若認識恩典，總得把以實瑪利趕出去。（10。）不只不需要他，還要把他除掉。所有人工作的成績，工作的果效，都是恩典的對頭。神的恩典所以不能彰顯得豐滿，就因為人捨不得趕走他的以實瑪利。</p>
+        <p>當亞伯拉罕把以實瑪利趕走時，並不快樂。十一節說，『亞伯拉罕因他兒子的緣故甚是愁煩。』許多弟兄姊妹也是這樣，當他除掉肉體的果子時，並不是快快樂樂的，而是憂憂愁愁的。然而，如果要神的恩典在我們身上長大成形，這肉體的果子非對付不可。人把以實瑪利趕走了，就不容易再有以實瑪利；把自己的工作完全摔碎，就不大容易再憑肉體了。</p>
+        <p>願主恩待我們，帶我們認識，在成全神旨意的事上，恩典是絕對的：不用我們所有的，不憑我們所作的，也不靠我們所能的，並且還要除去我們所作的。只要神來了，以撒就出來了。神來了，應許就成全了，神榮耀的目的就完成了，因為祂自己就是恩典。</p>
+      </section>
+
+      <!-- Reference -->
+      <section id="sec-reference">
+        <div class="reference-box">
+          📖 參讀：從亞伯拉罕以撒雅各的經歷看神的選召，第九至十篇。
+        </div>
+      </section>
+
+      <!-- Footer Navigation -->
+      <div class="footer-nav">
+        <a href="../人經過死-神就有路/index.html" class="nav-card-btn">
+          <span class="nav-card-sub">上一篇</span>
+          <span class="nav-card-title">← 人經過死，神就有路</span>
+        </a>
+        <a href="../index.html" class="nav-card-btn" style="text-align: right;">
+          <span class="nav-card-sub">返回目錄</span>
+          <span class="nav-card-title">聚會文章列表 →</span>
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- Floating Back to Top Button -->
+  <button id="fabTop" class="fab-top" aria-label="回到頁首" title="回到頂部">
+    <svg viewBox="0 0 24 24">
+      <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/>
+    </svg>
+  </button>
+
+  <script>
+    // --- 1. 字級大小循環切換 (22px -> 26px -> 30px) ---
+    const FONT_SIZES = [22, 26, 30];
+    const STORAGE_KEY_FONT = 'meeting_reader_font_size';
+    const STORAGE_KEY_THEME = 'meeting_reader_theme';
+
+    let currentFontSize = parseInt(localStorage.getItem(STORAGE_KEY_FONT), 10) || 22;
+    if (!FONT_SIZES.includes(currentFontSize)) {
+      currentFontSize = 22;
+    }
+
+    const fontSizeBtn = document.getElementById('fontSizeBtn');
+    const drawerFontCycleBtn = document.getElementById('drawerFontCycleBtn');
+
+    function updateFontSize(size) {
+      currentFontSize = size;
+      document.documentElement.style.setProperty('--font-size-base', `${size}px`);
+      if (fontSizeBtn) fontSizeBtn.textContent = `${size}px`;
+      if (drawerFontCycleBtn) drawerFontCycleBtn.textContent = `目前：${size}px (點擊切換)`;
+      localStorage.setItem(STORAGE_KEY_FONT, size);
+    }
+
+    function cycleFontSize() {
+      const idx = FONT_SIZES.indexOf(currentFontSize);
+      const nextIdx = (idx + 1) % FONT_SIZES.length;
+      updateFontSize(FONT_SIZES[nextIdx]);
+    }
+
+    fontSizeBtn.addEventListener('click', cycleFontSize);
+    drawerFontCycleBtn.addEventListener('click', cycleFontSize);
+    updateFontSize(currentFontSize);
+
+    // --- 2. 主題模式切換 (Sepia -> Light -> Dark) ---
+    const THEMES = ['sepia', 'light', 'dark'];
+    const THEME_ICONS = { sepia: '🌓', light: '☀️', dark: '🌙' };
+    let currentTheme = localStorage.getItem(STORAGE_KEY_THEME) || 'sepia';
+    if (!THEMES.includes(currentTheme)) currentTheme = 'sepia';
+
+    const themeBtn = document.getElementById('themeBtn');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function applyTheme(theme) {
+      currentTheme = theme;
+      document.documentElement.setAttribute('data-theme', theme);
+      if (themeIcon) themeIcon.textContent = THEME_ICONS[theme] || '🌓';
+      localStorage.setItem(STORAGE_KEY_THEME, theme);
+    }
+
+    themeBtn.addEventListener('click', () => {
+      const idx = THEMES.indexOf(currentTheme);
+      const nextTheme = THEMES[(idx + 1) % THEMES.length];
+      applyTheme(nextTheme);
+    });
+    applyTheme(currentTheme);
+
+    // --- 3. 漢堡選單 (抽屜選單) 開關與段落快速跳轉 ---
+    const menuBtn = document.getElementById('menuBtn');
+    const closeDrawerBtn = document.getElementById('closeDrawerBtn');
+    const drawer = document.getElementById('drawer');
+    const drawerOverlay = document.getElementById('drawerOverlay');
+    const tocLinks = document.querySelectorAll('.drawer-toc-list a');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      drawerOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      drawerOverlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    menuBtn.addEventListener('click', openDrawer);
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+    drawerOverlay.addEventListener('click', closeDrawer);
+
+    // 點擊章節連結後關閉抽屜
+    tocLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        closeDrawer();
+      });
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && drawer.classList.contains('open')) {
+        closeDrawer();
+      }
+    });
+
+    // --- 4. 滾動進度條與回到頂部按鈕 ---
+    const progressBar = document.getElementById('reading-progress');
+    const fabTop = document.getElementById('fabTop');
+
+    window.addEventListener('scroll', () => {
+      const scrollTop = window.scrollY || document.documentElement.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const progress = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+      if (progressBar) progressBar.style.width = `${progress}%`;
+
+      if (scrollTop > 300) {
+        fabTop.classList.add('show');
+      } else {
+        fabTop.classList.remove('show');
+      }
+    }, { passive: true });
+
+    fabTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
