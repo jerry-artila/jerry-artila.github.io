@@ -104,3 +104,18 @@ description: >-
 - 確認 `group-meeting/.gitignore` 已忽略圖片檔（`*.jpg`, `*.jpeg`, `*.png`, `*.PNG`），不會將圖片加入 Git 追蹤。
 - 確認 `index.html` 與 `摘要.html` 的所有內部錨點 (`#sec-...`) 與側邊欄目錄連結 (`href="#sec-..."`) 完全對應。
 - 確認總目錄雙按鈕連結、內頁頂部「閱讀全文 / 綱要摘要」切換按鈕、以及前後篇導航相對路徑正確無誤。
+
+### 步驟 6：Git 推送與產生短網址連結
+1. **網域規範**：本網站已由 `https://jerry-artila.github.io` 映射至自訂網域 **`https://www.blowing-in-the-wind.net`**（注意需包含 `www.`）。
+   - 總目錄網址：`https://www.blowing-in-the-wind.net/group-meeting/`
+   - 全文網址：`https://www.blowing-in-the-wind.net/group-meeting/<URL-encoded子目錄名稱>/index.html`
+   - 摘要網址：`https://www.blowing-in-the-wind.net/group-meeting/<URL-encoded子目錄名稱>/%E6%91%98%E8%A6%81.html`
+2. **產生短網址（is.gd）**：
+   為避免中文路徑經過 URL 編碼後過長不便分享（如 LINE 群組傳送），提供連結給使用者 review 時，**必須使用 `is.gd` 將網址轉換為短網址**（使用 `--data-urlencode` 確保已編碼的中文路徑不會被二次解碼）：
+   ```bash
+   curl -s --get --data-urlencode "format=simple" --data-urlencode "url=<完整URL-encoded網址>" "https://is.gd/create.php"
+   ```
+3. **回覆格式**：向使用者回報時，清楚列出：
+   - 📖 **最新信息《篇題名稱》— 全文閱讀**（短網址 + 原網址）
+   - 📋 **最新信息《篇題名稱》— 綱要摘要**（短網址 + 原網址）
+   - 📚 **排聚會追求系列總目錄**（短網址 + 原網址）
