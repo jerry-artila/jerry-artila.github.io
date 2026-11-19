@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-font-size="md" data-theme="warm">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>樂齡英文精讀館 — 手機大字英文學習目錄</title>
+  <meta name="description" content="專為年長者手機閱讀設計的英文學習文章目錄，提供大字體、護眼配色、可折疊高階單字與片語註解（含 KK 音標與語音發音）。">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <!-- Sticky Top Bar -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      <a class="brand-link" href="index.html">📘 樂齡英文精讀館</a>
+      <div class="toolbar-controls" role="group" aria-label="閱讀設定">
+        <button type="button" id="btn-font-dec" class="tool-btn" aria-label="縮小字體">A-</button>
+        <span id="font-size-badge" class="font-size-badge">大字</span>
+        <button type="button" id="btn-font-inc" class="tool-btn" aria-label="放大字體">A+</button>
+        <button type="button" id="btn-theme" class="tool-btn" aria-label="切換閱讀配色">📖 護眼</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <!-- Hero Section -->
+    <section class="hero-banner">
+      <span class="hero-eyebrow">英文閱讀學習目錄 • SENIOR ENGLISH READER</span>
+      <h1 class="hero-title">用手機輕鬆讀懂國際英文精選</h1>
+      <p class="hero-subtitle">
+        專為長輩與手機閱讀打造的英文學習筆記：預設舒適大字體、護眼米白底色，並針對超過高中程度的單字與片語，附上可折疊中文解釋、KK 音標與美式發音。
+      </p>
+    </section>
+
+    <!-- Collapsible Reading Guide -->
+    <details class="guide-box">
+      <summary>💡 第一次使用？三步驟快速上手</summary>
+      <ol class="guide-list">
+        <li><strong>調整字體與底色：</strong>點選畫面右上角的 <strong>A- / A+</strong> 可自由放大縮小文字；點選 <strong>護眼／夜間／白底</strong> 可切換最舒服的配色，設定會自動記住。</li>
+        <li><strong>隨時查閱進階單字：</strong>文章中標示淺黃底線的單字或片語，<strong>直接輕點就能展開註解</strong>；每段下方也有可折疊的「📖 本段單字註解」。</li>
+        <li><strong>聽真人美式發音：</strong>點開單字註解後，按下 <strong>「🔊 發音」</strong> 按鈕，手機就會以清晰略慢的速度唸給您聽。</li>
+      </ol>
+    </details>
+
+    <!-- Search & Category Filter (Scales cleanly as more articles are added) -->
+    <section class="filter-panel" aria-label="搜尋與分類篩選">
+      <div class="search-input-wrap">
+        <input
+          type="search"
+          id="article-search"
+          class="search-input"
+          placeholder="🔍 輸入中英文關鍵字搜尋文章（例如：AI、Schmidt、能源）"
+          aria-label="搜尋文章"
+        >
+      </div>
+      <div class="category-pills" role="group" aria-label="文章主題分類">
+        <button type="button" class="pill-btn is-active" data-category="all">全部文章</button>
+        <button type="button" class="pill-btn" data-category="tech">科技與 AI</button>
+        <button type="button" class="pill-btn" data-category="interview">名人訪談</button>
+        <button type="button" class="pill-btn" data-category="world">國際趨勢</button>
+      </div>
+    </section>
+
+    <!-- Article Directory Heading -->
+    <div class="index-section-heading">
+      <h2>📚 精選文章列表</h2>
+      <span id="article-count" class="article-count">共 1 篇文章</span>
+    </div>
+
+    <!-- Article Cards -->
+    <section class="article-list" aria-label="英文學習文章目錄">
+      <!-- Article 1: Eric Schmidt AI Race -->
+      <article class="article-card" data-category="tech,interview,world">
+        <div class="card-tags">
+          <span class="tag-chip tag-chip--primary">科技與 AI</span>
+          <span class="tag-chip">Masters of Scale 現場訪談</span>
+          <span class="tag-chip">官方完整逐字稿</span>
+        </div>
+
+        <h3 class="card-title-en">
+          <a href="articles/eric-schmidt-ai-race.html">
+            Eric Schmidt Scores US vs. China: Who’s Winning the AI Race?
+          </a>
+        </h3>
+        <p class="card-title-zh">前 Google 執行長施密特親自打分數：美中 AI 競賽誰領先？（完整原音逐字稿）</p>
+        <p class="card-summary">
+          <em>Masters of Scale: Rapid Response</em> 主持人 Bob Safian 現場專訪 Eric Schmidt（2026 年 10 月 22 日於舊金山）。完整收錄 24 分鐘逐字對談：軟體成本驟降、美中能源與基礎建設、開源模型與資安風險、現場八大面向評分卡逐字對答，以及給企業領袖的實用建議，並附 YouTube 原片章節時間軸連結。
+        </p>
+
+        <div class="card-meta">
+          <span>👤 來賓：Eric Schmidt / 主持：Bob Safian</span>
+          <span>📑 官方 7 大章節（24:33）</span>
+          <span>📖 含 89 個單字／片語註解</span>
+        </div>
+
+        <a class="read-cta-btn" href="articles/eric-schmidt-ai-race.html">開始閱讀這篇文章 →</a>
+      </article>
+
+      <!--
+      ================================================================
+      未來新增文章時，只需複製下方範本貼在此處，並將新文章放入 articles/ 資料夾：
+      ================================================================
+      <article class="article-card" data-category="world">
+        <div class="card-tags">
+          <span class="tag-chip tag-chip--primary">國際趨勢</span>
+          <span class="tag-chip">精讀筆記</span>
+        </div>
+        <h3 class="card-title-en">
+          <a href="articles/your-new-article.html">English Title Here</a>
+        </h3>
+        <p class="card-title-zh">文章中文副標題</p>
+        <p class="card-summary">簡短介紹文章內容與學習重點。</p>
+        <div class="card-meta">
+          <span>👤 作者／講者：...</span>
+          <span>📖 含 XX 個單字／片語註解</span>
+        </div>
+        <a class="read-cta-btn" href="articles/your-new-article.html">開始閱讀這篇文章 →</a>
+      </article>
+      -->
+
+      <div id="empty-state" class="empty-state">
+        找不到符合條件的文章，請試著更換關鍵字或點選「全部文章」。
+      </div>
+
+      <div class="coming-soon-card">
+        🌱 本目錄支援持續擴充多篇英文精讀文章。<br>
+        未來新增文章頁面放入 <code>articles/</code> 資料夾並加入上方清單即可連結閱讀。
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      樂齡英文精讀館｜專為年長者手機舒適閱讀與英文學習打造
+    </footer>
+  </main>
+
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="回到頁面頂部">↑ 頂部</button>
+
+  <script src="assets/reader.js"></script>
+</body>
+</html>
